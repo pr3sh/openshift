@@ -1,9 +1,13 @@
 
-
-
 #Abstract
 
 Understanding how kubernetes resources are created using the `oc` command-line interface.
+
+
+-  **Table of contents**:
+  - [Introduction](#introduction)
+  - [Describing Pod Resources](#describing-pod-resources)
+  - [Understanding Services](#understanding-services)
 
 
 ### **Introduction:**
@@ -27,7 +31,7 @@ Understanding how kubernetes resources are created using the `oc` command-line i
 
     ```
 
-### ** Describing Pod Resources**
+### **Describing Pod Resources**
 
 - OpenShift needs a pod reousrce defiition to run cntiners nd create pods from a container image.
 - This can be generated using the `oc new-app` command.
@@ -61,7 +65,7 @@ spec:
         - name: MYSQL_ENV_MYSQL_PASSWORD
           value: ['your_password']
 ```
-### ** Understanding Services **
+### **Understanding Services**
 
 - *Services* allow contianers in one pod to open network connections to containers in another pod.
 - Pods can die or be restarted, and that results in a different internal IP assignment.
@@ -76,7 +80,7 @@ spec:
     "kind": "Service", 
     "apiVersion": "v1",
     "metadata": {
-        "name": "quotedb" 2
+        "name": "quotedb" 
     },
     "spec": {
         "ports": [ 
