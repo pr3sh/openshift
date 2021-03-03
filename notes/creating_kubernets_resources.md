@@ -8,6 +8,9 @@ Understanding how kubernetes resources are created using the `oc` command-line i
   - [Introduction](#introduction)
   - [Describing Pod Resources](#describing-pod-resources)
   - [Understanding Services](#understanding-services)
+  - [Creating new applications](#creating-new-applications)
+  - [Managing OpenShift Resources](#managing-openshift-resources)
+  - [Labelling Resources](#labelling-resources)
 
 
 ### **Introduction:**
@@ -131,7 +134,7 @@ $ oc new-app php:7.1~https://github.com/path to repository#s2i \
     --name new_php_app --context-dir=temps   
 ```
 
-### Managing OpenShif Resources:
+### Managing OpenShift Resources:
 - To get information about resources use :
 
 ```bash
@@ -177,7 +180,6 @@ $ oc exec <CONTAINER_ID>
 #enter a specific pod
 $ oc exec <pod_name> -it /bin/bash
 ```
-
 
 ### **Labelling Resources:**
 
