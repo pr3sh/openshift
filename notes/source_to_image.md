@@ -179,13 +179,16 @@ The **BuildConfig** is responsible for defining input parameters and triggers th
 ...output omitted...
 
 ```
-1. Resource type **BuildConfig**
-2. Name of **BuildConfig** is **`my-app`**
+1. Resource type **BuildConfig**.
+2. Name of **BuildConfig** is **`my-app`**.
 3. Define source code Git Repo.
-4. Define strategy, in this case we are using *source-to-image*
+4. Define strategy, in this case we are using *source-to-image*.
 5. Defines the builder image as **`php:7.3`** image stream.
 6. Name the output image steam **`my-app:latest`**.
 
+This third resource is the deployment configuration, which is responsible for customizing the deployment process in the OpenShift cluster.
+
+- *Example of resource*
 
 
 
