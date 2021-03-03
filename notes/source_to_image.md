@@ -35,7 +35,7 @@ OpenShift deploys new versions of user applications into pods quickly.
 $ oc new-app --as-deployment-config \
 	php~http://my.git.servercome/my-app --name=myapp 
 ```
-- A DeploymentConfig is created instead of a Deployment.
+- A **DeploymentConfig** is created instead of a **Deployment**.
 
 - Image stream being use is on the left of the **`~`**.
 
@@ -65,7 +65,7 @@ $ oc new-app --as-deployment-config \
 	--context-dir=2.0/test/puma-test-test-app
 ```
 - It is also possible to create the application from a Git repository, specifying the branch.
-- In this case, the branch we are using is called beta4.
+- In this case, the branch we are using is called *beta4*.
 
 ```bash
   oc new-pp --as-deployment-config \
