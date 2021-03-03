@@ -186,8 +186,91 @@ The **BuildConfig** is responsible for defining input parameters and triggers th
 5. Defines the builder image as **`php:7.3`** image stream.
 6. Name the output image steam **`my-app:latest`**.
 
-
-
-
+```json
+.............
+{
+    "kind": "DeploymentConfig", 1
+    "apiVersion": "apps.openshift.io/v1",
+    "metadata": {
+        "name": "myapp", 2
+        "creationTimestamp": null,
+        "labels": {
+            "app": "myapp"
+        },
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewApp"
+        }
+    },
+    "spec": {
+        "strategy": {
+            "resources": {}
+        },
+        "triggers": [
+            {
+                "type": "ConfigChange" 3
+            },
+            {
+                "type": "ImageChange", 4
+                "imageChangeParams": {
+                    "automatic": true,
+                    "containerNames": [
+                        "myapp"
+                    ],
+                    "from": {
+                        "kind": "ImageStreamTag",
+                        "name": "myapp:latest"
+                    }
+                }
+            }
+        ],
+        "replicas": 1,
+        "test": false,
+        "selector": {
+            "app": "myapp",
+            "deploymentconfig": "myapp"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "myapp",
+                    "deploymentconfig": "myapp"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "myapp",
+                        "image": "myapp:latest", 5
+                        "ports": [ 6
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 8443,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {}
+                    }
+                ]
+            }
+        }
+    },
+    "status": {
+        "latestVersion": 0,
+        "observedGeneration": 0,
+        "replicas": 0,
+        "updatedReplicas": 0,
+        "availableReplicas": 0,
+        "unavailableReplicas": 0
+    }
+},
+...output omitted...
+```
 
 
