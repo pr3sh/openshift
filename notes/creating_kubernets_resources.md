@@ -20,11 +20,14 @@ Understanding how kubernetes resources are created using the `oc` command-line i
 
   # Login to cluster
   $ oc login <cluster_url>`
+  
   #login using access token
   $ oc login https://[IP ADDRESSS]:[PORT] --token=<access_token>
+  
   #Example Login using curl
   $ curl -k https://[IP ADDRESSS]:[PORT]/oapi/v1/projects \
      -H "Authorization: Bearer {access_token}"
+  
   #Login with username and password
   $ oc login -u <your_username> -p <your_password>
 ```
