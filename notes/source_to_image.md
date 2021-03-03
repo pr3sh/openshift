@@ -7,7 +7,7 @@ Understanding how source-to-image deployments work on OpenShift Contianer Platfo
   - [Describing Image Steams](#describing-image-streams)
   - [Building Applications using Source-to-Image](#building-app-s2i)
   - [Resource definitions](#resource-definitions)
-  - [Takeaways](#takeaways)
+  - [Notes](#notes)
   
 
 ### Introduction:
@@ -289,7 +289,6 @@ The last resource is the service which you can find details in my other repo fil
 - It is important to note that routes are not creted when you invoke **`oc new-app`**, but you can create the route after the appliction is created.
 
 *Useful commands:*
-
 ```bash
 # see a list of application builds
 $ oc get builds
@@ -309,8 +308,7 @@ $oc start-build myapp
 > build "myapp-2" started
 ```
 
-
-#### Takeaways:
+### Notes:
 
 Builds and Deployment configurations are somewhat intertwined as the **BuildCOnfig** pod is responsible for creating the images in the *OpenShift* cluster and pushing htem to the internal contianer registry. Any update to content will generally require a new build to ensure the image is updated.
 
