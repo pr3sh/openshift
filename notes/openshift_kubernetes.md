@@ -6,6 +6,7 @@
 	[Openshift](#openshift)
 		- [OpenShift Key Terminology](#openshift-key-terminology)
 		- [Kubernetes Resource Types](#kubernetes-resource-types)
+		- [OpenShift Resource Types](#openshift-resource-types)
 
 ## **Kubernetes**
 
@@ -77,8 +78,24 @@
 		- **Secrets** differ from **ConfigMaps** since **Secrets** are always *encoded* (not *encrypted*), and acess is generally limited.
 
 
+### **OpenShift Resource Types:**
 
+- Kubernetes has a 6 main resource types tht can be created and configured using `YAML` or `JSON` file.
+- Resources can also be configured using OpenShift management tools.
 
+	- Deployment config(`dc`):
+		- Represent a set of containers included in a pod, and the deployment strategies to be used.
+		- Pods are the most basic unit of work for Kubernetes.
+	- Build config (`bc`):
+		- Defines process to be executed in the OpenShift project.
+		- Use by the Openshift *Source-toImage(S2I)* feature to build a container image from application source code store in a Git repository.
+		- `bc` and `dc` work together to provide a basic, but extensible continuous integation and continuous delivery (*CI/CD*) workflows.
+	- Routes:
+		- Routes represent a *DNS* host name recognized by the OpenShift router as an ingress point for applications and microservices.
+		- Services give you a *Static IP* and routes give you a *DNS Host IP*
+
+- To obtain a list of all resources vailaible in a RedHat OpenShift cluster use the following:
+	- `oc api-resources` or `kubectl api-resources`
 
 
 
