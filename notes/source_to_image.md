@@ -81,11 +81,11 @@ The `JSON` definition file creates  list of resources, and the first is the imag
 
 ```json
 {
-    "kind": "ImageStream", 1
+    "kind": "ImageStream", 
     "apiVersion": "image.openshift.io/v1",
     "metadata": {
-        "name": "myapp", 2
-        "creationTimestamp": null
+        "name": "myapp", 
+        "creationTimestamp": null,
         "labels": {
                     "app": "myapp"
                 },
@@ -101,8 +101,20 @@ The `JSON` definition file creates  list of resources, and the first is the imag
     "status": {
         "dockerImageRepository": ""
     }
-},
+}
 .....
+```
+
+- kind:
+    - Defines resource type of image stream.
+- name:
+    - **`my-app`** is the name of the image stream.
+
+The **BuildConfig** is responsible for defining input parameters and triggers that are executed o transform the source code into a runnable image.
+
+```json
+
+
 ```
 
 
