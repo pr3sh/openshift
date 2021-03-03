@@ -301,7 +301,7 @@ $ oc get buildconfig
 >> NAME     TYPE        FROM        LATEST
 myapp         Source    Git             1
 
-$oc start-build myapp
+$ oc start-build myapp
 >> build "myapp-2" started
 ```
 
