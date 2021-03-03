@@ -118,19 +118,19 @@ spec:
 
 ```bash
 # create application based on sql image
-$ oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
+[localhost@user ~]$ oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
 
 # create application based on docker image
-$ oc new-app --docker-image=nginx --name=nginx
+[localhost@user ~]$ oc new-app --docker-image=nginx --name=nginx
 
 # create from private Docker registry
-$ oc new-app --docker-image=<my_registry> --name=<my_app>
+[localhost@user ~]$ oc new-app --docker-image=<my_registry> --name=<my_app>
 
 # build new app from a git repository in a specific branch in the repository 
-$ oc new-app https://github.com/openshift/ruby-hell-world.git#<brance_name> 
+[localhost@user ~]$ oc new-app https://github.com/openshift/ruby-hell-world.git#<brance_name> 
 
 # build new app from a GitHub repository, in a specific directory,on a specific brance based on a PHP image.
-$ oc new-app php:7.1~https://github.com/path to repository#s2i \
+[localhost@user ~]$ oc new-app php:7.1~https://github.com/path to repository#s2i \
     --name new_php_app --context-dir=temps   
 ```
 
@@ -139,60 +139,60 @@ $ oc new-app php:7.1~https://github.com/path to repository#s2i \
 
 ```bash
 #basic usage syntax
-$ oc get <RESOURCE_TYPE>
+[localhost@user ~]$ oc get <RESOURCE_TYPE>
 
 #see pod informations
-$ oc get pods
+[localhost@user ~]$ oc get pods
 
 # get pods along with labels 
-$ oc get pods --show-labels
+[localhost@user ~]$ oc get pods --show-labels
 
 #Inspecting a router pod
-$ oc get pod --all-namespaces -l app=router
+[localhost@user ~]$ oc get pod --all-namespaces -l app=router
 
 #check pod status
-$ oc get status
+[localhost@user ~]$ oc get status
 
 #get deployment config
-$ oc get dc
+[localhost@user ~]$ oc get dc
 
 # get replication controller
-$ oc get rc
+[localhost@user ~]$ oc get rc
 
 # get summary of most important cluster compoenents
-$ oc get all 
+[localhost@user ~]$ oc get all 
 
 # drill down into those resouces
-$ oc describe <pod_name>
+[localhost@user ~]$ oc describe <pod_name>
 
 #if you have a resource you want to export in YAML or JSON format.
-$ oc export
+[localhost@user ~]$ oc export
 
 #to build a resource use.
-$ oc create 
+[localhost@user ~]$ oc create 
 
 # edit a resource.
-$ oc edit
+[localhost@user ~]$ oc edit
 
 #delete resource
-$ oc delete <RESOURCE_TYPE> name
+[localhost@user ~]$ oc delete <RESOURCE_TYPE> name
 
 #execute additional process in container.
-$ oc exec <CONTAINER_ID>
+[localhost@user ~]$ oc exec <CONTAINER_ID>
 
 #enter a specific pod into a bash shell
-$ oc exec <pod_name> -it /bin/bash
+[localhost@user ~]$ oc exec <pod_name> -it /bin/bash
 
 
 # monitor build  and deployment logs
-$ oc lofs -f bc/<app_name>
-$ oc logs -f dc/<app_name>
+[localhost@user ~]$ oc lofs -f bc/<app_name>
+[localhost@user ~]$ oc logs -f dc/<app_name>
 
 #review the service for an application
-$ oc describe svc/<app_name>
+[localhost@user ~]$ oc describe svc/<app_name>
 
 # expose the service by creating a route.
-$ oc expose svc/<app_name>
+[localhost@user ~]$ oc expose svc/<app_name>
 
 
 ```
@@ -223,7 +223,7 @@ metada:
 
 ```bash
 # retrieve both deployment and service configurations, filtering on the app-nexus label
-$ oc get svc,dc -l app=nexus
+[localhost@user ~]$ oc get svc,dc -l app=nexus
 ```
 
 
