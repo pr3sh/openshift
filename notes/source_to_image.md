@@ -84,10 +84,10 @@ The `JSON` definition file creates  list of resources, and the first is the imag
     "kind": "ImageStream", 
     "apiVersion": "image.openshift.io/v1",
     "metadata": {
-        "name": "myapp", 
+        "name": "myapp", 1
         "creationTimestamp": null,
         "labels": {
-                    "app": "myapp"
+                    "app": "myapp" 2
                 },
                 "annotations": {
                     "openshift.io/generated-by": "OpenShiftNewApp"
@@ -104,11 +104,8 @@ The `JSON` definition file creates  list of resources, and the first is the imag
 }
 .....
 ```
-
-- kind:
-    - Defines resource type of image stream.
-- name:
-    - **`my-app`** is the name of the image stream.
+1. *kind* defines resource type of image stream.
+2. *name* is the  **`my-app`** is the name of the image stream.
 
 The **BuildConfig** is responsible for defining input parameters and triggers that are executed o transform the source code into a runnable image.
 
@@ -182,7 +179,12 @@ The **BuildConfig** is responsible for defining input parameters and triggers th
 ...output omitted...
 
 ```
-
+1. Resource type **BuildConfig**
+2. Name of **BuildConfig** is **`my-app`**
+3. Define source code Git Repo.
+4. Define strategy, in this case we are using *source-to-image*
+5. Defines the builder image as **`php:7.3`** image stream.
+6. Name the output image steam **`my-app:latest`**.
 
 
 
