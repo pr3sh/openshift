@@ -6,6 +6,8 @@ Understanding how source-to-image deployments work on OpenShift Contianer Platfo
   - [Introduction](#introduction)
   - [Describing Image Steams](#describing-image-streams)
   - [Building Applications using Source-to-Image](#building-app-s2i)
+  - [Resource definitions](#resource-definitions)
+  - [Takeaways](#takeaways)
   
 
 ### Introduction:
@@ -76,6 +78,7 @@ $ oc -o json new-app --as-deployment-config \
 	php~https://services.lab.example.com/app \
 	--name=myapp > s2i.json
 ```
+### Resource Definitions
 
 The `JSON` definition file creates  list of resources, and the first is the image stream.
 
@@ -305,6 +308,15 @@ $oc start-build myapp
 
 > build "myapp-2" started
 ```
+
+
+#### Takeaways:
+
+Builds and Deployment configurations are somewhat intertwined as the **BuildCOnfig** pod is responsible for creating the images in the *OpenShift* cluster and pushing htem to the internal contianer registry. Any update to content will generally require a new build to ensure the image is updated.
+
+**DeplymentConfig** pod is responsible for deploying pods to OpenShift cluster. This results in creation of pods with the images deployed to the internal registry.
+
+**BuildConfig** and **DeploymentConfig** do not interact at all, directly.
 
 
 
