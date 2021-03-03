@@ -5,6 +5,7 @@
 		- [Kubernetes Key Terminology](#kubernetes)
 	[Openshift](#openshift)
 		- [OpenShift Key Terminology](#openshift-key-terminology)
+		- [Kubernetes Resource Types](#kubernetes-resource-types)
 
 ## **Kubernetes**
 
@@ -49,3 +50,38 @@
 	- A user-friendly web UI that developers and administrators to interact with their OpenShift cluster.
 - Project:
 	- OpenShifts extension of a Kubernetes `Namespace`.
+
+### **Kubernetes Resource Types:**
+
+- Kubernetes has a 6 main resource types tht can be created and configured using `YAML` or `JSON` file.
+- Resources can also be configured using OpenShift management tools.
+
+	- Pods:
+		- Collections of containers that shre resources, such as `IP Address` and `persistent storage` volumes.
+		- Pods are the most basic unit of work for Kubernetes.
+	- Services:
+		- Services are defined by a single IP/Port combination that provide acces to a pool of pods.
+		- By default, services connect clients to pods, in a *round-robin* fashion.
+	- Replication Controllers:
+		- Kubernetes resource that defines how pods re replicated into different nodes.
+		- Scaling is done *horizontally*.
+		- Replication controllers help provide high availability for pods and containers.
+	- Persistent Volume Claims:
+		- Represent a request for storage by a pod.
+		- **Persistent Volume Claims** connect **Persistent Volumes** to a pod.
+		- Containers typically mount the storage into the containers file system.
+		- Containers are *ephemeral* by nature, **Persistent Volumes** are critical for ensuring data resilience.
+	- ConfigMaps and Secrets:
+		- **ConfigMaps** contian keys and values that are used by other resources.
+		- **ConfigMaps** and Secrets re usually used to centralize configuration values used by several resources.
+		- **Secrets** differ from **ConfigMaps** since **Secrets** are always *encoded* (not *encrypted*), and acess is generally limited.
+
+
+
+
+
+
+
+
+
+
