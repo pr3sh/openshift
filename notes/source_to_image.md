@@ -77,6 +77,10 @@ $ oc -o json new-app --as-deployment-config \
 	--name=myapp > s2i.json
 ```
 
+The `JSON` definition file creates  list of resources, and the first is the image stream.
+
+
+
 
 
 
