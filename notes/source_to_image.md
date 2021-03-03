@@ -297,22 +297,19 @@ $ oc get builds
 $ oc logs build/myapp-1
 
 #Trigger a new build with oc start-build
-
 $ oc get buildconfig
 >> NAME     TYPE        FROM        LATEST
 myapp         Source    Git             1
 
-
 $oc start-build myapp
-
-> build "myapp-2" started
+>> build "myapp-2" started
 ```
 
 ### Notes:
 
 Builds and Deployment configurations are somewhat intertwined as the **BuildCOnfig** pod is responsible for creating the images in the *OpenShift* cluster and pushing htem to the internal contianer registry. Any update to content will generally require a new build to ensure the image is updated.
 
-**DeplymentConfig** pod is responsible for deploying pods to OpenShift cluster. This results in creation of pods with the images deployed to the internal registry.
+**DeploymentConfig** pod is responsible for deploying pods to OpenShift cluster. This results in creation of pods with the images deployed to the internal registry.
 
 **BuildConfig** and **DeploymentConfig** do not interact at all, directly.
 
