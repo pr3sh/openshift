@@ -79,7 +79,31 @@ $ oc -o json new-app --as-deployment-config \
 
 The `JSON` definition file creates  list of resources, and the first is the image stream.
 
-
+```json
+{
+    "kind": "ImageStream", 1
+    "apiVersion": "image.openshift.io/v1",
+    "metadata": {
+        "name": "myapp", 2
+        "creationTimestamp": null
+        "labels": {
+                    "app": "myapp"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+    },
+    "spec": {
+        "lookupPolicy": {
+            "local": false
+        }
+    },
+    "status": {
+        "dockerImageRepository": ""
+    }
+},
+.....
+```
 
 
 
