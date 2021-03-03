@@ -27,9 +27,7 @@ Understanding how kubernetes resources are created using the `oc` command-line i
      -H "Authorization: Bearer {access_token}"
   #Login with username and password
   $ oc login -u <your_username> -p <your_password>
-
-
-    ```
+```
 
 ### **Describing Pod Resources**
 
