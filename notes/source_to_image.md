@@ -35,13 +35,19 @@ OpenShift deploys new versions of user applications into pods quickly.
 $ oc new-app --as-deployment-config \
 	php~http://my.git.servercome/my-app --name=myapp 
 ```
-	1. A DeploymentConfig is created instead of a Deployment.
-	2. Image stream being use is on the left of the `~`.
-	3. `URL` after the tilde (`~`) indicate the location of source code.
-	4. `--name` sets the application name.
-	5. *S2I* can identify and process **Dockerfiles** to create images.
-	6. Applications can be build from both remote and local repositories.
-	7. If no image stream is specified, then `oc new-app` will attempt to identify the correct image stream to use for building the application.
+- A DeploymentConfig is created instead of a Deployment.
+
+- Image stream being use is on the left of the `~`.
+
+- `URL` after the tilde (`~`) indicate the location of source code.
+
+- `--name` sets the application name.
+	
+- *S2I* can identify and process **Dockerfiles** to create images.
+
+- Applications can be build from both remote and local repositories.
+	
+- If no image stream is specified, then `oc new-app` will attempt to identify the correct image stream to use for building the application.
 
 - *Instead of using a `~`, you can pass the `-i` option to specify the image stream as show below:*
 
