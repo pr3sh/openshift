@@ -148,58 +148,58 @@ spec:
 [localhost@user ~]$ oc get pods --show-labels
 
 #Inspecting a router pod
-[localhost@user ~]$ oc get pod --all-namespaces -l app=router
+$ oc get pod --all-namespaces -l app=router
 
 #check pod status
-[localhost@user ~]$ oc get status
+$ oc get status
 
 #get deployment config
-[localhost@user ~]$ oc get dc
+[loca$ oc get dc
 
 # get replication controller
-[localhost@user ~]$ oc get rc
+$ oc get rc
 
 # get summary of most important cluster compoenents
-[localhost@user ~]$ oc get all 
+$ oc get all 
 
 # drill down into those resouces
-[localhost@user ~]$ oc describe <pod_name>
+$ oc describe <pod_name>
 
 #if you have a resource you want to export in YAML or JSON format.
-[localhost@user ~]$ oc export
+$ oc export
 
 #to build a resource use.
-[localhost@user ~]$ oc create 
+$ oc create 
 
 # edit a resource.
-[localhost@user ~]$ oc edit
+$ oc edit
 
 #delete resource
-[localhost@user ~]$ oc delete <RESOURCE_TYPE> name
+$ oc delete <RESOURCE_TYPE> name
 
 #execute additional process in container.
-[localhost@user ~]$ oc exec <CONTAINER_ID>
+$ oc exec <CONTAINER_ID>
 
 #enter a specific pod into a bash shell
-[localhost@user ~]$ oc exec <pod_name> -it /bin/bash
+$ oc exec <pod_name> -it /bin/bash
 
 
 # monitor build  and deployment logs
-[localhost@user ~]$ oc lofs -f bc/<app_name>
-[localhost@user ~]$ oc logs -f dc/<app_name>
+$ oc lofs -f bc/<app_name>
+$ oc logs -f dc/<app_name>
 
 #review the service for an application
-[localhost@user ~]$ oc describe svc/<app_name>
+$ oc describe svc/<app_name>
 
 # expose the service by creating a route.
-[localhost@user ~]$ oc expose svc/<app_name>
+$ oc expose svc/<app_name>
 
 
 ```
   - *If you want to access the service form a host external to the cluster to verify that the service and route are working*
 
   ```bash
-[localhost@user ~]$ curl \
+$ curl \
    <app-name>-${RHOCP_USER}-route.${RHT_OCP4_WILDCARD_DOMAIN}
 
 >> Hello, World! php version is 7.3.11
