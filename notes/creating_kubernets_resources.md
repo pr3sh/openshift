@@ -118,19 +118,19 @@ spec:
 
 ```bash
 # create application based on sql image
-oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
+$ oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
 
 # create application based on docker image
-[localhost@user ~]$ oc new-app --docker-image=nginx --name=nginx
+$ oc new-app --docker-image=nginx --name=nginx
 
 # create from private Docker registry
-[localhost@user ~]$ oc new-app --docker-image=<my_registry> --name=<my_app>
+$ oc new-app --docker-image=<my_registry> --name=<my_app>
 
 # build new app from a git repository in a specific branch in the repository 
-[localhost@user ~]$ oc new-app https://github.com/openshift/ruby-hell-world.git#<brance_name> 
+$ oc new-app https://github.com/openshift/ruby-hell-world.git#<brance_name> 
 
 # build new app from a GitHub repository, in a specific directory,on a specific brance based on a PHP image.
-[localhost@user ~]$ oc new-app php:7.1~https://github.com/path to repository#s2i \
+$ oc new-app php:7.1~https://github.com/path to repository#s2i \
     --name new_php_app --context-dir=temps   
 ```
 

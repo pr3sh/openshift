@@ -281,8 +281,30 @@ The **BuildConfig** is responsible for defining input parameters and triggers th
 5. Defines container image to deploy **`my-app:latest`**.
 6. Specifies the container ports.
 
+The last resource is the service which you can find details in my other repo file `creating_kubernetes_resouces.md` in the `/notes` directory.
+
+- It is important to note that routes are not creted when you invoke **`oc new-app`**, but you can create the route after the appliction is created.
+
+*Useful commands:*
+
+```bash
+# see a list of application builds
+$ oc get builds
+
+# view build logs
+$ oc logs build/myapp-1
+
+#Trigger a new build with oc start-build
+
+$ oc get buildconfig
+>> NAME     TYPE        FROM        LATEST
+myapp         Source    Git             1
 
 
+$oc start-build myapp
+
+> build "myapp-2" started
+```
 
 
 
