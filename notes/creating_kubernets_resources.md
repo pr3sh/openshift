@@ -118,7 +118,7 @@ spec:
 
 ```bash
 # create application based on sql image
-[localhost@user ~]$ oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
+oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
 
 # create application based on docker image
 [localhost@user ~]$ oc new-app --docker-image=nginx --name=nginx
@@ -185,14 +185,14 @@ $ oc exec <pod_name> -it /bin/bash
 
 
 # monitor build  and deployment logs
-$ oc lofs -f bc/<app_name>
+$ oc logs -f bc/<app_name>
 $ oc logs -f dc/<app_name>
 
 #review the service for an application
 $ oc describe svc/<app_name>
 
-# expose the service by creating a route.
-$ oc expose svc/<app_name>
+# expose the service by creating a route with your desired name.
+$ oc expose service <service_name>  --name=<desired_name>
 
 
 ```
