@@ -186,14 +186,7 @@ The **BuildConfig** is responsible for defining input parameters and triggers th
 5. Defines the builder image as **`php:7.3`** image stream.
 6. Name the output image steam **`my-app:latest`**.
 
-<<<<<<< HEAD
-This third resource is the deployment configuration, which is responsible for customizing the deployment process in the OpenShift cluster.
 
-- *Example of resource*
-
-
-
-=======
 ```json
 .............
 {
@@ -280,6 +273,21 @@ This third resource is the deployment configuration, which is responsible for cu
 },
 ...output omitted...
 ```
+
+1. Resource type **DeploymentConfig**.
+2. Name of **DeploymentConfig** is **`my-app`**.
+3. A configurate change triggers a new deployment to be created any time the replication controller template changes.
+4. An image change trigger causes the creation of a new deployment each time a new version of the **myapp:latest** image is available in the repo.
+5. Defines container image to deploy **`my-app:latest`**.
+6. Specifies the container ports.
+
+
+
+
+
+
+
+
 
 
 
