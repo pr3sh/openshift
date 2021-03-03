@@ -147,6 +147,9 @@ $ oc get pods
 # get pods along with labels 
 $ oc get pods --show-labels
 
+#Inspecting a router pod
+$ oc get pod --all-namespaces -l app=router
+
 #check pod status
 $ oc get status
 
@@ -177,9 +180,30 @@ $ oc delete <RESOURCE_TYPE> name
 #execute additional process in container.
 $ oc exec <CONTAINER_ID>
 
-#enter a specific pod
+#enter a specific pod into a bash shell
 $ oc exec <pod_name> -it /bin/bash
+
+
+# monitor build  and deployment logs
+$ oc lofs -f bc/<app_name>
+$ oc logs -f dc/<app_name>
+
+#review the service for an application
+$ oc describe svc/<app_name>
+
+# expose the service by creating a route.
+$ oc expose svc/<app_name>
+
+
 ```
+  - *If you want to access the service form a host external to the cluster to verify that the service and route are working*
+
+  ```bash
+[localhost@user ~]$ curl \
+   <app-name>-${RHOCP_USER}-route.${RHT_OCP4_WILDCARD_DOMAIN}
+
+>> Hello, World! php version is 7.3.11
+  ```
 
 ### **Labelling Resources:**
 
