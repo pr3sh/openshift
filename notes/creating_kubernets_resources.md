@@ -139,13 +139,13 @@ $ oc new-app php:7.1~https://github.com/path to repository#s2i \
 
 ```bash
 #basic usage syntax
-[localhost@user ~]$ oc get <RESOURCE_TYPE>
+$ oc get <RESOURCE_TYPE>
 
 #see pod informations
-[localhost@user ~]$ oc get pods
+$ oc get pods
 
 # get pods along with labels 
-[localhost@user ~]$ oc get pods --show-labels
+$ oc get pods --show-labels
 
 #Inspecting a router pod
 $ oc get pod --all-namespaces -l app=router
@@ -187,6 +187,12 @@ $ oc exec <pod_name> -it /bin/bash
 # monitor build  and deployment logs
 $ oc logs -f bc/<app_name>
 $ oc logs -f dc/<app_name>
+
+
+# Exmine the logs for this build, using the buid name
+$ oc logs --all-contianers \
+  -f php-helloworld-3-build
+
 
 #review the service for an application
 $ oc describe svc/<app_name>
