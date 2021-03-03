@@ -113,7 +113,73 @@ The `JSON` definition file creates  list of resources, and the first is the imag
 The **BuildConfig** is responsible for defining input parameters and triggers that are executed o transform the source code into a runnable image.
 
 ```json
-
+...output omitted...
+{
+    "kind": "BuildConfig", 1
+    "apiVersion": "build.openshift.io/v1",
+    "metadata": {
+        "name": "myapp", 2
+        "creationTimestamp": null,
+        "labels": {
+            "app": "myapp"
+        },
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewApp"
+        }
+    },
+    "spec": {
+        "triggers": [
+            {
+                "type": "GitHub",
+                "github": {
+                    "secret": "S5_4BZpPabM6KrIuPBvI"
+                }
+            },
+            {
+                "type": "Generic",
+                "generic": {
+                    "secret": "3q8K8JNDoRzhjoz1KgMz"
+                }
+            },
+            {
+                "type": "ConfigChange"
+            },
+            {
+                "type": "ImageChange",
+                "imageChange": {}
+            }
+        ],
+        "source": {
+            "type": "Git",
+            "git": {
+                "uri": "http://services.lab.example.com/app" 3
+            }
+        },
+        "strategy": {
+            "type": "Source", 4
+            "sourceStrategy": {
+                "from": {
+                    "kind": "ImageStreamTag",
+                    "namespace": "openshift",
+                    "name": "php:7.3" 5
+                }
+            }
+        },
+        "output": {
+            "to": {
+                "kind": "ImageStreamTag",
+                "name": "myapp:latest" 6
+            }
+        },
+        "resources": {},
+        "postCommit": {},
+        "nodeSelector": null
+    },
+    "status": {
+        "lastVersion": 0
+    }
+},
+...output omitted...
 
 ```
 
