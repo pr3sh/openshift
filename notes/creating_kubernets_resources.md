@@ -34,7 +34,7 @@ Understanding how kubernetes resources are created using the `oc` command-line i
 - Resource definitions can be provided as `JSON` or `YAML` files.
 - Resources can also be created within the OpenShift Web UI.
 
-*Example of an appliction server pod definition in `YAML` format:*
+*Example of an application server pod definition in `YAML` format:*
 
 ```yaml
 apiVersion: v1
@@ -61,3 +61,20 @@ spec:
         - name: MYSQL_ENV_MYSQL_PASSWORD
           value: ['your_password']
 ```
+### ** Understanding Services **
+
+- *Services* allow contianers in one pod to open network connections to containers in another pod.
+- Pods can die or be restarted, and that results in a different internal IP assignment.
+- Services provide a stable IP address for other pods to use, irrespective of what node is runnig the pod after a pod restarts.
+- A set of pods running behind a service is manged by a **DeploymentConfig** resource.
+- `dc` resources embeds a **ReplicationController** that manages how many replicas of a pod that needs to be created in instances where a pod(s) dies down.
+
+*Example of a minimal service definition:*
+
+
+
+
+
+
+
+
