@@ -71,7 +71,26 @@ spec:
 
 *Example of a minimal service definition:*
 
-
+```json
+{
+    "kind": "Service", 
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "quotedb" 2
+    },
+    "spec": {
+        "ports": [ 
+            {
+                "port": 3306,
+                "targetPort": 3306
+            }
+        ],
+        "selector": {
+            "name": "mysqldb" 
+        }
+    }
+}
+```
 
 
 
