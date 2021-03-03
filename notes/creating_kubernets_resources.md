@@ -18,8 +18,14 @@ Understanding how kubernetes resources are created using the `oc` command-line i
 ``` bash
   $ oc <command>
 
+  #list projects
+  $ oc projects 
+  
+  #create project
+  $ oc project <project_name>
+  
   # Login to cluster
-  $ oc login <cluster_url>`
+  $ oc login <cluster_url>
   
   #login using access token
   $ oc login https://[IP ADDRESSS]:[PORT] --token=<access_token>
@@ -30,6 +36,9 @@ Understanding how kubernetes resources are created using the `oc` command-line i
   
   #Login with username and password
   $ oc login -u <your_username> -p <your_password>
+
+  # get access token after login
+  $ oc whoami -t
 ```
 
 ### **Describing Pod Resources**
@@ -97,8 +106,99 @@ spec:
 }
 ```
 
+- The `oc port-forward [PORT]:[PORT]` command allow for forwarding a local port to a pod port.
+
+- This differs from accessing a pod through a service resource.
+- Services also carry out load balancing to multiple pods, whereas port-forwarding maps connection to a single pod.
+
+### Creating new applications:
+
+```bash
+# create application based on sql image
+$ oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
+
+# create application based on docker image
+$ oc new-app --docker-image=nginx --name=nginx
+
+# create from private Docker registry
+$ oc new-app --docker-image=<my_registry> --name=<my_app>
+
+# build new app from a git repository in a specific branch in the repository 
+$ oc new-app https://github.com/openshift/ruby-hell-world.git#<brance_name> 
+
+# build new app from a GitHub repository, in a specific directory,on a specific brance based on a PHP image.
+$ oc new-app php:7.1~https://github.com/path to repository#s2i \
+    --name new_php_app --context-dir=temps   
+```
+
+### Managing OpenShif Resources:
+- To get information about resources use :
+
+```bash
+#basic usage syntax
+$ oc get <RESOURCE_TYPE>
+
+#see pod informations
+$ oc get pods
+
+# get pods along with labels 
+$ oc get pods --show-labels
+
+#check pod status
+$ oc get status
+
+#get deployment config
+$ oc get dc
+
+# get replication controller
+$ oc get rc
+
+# get summary of most important cluster compoenents
+$ oc get all 
+
+# drill down into those resouces
+$ oc describe <pod_name>
+
+#if you have a resource you want to export in YAML or JSON format.
+$ oc export
+
+#to build a resource use.
+$ oc create 
+
+# edit a resource.
+$ oc edit
+
+#delete resource
+$ oc delete <RESOURCE_TYPE> name
+
+#execute additional process in container.
+$ oc exec <CONTAINER_ID>
+
+#enter a specific pod
+$ oc exec <pod_name> -it /bin/bash
+```
 
 
+### **Labelling Resources:**
+
+- When working with resource within the same project, it is useful to group the resources by application, environment, or some other criteria.
+- Labels are used to establish these groups by defining lbels for the resources within your project.
+- labels are a part of the **metadata** section of a resources, as shown below
+- Labels defined at top of template, apply to all subsequent objects below that.
+
+```yaml
+apiVerion:  v1
+kind: Service
+metada:
+
+  labels:
+    app: Nexus
+```
+
+```bash
+# retrieve both deployment and service configurations, filtering on the app-nexus label
+$ oc get svc,dc -l app=nexus
+```
 
 
 
