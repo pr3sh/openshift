@@ -29,7 +29,7 @@ OpenShift deploys new versions of user applications into pods quickly.
 - The OpenShift installer populates several image streams by default, during installation, and to available image streams use `oc get is -n openshift`
 
 
-### Building Apps using Source-to-Image:
+### Building Applications using Source-to-Image:
 
 ```bash
 $ oc new-app --as-deployment-config \
