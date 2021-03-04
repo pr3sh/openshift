@@ -303,6 +303,9 @@ myapp         Source    Git             1
 
 $ oc start-build myapp
 >> build "myapp-2" started
+
+#find url associated with a newly named route
+$ oc get route -o jsonpath='{..spec.host}{"\n"}'
 ```
 
 ### Notes:
