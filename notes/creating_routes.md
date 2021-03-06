@@ -66,23 +66,22 @@ openshift-ingress		router-default-dahg			1/1			Running		1				4d
 ``` yaml
 Name:		router-default-dahg	 		
 Namespace:	openshift-ingress
-.......
-...output removed...
+...
 
-.............
+..output removed...
 	router:
-.......output removed.....
+...output removed.....
 
 		Environment:
 			STATS_PORT:	1936
 			ROUTER_SERVICE_NAMESPACE: 	openshift-ingress
 			DEFAULT_CERTIFICATE_DIR: 	/etc/pki/tls/private
 			ROUTER_CANONICAL_HOSTNAME:	apps.cluster.lab.example.com
-.........
-.......
+
+...output removed..
 ```
 
-**`ROUTER_CANONICAL_HOSTNAME`** defines the subdomain to be used in all default routes/
+- **`ROUTER_CANONICAL_HOSTNAME`** defines the subdomain to be used in all default routes.
 
 
 
