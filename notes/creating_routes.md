@@ -5,9 +5,9 @@ Understanding how routs work on **OpenShift**, as well as how to expose services
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Creating Routes](#creating-routes)
+  - [Example](#example)
 
 ## Introduction:
-
 - Services allow network access between pods that are contianed in na OpenShift cluster.
 - Routes are what allow network access to pods form all users and applications. 
 - Essentially with routes, we can be specific about which services we want "exposed", to who.
@@ -37,11 +37,9 @@ Below is a minimal example of a route defined in `.json` format.
 
 }
 ```
-
 ### Creating Routes:
 
 Routes are create using `oc create <command>` , and a resource definition file must be provided in either **`JSON`* or **`YAML`** format.
-
 It is important to know that when using the OpenShift CLI to create new applications that routes aren't created automatically. In order to create a route based on an existing service:
 
 ```bash
@@ -86,33 +84,26 @@ Namespace:	openshift-ingress
 
 ### Example:
 
-Log in and authenticate with you **OpenShift** cluster.
-
+- Log in and authenticate with you **OpenShift** cluster.
 ```bash
 $ oc login -u ${DEV_USER_NAME} -p ${DEV_USER_PASS} {RHT_OCP4_MASTER_API}
 >> Login successful
 .....
 ```
-
-Create a new project.
-
+- Create a new project.
 ```bash
 $ oc new-project ${DEV_USER_NAME}-routes
 ```
-
-Create a new *Python* app, based on a *Source-to-Image* build strategy.
+- Create a new *Python* app, based on a *Source-to-Image* build strategy.
 	- The GitHub repository with source code is called `python-helloworld`.
 	- The directory is called 
-
 ```bash
 $ oc new-app --as-deployment-config \
 	python:3.7~https://github.com/${DEV_USER_NAME}/python_repo \
 		--context-dir python-helloworld \
 		--name python-helloworld
 ```
-
-Monitor the build and deoployment process/progress within the pods.
-
+- Monitor the build and deoployment process/progress within the pods.
 ```bash
 $ oc get pods -w 
 
@@ -123,8 +114,7 @@ python-helloworld-1-build			1/1					Running 					0							0s
 python-helloworld-1-deploy			0/1					ContainerCreating 			0							0s
 python-helloworld-1-build 			0/1					Completed 					0							5m8s
 ```
-An alternate way of monitory build and deployment logs is to use the **`oc logs bc/<app_name>`** or  **`oc logs dc/<app_name>`** like this:
-
+- An alternate way of monitory build and deployment logs is to use the **`oc logs bc/<app_name>`** or  **`oc logs dc/<app_name>`** like this:
 ```bash
 $ oc logs -f bc/python-helloworld
 ``` 
@@ -148,14 +138,12 @@ Endpoints:			10.10.0.34.8554
 Session Affinity:	none
 Events:				<none>		
 ```
-
-Now you can expose the **`python-helloworld`** service. 
-
+- Now you can expose the **`python-helloworld`** service. 
 ```bash
 $ oc expose service python-helloworld
 >> route.route.openshift.io/php-helloworld exposed
 ```
-
+- Inspect resource definition file of our route.
 ```bash
 $ oc describe route python-helloworld
 
@@ -178,9 +166,7 @@ Session Affinity:	none
 Weight:				100 (100%)
 Endpoints:			172.34.566.145:8443, 172.34.566.145:8080
 ```
-
 Once you're done inspecting the route resource definition, you can try to access the service from an external host, to verify if service and route are functioning as expected.
-
 ```curl	
 $ curl python-hellworld-${DEV_USER_NAME}-route.${RHT_OCP4_WILDCARD_DOMAIN}
 ```
