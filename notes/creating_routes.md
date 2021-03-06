@@ -4,7 +4,7 @@ Understanding how routs work on **OpenShift**, as well as how to expose services
 
 -  **Table of contents**:
   - [Introduction](#introduction)
-  - [Describing Image Steams](#describing-image-streams)
+  - [Creating Routes](#creating-routes)
   - [Building Applications using Source-to-Image](#building-app-s2i)
   - [Resource definitions](#resource-definitions)
   - [Notes](#notes)
@@ -41,6 +41,8 @@ Below is a minimal example of a route defined in `.json` format.
 }
 ```
 
+### Creating Routes:
+
 Routes are create using `oc create <command>` , and a resource definition file must be provided in either **`JSON`* or **`YAML`** format.
 
 It is important to know that when using the OpenShift CLI to create new applications that routes aren't created automatically. In order to create a route based on an existing service:
@@ -51,9 +53,39 @@ $ oc get svc
 
 # Generate the route
 $ oc expose service quotedb --name quotedbsvc
+
+# inspect router pods.
+$ oc get pods --all-namespaces -l app=router 
+>> NAMESPACE 				NAME 						READY 		STATUS 		RESTARTS 		AGE
+openshift-ingress		router-default-dahg			1/1			Running		1				4d
 ```
 - Routes made using the **`oc expose`** command generation **DNS** names in this format*: 
 	- {route_name}-{project_name}.{default_domain}*
+
+- Routes are also defined int he `openshift-ingress` project by default and **`describe`** pod run:
+	-  `oc decribe pod router-default-dahg`
+
+
+``` yaml
+Name:		router-default-dahg	 		
+Namespace:	openshift-ingress
+.......
+...output removed...
+
+.............
+	router:
+.......output removed.....
+
+		Environment:
+			STATS_PORT:	1936
+			ROUTER_SERVICE_NAMESPACE: 	openshift-ingress
+			DEFAULT_CERTIFICATE_DIR: 	/etc/pki/tls/private
+			ROUTER_CANONICAL_HOSTNAME:	apps.cluster.lab.example.com
+.........
+.......
+```
+
+**`ROUTER_CANONICAL_HOSTNAME`** defines the subdomain to be used in all default routes/
 
 
 
