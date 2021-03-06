@@ -84,6 +84,111 @@ Namespace:	openshift-ingress
 - **`ROUTER_CANONICAL_HOSTNAME`** defines the subdomain to be used in all default routes.
 
 
+### Example:
+
+Log in and authenticate with you **OpenShift** cluster.
+
+```bash
+$ oc login -u ${DEV_USER_NAME} -p ${DEV_USER_PASS} {RHT_OCP4_MASTER_API}
+>> Login successful
+.....
+```
+
+Create a new project.
+
+```bash
+$ oc new-project ${DEV_USER_NAME}-routes
+```
+
+Create a new *Python* app, based on a *Source-to-Image* build strategy.
+	- The GitHub repository with source code is called `python-helloworld`.
+	- The directory is called 
+
+```bash
+$ oc new-app --as-deployment-config \
+	python:3.7~https://github.com/${DEV_USER_NAME}/python_repo \
+		--context-dir python-helloworld \
+		--name python-helloworld
+```
+
+Monitor the build and deoployment process/progress within the pods.
+
+```bash
+$ oc get pods -w 
+
+NAME 								READY 				STATUS 						RESTARTS 					AGE
+python-helloworld-1-build 			0/1					Init:0/2					0							2s
+python-helloworld-1-build			0/1					PodInitializing				0							7s
+python-helloworld-1-build			1/1					Running 					0							0s
+python-helloworld-1-deploy			0/1					ContainerCreating 			0							0s
+python-helloworld-1-build 			0/1					Completed 					0							5m8s
+```
+An alternate way of monitory build and deployment logs is to use the **`oc logs bc/<app_name>`** or  **`oc logs dc/<app_name>`** like this:
+
+```bash
+$ oc logs -f bc/python-helloworld
+``` 
+To review the service for this app:
+
+```bash
+$ oc describe svc/python-helloworld
+
+Name: 				python-helloworld
+Namespace:			${DEV_USER_NAME}-route
+Labels:				app=python-helloworld
+					app.kubernetes.io/component=python-helloworld
+					app.kubernetes.io/instance=python-helloworld
+Annotations:		openshift.io/generated-by: OpenshiftNewApp
+Selector:			deploymentconfig=python-helloworld
+Type:				ClusterIP
+IP:					172.34.566.145
+Port:				8443-tcp	844d/TCP
+TargetPort:			8443/tcp	
+Endpoints:			10.10.0.34.8554
+Session Affinity:	none
+Events:				<none>		
+```
+
+Now you can expose the **`python-helloworld`** service. 
+
+```bash
+$ oc expose service python-helloworld
+>> route.route.openshift.io/php-helloworld exposed
+```
+
+```bash
+$ oc describe route python-helloworld
+
+Name: 				python-helloworld
+Namespace:			${DEV_USER_NAME}-route
+Created:			20 seconds ago
+Labels:				app=python-helloworld
+					app.kubernetes.io/component=python-helloworld
+					app.kubernetes.io/instance=python-helloworld
+Annotations:		openshift.io/generated-by: OpenshiftNewApp
+Requested Host: python-helloworld-${DEV_USER_NAME}-route.${RHT_OCP4_WILDCARD_DOMAIN}
+	exposed on the router default (hist ${RHT_OCP4_WILDCARD_DOMAIN})
+Path:			    <none>
+TLS Termination:	<none>
+IP:					<none>
+Insecrue Policy:	<none>			
+Endpoint Port:		8080-tcp
+
+Session Affinity:	none
+Weight:				100 (100%)
+Endpoints:			172.34.566.145:8443, 172.34.566.145:8080
+```
+
+Once you're done inspecting the route resource definition, you can try to access the service from an external host, to verify if service and route are functioning as expected.
+
+```curl	
+$ curl python-hellworld-${DEV_USER_NAME}-route.${RHT_OCP4_WILDCARD_DOMAIN}
+```
+
+### Tips:
+
+ To delete a route  you can use  ``
+
 
 
 
