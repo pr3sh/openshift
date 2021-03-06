@@ -41,3 +41,21 @@ Below is a minimal example of a route defined in `.json` format.
 }
 ```
 
+Routes are create using `oc create <command>` , and a resource definition file must be provided in either **`JSON`* or **`YAML`** format.
+
+It is important to know that when using the OpenShift CLI to create new applications that routes aren't created automatically. In order to create a route based on an existing service:
+
+```bash
+# list current services and find what you would like to expose.
+$ oc get svc 
+
+# Generate the route
+$ oc expose service quotedb --name quotedbsvc
+```
+- Routes made using the **`oc expose`** command generation **DNS** names in this format*: 
+	- {route_name}-{project_name}.{default_domain}*
+
+
+
+
+
