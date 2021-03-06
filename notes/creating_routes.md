@@ -63,7 +63,7 @@ openshift-ingress		router-default-dahg			1/1			Running		1				4d
 	-  `oc decribe pod router-default-dahg`
 
 
-``` yaml
+``` text
 Name:		router-default-dahg	 		
 Namespace:	openshift-ingress
 ...
@@ -72,11 +72,11 @@ Namespace:	openshift-ingress
 	router:
 ...output removed.....
 
-		Environment:
+..	...	Environment:
 			STATS_PORT:	1936
-			ROUTER_SERVICE_NAMESPACE: 	openshift-ingress
+	...		ROUTER_SERVICE_NAMESPACE: 	openshift-ingress
 			DEFAULT_CERTIFICATE_DIR: 	/etc/pki/tls/private
-			ROUTER_CANONICAL_HOSTNAME:	apps.cluster.lab.example.com
+...	...		ROUTER_CANONICAL_HOSTNAME:	apps.cluster.lab.example.com
 
 ...output removed..
 ```
