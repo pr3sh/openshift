@@ -5,9 +5,6 @@ Understanding how routs work on **OpenShift**, as well as how to expose services
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Creating Routes](#creating-routes)
-  - [Building Applications using Source-to-Image](#building-app-s2i)
-  - [Resource definitions](#resource-definitions)
-  - [Notes](#notes)
 
 ## Introduction:
 
