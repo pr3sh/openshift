@@ -14,24 +14,22 @@ Understanding how kubernetes resources are created using the `oc` command-line i
 ### **Introduction:**
 
 The most common way of interacting with your RHOCP cluster is by using the **`oc`** command line like this:
-
 **`$ oc <command>`**  
-
-List projects.
+- List projects.
 **`$ oc projects`**
-create project.
+- create project.
 **`$ oc project <project_name>`**
-Log in to **OpenShift** cluster
+- Log in to **OpenShift** cluster
 **`$ oc login -u <your_username> -p <your_password> <cluster_url>`**
-login using access token
+- login using access token
 **`$ oc login https://[IP ADDRESSS]:[PORT] --token=<access_token>`**
-get access token after login
+- get access token after login
 **`$ oc whoami -t`**
-Login using curl:
+- Login using curl:
 ```bash
   $ curl -k https://[IP ADDRESSS]:[PORT]/oapi/v1/projects \
      -H "Authorization: Bearer {access_token}"
-```
+  ```
 ### **Describing Pod Resources:**
 - OpenShift needs a pod reousrce defiition to run cntiners nd create pods from a container image.
 - This can be generated using the `oc new-app` command.
