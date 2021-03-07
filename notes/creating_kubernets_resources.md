@@ -140,48 +140,35 @@ To get information about resources use the **`oc get <RESOURCE_TYPE>`** command:
 **`$ oc describe <pod_name>`**
 - if you have a resource you want to export in YAML or JSON format you can invoke the **`oc export`** command.
 - To build a resource use **`oc create`**
-- edit a resource:
+- Edit a resource:
 **`$ oc edit`**
-
-#delete resource
-$ oc delete <RESOURCE_TYPE> name
-
-#execute additional process in container.
-$ oc exec <CONTAINER_ID>
-
-#enter a specific pod into a bash shell
-$ oc exec <pod_name> -it /bin/bash
-
-
-# monitor build  and deployment logs
+- delete resource
+**`oc delete <RESOURCE_TYPE> name`**
+- To execute additional processes in a container, invoke the **`oc exec <CONTAINER_ID>`**.
+- enter a specific pod into a bash shell:
+**`oc exec <pod_name> -it /bin/bash`**
+- Monitor build and deployment logs:
+```bash
 $ oc logs -f bc/<app_name>
 $ oc logs -f dc/<app_name>
+```
+- Examine the logs for this build, using the buid name
+**`oc logs --all-contianers \
+  -f php-helloworld-3-build`**
 
-
-# Exmine the logs for this build, using the buid name
-$ oc logs --all-contianers \
-  -f php-helloworld-3-build
-
-
-#review the service for an application
+- review the service for an application
 $ oc describe svc/<app_name>
 
-# expose the service by creating a route with your desired name.
+- expose the service by creating a route with your desired name.
 $ oc expose service <service_name>  --name=<desired_name>
-
-
 ```
   - *If you want to access the service form a host external to the cluster to verify that the service and route are working*
-
-  ```bash
+```bash
 $ curl \
    <app-name>-${RHOCP_USER}-route.${RHT_OCP4_WILDCARD_DOMAIN}
-
 >> Hello, World! php version is 7.3.11
   ```
-
 ### **Labelling Resources:**
-
 - When working with resource within the same project, it is useful to group the resources by application, environment, or some other criteria.
 - Labels are used to establish these groups by defining lbels for the resources within your project.
 - labels are a part of the **metadata** section of a resources, as shown below
