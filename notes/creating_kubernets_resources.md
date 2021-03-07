@@ -3,7 +3,6 @@
 
 Understanding how kubernetes resources are created using the `oc` command-line interface.
 
-
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Describing Pod Resources](#describing-pod-resources)
@@ -12,47 +11,33 @@ Understanding how kubernetes resources are created using the `oc` command-line i
   - [Managing OpenShift Resources](#managing-openshift-resources)
   - [Labelling Resources](#labelling-resources)
 
-
 ### **Introduction:**
 
-- The most common way of interacting with your RHOCP cluster is using the `oc` command line.
-  - *Basic Usage:*
+The most common way of interacting with your RHOCP cluster is by using the **`oc`** command line like this:
 
-``` bash
-  $ oc <command>
+**`$ oc <command>`**  
 
-  #list projects
-  $ oc projects 
-  
-  #create project
-  $ oc project <project_name>
-  
-  # Login to cluster
-  $ oc login <cluster_url>
-  
-  #login using access token
-  $ oc login https://[IP ADDRESSS]:[PORT] --token=<access_token>
-  
-  #Example Login using curl
+List projects.
+**`$ oc projects`**
+create project.
+**`$ oc project <project_name>`**
+Log in to **OpenShift** cluster
+**`$ oc login -u <your_username> -p <your_password> <cluster_url>`**
+login using access token
+**`$ oc login https://[IP ADDRESSS]:[PORT] --token=<access_token>`**
+get access token after login
+**`$ oc whoami -t`**
+Login using curl:
+```bash
   $ curl -k https://[IP ADDRESSS]:[PORT]/oapi/v1/projects \
      -H "Authorization: Bearer {access_token}"
-  
-  #Login with username and password
-  $ oc login -u <your_username> -p <your_password>
-
-  # get access token after login
-  $ oc whoami -t
 ```
-
-### **Describing Pod Resources**
-
+### **Describing Pod Resources:**
 - OpenShift needs a pod reousrce defiition to run cntiners nd create pods from a container image.
 - This can be generated using the `oc new-app` command.
 - Resource definitions can be provided as `JSON` or `YAML` files.
 - Resources can also be created within the OpenShift Web UI.
-
 *Example of an application server pod definition in `YAML` format:*
-
 ```yaml
 apiVersion: v1
 kind: Pod3
@@ -78,8 +63,7 @@ spec:
         - name: MYSQL_ENV_MYSQL_PASSWORD
           value: ['your_password']
 ```
-### **Understanding Services**
-
+### **Understanding Services:**
 - *Services* allow contianers in one pod to open network connections to containers in another pod.
 - Pods can die or be restarted, and that results in a different internal IP assignment.
 - Services provide a stable IP address for other pods to use, irrespective of what node is runnig the pod after a pod restarts.
@@ -118,7 +102,9 @@ spec:
 
 ```bash
 # create application based on sql image
-$ oc new-app --docker-image=mysql:latest --name=mysql  -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
+$ oc new-app --docker-image=mysql:latest --name=mysql  \
+        -e MYSQL_USER=myuser -e MYSQL_PASSWORD=password  \
+        -e MYSQL_DATABASE=mydb -e MYSQL_ROOT_PASSWORD=password
 
 # create application based on docker image
 $ oc new-app --docker-image=nginx --name=nginx
