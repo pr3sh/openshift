@@ -25,7 +25,7 @@ The most common way of interacting with your RHOCP cluster is by using the **`oc
 **`$ oc login https://[IP ADDRESSS]:[PORT] --token=<access_token>`**
 - get access token after login
 **`$ oc whoami -t`**
-- Login using curl:
+*Login using curl:*
 ```bash
   $ curl -k https://[IP ADDRESSS]:[PORT]/oapi/v1/projects \
      -H "Authorization: Bearer {access_token}"
@@ -119,44 +119,29 @@ $ oc new-app php:7.1~https://github.com/path to repository#s2i \
 ```
 
 ### Managing OpenShift Resources:
-- To get information about resources use :
 
-```bash
-#basic usage syntax
-$ oc get <RESOURCE_TYPE>
+To get information about resources use the **`oc get <RESOURCE_TYPE>`** command:
 
-#see pod informations
-$ oc get pods
-
-# get pods along with labels 
-$ oc get pods --show-labels
-
-#Inspecting a router pod
-$ oc get pod --all-namespaces -l app=router
-
-#check pod status
-$ oc get status
-
-#get deployment config
-[loca$ oc get dc
-
-# get replication controller
-$ oc get rc
-
-# get summary of most important cluster compoenents
-$ oc get all 
-
-# drill down into those resouces
-$ oc describe <pod_name>
-
-#if you have a resource you want to export in YAML or JSON format.
-$ oc export
-
-#to build a resource use.
-$ oc create 
-
-# edit a resource.
-$ oc edit
+- See pod informations:
+**`$ oc get pods`**
+- get pods along with labels 
+**`$ oc get pods --show-labels`**
+- Inspecting a router pod:
+**`$ oc get pod --all-namespaces -l app=router`**
+- check pod status:
+**`$ oc get status`**
+- get deployment config:
+**`$ oc get dc`**
+- get replication controller
+**`$ oc get rc`**
+- get summary of most important cluster compoenents
+**`$ oc get all`**
+- drill down into those resouces
+**`$ oc describe <pod_name>`**
+- if you have a resource you want to export in YAML or JSON format you can invoke the **`oc export`** command.
+- To build a resource use **`oc create`**
+- edit a resource:
+**`$ oc edit`**
 
 #delete resource
 $ oc delete <RESOURCE_TYPE> name
