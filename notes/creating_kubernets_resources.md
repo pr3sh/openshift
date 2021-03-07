@@ -25,7 +25,7 @@ The most common way of interacting with your RHOCP cluster is by using the **`oc
 **`$ oc login https://[IP ADDRESSS]:[PORT] --token=<access_token>`**
 - get access token after login
 **`$ oc whoami -t`**
-*Login using curl:*
+- *Login using curl:*
 ```bash
   $ curl -k https://[IP ADDRESSS]:[PORT]/oapi/v1/projects \
      -H "Authorization: Bearer {access_token}"
