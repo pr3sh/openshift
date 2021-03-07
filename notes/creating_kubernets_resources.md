@@ -1,7 +1,7 @@
 
 # Abstract
 
-Understanding how kubernetes resources are created using the `oc` command-line interface.
+Understanding how kubernetes resources are created using the **`oc`** command-line tool.
 
 -  **Table of contents**:
   - [Introduction](#introduction)
@@ -90,14 +90,11 @@ spec:
     }
 }
 ```
-
-- The `oc port-forward [PORT]:[PORT]` command allow for forwarding a local port to a pod port.
-
+- The **`oc port-forward [PORT]:[PORT]`** command allow for forwarding a local port to a pod port.
 - This differs from accessing a pod through a service resource.
 - Services also carry out load balancing to multiple pods, whereas port-forwarding maps connection to a single pod.
 
 ### Creating new applications:
-
 ```bash
 # create application based on sql image
 $ oc new-app --docker-image=mysql:latest --name=mysql  \
@@ -117,9 +114,7 @@ $ oc new-app https://github.com/openshift/ruby-hell-world.git#<brance_name>
 $ oc new-app php:7.1~https://github.com/path to repository#s2i \
     --name new_php_app --context-dir=temps   
 ```
-
 ### Managing OpenShift Resources:
-
 To get information about resources use the **`oc get <RESOURCE_TYPE>`** command:
 
 - See pod informations:
@@ -147,22 +142,15 @@ To get information about resources use the **`oc get <RESOURCE_TYPE>`** command:
 - To execute additional processes in a container, invoke the **`oc exec <CONTAINER_ID>`**.
 - enter a specific pod into a bash shell:
 **`oc exec <pod_name> -it /bin/bash`**
-- Monitor build and deployment logs:
-```bash
-$ oc logs -f bc/<app_name>
-$ oc logs -f dc/<app_name>
-```
-- Examine the logs for this build, using the buid name
-**`oc logs --all-contianers \
-  -f php-helloworld-3-build`**
-
-- review the service for an application
-$ oc describe svc/<app_name>
-
+- Monitor build and deployment logs: **`oc logs -f bc/<app_name>`** or **`oc logs -f dc/<app_name>`**.
+- Examine the logs for this build, using the build name:
+**`oc logs --all-contianers -f php-helloworld-3-build`**
+- Describe the service for an application.
+**`oc describe svc/<app_name>`**
 - expose the service by creating a route with your desired name.
-$ oc expose service <service_name>  --name=<desired_name>
-```
-  - *If you want to access the service form a host external to the cluster to verify that the service and route are working*
+**`oc expose service <service_name>  --name=<desired_name>`**
+
+*If you want to access the service form a host external to the cluster to verify that the service and route are working..*
 ```bash
 $ curl \
    <app-name>-${RHOCP_USER}-route.${RHT_OCP4_WILDCARD_DOMAIN}
@@ -173,7 +161,6 @@ $ curl \
 - Labels are used to establish these groups by defining lbels for the resources within your project.
 - labels are a part of the **metadata** section of a resources, as shown below
 - Labels defined at top of template, apply to all subsequent objects below that.
-
 ```yaml
 apiVerion:  v1
 kind: Service
@@ -181,12 +168,6 @@ metada:
 
   labels:
     app: Nexus
-```
-
-```bash
-# retrieve both deployment and service configurations, filtering on the app-nexus label
-[localhost@user ~]$ oc get svc,dc -l app=nexus
-```
-
-
+```- Retrieve both deployment and service configurations,filtering on the *nexus* label: 
+**`oc get svc,dc -l app=nexus`**
 
