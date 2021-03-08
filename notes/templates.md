@@ -4,10 +4,9 @@ The primary objective of this guide is to demonstrate how Multi-contianer applic
 
 -  **Table of contents**:
   - [Introduction](#introduction)
-  - [Describing Image Steams](#describing-image-streams)
-  - [Building Applications using Source-to-Image](#building-app-s2i)
-  - [Configuring Persistent Storage](#resource-definitions)
-  - [Notes](#notes)
+  - [parameters](#parameters)
+  - [Configuring Persistent Storage](#configuring-persistent-storage)
+
   
 
 
