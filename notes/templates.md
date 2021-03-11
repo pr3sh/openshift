@@ -32,15 +32,16 @@ Templates contain *parameters* which may need to be specified by the user to the
 
 - To specify your parameters for a given template, use the **`oc process <command>`**.
 - There are two ways to find out the parameters for a given template:
-	- **`oc describe template <template-name> -n openshift`** 
+- **`oc describe template <template-name> -n openshift`** 
 		*or*
-	- **`oc process --parameters <template-name> -n openshift`** *(High recommended method.)*.
-- When a template is processed, a set of resources are generated for the creation of the new application.
-	- To process a template, use the **`oc process -f <filename>`** convention.
-	- *Example:* **`oc process -o yaml -f <filename>`**.
-	- You can process templates either in the `openshift` project of the your current project by using **`oc process <uploaded-template-name>`**.
+- **`oc process --parameters <template-name> -n openshift`** *(High recommended method.)*.
+
+ When a template is processed, a set of resources are generated for the creation of the new application.
+- To process a template, use: **`oc process -f <filename>`** convention.
+- *Example:* **`oc process -o yaml -f <filename>`**.
+- You can process templates either in the `openshift` project of the your current project by using: **`oc process <uploaded-template-name>`**.
 - The **`oc process`** command returns the resource list to the standard output, so we can redirect that to a file using the **`>`** command.
-	- *Example:* **`oc process -o yaml -f filename  > new_app.yaml`**.
+- *Example:* **`oc process -o yaml -f filename  > new_app.yaml`**.
 - To override a parameter , you can use the **`-p`** option.
 ```bash
 $ oc process -o yaml -f mysql.yaml \
@@ -68,6 +69,10 @@ $ oc new-app --template=mysql-persistent \
 ```
 
 ### Configuring Persistent Storage: 
+
+Persistent storage is quintessential when working with contianers, since containers are meant to be *Ephemeral*, it is important to persist information that may be needed afterwards.
+
+- 
 
 
 
