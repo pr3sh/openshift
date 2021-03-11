@@ -1,7 +1,5 @@
-#Abstract
-
+# Abstract
 The primary objective of this guide is to demonstrate how Multi-contianer applications are deployed on OpenShift, using a template.
-
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [parameters](#parameters)
@@ -103,16 +101,26 @@ myappname       Bound       pv0001           200Gi            RWO               
 - The output shows whether the `PersistentVolumeClaim` has been bound to a `PersistentVolme`.
 - To use the persistent volume in an application pod, define a volume mount for a container that references the `PersistentVolumeClaim` object as shown below:
 ```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
+apiVersion: "v1"
+kind: "Pod"
 metadata:
-    name: myappname
+  name: "myapp"
+  labels:
+    name: "myapp"
 spec:
-    accessModes:
-    - ReadWriteOnce
-    resources:
-        requests:
-            storage:200Gi
+  containers:
+    - name: "myapp"
+      image: openshift/myapp
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/var/www/html"
+          name: "pvol" 1
+  volumes:
+    - name: "pvol" 2
+      persistentVolumeClaim:
+        claimName: "myapp"3
 ```
 
 
