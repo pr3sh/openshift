@@ -22,7 +22,7 @@ The primary objective of this guide is to demonstrate how Multi-contianer applic
 - And the **`YAML`** resource definition contains the OpenShift `DeploymentConfig`,`Service`, `Secret`, `PersistentVolumeClaim`, and `Route` objects.
 - You can use the **`oc create -f checklist-template.yaml`** to publish the application template.
 - If you want to specify the **`Namespace`** where to publish the template: **`oc creeate -f checklist-template.yaml -n <namespace>`**.
-	- By default, the template will be created under the current project.
+    - By default, the template will be created under the current project.
 
 ### Parameters:
 Templates contain *parameters* which may need to be specified by the user to their configurations, but can also come with defualt arguments/values which can be overriden when processing the template.
@@ -30,7 +30,7 @@ Templates contain *parameters* which may need to be specified by the user to the
 - To specify your parameters for a given template, use the **`oc process <command>`**.
 - There are two ways to find out the parameters for a given template:
 - **`oc describe template <template-name> -n openshift`** 
-		*or*
+        *or*
 - **`oc process --parameters <template-name> -n openshift`** *(High recommended method.)*.
 
  When a template is processed, a set of resources are generated for the creation of the new application.
@@ -42,27 +42,27 @@ Templates contain *parameters* which may need to be specified by the user to the
 - To override a parameter , you can use the **`-p`** option.
 ```bash
 $ oc process -o yaml -f mysql.yaml \
-	-p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
-	-p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi > mysqlAppTemplate.yaml 
+    -p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
+    -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi > mysqlAppTemplate.yaml 
 ```
 - Create the application from the resource definition **`YAML`** file: **`oc create -f mydwlAppTemplate.yaml`**.
 - You can also process a template without saving the definition file, leveraging the **UNIX** pipe.
 ```bash
 $ oc process -f mysql.yaml \
-	-p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
-	-p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
+    -p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
+    -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
 ```
 - You can use **`//`** to specify the namespace as part of the template name.
 ```bash
 $ oc process openshift//mysql-persistent \
-	-p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
-	-p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
+    -p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
+    -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
 ```
 - You can also create an application using the **`oc new-app`** command by specifying **`--template`** option upon app creation.
 ```bash
 $ oc new-app --template=mysql-persistent \
-	-p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
-	-p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
+    -p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
+    -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
 ```
 
 ### Configuring Persistent Storage: 
@@ -84,13 +84,21 @@ To request dedicated storage resrouces, an application requires the creation of 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-	name: myappname
+    name: myappname
 spec:
     accessModes:
     - ReadWriteOnce
     resources:
-    	requests:
-    		storage:200Gi
+        requests:
+            storage:200Gi
+```
+- **`PVC`** define the storage requirements for applications (capacaity or throughput).
+- To create the `PersistentVolumeClaim`, you can run: **`oc create -f pvc.yaml`**.
+- To view created **`PVC`**: 
+```bash
+$ oc get pvc
+>> NAME         STATUS      VOLUME          CAPACITY       ACCESS MODE          STORAGE CLASS             AGE
+myappname       Bound       pv0001           200Gi            RWO                                         10s
 ```
 
 
