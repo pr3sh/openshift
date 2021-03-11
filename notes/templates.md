@@ -7,9 +7,6 @@ The primary objective of this guide is to demonstrate how Multi-contianer applic
   - [parameters](#parameters)
   - [Configuring Persistent Storage](#configuring-persistent-storage)
 
-  
-
-
 ### Introduction:
 - Deploying applications on OpenShift usually require the creation project resources (*i.e:* `BuildConfig`, `DeploymentConfig`, `Services`, and `Routes`).
 - Template propose a much more simplified approach when it comes to the creation of resources that as needed to deploy and application successfully.
@@ -72,7 +69,16 @@ $ oc new-app --template=mysql-persistent \
 
 Persistent storage is quintessential when working with contianers, since containers are meant to be *Ephemeral*, it is important to persist information that may be needed afterwards.
 
-- 
+- To add a storage resource to your cluster, the OpenShift administrator must create a `PersistentVolume` object that defines the necesarry metadata for storage.
+- Ways of access to the storage, capacity, throghput and other characteristics are described by the metadata.
+- To list all `PersistentVolumes` in your current namespace, run: **`oc get pv`**, you can specify the namespace as well by passing the **`-n`** option.
+- To get the **`YAML`** resource definition of a given `PersistentVolume`, run: **`oc get pv <persistent_vol_name> -o yaml`**.
+- To add more `PersistentVolumes`, run: **`oc create -f <persistent_vol_name.yaml>`**
+
+
+### Requesting Persistent Volume Claims:
+
+
 
 
 
