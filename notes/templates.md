@@ -100,6 +100,20 @@ $ oc get pvc
 >> NAME         STATUS      VOLUME          CAPACITY       ACCESS MODE          STORAGE CLASS             AGE
 myappname       Bound       pv0001           200Gi            RWO                                         10s
 ```
+- The output shows whether the `PersistentVolumeClaim` has been bound to a `PersistentVolme`.
+- To use the persistent volume in an application pod, define a volume mount for a container that references the `PersistentVolumeClaim` object as shown below:
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: myappname
+spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+        requests:
+            storage:200Gi
+```
 
 
 
