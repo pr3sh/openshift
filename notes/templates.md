@@ -78,7 +78,20 @@ Persistent storage is quintessential when working with contianers, since contain
 
 ### Requesting Persistent Volume Claims:
 
+To request dedicated storage resrouces, an application requires the creation of a `PersistentVolumeClaim` resource, as shown below:
 
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+	name: myappname
+spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+    	requests:
+    		storage:200Gi
+```
 
 
 
