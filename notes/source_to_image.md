@@ -81,6 +81,11 @@ $ oc -o json new-app --as-deployment-config \
     php~https://services.lab.example.com/app \
     --name=myapp > s2i.json
 ```
+
+```bash
+$ oc import-image your_image_stream --confirm \
+    --from registry.acme.example.com:5000/acme/awesome --insecure
+```
 ### Resource Definitions
 
 The `JSON` definition file creates  list of resources, and the first is the image stream.
