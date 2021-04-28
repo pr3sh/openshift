@@ -81,7 +81,7 @@ $ oc -o json new-app --as-deployment-config \
     php~https://services.lab.example.com/app \
     --name=myapp > s2i.json
 ```
-
+The easiest way to create an image stream is by using the **`oc import-image`**.
 ```bash
 $ oc import-image your_image_stream --confirm \
     --from registry.acme.example.com:5000/acme/awesome --insecure
