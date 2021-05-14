@@ -53,19 +53,22 @@ $ oc new-app --as-deployment-config \
 
 - *Instead of using a **`~`**, you can pass the **`-i`** option to specify the image stream as show below:*
 
-```bash 
+```zsh 
 $ oc new-app --as-deployment-config -i php http://services.lab.example.com/pp \
         --name=myapp
-
+```
 
 #create an application in current directory
+```
 $ oc new-app --as-deployment-config .
+```
 
 #Create an application using a remote Git repository and a context subdirectory
+``` bash
 $ oc new-app --as-deployment-config \
     http:/github.com/openshift/sti-ruby.git \
     --context-dir=2.0/test/puma-test-test-app
-```
+ ```
 - It is also possible to create the application from a Git repository, specifying the branch.
 - In this case, the branch we are using is called *beta4*.
 
@@ -77,6 +80,11 @@ $ oc new-app --as-deployment-config \
 $ oc -o json new-app --as-deployment-config \
     php~https://services.lab.example.com/app \
     --name=myapp > s2i.json
+```
+The easiest way to create an image stream is by using the **`oc import-image`**.
+```bash
+$ oc import-image your_image_stream --confirm \
+    --from registry.acme.example.com:5000/acme/awesome --insecure
 ```
 ### Resource Definitions
 
