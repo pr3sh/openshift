@@ -122,7 +122,7 @@ To get information about resources use the **`oc get <RESOURCE_TYPE>`** command:
 - get pods along with labels 
 **`$ oc get pods --show-labels`**
 - Inspecting a router pod:
-**`$ oc get pod --all-namespaces -l app=router`**
+**`$ oc get pods --all-namespaces -l app=router`** or **`oc get pods -A`**
 - check pod status:
 **`$ oc get status`**
 - get deployment config:
