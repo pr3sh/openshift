@@ -8,15 +8,13 @@
 		- [Kubernetes Resource Types](#kubernetes-resource-types)
 		- [OpenShift Resource Types](#openshift-resource-types)
 
-## **Kubernetes**
-
+### **`Kubernetes: `**
 - Kubernetes is an orchestration service that simplifies the deployment, management, and scaling of containerized applications.
 - Kubernetes forms a cluster of several node servers that run containers. 
 - Containers are centrally managed by a set of *master* servers.
 - Servers can act as both *nodes* and *server*, but there are differences in both roles for increased stability.
 
-### **Kubernetes Key Terminology:**
-
+#### **`Kubernetes Key Terminology: `**
 - Node:
 	- A server that hosts applications in a Kubernetes cluster.
 - Master Node:
@@ -36,14 +34,14 @@
 	- A scope for a Kubernetes resources and processes, to create boundaries amongst independent resources.
 
 
-## **OpenShift**
+## **`OpenShift: `**
 
 - *RedHat OpenShift Container Platform* is a set of modular components built ontop of Red Hat CoreOS and Kubernets.
 - *RedHat OpenShift Container Plaform* comes with additional PaaS features to bolster capabilities like security, auditing, monitoring and application life-cycle management. 
 - An OpenShift cluster is a Kubernetes cluster that can be managed the same way but using the managemen toold provided by OpenShift.
 - Management tools on OpenShift include the `oc` command-line interface, and a web console.
 
-### **OpenShift Key Terminology:**
+### **`OpenShift Key Terminology: `**
 
 - Infra Node:
 	- A node server that contains infrastructure services like monitoring, logging, and external routing
@@ -83,14 +81,14 @@
 - Kubernetes has a 6 main resource types tht can be created and configured using `YAML` or `JSON` file.
 - Resources can also be configured using OpenShift management tools.
 
-	- Deployment config(`dc`):
+	- **`Deployment config`**(**`dc`**):
 		- Represent a set of containers included in a pod, and the deployment strategies to be used.
 		- Pods are the most basic unit of work for Kubernetes.
-	- Build config (`bc`):
+	- **`Build config`** (**`bc`**):
 		- Defines process to be executed in the OpenShift project.
 		- Use by the Openshift *Source-toImage(S2I)* feature to build a container image from application source code store in a Git repository.
-		- `bc` and `dc` work together to provide a basic, but extensible continuous integation and continuous delivery (*CI/CD*) workflows.
-	- Routes:
+		- **`bc`** and **`dc`** work together to provide a basic, but extensible continuous integation and continuous delivery (*CI/CD*) workflows.
+	- **`Routes:`**
 		- Routes represent a *DNS* host name recognized by the OpenShift router as an ingress point for applications and microservices.
 		- Services give you a *Static IP* and routes give you a *DNS Host IP*
 
