@@ -93,7 +93,7 @@
 		- Services give you a *Static IP* and routes give you a *DNS Host IP*
 
 - To obtain a list of all resources vailaible in a RedHat OpenShift cluster use the following:
-	- `oc api-resources` or `kubectl api-resources`
+	- **`oc api-resources`**	 or `kubectl api-resources`
 
 
 
