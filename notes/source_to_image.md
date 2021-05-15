@@ -30,6 +30,28 @@ OpenShift deploys new versions of user applications into pods quickly.
 - OpenShift builds the application against an image stream.
 - The OpenShift installer populates several image streams by default, during installation, and to available image streams use **`oc get is -n openshift`**
 
+> *Show Image streams*
+```bash
+$ oc get is -n openshift
+NAME           IMAGE REPOSITORY                      TAGS
+cli            ...svc:5000/openshift/cli             latest
+dotnet         ...svc:5000/openshift/dotnet          2.0,2.1,latest
+dotnet-runtime ...svc:5000/openshift/dotnet-runtime  2.0,2.1,latest
+httpd          ...svc:5000/openshift/httpd           2.4,latest
+jenkins        ...svc:5000/openshift/jenkins         1,2
+mariadb        ...svc:5000/openshift/mariadb         10.1,10.2,latest
+mongodb        ...svc:5000/openshift/mongodb         2.4,2.6,3.2,3.4,3.6,latest
+mysql          ...svc:5000/openshift/mysql           5.5,5.6,5.7,latest
+nginx          ...svc:5000/openshift/nginx           1.10,1.12,1.8,latest
+nodejs         ...svc:5000/openshift/nodejs          0.10,10,11,4,6,8,latest
+perl           ...svc:5000/openshift/perl            5.16,5.20,5.24,5.26,latest
+php            ...svc:5000/openshift/php             5.5,5.6,7.0,7.1,latest
+postgresql     ...svc:5000/openshift/postgresql      10,9.2,9.4,9.5,9.6,latest
+python         ...svc:5000/openshift/python          2.7,3.3,3.4,3.5,3.6,latest
+redis          ...svc:5000/openshift/redis           3.2,latest
+ruby           ...svc:5000/openshift/ruby            2.0,2.2,2.3,2.4,2.5,latest
+wildfly        ...svc:5000/openshift/wildfly         10.0,10.1,11.0,12.0,...
+```
 
 ### Building Applications using Source-to-Image:
 
@@ -73,7 +95,7 @@ $ oc new-app --as-deployment-config \
 - In this case, the branch we are using is called *beta4*.
 
 ```bash
-  oc new-pp --as-deployment-config \
+  oc new-app --as-deployment-config \
     https://github.com/openshift/ruby-hello-world#beta4 
 
 # Create a JSON resource definition file by using the -o parameter
@@ -88,7 +110,7 @@ $ oc import-image your_image_stream --confirm \
 ```
 ### Resource Definitions
 
-The `JSON` definition file creates  list of resources, and the first is the image stream.
+The **`JSON`** definition file creates  list of resources, and the first is the image stream.
 
 ```json
 {

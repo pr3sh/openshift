@@ -30,6 +30,9 @@ The most common way of interacting with your RHOCP cluster is by using the **`oc
   $ curl -k https://[IP ADDRESSS]:[PORT]/oapi/v1/projects \
      -H "Authorization: Bearer {access_token}"
   ```
+  - Show console url
+  **`$ oc whoami --show-console`**
+
 ### **Describing Pod Resources:**
 - OpenShift needs a pod reousrce defiition to run cntiners nd create pods from a container image.
 - This can be generated using the `oc new-app` command.
