@@ -5,7 +5,7 @@ The primary objective of this guide is to demonstrate how Multi-contianer applic
   - [parameters](#parameters)
   - [Configuring Persistent Storage](#configuring-persistent-storage)
 
-### Introduction:
+### **`Introduction: `**
 - Deploying applications on OpenShift usually require the creation project resources (*i.e:* `BuildConfig`, `DeploymentConfig`, `Services`, and `Routes`).
 - Template propose a much more simplified approach when it comes to the creation of resources that as needed to deploy and application successfully.
 - Attributes of template resources are called **parameters**.
@@ -22,7 +22,7 @@ The primary objective of this guide is to demonstrate how Multi-contianer applic
 - If you want to specify the **`Namespace`** where to publish the template: **`oc creeate -f checklist-template.yaml -n <namespace>`**.
     - By default, the template will be created under the current project.
 
-### Parameters:
+### **`Parameters`**:
 Templates contain *parameters* which may need to be specified by the user to their configurations, but can also come with defualt arguments/values which can be overriden when processing the template.
 
 - To specify your parameters for a given template, use the **`oc process <command>`**.
@@ -63,7 +63,7 @@ $ oc new-app --template=mysql-persistent \
     -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
 ```
 
-### Configuring Persistent Storage: 
+### **`Configuring Persistent Storage: `** 
 
 Persistent storage is quintessential when working with contianers, since containers are meant to be *Ephemeral*, it is important to persist information that may be needed afterwards.
 
@@ -74,10 +74,9 @@ Persistent storage is quintessential when working with contianers, since contain
 - To add more `PersistentVolumes`, run: **`oc create -f <persistent_vol_name.yaml>`**
 
 
-### Requesting Persistent Volume Claims:
+### **`Requesting Persistent Volume Claims: `**
 
 To request dedicated storage resrouces, an application requires the creation of a `PersistentVolumeClaim` resource, as shown below:
-
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -91,14 +90,14 @@ spec:
             storage:200Gi
 ```
 - **`PVC`** define the storage requirements for applications (capacaity or throughput).
-- To create the `PersistentVolumeClaim`, you can run: **`oc create -f pvc.yaml`**.
+- To create the **`PersistentVolumeClaim`**, you can run: **`oc create -f pvc.yaml`**.
 - To view created **`PVC`**: 
-```bash
+```zsh
 $ oc get pvc
 >> NAME         STATUS      VOLUME          CAPACITY       ACCESS MODE          STORAGE CLASS             AGE
 myappname       Bound       pv0001           200Gi            RWO                                         10s
 ```
-- The output shows whether the `PersistentVolumeClaim` has been bound to a `PersistentVolme`.
+- The output shows whether the **`PersistentVolumeClaim`** has been bound to a `PersistentVolme`.
 - To use the persistent volume in an application pod, define a volume mount for a container that references the `PersistentVolumeClaim` object as shown below:
 ```yaml
 apiVersion: "v1"
