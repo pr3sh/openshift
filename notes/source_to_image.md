@@ -319,22 +319,30 @@ The last resource is the service which you can find details in my other repo fil
 - It is important to note that routes are not creted when you invoke **`oc new-app`**, but you can create the route after the appliction is created.
 
 *Useful commands:*
-```bash
+```zsh
 # see a list of application builds
 $ oc get builds
-
-# view build logs
+```
+>  view build logs
+```zsh
 $ oc logs build/myapp-1
-
-#Trigger a new build with oc start-build
+```
+```zsh
+$ oc logs --all-containers \
+> -f php-helloworld-1-build
+```
+> Trigger a new build with oc start-build
+```zsh
 $ oc get buildconfig
 >> NAME     TYPE        FROM        LATEST
 myapp         Source    Git             1
-
+```
+```zsh
 $ oc start-build myapp
 >> build "myapp-2" started
-
-#find url associated with a newly named route
+```
+>find url associated with a newly named route
+```zsh
 $ oc get route -o jsonpath='{..spec.host}{"\n"}'
 ```
 
