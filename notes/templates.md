@@ -38,20 +38,20 @@ Templates contain *parameters* which may need to be specified by the user to the
 - The **`oc process`** command returns the resource list to the standard output, so we can redirect that to a file using the **`>`** command.
 - *Example:* **`oc process -o yaml -f filename  > new_app.yaml`**.
 - To override a parameter , you can use the **`-p`** option.
-```bash
+```zsh
 $ oc process -o yaml -f mysql.yaml \
     -p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
     -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi > mysqlAppTemplate.yaml 
 ```
 - Create the application from the resource definition **`YAML`** file: **`oc create -f mydwlAppTemplate.yaml`**.
 - You can also process a template without saving the definition file, leveraging the **UNIX** pipe.
-```bash
+```zsh
 $ oc process -f mysql.yaml \
     -p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
     -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
 ```
 - You can use **`//`** to specify the namespace as part of the template name.
-```bash
+```zsh
 $ oc process openshift//mysql-persistent \
     -p MYSQL_USER=user -p MYSQL_PASSWORD=passw0rd  \
     -p MYSQL_DATABASE=customers -p VOLUME_CAPACITY=10Gi | oc create -f -
