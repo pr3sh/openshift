@@ -1,5 +1,5 @@
-# Abstract
-The primary objective of this guide is to demonstrate how Multi-contianer applications are deployed on OpenShift, using a template.
+# **`Abstract`**
+The primary objective of this guide is to demonstrate how templates are used in OpenShift.
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [parameters](#parameters)
@@ -97,7 +97,7 @@ $ oc get pvc
 >> NAME         STATUS      VOLUME          CAPACITY       ACCESS MODE          STORAGE CLASS             AGE
 myappname       Bound       pv0001           200Gi            RWO                                         10s
 ```
-- The output shows whether the **`PersistentVolumeClaim`** has been bound to a `PersistentVolme`.
+- The output shows whether the **`PersistentVolumeClaim`** has been bound to a **`PersistentVolme`.
 - To use the persistent volume in an application pod, define a volume mount for a container that references the `PersistentVolumeClaim` object as shown below:
 ```yaml
 apiVersion: "v1"
