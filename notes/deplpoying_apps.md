@@ -31,7 +31,7 @@ $ oc new-app --as-deployment-config -i php http://gitserver.example.com/mygitrep
 ```zsh
 $ oc new-app --as-deployment-config php:7.0~http://gitserver.example.com/mygitrepo
 ```
-- Deploy application with arbritrary **`ImageStream`** using the **`--code`**and **`--strategy`** option for specifying **`GitHub`** **`URL`**.
+- Deploy application with arbritrary **`Image Stream`** using the **`--code`**and **`--strategy`** option for specifying **`GitHub`** **`URL`**.
 ```zsh
 $ oc new-app --as-deployment-config -i myis --strategy source 
 	--code http://gitserver.example.com/mygitrepo
@@ -44,7 +44,19 @@ $ oc new-app --as-deployment-config --docker-image=registry.access.redhat.com/rh
 - In many cases, you have existing container images built using **`Dockerfiles`**. 
 - If the **Dockerfiles** are accessible from a Git repository, the **`oc new-app`** command can create a build configuration that performs the Dockerfile build inside the **`OpenShift`** cluster and then pulls the resulting container image to the internal registry.
 
-
+> *Build i*
+```zsh
+$ oc new-app --as-deployment-config --strategy docker \
+	http://gitserver.example.com/mydockerfileproject
+```
+- Delete resources created by **`oc new-app`** using one command:
+```zsh
+$ oc delete all -l app=test
+```
+- If you want to inspect resource definitions without creating the resources in the current project, use the -o option:
+```zsh
+$ oc new-app --as-deployment-config -o json registry.example.com/mycontainerimage
+```
 
 
 #### **`Managing Applications with OpenShift:**`
