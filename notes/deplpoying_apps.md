@@ -57,6 +57,17 @@ $ oc delete all -l app=test
 ```zsh
 $ oc new-app --as-deployment-config -o json registry.example.com/mycontainerimage
 ```
+You can also create an image stream from your own container image using the **oc import-image**. 
+```zsh
+oc import-image myis --confirm --from registry.acme.example.com:5000/acme/awesome --insecure
+```
+
+
+
+
+
+
+
 
 
 #### **`Managing Applications with OpenShift:**`
