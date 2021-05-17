@@ -3,7 +3,7 @@
 The objective of this guide is to understand the basics of troubleshooting containerized applications.
 -  **Table of contents**:
   - [Introduction](#introduction)
-  - [Common Container Problems](common-container-problems)
+  - [Common Issues](common-issues)
 
 #### **`Introduction:`**
 Before diving into any source code it is quintenssential to understand the basic workflows of the application creation process. The **`S2I`** image creation process is composed of two main steps:
@@ -26,7 +26,7 @@ $ oc start-build <application-name>
 ```zsh
 $ $ oc logs dc/<application-name>
 ```
-#### **`Common Container Problems:`** 
+#### **`Common Issues:`** 
 Some containers may require a specific user ID, whereas S2I is designed to run containers using a random user as per the default OpenShift security policy.
 > The **`Dockerfile`** below creates a Nexus container where the **`USER`** instruction indicating the nexus user should be used.
 ```Dockerfile
