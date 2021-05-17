@@ -9,15 +9,6 @@ The primary objective of this guide is to demonstrate how deploy applications to
 - Simplistically, you pass in either a single **`URL`** argument that points to a **`Git`** repository or a container image. It accesses the URL to determine how to interpret the argument and perform either a build or a deployment.
 - To ensure that your specific scenario is handle appropriately, you might want to specify some options to ascertain that **`OpenShift`** knows how the application should be built. 
 
-```zsh
-$ oc new-app --as-deployment-config \
-> --docker-image=registry.access.redhat.com/rhel7-mysql57
-```
-
-```zsh
-$ oc new-app --as-deployment-config \
- https://github.com/RedHatTraining/DO288/tree/master/apps/apache-httpd
-```
 #### **`Supported Options:`**
 |         **Options**              |     **Description**                                                                                      | 
 |----------------------------------|:--------------------------------------------------------------------------------------------------------:|  
@@ -40,4 +31,20 @@ $ oc new-app --as-deployment-config -i php http://gitserver.example.com/mygitrep
 ```zsh
 $ oc new-app --as-deployment-config php:7.0~http://gitserver.example.com/mygitrepo
 ```
+- Deploy application with arbritrary **`ImageStream`** using the **`--code`**and **`--strategy`** option for specifying **`GitHub`** **`URL`**.
+```zsh
+$ oc new-app --as-deployment-config -i myis --strategy source 
+	--code http://gitserver.example.com/mygitrepo
+```
+
+> *To avoid ambiguity, use either the --code or the --docker-image options as shown below.*
+```zsh
+$ oc new-app --as-deployment-config --docker-image=registry.access.redhat.com/rhel7-mysql57
+```
+- In many cases, you have existing container images built using **`Dockerfiles`**. 
+- If the **Dockerfiles** are accessible from a Git repository, the **`oc new-app`** command can create a build configuration that performs the Dockerfile build inside the **`OpenShift`** cluster and then pulls the resulting container image to the internal registry.
+
+
+
+
 #### **`Managing Applications with OpenShift:**`
