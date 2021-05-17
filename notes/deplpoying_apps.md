@@ -28,4 +28,16 @@ $ oc new-app --as-deployment-config \
 | **`--docker-image`**             | Provides the URL to a container image to be deployed.                                                    | 
 > *The **oc new-app** command can optionally take the builder image stream name as an argument, either as part of the `Git` `URL`, prefixed by a tilde **`(~)`**, or using the --image-stream argument (short form: -i).*
 
+- Deployment **`PHP`** application using the **`~`** method, from **`GitHub`** repo.
+```zsh
+$ oc new-app --as-deployment-config php~http://gitserver.example.com/mygitrepo
+```
+- Deployment **`PHP`** application using the **`-i`** for specifying the Image Stream.
+```zsh
+$ oc new-app --as-deployment-config -i php http://gitserver.example.com/mygitrepo
+```
+- Deploy a specific **`PHP`** image stream version from a **`GitHub`** source code repo.
+```zsh
+$ oc new-app --as-deployment-config php:7.0~http://gitserver.example.com/mygitrepo
+```
 #### **`Managing Applications with OpenShift:**`
