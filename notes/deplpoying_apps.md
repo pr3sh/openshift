@@ -9,14 +9,20 @@ The primary objective of this guide is to demonstrate how deploy applications to
 - Simplistically, you pass in either a single **`URL`** argument that points to a **`Git`** repository or a container image. It accesses the URL to determine how to interpret the argument and perform either a build or a deployment.
 - To ensure that your specific scenario is handle appropriately, you might want to specify some options to ascertain that **`OpenShift`** knows how the application should be built. 
 
-To accommodate these and other scenarios, the oc new-app command provides a number of options to further specify exactly how to build the application:
-
 ```zsh
 $ oc new-app --as-deployment-config \
 > --docker-image=registry.access.redhat.com/rhel7-mysql57
 ```
 
-  ```zsh
+```zsh
 $ oc new-app --as-deployment-config \
  https://github.com/RedHatTraining/DO288/tree/master/apps/apache-httpd
 ```
+#### **`Supported Options:`**
+|         **Options**              |     **Description**                                                                                      | 
+|----------------------------------|:--------------------------------------------------------------------------------------------------------:|  
+| **`--as-deployment-config`**     | Configures the oc new-app to create a DeploymentConfig resource instead of a Deployment.                 | 
+| **`-i`** or **`--image-stream`** | Image stream to be used as either the S2I builder image for an S2I build or to deploy a container Image. |   
+| **`--strategy`**                 | **`docker`**, **`pipeline`** or **`source`**.                                                            |
+| **`--code`**                     | Provides the **`URL`** to a **`Git`** repository to be used as input to an **`S2I`** build.              |
+| **`--docker-image`**             | Provides the URL to a container image to be deployed.                                                    | 
