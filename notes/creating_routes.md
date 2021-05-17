@@ -1,6 +1,6 @@
 # Abstract
 
-Understanding how routs work on **OpenShift**, as well as how to expose services using routes.
+Understanding how routes work on **OpenShift**, as well as how to expose services using routes.
 
 -  **Table of contents**:
   - [Introduction](#introduction)
