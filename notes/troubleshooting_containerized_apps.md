@@ -4,7 +4,7 @@ The objective of this guide is to understand the basics of troubleshooting conta
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Common Issues](common-issues)
-
+  - [Troubleshooting Volume Mounts](troubleshooting-volume-mounts)
 #### **`Introduction:`**
 Before diving into any source code it is quintenssential to understand the basic workflows of the application creation process. The **`S2I`** image creation process is composed of two main steps:
 
@@ -51,7 +51,17 @@ $ oc logs nexus-1-wzjrn
 ...output omitted...
 ```
 > To fix this issue, you must run the below command to enable OpenShift executing container processes with non-root users. 
-oc adm policy add-scc-to-user anyuid -z default
+```zsh
+$ oc adm policy add-scc-to-user anyuid -z default
+```
+
+#### **`Troubleshooting Volume Mounts:`**
+When redeploying an application that uses a persistent volume on a local file system, a pod might not be able to allocate a persistent volume claim even though the persistent volume indicates that the claim is released. To resolve the issue, delete the persistent volume claim and then the persistent volume. Then recreate the persistent volume as shown below.
+```zsh
+$ oc delete pv <pv_name>
+$ oc create -f <pv_resource_file>
+```
+
 
 
 
