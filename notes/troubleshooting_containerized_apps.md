@@ -61,8 +61,8 @@ When redeploying an application that uses a persistent volume on a local file sy
 $ oc delete pv <pv_name>
 $ oc create -f <pv_resource_file>
 ```
-
-
+> If you push a new image to the registry with the same name and tag, you must remove the image from each node the pod is scheduled by executing the **`podman rmi`** command.
+> An automated way to remove obsolete images and other resources, execute the **`oc adm prune`** command.
 
 
 
