@@ -93,7 +93,9 @@ $ sudo podman exec -i <container> mysql -uroot -proot < /path/on/host/db.sql < d
 - Using the same idea from above, we can retrieve data from a running container and place it in the host. The **`mysqldump`** utitlity for example, creates a backup of **`MySQL`** database in the container, and places that on the host machine. 
 ```zsh
 $ sudo podman exec -it <container_name> sh \
-		-c 'exec mysql'
+		-c 'exec mysqldump -h"$MYSQL_PORT_3306_TCP_ADDR" \
+		-P"$MYSQL_PORT_3306_TCP_PORT" \
+		-uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" items' db_dump.sql
 ```
 
 
