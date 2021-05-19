@@ -67,6 +67,11 @@ $ oc create -f <pv_resource_file>
 > An automated way to remove obsolete images and other resources, execute the **`oc adm prune`** command.
 
 #### **`Accessing Containers:`**
+The general syntax for accesing containers that are running on both **`OpenShift`** and **`Podman`** are:
+> *For Podman*
+```zsh
+$ sudo podman exec [options] container command [arguments]
+```
 
 #### **`Transferring Files To and Out of Containers:`**
 
