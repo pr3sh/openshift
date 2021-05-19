@@ -67,6 +67,12 @@ $ oc create -f <pv_resource_file>
 
 #### **`Transferring Files To and Out of Containers:`**
 
+During your troubleshooting steps, you may need to retrieve or even transfer file to and from a container that's running. An example of this could be log files, or even configuration files. There are several methods for acheiveing this goal such as:
+	- **Volume Mounts:** Mouting a local directory to that of a container to copy contents into container.
+	- **`podman cp`** command to copy files both in and out of running containers.
+	- **`podman exec`** command to pipe files in and out of a container, while executing a command within the container. using the same methodology, we an also retrieve	
+
+
 
 
 
