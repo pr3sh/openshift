@@ -88,7 +88,7 @@ $ sudo podman cp todoapi:/opt/jboss/standalone/conf/standalone.conf .
 
 > *For running containings the **`podman exec`** can be used to acheive a similar goal.*
 ```zsh
-$ sudo podman
+$ sudo podman exec -i <container> mysql -uroot -proot < /path/on/host/db.sql < db.sql
 ```
 
 
