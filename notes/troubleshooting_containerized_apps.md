@@ -3,8 +3,9 @@
 The objective of this guide is to understand the basics of troubleshooting containerized applications.
 -  **Table of contents**:
   - [Introduction](#introduction)
-  - [Common Issues](common-issues)
-  - [Troubleshooting Volume Mounts](troubleshooting-volume-mounts)
+  - [Common Issues](#common-issues)
+  - [Troubleshooting Volume Mounts](#troubleshooting-volume-mounts)
+  - [Accessing Containers](#accessing-running-containers)
   - [Transferring Files To and Out of Containers](transferring-files-to-and-out-of-containers)
 #### **`Introduction:`**
 Before diving into any source code it is quintenssential to understand the basic workflows of the application creation process. The **`S2I`** image creation process is composed of two main steps:
@@ -64,6 +65,8 @@ $ oc create -f <pv_resource_file>
 ```
 > If you push a new image to the registry with the same name and tag, you must remove the image from each node the pod is scheduled by executing the **`podman rmi`** command.
 > An automated way to remove obsolete images and other resources, execute the **`oc adm prune`** command.
+
+#### **`Accessing Containers:`**
 
 #### **`Transferring Files To and Out of Containers:`**
 
