@@ -82,7 +82,7 @@ $ oc exec -it myhttpdpod /bin/bash
 ```
 > *Using same techniques to print out logs within a container.*
 ```zsh
-
+$ sudo podman exec apache-container cat /var/log/httpd/error_log
 ```
 #### **`Transferring Files To and Out of Containers:`**
 
