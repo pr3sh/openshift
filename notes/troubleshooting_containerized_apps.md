@@ -72,7 +72,18 @@ The general syntax for accesing containers that are running on both **`OpenShift
 ```zsh
 $ sudo podman exec [options] container command [arguments]
 ```
+> *For OpenShift*
+```zsh
+$ oc exec [options] pod [-c container] -- command [arguments]
+```
+> *Execute single interactive command*
+```zsh
+$ oc exec -it myhttpdpod /bin/bash
+```
+> *Using same techniques to print out logs within a container.*
+```zsh
 
+```
 #### **`Transferring Files To and Out of Containers:`**
 
 During your troubleshooting steps, you may need to retrieve or even transfer file to and from a container that's running. An example of this could be log files, or even configuration files. There are several methods for acheiveing this goal such as:
