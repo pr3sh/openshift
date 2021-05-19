@@ -90,6 +90,11 @@ $ sudo podman cp todoapi:/opt/jboss/standalone/conf/standalone.conf .
 ```zsh
 $ sudo podman exec -i <container> mysql -uroot -proot < /path/on/host/db.sql < db.sql
 ```
+- Using the same idea from above, we can retrieve data from a running container and place it in the host. The **`mysqldump`** utitlity for example, creates a backup of **`MySQL`** database in the container, and places that on the host machine. 
+```zsh
+$ sudo podman exec -it <container_name> sh \
+		-c 'exec mysql'
+```
 
 
 
