@@ -73,11 +73,11 @@ During your troubleshooting steps, you may need to retrieve or even transfer fil
 	- **`podman exec`** command to pipe files in and out of a container, while executing a command within the container. using the same methodology, we an also retrieve data from a running container and place it in the host machine as well.
 > *Below are demonstrations of the described concepts above.*
 
-
+- Mount local directory to container.
 ```zsh
 $ sudo podman run -v /conf:/etc/httpd/conf -d do180/apache
 ```
-
+- Copy 
 
 
 
