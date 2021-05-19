@@ -81,9 +81,15 @@ $ sudo podman run -v /conf:/etc/httpd/conf -d do180/apache
 ```zsh
 $ sudo podman cp standalone.conf todoapi:/opt/jboss/standalone/conf/standalone.conf
 ```
+- Copy file from container to the host.
+```zsh
+$ sudo podman cp todoapi:/opt/jboss/standalone/conf/standalone.conf .
+```
 
-
-
+> *For running containings the **`podman exec`** can be used to acheive a similar goal.*
+```zsh
+$ sudo podman
+```
 
 
 
