@@ -74,6 +74,10 @@ During your troubleshooting steps, you may need to retrieve or even transfer fil
 > *Below are demonstrations of the described concepts above.*
 
 
+```zsh
+$ sudo podman run -v /conf:/etc/httpd/conf -d do180/apache
+```
+
 
 
 
