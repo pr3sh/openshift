@@ -77,9 +77,9 @@ During your troubleshooting steps, you may need to retrieve or even transfer fil
 ```zsh
 $ sudo podman run -v /conf:/etc/httpd/conf -d do180/apache
 ```
-- Copy file from host machine to container
+- Copy file from host machine to a container name **`todoapi`**.
 ```zsh
-$ sudo podman cp standalone.conf apache
+$ sudo podman cp standalone.conf todoapi:/opt/jboss/standalone/conf/standalone.conf
 ```
 
 
