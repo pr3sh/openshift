@@ -145,6 +145,8 @@ To get information about resources use the **`oc get <RESOURCE_TYPE>`** command:
 - To execute additional processes in a container, invoke the **`oc exec <CONTAINER_ID>`**.
 - enter a specific pod into a bash shell:
 **`oc exec <pod_name> -it /bin/bash`**
+- Get pods names
+**`oc get pods -o custom-columns=:metadata.name`**
 - Monitor build and deployment logs: **`oc logs -f bc/<app_name>`** or **`oc logs -f dc/<app_name>`**.
 - Examine the logs for this build, using the build name:
 **`oc logs --all-contianers -f php-helloworld-3-build`**
