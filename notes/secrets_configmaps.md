@@ -4,7 +4,9 @@ Understanding how data injection works in OpenShift, and the several metehods of
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Creating and Managing Secrets and Configmaps](#creating-and-managing-secrets-and-configmaps)
-  - [Commands to Manipulate Configuration Maps](#commands-to-manipulate-configuration-maps)
+  - [Commands to Manipulate Configuration Maps and Secrets](#commands-to-manipulate-configuration-maps-and-secrets)
+    -[ConfigMaps](#configmaps)
+    -[Secrets](#secrets)
 
 ### **`Introduction: `**
 - OpenShift provides the secret and configuration map resource types to externalize and manage configuration for applications.
@@ -73,8 +75,9 @@ metadata:
   type: Opaque
 ```
 
-## **`Commands to Manipulate Configuration Maps: `**
+## **`Commands to Manipulate Configuration Maps and Secrets: `**
 
+#### **`ConfigMaps`:**
 > *To view the details of a **`ConfigMap`** in **`JSON`** format.*
 ```zsh
 $ oc get configmap/myconf -o json
@@ -88,6 +91,28 @@ $ oc delete configmap/myconf
 $ oc edit configmap/myconf
 ```
 
+> *Use the **`oc patch`** command to edit a **`ConfigMap`** resource.*
+- This approach is noninteractive and is useful when you need to script the changes to a resource:
 
+```zsh
+$ oc patch configmap/myconf --patch '{"data":{"key1":"newvalue1"}}'
+```
+#### **`Secrets`:**
+> *You can do the same manipulations for **`Secrets`** as well.*
+```zsh
+$ oc get secret/mysecret -o json
+```
+```zsh
+$ oc delete secret/mysecret
+```
+> To edit a secret first encode your data in **`base64`** format, for example:
+```zsh
+ [user@host ~]$ echo 'newpassword' | base64 
+ >> bmV3cGFzc3dvcmQK
+```
+> Use the encoded value to update the secret resource using the **`oc edit`** command.
+```zsh
+oc edit secret/mysecret
 
+```
 
