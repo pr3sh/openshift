@@ -138,6 +138,8 @@ oc set volume dc/mydcname --add  -t configmap  \
 
 ## **`Changing Configuration Maps and Secrets` :** 
 
+- Each time you change a deployment configuration, using commands such as **`oc set env`** and **`oc set volume`**, a new deployment is triggered by default.
+- If you make multiple changes to the same deployment configuration, it might be advisable to disable configuration change triggers using the **`oc set triggers`**. command.
 
 
 
