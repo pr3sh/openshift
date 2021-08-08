@@ -46,9 +46,10 @@ oc create secret generic secret_name \
 apiVersion: v1
 data:
   key1: value1
-  key2: value2 kind: ConfigMap
+  key2: value2 
+kind: ConfigMap
 metadata:
-    name: myconf
+  name: myconf
 ```
 Example of a **`Secret`** openshift resource definition.
 ```yaml
@@ -58,14 +59,15 @@ data:
   password: c2VjcmV0Cg==
 kind: Secret
 metadata:
-    name: mysecret
+  name: mysecret
   type: Opaque
 ```
 ```yaml
 apiVersion: v1 
 stringData:
   username: user1
-  password: pass1 kind: Secret
+  password: pass1 
+kind: Secret
 metadata:
-    name: mysecret
+  name: mysecret
   type: Opaque
