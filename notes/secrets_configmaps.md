@@ -8,7 +8,7 @@ Understanding how data injection works in OpenShift, and the several metehods of
     - [ConfigMaps](#configmaps)
     - [Secrets](#secrets)
   - [Injecting Data from Secrets and Configuration Maps into Applications](#injecting-data-from-secrets-and-configuration-maps-into-applications)
-
+  - [Changing Configuration Maps and Secrets](#changing-configuration-maps-and-secrets)
 ### **`Introduction: `**
 - OpenShift provides the secret and configuration map resource types to externalize and manage configuration for applications.
 - Secret resources are used to store sensitive information, such as passwords, keys, and tokens.
@@ -135,6 +135,8 @@ deployment configuration, use the oc set volume command.*
 oc set volume dc/mydcname --add  -t configmap  \
       -m /path/to/mount/volume  --name myvol --configmap-name myconf
 ```
+
+## **`Changing Configuration Maps and Secrets` :** 
 
 
 
