@@ -12,3 +12,4 @@ Understanding how data injection works in OpenShift, and the several metehods of
 - There are different secret types which can be used to enforce usernames and keys in the secret object.
   - **`service-account-token`**, **`basic-auth`**, **`ssh-auth`**, **`tls and opaque`**.
 - Configuration map resources are similar to secret resources, but they store nonsensitive data. A configuration map resource can be used to store fine-grained information, such as individual properties, or coarse-grained information, such as entire configuration files and **`JSON`** data. 
+- Data is stored inside a secret resource using **`base64`** encoding. When data from a secret is injected into a container, the data is decoded and either mounted as a file, or injected as environment variables inside the container.
