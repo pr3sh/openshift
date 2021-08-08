@@ -132,7 +132,7 @@ $ oc set env dc/mydcname \
 > *To mount all keys from a **`ConfigMap`** as files from a volume inside pods created from a
 deployment configuration, use the oc set volume command.*
 ```zsh
-oc set volume dc/mydcname --add  -t configmap  \
+$ oc set volume dc/mydcname --add  -t configmap  \
       -m /path/to/mount/volume  --name myvol --configmap-name myconf
 ```
 
@@ -140,6 +140,20 @@ oc set volume dc/mydcname --add  -t configmap  \
 
 - Each time you change a deployment configuration, using commands such as **`oc set env`** and **`oc set volume`**, a new deployment is triggered by default.
 - If you make multiple changes to the same deployment configuration, it might be advisable to disable configuration change triggers using the **`oc set triggers`**. command.
+
+> *For example...*
+```zsh
+$ oc set triggers dc/mydcname --from-config --remove
+```
+> *After making all of the changes to your **`ConfigMap`** or **`secrets`**, use the **`oc rollout latest`**
+command to trigger a new deployment of the application.*
+```zsh
+$ oc rollout latest mydcname
+```
+> *Use the **`oc set triggers`** command to re-enable thetriggers.*
+```zsh
+$ oc set triggers dc/mydcname --from-config
+```
 
 
 
