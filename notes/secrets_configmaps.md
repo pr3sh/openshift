@@ -7,6 +7,7 @@ Understanding how data injection works in OpenShift, and the several metehods of
   - [Commands to Manipulate Configuration Maps and Secrets](#commands-to-manipulate-configuration-maps-and-secrets)
     - [ConfigMaps](#configmaps)
     - [Secrets](#secrets)
+  - [Injecting Data from Secrets and Configuration Maps into Applications](#injecting-data-from-secrets-and-configuration-maps-into-applications)
 
 ### **`Introduction: `**
 - OpenShift provides the secret and configuration map resource types to externalize and manage configuration for applications.
@@ -119,4 +120,23 @@ oc edit secret/mysecret
  [user@host ~]$ oc patch secret/mysecret --patch \ 
              '{"data":{"password":"bmV3cGFzc3dvcmQK"}}'
 ```
+## **`Injecting Data from Secrets and Configuration Maps into Applications: `**
+
+- Configuration maps and secrets can be mounted as data volumes, or exposed as environment variables, inside an application container.
+- To inject all values stored in a configuration map into environment variables for pods created from a deployment configuration, use the **`oc set env`** command.
+
+```zsh
+$ oc set env dc/mydcname \ 
+    --from configmap/myconf
+```
+> *To mount all keys from a **`ConfigMap`** as files from a volume inside pods created from a
+deployment configuration, use the oc set volume command.*
+```zsh
+oc set volume dc/mydcname --add  -t configmap  \
+      -m /path/to/mount/volume  --name myvol --configmap-name myconf
+```
+
+
+
+
 
