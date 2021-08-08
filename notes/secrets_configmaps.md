@@ -40,3 +40,26 @@ oc create configmap config_map_name \
 oc create secret generic secret_name \
             --from-file /home/demo/mysecret.txt
 ```
+ Example of a **`ConfigMap`** openshift resource definition.
+
+```yaml
+apiVersion: v1
+data:
+key1: value1
+key2: value2 kind: ConfigMap
+metadata:
+    name: myconf
+```
+Example of a **`Secret`** openshift resource definition.
+```yaml
+apiVersion: v1
+data:
+username:
+    password:
+kind: Secret
+cm9vdAo=
+c2VjcmV0Cg==
+metadata:
+    name: mysecret
+type: Opaque
+```
