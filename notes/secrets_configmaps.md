@@ -4,7 +4,7 @@ Understanding how data injection works in OpenShift, and the several metehods of
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Creating and Managing Secrets and Configmaps](#creating-and-managing-secrets-and-configmaps)
-  
+  - [Commands to Manipulate Configuration Maps](#commands-to-manipulate-configuration-maps)
 
 ### **`Introduction: `**
 - OpenShift provides the secret and configuration map resource types to externalize and manage configuration for applications.
@@ -20,13 +20,13 @@ You can use the **`oc create`** command to create secrets and configmaps.
 
 > *create a **`ConfigMap`** that holds string literals.*
 ```zsh
- oc create configmap config_map_name \
+ $ oc create configmap config_map_name \
         --from-literal key1=value1 \
         --from-literal key2=value2
 ```
 > *create a **`Secret`** that holds string literals.*
 ```zsh
-oc create secret generic secret_name \
+$ oc create secret generic secret_name \
         --from-literal username=user1 \
         --from-literal password=mypa55w0rd
 ```
