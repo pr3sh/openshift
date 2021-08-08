@@ -59,5 +59,13 @@ data:
 kind: Secret
 metadata:
     name: mysecret
-type: Opaque
+  type: Opaque
 ```
+```yaml
+apiVersion: v1 
+stringData:
+  username: user1
+  password: pass1 kind: Secret
+metadata:
+    name: mysecret
+  type: Opaque
