@@ -5,8 +5,8 @@ Understanding how data injection works in OpenShift, and the several metehods of
   - [Introduction](#introduction)
   - [Creating and Managing Secrets and Configmaps](#creating-and-managing-secrets-and-configmaps)
   - [Commands to Manipulate Configuration Maps and Secrets](#commands-to-manipulate-configuration-maps-and-secrets)
-    -[ConfigMaps](#configmaps)
-    -[Secrets](#secrets)
+    - [ConfigMaps](#configmaps)
+    - [Secrets](#secrets)
 
 ### **`Introduction: `**
 - OpenShift provides the secret and configuration map resource types to externalize and manage configuration for applications.
