@@ -20,7 +20,7 @@ You can use the **`oc create`** command to create secrets and configmaps.
 
 > *create a **`ConfigMap`** that holds string literals.*
 ```zsh
-oc create configmap config_map_name \
+ oc create configmap config_map_name \
         --from-literal key1=value1 \
         --from-literal key2=value2
 ```
@@ -29,4 +29,9 @@ oc create configmap config_map_name \
 oc create secret generic secret_name \
         --from-literal username=user1 \
         --from-literal password=mypa55w0rd
+```
+> *create a **`ConfigMap`** that stores the contents of a file or a directory containing a set of files.*
+```zsh
+oc create configmap config_map_name \
+          --from-file /home/demo/conf.txt
 ```
