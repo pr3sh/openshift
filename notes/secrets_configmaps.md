@@ -113,6 +113,10 @@ $ oc delete secret/mysecret
 > Use the encoded value to update the secret resource using the **`oc edit`** command.
 ```zsh
 oc edit secret/mysecret
-
+```
+> You can also edit a secret resource using the **`oc patch`** command.
+```zsh
+ [user@host ~]$ oc patch secret/mysecret --patch \ 
+             '{"data":{"password":"bmV3cGFzc3dvcmQK"}}'
 ```
 
