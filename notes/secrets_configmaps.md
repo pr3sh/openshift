@@ -35,7 +35,7 @@ oc create secret generic secret_name \
 oc create configmap config_map_name \
           --from-file /home/demo/conf.txt
 ```
->create a new **`Secret`** that stores the contents of a file or a directory containing a set of files
+> *create a new **`Secret`** that stores the contents of a file or a directory containing a set of files.*
 ```zsh
 oc create secret generic secret_name \
             --from-file /home/demo/mysecret.txt
