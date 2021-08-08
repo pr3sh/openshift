@@ -75,13 +75,17 @@ metadata:
 
 ## **`Commands to Manipulate Configuration Maps: `**
 
-> *To view the details of a configuration mapin **`JSON`** format.*
+> *To view the details of a **`ConfigMap`** in **`JSON`** format.*
 ```zsh
-[user@host ~]$ oc get configmap/myconf -o json
+$ oc get configmap/myconf -o json
 ```
+> *To delete a **`ConfigMap`**.*
 ```zsh
-[user@host ~]$ oc delete configmap/myconf
-
+$ oc delete configmap/myconf
+```
+> *Edit **`ConfigMap`**.*
+```zsh
+$ oc edit configmap/myconf
 ```
 
 
