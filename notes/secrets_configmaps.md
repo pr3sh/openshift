@@ -73,9 +73,16 @@ metadata:
   type: Opaque
 ```
 
+## **`Commands to Manipulate Configuration Maps: `**
 
+> *To view the details of a configuration mapin **`JSON`** format.*
+```zsh
+[user@host ~]$ oc get configmap/myconf -o json
+```
+```zsh
+[user@host ~]$ oc delete configmap/myconf
 
-
+```
 
 
 
