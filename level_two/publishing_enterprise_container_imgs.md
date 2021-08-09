@@ -282,9 +282,40 @@ access token, and then create an image stream that points to the private registr
                --from registry.example.com/myorg/myimage
 ```
 
+###### **`Sharing an Image Stream Between Multiple Projects`:**
+- OpenShift comes with a shared project named openshift, which provides quick-start application templates and also image streams for **`S2I`** builders for popular programming languages such as **`Python`** and **`Ruby`**. 
+- To build and deploy applications using an image stream that is defined in another project, you have two options:
+  1. Create a **`secret`** with an access token to the private registry on each project that uses the image stream, and link that secret to each project's service accounts.
+  2. Create a **`secret`** with an access token to the private registry only on the project where you create the image stream, and configure that image stream with a **`local reference policy`**. Grant rights to use the image stream to service accounts from each project that uses the image steam.
 
+> Example below demonstrates the second option. It creates an image stream in the **`shared`**
+project and uses that image stream to deploy an application in the **`myapp`** project.
 
-
-
+```zsh
+$ podman login -u myuser registry.example.com
+$ oc project shared
+```
+```zsh
+$ oc create secret generic regtoken \
+    --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json \ 
+    --type kubernetes.io/dockerconfigjson
+```
+```zsh
+$ oc import-image myis --confirm \
+         --reference-policy local \
+         --from registry.example.com/myorg/myimage
+```
+```zsh
+$ oc policy add-role-to-group system:image-puller \ 
+               system:serviceaccounts:myapp
+```
+```zsh
+$ oc project myapp
+$ oc new-app --as-deployment-config -i shared/myis
+```
+- The **`--reference-policy local`** option of the **`oc import-image`** command configures the image stream to cache image layers in the internal registry, so projects that reference the image stream do not need an access token to the external private registry.
+- The **`system:image-puller`** role allows a service account to pull the image layers that the image stream cached in the internal registry.
+- The **`system:serviceaccounts:myapp`** group includes all service accounts from the **`myapp`** project. 
+- The **`oc policy`** command can refer to users and groups that do not exist yet.
 
 
