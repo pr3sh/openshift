@@ -1,5 +1,5 @@
 # **`Abstract`**
-Understand how to manage container images in registries using Linux container tools.
+Understand how to manage container images in registries,access the OpenShift internal registry using Linux container tools.
 
 -  **Table of contents**:
   - [Introduction](#introduction)
@@ -7,6 +7,7 @@ Understand how to manage container images in registries using Linux container to
   - [Managing Container Registries with Skopeo](#managing-container-registries-with-skopeo)
   - [Pushing and Tagging Images in a Registry Server](#pushing-and-tagging-images-in-a-registry-server)
   - [Authenticating OpenShift to Private Registries](#authenticating-openshift-to-private-registries)
+  - [Allowing Access to the OpenShift Registry](#allowing-access-to-the-openshift-registry)
 
 #### **`Introduction`:**
 
@@ -168,7 +169,24 @@ $ oc secrets link default registrycreds --for pull
 ```zsh
 $ oc secrets link builder registrycreds
 ```
+#### **`Allowing Access to the OpenShift Registry`**:
 
+###### **`The Image Registry Operator`:**
+- The OpenShift installer configures the internal registry to be accessible only from inside its OpenShift cluster. 
+- Exposing the internal registry for external access is a simple procedure, but requires cluster administration privileges.
+- The OpenShift **`Image Registry Operator`** manages the internal registry. 
+- All configuration settings for the **`Image Registry`** operator are in the **`cluster`** configuration resource in the **`openshift-image-registry`** project. 
+- Change the **`spec.defaultRoute`** attribute to **`true`**, and the Image Registry operator creates a route to expose the internal registry. 
+- One way to perform that change uses the following **`oc patch`** command.
+- The **`default-route`** route uses the **`default`** wildcard domain name for application deployed to the cluster.
+```zsh
+$ oc patch config cluster -n openshift-image-registry \ 
+         --type merge -p '{"spec":{"defaultRoute":true}}'
+```
 
-
+```zsh
+$ oc get route -n openshift-image-registry
+>> NAME               HOST/PORT 
+   default-route      default-route-openshift-image-registry.domain.example.com
+```
 
