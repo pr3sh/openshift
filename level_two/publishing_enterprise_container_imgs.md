@@ -33,7 +33,9 @@ A container image registry, container registry, or registry server stores the im
 - **`Podman`** provides a login subcommand that generates an access token and stores it for subsequent reuse.
 - If authentication is successful, **`Podman`** stores an access token in the **`/run/user/UID/containers/auth.json`** file. 
 - The **`/run/user/UID`** path prefix is not fixed and comes from the **`XDG_RUNTIME_DIR`** environment variable.
-- You can simultaneously log in to multiple registries with **`Podman`**. Each new login either adds or updates an access token in the same file. Each access token is indexed by the registry server FQDN.
+- You can simultaneously log in to multiple registries with **`Podman`**. 
+- Each new login either adds or updates an access token in the same file. 
+- Each access token is indexed by the registry server FQDN (*Fully Qualified Domain Name*).
 ```zsh
 [user@host ~]$ podman login quay.io Username: developer1
 Password: MyS3cret!
