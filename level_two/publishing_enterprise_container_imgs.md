@@ -245,5 +245,46 @@ $ oc get is -n openshift -o name
 ```zsh
 $ oc describe is php -n openshift
 ```
-- To create an image stream tag resource for a container image hosted on an external registry, use the **`oc import-image`** command with both the **`--confirm`** and **`--from`** options
+- To create an image stream tag resource for a container image hosted on an external registry, use the **`oc import-image`** command with both the **`--confirm`** and **`--from`** options.
+```zsh
+$ oc import-image myimagestream[:tag] --confirm \
+                  --from registry/myorg/myimage[:tag]
+```
+```zsh
+$ oc import-image myimagestream:1.0 --confirm \ 
+                   --from registry/myorg/myimage
+```
+- To create one image stream tag resource for each container image tag that exists in the source registryserver,add the **`--all`** option to the **`oc import-image`** command.
+
+```zsh
+$ oc import-image myimagestream --confirm --all \ 
+                 --from registry/myorg/myimage
+```
+
+###### **`Using Image Streams with Private Registries`**:
+- To create image streams and image stream tags that refer to a private registry, OpenShift needs an access token to that registry server.
+- You provide that access token as a secret, the same way you would to deploy an application from a private registry, and you do not need to link the secret to any service account. 
+- The **`oc import- image`** command searches the secrets in the current project for one that matches the registry host name.
+
+> *Example below uses **`Podman`** to log in to a private registry, create a secret to store the
+access token, and then create an image stream that points to the private registry.* 
+
+```zsh
+[user@host ~]$ podman login -u myuser registry.example.com
+```
+```zsh
+[user@host ~]$ oc create secret generic regtoken \
+             --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json \ 
+             --type kubernetes.io/dockerconfigjson
+```
+```zsh
+[user@host ~]$ oc import-image myis --confirm \
+               --from registry.example.com/myorg/myimage
+```
+
+
+
+
+
+
 
