@@ -183,10 +183,24 @@ $ oc secrets link builder registrycreds
 $ oc patch config cluster -n openshift-image-registry \ 
          --type merge -p '{"spec":{"defaultRoute":true}}'
 ```
-
 ```zsh
 $ oc get route -n openshift-image-registry
 >> NAME               HOST/PORT 
    default-route      default-route-openshift-image-registry.domain.example.com
 ```
+###### **`Authenticating to an Internal Registry`:**
 
+> Use the **`oc whoami -t`** command to fetch the token.
+```zsh
+$ TOKEN=$(oc whoami -t)
+```
+> Then login to **`Podman`**.
+```zsh
+$ podman login -u myuser -p ${TOKEN} \
+     default-route-openshift-image-registry.domain.example.com
+```
+> You can also use the token as the value of the **`--[src|dst]creds`** options from **`Skopeo`**.
+```zsh
+$ skopeo inspect --creds=myuser:${TOKEN} \
+     docker://default-route-openshift-image-registry.domain.example.com/...
+```
