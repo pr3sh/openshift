@@ -158,3 +158,4 @@ $ oc set triggers dc/mydcname --from-config
 
 
 
+
