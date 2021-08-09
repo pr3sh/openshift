@@ -204,3 +204,12 @@ $ podman login -u myuser -p ${TOKEN} \
 $ skopeo inspect --creds=myuser:${TOKEN} \
      docker://default-route-openshift-image-registry.domain.example.com/...
 ```
+> If your OpenShift cluster is configured with a valid **`TLS certificate`** for its wildcard domain, you can use the Linux container tools to work with images inside any project you have access to.
+```zsh
+skopeo inspect docker://default-route-openshift-image-registry.domain.example.com/myproj/myapp
+```
+> If your OpenShift cluster uses the **`Certification Authority (CA)`** that the OpenShift installer generates by default, you need to access the internal registry as an insecure registry.
+```zsh
+$ skopeo inspect --tls-verify=false \
+    docker://default-route-openshift-image-registry.domain.example.com/myproj/myapp
+```
