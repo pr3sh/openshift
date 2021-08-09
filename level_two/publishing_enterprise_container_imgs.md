@@ -227,6 +227,11 @@ OpenShift also offers a few specialized roles for when you want to grant access 
 
 > The following example allows a user to pull images from the internal registry in a given project. You need to have either project or cluster-wide administrator access to use the **`oc policy command`**.
 
+```zsh
+$ oc policy add-role-to-user system:image-puller \ 
+                        user_name -n project_name
+```
+
 
 
 
