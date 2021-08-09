@@ -6,6 +6,7 @@ Understand how to manage container images in registries using Linux container to
   - [Authenticating with Registries](#authenticating-with-registries)
   - [Managing Container Registries with Skopeo](#managing-container-registries-with-skopeo)
   - [Pushing and Tagging Images in a Registry Server](#pushing-and-tagging-images-in-a-registry-server)
+  - [Authenticating OpenShift to Private Registries](#authenticating-openshift-to-private-registries)
 
 #### **`Introduction`:**
 
@@ -143,8 +144,30 @@ $ skopeo copy oci:myimage   \
          docker://registry.example.com/
 ```
 
+#### **`Authenticating OpenShift to Private Registries`:**
 
-
+- OpenShift requires credentials to access container images in private registries. 
+- These credentials are stored as secrets and can be provided directly to the **`oc create secret`** command.
+```zsh
+$ oc create secret docker-registry registrycreds \ 
+             --docker-server registry.example.com \
+             --docker-username youruser            \
+             --docker-password yourpassword
+```
+- Another way of creating the secret is to use the authentication token from the **`podman login`** command.
+```zsh
+$ oc create secret generic registrycreds \
+           --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json \ 
+           --type kubernetes.io/dockerconfigjson
+```
+- link the secret to the **`default`** service account from your project
+```zsh
+$ oc secrets link default registrycreds --for pull
+```
+- To use the secret to access an **`S2I`** builder image, link the secret to the **`builder`** service account from your project.
+```zsh
+$ oc secrets link builder registrycreds
+```
 
 
 
