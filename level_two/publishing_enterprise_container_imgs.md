@@ -213,3 +213,21 @@ skopeo inspect docker://default-route-openshift-image-registry.domain.example.co
 $ skopeo inspect --tls-verify=false \
     docker://default-route-openshift-image-registry.domain.example.com/myproj/myapp
 ```
+
+###### **`Granting Access to Images in an Internal Registry`**:
+
+OpenShift also offers a few specialized roles for when you want to grant access only to images inside a project, and not grant access to perform other development tasks such as building and deploying applications inside the project. The most common of these roles are:
+- **`registry-viewer`** and **`system:image-puller`**
+  - These roles allow users to pull and inspect images from the internal registry.
+- **`registry-editor`** and **`system:image-pusher`**
+  - These roles allow users to push and tag images to the internal registry.
+- **`The system:*`** 
+  - These roles provide the minimum capabilities required to pull and push images to the internal registry. 
+- The **`registry-*`** roles provide more comprehensive capabilities around registry management for organizations that want to use the internal registry as their enterprise registry. 
+
+> The following example allows a user to pull images from the internal registry in a given project. You need to have either project or cluster-wide administrator access to use the **`oc policy command`**.
+
+
+
+
+
