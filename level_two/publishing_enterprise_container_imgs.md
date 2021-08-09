@@ -85,20 +85,23 @@ container images from a registry server.
 > For authentication to private registries, **`Skopeo`** can also use the same **`auth.json`** file created by the **`podman `**login command. Alternatively,you can pass your credentials on the command line, as shown below.
 
 ```zsh
- [user@host ~]$ skopeo inspect --creds developer1:MyS3cret! \ 
-               docker://registry.redhat.io/rhscl/postgresql-96-rhel7
+$ skopeo inspect --creds developer1:MyS3cret! \
+    docker://registry.redhat.io/rhscl/postgresql-96-rhel7
 ```
 > **`WARNING!!!!`**Although you can provide credentials to command line tools, this creates an entry in your command history along with other security concerns. Use techniques to avoid passing plain text credentials to commands.
 
 ```zsh
-[user@host ~]$ read -p "PASSWORD: " -s password
->> PASSWORD:
+$ read -p "PASSWORD: " -s password
+PASSWORD:
 ```
 ```zsh
-[user@host ~]$ skopeo inspect --creds developer1:$password \ 
-             docker://registry.redhat.io/rhscl/postgresql-96-rhel7
+$ skopeo inspect --creds developer1:$password  \
+    docker://registry.redhat.io/rhscl/postgresql-96-rhel7
 ```
-
+Skopeo uses **`URIs`** to represent container image locations and **`URI`** schemas to represent container image formats and registry **`APIs`**. The following list shows the most common **`URI`** schemas:
+- **`oci`**: Denotes container images stored in a local, OCI-formatted folder
+- **`docker`**: Denotes remote container images stored in a registry server.
+- **`containers-storage`**: Denotes container images stored in the local container engine cache.
 
 
 
