@@ -22,7 +22,8 @@ A container image registry, container registry, or registry server stores the im
 ###### **`Enterprise registries`:**
 - Registry servers that your organization manages. They are usually available only to the organization's employees and contractors.
 ###### **`OpenShift internal registries`**
-- A registry server managed internally by an OpenShift cluster to store container images. Create those images using OpenShift's build configurations and the S2I process or a Dockerfile, or import them from other registries.
-These kinds of registries are not mutually exclusive: a registry can be, at the same time, both public and private registry. Usually a public registry is also an external registry, because your organization can access it over the internet, without authentication, and your organization does not control it. The same registry could also be a private registry, if you organization has a plan with the registry provider that allows you to host private images and your organization also has control over who else can access those private images.
-Quay.io works as both a public and a private registry for some users. The same developer can use some public container images from Quay.io, and also some container images from a vendor, that requires authentication.
+- A registry server managed internally by an OpenShift cluster to store container images. 
+
+> *These kinds of registries are not mutually exclusive: a registry can be, at the same time, both **public** and **private** registry. Usually a **public** registry is also an **external** registry, because your organization can access it over the internet, without authentication, and your organization does not control it. The same registry could also be a **private** registry, if you organization has a plan with the registry provider that allows you to host **private** images and your organization also has control over who else can access those private images.
+**`Quay.io`** works as both a public and a private registry for some users. The same developer can use some public container images from Quay.io, and also some container images from a vendor, that requires authentication.*
 
