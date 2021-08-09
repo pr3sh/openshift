@@ -63,7 +63,19 @@ Password: MyS3cret!
 
 - Red Hat supports the **`skopeo`** command to manage images in a container image registry. 
 - **`Skopeo`** does not use a container engine so it is more efficient than using the **`tag`**, **`pull`**, and **`push`** subcommands from **`Podman`**.
+- **`Skopeo`** also provides additional capabilities not found in **`Podman`**, such as signing and deleting
+container images from a registry server.
 
+> *The **`skopeo`** command takes a subcommand, options, and arguments:*
+**`[user@host ~]$ skopeo subcommand [options] location...`**
+
+###### **`Main Subcommands`:**
+
+- **`copy`:** Copy images from one location to another.
+- **`delete `** Delete images from aregistry.
+- **`inspect`** View metadata about an image.
+
+###### **`Main Options`:**
 
 
 
