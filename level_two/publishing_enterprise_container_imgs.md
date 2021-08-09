@@ -132,6 +132,10 @@ $ skopeo copy  --src-creds=testuser:testpassword  \
 $ skopeo copy docker://registry.example.com/myorg/myimage:1.0 \ 
             docker://registry.example.com/myorg/myimage:latest
 ```
+> Delete image from a registry.
+```zsh
+$ skopeo delete docker://registry.example.com/myorg/myimage
+```
 > **`WARNING!!!!`** Arguments to the **`skopeo`** command are always complete image names. The following example is an invalid command because it provides only the registry server name as the destination argument.
 
 ```zsh
