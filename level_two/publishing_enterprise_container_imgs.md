@@ -4,6 +4,7 @@ Understand how to manage container images in registries using Linux container to
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Authenticating with Registries](#authenticating-with-registries)
+  - [Managing Container Registries with Skopeo](#managing-container-registries-with-skopeo)
 
 #### **`Introduction`:**
 
@@ -48,8 +49,20 @@ Password: MyS3cret!
  [user@host ~]$ podman logout quay.io
 >> Remove login credentials for registry.redhat.io
 ```
+> *If you want to log out of all registries, discarding all access tokens that were stored for reuse, use the **`--all`** option.*
+```zsh
+ [user@host ~]$ podman logout --all
+>> Remove login credentials for all registries
+```
+- **`Skopeo`** and **`Buildah`** can also use the authentication tokens stored by **`Podman`**, but they cannot present an interactive password prompt.
+- Podman requires TLS and verification of the remote certificate by default.
+-  If your registry server is not configured to use **`TLS`**, or is configured to use a self-signed **`TLS certificate`** or a **`TLS certificate`** signed by an unknown CA, you can add the **`--tls-verify=false`** option to the login and pull subcommands.
 
 
+#### **`Managing Container Registries with Skopeo`:**
+
+- Red Hat supports the **`skopeo`** command to manage images in a container image registry. 
+- **`Skopeo`** does not use a container engine so it is more efficient than using the **`tag`**, **`pull`**, and **`push`** subcommands from **`Podman`**.
 
 
 
