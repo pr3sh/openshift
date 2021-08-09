@@ -5,6 +5,7 @@ Understand how to manage container images in registries using Linux container to
   - [Introduction](#introduction)
   - [Authenticating with Registries](#authenticating-with-registries)
   - [Managing Container Registries with Skopeo](#managing-container-registries-with-skopeo)
+  - [Pushing and Tagging Images in a Registry Server](#pushing-and-tagging-images-in-a-registry-server)
 
 #### **`Introduction`:**
 
@@ -103,11 +104,40 @@ Skopeo uses **`URIs`** to represent container image locations and **`URI`** sche
 - **`docker`**: Denotes remote container images stored in a registry server.
 - **`containers-storage`**: Denotes container images stored in the local container engine cache.
 
+#### **`Pushing and Tagging Images in a Registry Server`:**
+The **`copy`** subcommand from Skopeo can copy container images directly between registries, without saving the image layers in the local container storage. It can also copy container images from the local container engine to a registry server and tag these images in a single operation.
 
+> *To copy a container image named **`myimage`** from the local container engine to an insecure, public registry at **`registry.example.com`** under the **`myorg`** organization or user account.*
+```zsh
+$ skopeo copy --dest-tls-verify=false \ 
+            containers-storage:myimage \
+            docker://registry.example.com/myorg/myimage
+```
+> Copy a container image from the **`/home/user/myimage`** OCI-formatted folder to the insecure, public registry.
+```zsh
+$ skopeo copy --dest-tls-verify=false  \ 
+                 oci:/home/user/myimage \
+                 docker://registry.example.com/myorg/myimage
+```
+- When copying container images between private registries, you can either authenticate to both registries using **`Podman`** before invoking the **`copy`** subcommand.
+- You can also use the **`--src-creds`** and **`--dest-creds`** options to specify the authentication credentials, as shown below.
+```zsh
+$ skopeo copy  --src-creds=testuser:testpassword  \ 
+               --dest-creds=testuser1:testpassword \
+       docker://srcregistry.domain.com/org1/private \
+       docker://dstegistry.domain2.com/org2/private
+```
+> The **`Skopeo`** **`copy`** command can also tag images in remote repositories.
+```zsh
+$ skopeo copy docker://registry.example.com/myorg/myimage:1.0 \ 
+            docker://registry.example.com/myorg/myimage:latest
+```
+> **`WARNING!!!!`** Arguments to the **`skopeo`** command are always complete image names. The following example is an invalid command because it provides only the registry server name as the destination argument.
 
-
-
-
+```zsh
+$ skopeo copy oci:myimage   \ 
+         docker://registry.example.com/
+```
 
 
 
