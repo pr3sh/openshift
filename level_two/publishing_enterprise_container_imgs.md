@@ -36,8 +36,22 @@ A container image registry, container registry, or registry server stores the im
 - You can simultaneously log in to multiple registries with **`Podman`**. 
 - Each new login either adds or updates an access token in the same file. 
 - Each access token is indexed by the registry server FQDN (*Fully Qualified Domain Name*).
+
+> *Authenticate to **`quay.io`** registry.*
 ```zsh
 [user@host ~]$ podman login quay.io Username: developer1
 Password: MyS3cret!
-Login Succeeded!
+>> Login Succeeded!
 ```
+> *Log out of a registry*
+```zsh
+ [user@host ~]$ podman logout quay.io
+>> Remove login credentials for registry.redhat.io
+```
+
+
+
+
+
+
+
