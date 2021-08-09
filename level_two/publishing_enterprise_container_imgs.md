@@ -245,4 +245,5 @@ $ oc get is -n openshift -o name
 ```zsh
 $ oc describe is php -n openshift
 ```
+- To create an image stream tag resource for a container image hosted on an external registry, use the **`oc import-image`** command with both the --confirm and --from options
 
