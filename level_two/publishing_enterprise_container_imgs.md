@@ -132,7 +132,7 @@ $ skopeo copy  --src-creds=testuser:testpassword  \
 $ skopeo copy docker://registry.example.com/myorg/myimage:1.0 \ 
             docker://registry.example.com/myorg/myimage:latest
 ```
-> Delete image from a registry.
+> Delete image from a registry. This command can optionally take the **`--creds`** and **`--tls-verify=false`** options as well.
 ```zsh
 $ skopeo delete docker://registry.example.com/myorg/myimage
 ```
