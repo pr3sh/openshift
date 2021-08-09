@@ -232,7 +232,17 @@ $ oc policy add-role-to-user system:image-puller \
                         user_name -n project_name
 ```
 
+#### **`Creating Image Streams`**
+- **`Image streams`** are one of the main differentiators between OpenShift and upstream Kubernetes. Kubernetes resources reference container images directly, but OpenShift resources, such as deployment configurations and build configurations, reference image streams.
+- **`Image streams`** allow OpenShift to ensure reproducible, stable deployments of containerized applications and also rollbacks of deployments to their latest known-good state.
+- Image streams provide a stable, short name to reference a container image that is independent of any registry server and container runtime configuration.
 
-
-
+> *To better visualize the relationship between image streams and image stream tags, you can explore the **`openshift`** project that is pre-created in all OpenShift clusters.*
+```zsh
+$ oc get is -n openshift -o name 
+```
+- A number of tags exist for the **`php`** image stream, and an image stream resource exists for each.
+```zsh
+$ oc describe is php -n openshift
+```
 
