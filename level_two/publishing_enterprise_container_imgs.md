@@ -90,7 +90,14 @@ container images from a registry server.
 ```
 > **`WARNING!!!!`**Although you can provide credentials to command line tools, this creates an entry in your command history along with other security concerns. Use techniques to avoid passing plain text credentials to commands.
 
-
+```zsh
+[user@host ~]$ read -p "PASSWORD: " -s password
+>> PASSWORD:
+```
+```zsh
+[user@host ~]$ skopeo inspect --creds developer1:$password \ 
+             docker://registry.redhat.io/rhscl/postgresql-96-rhel7
+```
 
 
 
