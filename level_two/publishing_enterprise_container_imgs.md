@@ -8,7 +8,7 @@ Understand how to manage container images in registries,access the OpenShift int
   - [Pushing and Tagging Images in a Registry Server](#pushing-and-tagging-images-in-a-registry-server)
   - [Authenticating OpenShift to Private Registries](#authenticating-openshift-to-private-registries)
   - [Allowing Access to the OpenShift Registry](#allowing-access-to-the-openshift-registry)
-  - [Creating Image Streams](#creating-image-streams)
+ 
 #### **`Introduction`:**
 
 A container image registry, container registry, or registry server stores the images that you deploy as containers and provides mechanisms to pull, push, update, search, and remove container images. It uses a standard **`REST API`** defined by the Open Container Initiative **`(OCI)`**, which is based on the **Docker** Registry **`HTTP API v2`**. From the perspective of an organization that runs an OpenShift cluster, there are many kinds of container registries:
@@ -317,5 +317,5 @@ $ oc new-app --as-deployment-config -i shared/myis
 - The **`system:image-puller`** role allows a service account to pull the image layers that the image stream cached in the internal registry.
 - The **`system:serviceaccounts:myapp`** group includes all service accounts from the **`myapp`** project. 
 - The **`oc policy`** command can refer to users and groups that do not exist yet.
-a
+
 
