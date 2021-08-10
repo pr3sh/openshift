@@ -317,5 +317,5 @@ $ oc new-app --as-deployment-config -i shared/myis
 - The **`system:image-puller`** role allows a service account to pull the image layers that the image stream cached in the internal registry.
 - The **`system:serviceaccounts:myapp`** group includes all service accounts from the **`myapp`** project. 
 - The **`oc policy`** command can refer to users and groups that do not exist yet.
-
+a
 
