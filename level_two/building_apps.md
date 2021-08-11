@@ -17,5 +17,6 @@ The build configuration resource manages build on Red Hat OpenShift, and there a
 
 
 > Start a new build.The build configuration resource name is the only required argument to start a new build
-**`oc start-build`***name*
+**`oc start-build`** *name*
 - Succesfull builds create an image outputted in the **`ImageStreamTag`**.
+> Cancels a build.
