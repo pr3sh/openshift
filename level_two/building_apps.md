@@ -134,3 +134,7 @@ There are two types of post-commit build hooks you can configure:
   - This is more convenient since it has all the features provided by a shell, such as argument expansion, redirection, and so on. 
   - It only works if the base image has the **`sh`** shell. 
   - To create a shell script **`post-commit`** build hook using the **`--script`** as shown below.
+  ```zsh
+  $ oc set build-hook bc/name --post-commit \ 
+  		 --script="curl http://api.com/user/${USER}"
+  ```
