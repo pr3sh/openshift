@@ -49,12 +49,19 @@ There are two ways to display a build log:
 2. *From a specific build.*
  - **`oc logs build/name-1`**
 
-
 ###### **`Pruning Builds`:**
 
 By default, builds that have completed are persisted indefinitely. You can limit the number of previous builds that are retained using the **`successfulBuildsHistoryLimit`** and **failedBuildsHistoryLimit** attributes, as shown in the following **YAML** snippet of a **`BuildConfig`**:
 
-
+```yaml
+apiVersion: "v1" 
+kind: "BuildConfig" 
+metadata:
+	name: "sample-build"
+ spec:
+ 	successfulBuildsHistoryLimit: 2
+  	failedBuildsHistoryLimit: 2
+```
 
 
 
