@@ -119,4 +119,18 @@ Red Hat OpenShift Container Platform provides specialized webhook types that sup
 	- *For Example* **`oc set triggers bc/name --from-gitlab --remove`**
 	- The **`oc set triggers bc`** command also supports **`--from-github`** and **`--from-bitbucket`**
 
+#### **`Post Commit Hooks`:**
 
+There are two types of post-commit build hooks you can configure:
+1. **`Command: `**
+  - A command is executed using the **`exec`** system call. 
+  - Create a command post-commit build hook using the **`--command`** option as shown below.
+  ```zsh
+  $ oc set build-hook bc/name --post-commit \ 
+  		 --command -- bundle exec rake test --verbose
+  ```
+2. **`Shell Script: `**
+  - Runs a build hook with the **`/bin/sh -ic`** command. 
+  - This is more convenient since it has all the features provided by a shell, such as argument expansion, redirection, and so on. 
+  - It only works if the base image has the **`sh`** shell. 
+  - To create a shell script **`post-commit`** build hook using the **`--script`** as shown below.
