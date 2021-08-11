@@ -115,5 +115,7 @@ Red Hat OpenShift Container Platform provides specialized webhook types that sup
 	- To add other types of webhook to a build configuration, use the **`oc set triggers`** command. 
 	- *For example*, to add a **`GitLab`** webhook to a build configuration:
 	- **`oc set triggers bc/name --from-gitlab`**
+	- To remove an existing webhook from a build configuration, use the oc set triggers command with the **`--remove`** option
+	- *For Example* **`oc set triggers bc/name --from-gitlab --remove`**
 
 
