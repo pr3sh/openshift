@@ -4,7 +4,7 @@ Understand how to manage container images in registries,access the OpenShift int
 
 -  **Table of contents**:
   - [Managing Application Builds](#managing-application-builds)
-  	- [Manging Builds From CLI](#managing-builds-from-cli)
+  	- [Manging Builds From CLI](#managing-builds-from-CLI)
   
 #### **`Managing Application Builds`:**
 
