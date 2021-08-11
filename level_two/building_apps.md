@@ -19,7 +19,32 @@ The build configuration resource manages build on Red Hat OpenShift, and there a
 > Start a new build.The build configuration resource name is the only required argument to start a new build:
 
 ```zsh
-oc start-build name
+$ oc start-build name
 ```
 - Succesfull builds create an image outputted in the **`ImageStreamTag`**.
-> Cancels a build.
+> cancel build
+```zsh
+$ oc cancel-build name
+```
+- It is only possible to cancel builds that are in **`Running`** or **`Pending`** state.
+- Cancelling builds means the build pod is terminated.
+> Delete **`BuildConfig`**.
+```zsh
+$ oc delete bc/name
+```
+- Generally, you delete a build configuration when you need to import a new one from a file.
+> Delete **`Build`** to reclaim the space used by the
+build..
+```zsh
+$ oc delete build/name-1
+```
+-  A build configuration can have multiple builds.
+
+To show the build logs, use **`oc logs`** command.
+- You can check if your application is building correctly. 
+- It is not possible to check logs from deleted or pruned builds. 
+There are two ways to display a build log:
+1. From the most recent build.
+ - **`oc logs -f bc/name`**
+ - The **`-f`** option follows the log until you terminate the command with **`Ctrl+C`**.
+2. 
