@@ -5,6 +5,7 @@ Understand how to manage container images in registries,access the OpenShift int
 -  **Table of contents**:
   - [Managing Application Builds](#managing-application-builds)
   	- [Manging Builds From CLI](#managing-builds-from-CLI)
+  - [Triggering Builds](#triggering-builds)
   
 #### **`Managing Application Builds`:**
 
@@ -78,19 +79,41 @@ To configure build log verbosity.
 Edit the build configuration resource, and add the **`BUILD_LOGLEVEL`** environment variable as part of the source strategy or Docker strategy to configure a specific log level:
 
 ```zsh
-[user@host ~]$ oc set env bc/name BUILD_LOGLEVEL="4"
+$ oc set env bc/name BUILD_LOGLEVEL="4"
 ```
 - The value must be a number between **zero** and **five**. 
 - Zero is the default value and displays fewer logs than five. 
 - When you increase the number, the verbosity of logging messages is greater, and the logs contain more details.
 
+#### **`Triggering Builds`:**
 
+In OpenShift you can define build triggers to allow the platform to start new builds automatically based on certain events. You can use these build triggers to keep your application containers updated with any new container images or code changes that affect your application. OpenShift defines two kinds of build triggers:
+1. **`Image change triggers`:**
+- An image change trigger rebuilds an application container image to incorporate changes made by its parent image.
+2. **`Webhook triggers`:**
+- OpenShift webhook triggers are **`HTTP API`** endpoints that start a new build. 
+    - Use a webhook to integrate OpenShift with your Version Control System (VCS), such as Github or BitBucket, to trigger new builds on code changes.
 
+> *If the image is from an external registry, you must periodically run the **`oc import-image`** command to verify whether the container image changed in the registry server in order to stay up-to-date.*
+- The **`oc new-app`** command automatically creates image change triggers for applications using either the source or Docker build strategies.
+- Add an image change trigger to a build configuration.
+```zsh
+$ oc set triggers bc/name --from-image=project/image:tag
+```
+- A single build configuration cannot include multiple image change triggers.
+- To remove an image change trigger from a build configuration, use the **`oc set triggers`** command with the **`--remove`** option.
+```zsh
+$ oc set triggers bc/name --from-image=project/image:tag --remove
+```
 
+###### **`Starting New Builds with Webhook Triggers`:**
 
-
-
-
-
+Red Hat OpenShift Container Platform provides specialized webhook types that support **`API`** endpoints compatible with the following **`VCS`** services:
+- **`GitLab`** , **`GitHub`** , and **`Bitbucket`**
+- Red Hat OpenShift Container Platform also provides a generic webhook type that takes a payload defined by OpenShift. A generic webhook can be used by any software to start an OpenShift build.
+- The **`oc new-app`** command creates a generic and a Git webhook. 
+	- To add other types of webhook to a build configuration, use the **`oc set triggers`** command. 
+	- *For example*, to add a **`GitLab`** webhook to a build configuration:
+	- **`oc set triggers bc/name --from-gitlab`**
 
 
