@@ -62,6 +62,27 @@ spec:
   successfulBuildsHistoryLimit: 2
   failedBuildsHistoryLimit: 2
 ```
+> *Failed builds include builds with a status of **`failed`**, **`canceled`**, or **`error`**.*
+**`oc adm prune` [FLAGS]**
+- **Available Options:**
+  - **`auth`**: Remove references to the specified roles, clusterroles, users, and groups.
+  - **`builds`**: Remove old completed and failed builds.
+  - **`deployments`**: Remove old completed and failed deployments.
+  - **`groups`**: Remove old OpenShift groups referencing missing records on an external provider.
+  - **`images`**: Remove unreferenced images. 
+
+###### **`Log Verbosity`**
+
+To configure build log verbosity.
+
+Edit the build configuration resource, and add the **`BUILD_LOGLEVEL`** environment variable as part of the source strategy or Docker strategy to configure a specific log level:
+
+```zsh
+[user@host ~]$ oc set env bc/name BUILD_LOGLEVEL="4"
+```
+- The value must be a number between **zero** and **five**. 
+- Zero is the default value and displays fewer logs than five. 
+- When you increase the number, the verbosity of logging messages is greater, and the logs contain more details.
 
 
 
