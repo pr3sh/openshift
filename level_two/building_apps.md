@@ -57,10 +57,10 @@ By default, builds that have completed are persisted indefinitely. You can limit
 apiVersion: "v1" 
 kind: "BuildConfig" 
 metadata:
-	name: "sample-build"
- spec:
- 	successfulBuildsHistoryLimit: 2
-  	failedBuildsHistoryLimit: 2
+  name: "sample-build"
+spec:
+  successfulBuildsHistoryLimit: 2
+  failedBuildsHistoryLimit: 2
 ```
 
 
