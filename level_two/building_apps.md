@@ -14,8 +14,6 @@ The build configuration resource manages build on Red Hat OpenShift, and there a
 2. Create a custom build configuration using **`YAML`** or **`JSON`** syntax and import it to OpenShift using the **`oc create -f`** command.
 
 ###### **`Manging Builds From CLI`:**
-
-
 > Start a new build.The build configuration resource name is the only required argument to start a new build:
 
 ```zsh
@@ -44,7 +42,25 @@ To show the build logs, use **`oc logs`** command.
 - You can check if your application is building correctly. 
 - It is not possible to check logs from deleted or pruned builds. 
 There are two ways to display a build log:
-1. From the most recent build.
+1. *From the most recent build.*
  - **`oc logs -f bc/name`**
  - The **`-f`** option follows the log until you terminate the command with **`Ctrl+C`**.
-2. 
+2. *From a specific build.*
+ - **`oc logs build/name-1`**
+
+
+###### **`Pruning Builds`:**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
