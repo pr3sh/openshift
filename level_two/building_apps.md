@@ -117,5 +117,6 @@ Red Hat OpenShift Container Platform provides specialized webhook types that sup
 	- **`oc set triggers bc/name --from-gitlab`**
 	- To remove an existing webhook from a build configuration, use the oc set triggers command with the **`--remove`** option
 	- *For Example* **`oc set triggers bc/name --from-gitlab --remove`**
+	- The **`oc set triggers bc`** command also supports **`--from-github`** and **`--from-bitbucket`**
 
 
