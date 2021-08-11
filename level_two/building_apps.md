@@ -52,6 +52,7 @@ There are two ways to display a build log:
 
 ###### **`Pruning Builds`:**
 
+By default, builds that have completed are persisted indefinitely. You can limit the number of previous builds that are retained using the **`successfulBuildsHistoryLimit`** and **failedBuildsHistoryLimit** attributes, as shown in the following **YAML** snippet of a **`BuildConfig`**:
 
 
 
