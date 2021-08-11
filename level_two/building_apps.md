@@ -8,8 +8,7 @@ Understand how to manage container images in registries,access the OpenShift int
 #### **`Managing Application Builds`:**
 
 
-The build configuration resource manages build on Red Hat OpenShift, primarily intwo ways to create a build configuration:
-Using the **`oc new-app`** command
-This command can create a build configuration according to the arguments specified. For example, if a Git repository is defined, then a build configuration using the source strategy is created. Also, if a template is the argument, and the template has a build configuration defined, it creates a build configuration based on template parameters.
-Using a custom build configuration
-Create a custom build configuration using YAML or JSON syntax and import it to OpenShift using the oc create -f command.
+The build configuration resource manages build on Red Hat OpenShift, and there are primarily two ways to create a **`BuildConfig`**:
+1. Using the **`oc new-app`** command
+ 	- This command can create a build configuration according to the arguments specified. 
+2. Create a custom build configuration using **`YAML`** or **`JSON`** syntax and import it to OpenShift using the **`oc create -f`** command.
