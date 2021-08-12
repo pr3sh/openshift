@@ -42,6 +42,7 @@ Readiness and liveness probes can check the health of applications in **`three`*
   1. **`HTTP`** Checks:
     - OpenShift uses **`HTTP GET `**requests to check the status code of responses to determine the health of a container. 
     - If the check is deemed successful if the **`HTTP`** response code is in the range **`200`**-**`399`**.
+    
 ```yaml
 readinessProbe:
   httpGet:
