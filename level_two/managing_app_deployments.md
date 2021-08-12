@@ -2,10 +2,26 @@
 # **`Abstract`**
 
 -  **Table of contents**:
+  - [Monitoring Application Health](#monitoring-application-health)
   - [Deployment Config](#deployment-config)
   	- [Deployment Triggers](#deployment-triggers)
   	- [Setting Deployment Resource Limits](#setting-deployment-resource-limits)
 
+
+#### **`Monitoring Application Health`**
+- Applications can become unreliable for a variety of reasons, including temporary connectivity loss, configuration errors, or application errors. 
+- Developers can use **`probes`** to monitor their applications and be made aware of events that can vary from status to resource usage and errors. 
+- A **`probe`** is an OpenShift action that periodically performs diagnostics on a running container. 
+- **`Probes`** can be configured using either the oc command-line client, defined as part of an OpenShift template, or by using the OpenShift web console. There are currently two types of probes in OpenShift:
+1. **Readiness Probe:**
+	- **`Readiness`** probes determine whether or not a container is ready to serve requests. 
+	- If the **`readiness`** probe returns a **`failed`** state, OpenShift removes the **`IP Address`** for the container from the endpoints of all services. 
+	- Developers can use **`readiness`** probes to signal to OpenShift that even though a container is running, it should not receive any traffic from a **`proxy`**. 
+	- The **`readiness`** probe is configured in the **`spec.containers.readinessprobe`** attribute of the pod configuration.
+2. **Liveness Probe:**
+	- **`Liveness`** probes determine whether or not an application running in a container is in a **`healthy`** state. 
+	- If the **`liveness`** probe detects an **`unhealthy`** state, OpenShift **`kills`** the container and tries to redeploy it. 
+	- The **`liveness`** probe is configured in the **`spec.containers.livenessprobe`** attribute of the pod configuration.
 
 #### **`Deployment Config`**
 - A **`DeploymentConfig`** defines the template for a pod and manages the deployment of new images or configuration changes whenever the attributes are changed. 
@@ -98,3 +114,14 @@ $ oc set triggers dc/name \
     - You can use deployment resources with the Recreate, Rolling, or Custom deployment strategies.
 
 > In the following example, resources required for the deployment are declared under the resources attribute of the deployment configuration.
+```yaml
+type: "Recreate" 
+resources:
+  limits:
+    cpu: "100m" 
+    memory: "256Mi
+```
+- **`CPU`** resource in **`CPU`** units. 100m equals 0.1 **`CPU`** units.
+- **`Memory`** resource in bytes. **`256Mi`** equals 268435456 bytes (256 * 2 ^ 20).
+
+
