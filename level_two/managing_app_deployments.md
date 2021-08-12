@@ -55,3 +55,23 @@ $ oc rollback dc/name
 ```zsh
 $ oc set triggers dc/name --auto
 ```
+- View deployment logs.
+```zsh
+$ oc logs -f dc/name
+```
+- View logs from older failed deployments, given they haven't been pruned or deleted.
+```zsh
+$ oc logs --version=1 dc/name
+```
+- Scale the number of pods in deployment.
+```zsh
+$ oc scale dc/name --replicas=3
+```
+
+###### **`Deployment Triggers`:**
+Deployment configurations can contain triggers, which drive the creation of new deployments in response to events, both inside and outside of OpenShift. 
+- Two types of events that trigger a deployment:
+  1. *Configuration change:*
+  	- The **`ConfigChange`** trigger creates a new deployment whenever changes are detected to the replication controller template of the deployment configuration. 
+  2. *Image change:*
+    - The **`ImageChange`** trigger results in a new deployment whenever the value of an image stream tag changes.
