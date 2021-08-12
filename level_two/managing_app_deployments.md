@@ -4,6 +4,7 @@
 -  **Table of contents**:
   - [Deployment Config](#deployment-config)
   	- [Deployment Triggers](#deployment-triggers)
+  	- [Setting Deployment Resource Limits](#setting-deployment-resource-limits)
 
 
 #### **`Deployment Config`**
@@ -82,3 +83,18 @@ Deployment configurations can contain triggers, which drive the creation of new 
   	- The **`ConfigChange`** trigger creates a new deployment whenever changes are detected to the replication controller template of the deployment configuration. 
   2. *Image change:*
     - The **`ImageChange`** trigger results in a new deployment whenever the value of an image stream tag changes.
+    - If the automatic attribute is set to **`false`**, the trigger is disabled
+```zsh
+$ oc set triggers dc/name \
+		 --from-image=myproject/origin-ruby-sample:latest \
+		 -c helloworld
+```
+###### **`Setting Deployment Resource Limits`:**
+- A deployment is completed by a pod that consumes resources (**`memory`** and **`CPU`**) on a node. 
+- By default, pods consume unlimited node resources. 
+	- However, if a project specifies default resource limits, then pods only consume resources up to those limits.
+- You can also limit resource use by specifying resource limits as part of the deployment strategy. 
+- Resource limits apply to the application pods created by the deployment, but not to deployer pods. 
+    - You can use deployment resources with the Recreate, Rolling, or Custom deployment strategies.
+
+> In the following example, resources required for the deployment are declared under the resources attribute of the deployment configuration.
