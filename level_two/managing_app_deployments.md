@@ -24,7 +24,7 @@ strategy:
 type: "Rolling"
 ...
 ```
-- Start a Deployment.The **`latest`** option indicates that the newest version of the template must be used.
+- Start a Deployment. The **`latest`** option indicates that the newest version of the template must be used.
 ```zsh
 $ oc rollout latest dc/name
 ```
@@ -32,4 +32,26 @@ $ oc rollout latest dc/name
 ```zsh
 $ oc rollout history dc/name
 ```
-- details about a specific deployment, append the --revision parameter
+- Get details about a specific deployment, append the **`--revision`** parameter.
+```zsh
+$ oc rollout history dc/name --revision=1
+```
+- To cancel a deployment.
+```zsh
+$ oc rollout cancel dc/name
+```
+- To retry failed deployment.
+```zsh
+$ oc rollout retry dc/name
+```
+- To use a previous version of the application, you can roll back the deployment.
+```zsh
+$ oc rollback dc/name
+``` 
+> *If no revision is specified with the **`--to-version`** parameter, the last successfully deployed revision is used.*
+
+- To prevent accidentally starting a new deployment process after a rollback is complete, image change triggers are disabled as part of the rollback process. 
+- You can re-enable image change triggers with the **`oc set triggers`** command.
+```zsh
+$ oc set triggers dc/name --auto
+```
