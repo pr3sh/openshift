@@ -23,6 +23,18 @@
 	- If the **`liveness`** probe detects an **`unhealthy`** state, OpenShift **`kills`** the container and tries to redeploy it. 
 	- The **`liveness`** probe is configured in the **`spec.containers.livenessprobe`** attribute of the pod configuration.
 
+There are **five** options that control these two probes:
+1. **`initialDelaySeconds`**: 
+  - Determines how long to wait after the container starts before beginning the probe.
+2. **`timeoutSeconds`:**
+  - Determines how long to wait for the probe to finish. If this time is exceeded, OpenShift assumes that the probe failed.
+3. **`periodSeconds`:**
+  - Specifies the frequency of the checks.
+4. **`successThreshold`:**
+  - Specifies the minimum consecutive successes for the probe to be considered successful after it has failed.
+5. **`failureThreshold`:**
+  - Specifies the minimum consecutive failures for the probe to be considered failed after it has succeeded.
+
 #### **`Deployment Config`**
 - A **`DeploymentConfig`** defines the template for a pod and manages the deployment of new images or configuration changes whenever the attributes are changed. 
 - Deployment configurations can support many different deployment patterns like: **`Full Restart`**, Customizable **`Rolling Updates`**,  **`Pre`** & **`Post-Life-Cycle Hooks`**.
