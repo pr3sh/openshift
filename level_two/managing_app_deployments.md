@@ -24,5 +24,12 @@ strategy:
 type: "Rolling"
 ...
 ```
-- Start a Deployment.
-	-  The **`latest`** option indicates that the newest version of the template must be used:
+- Start a Deployment.The **`latest`** option indicates that the newest version of the template must be used.
+```zsh
+$ oc rollout latest dc/name
+```
+- View history of Deployments for specific **`DeploymentConfig`**, use **`oc rollout history`** command.
+```zsh
+$ oc rollout history dc/name
+```
+- details about a specific deployment, append the --revision parameter
