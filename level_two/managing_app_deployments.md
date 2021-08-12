@@ -3,6 +3,8 @@
 
 -  **Table of contents**:
   - [Monitoring Application Health](#monitoring-application-health)
+    - [Methods of Checking Application Health](#methods-of-checking-application-health)
+    - [Creating Probes Using CLI](#creating-probes-using-cli)
   - [Deployment Config](#deployment-config)
   	- [Deployment Triggers](#deployment-triggers)
   	- [Setting Deployment Resource Limits](#setting-deployment-resource-limits)
@@ -34,6 +36,22 @@ There are **five** options that control these two probes:
   - Specifies the minimum consecutive successes for the probe to be considered successful after it has failed.
 5. **`failureThreshold`:**
   - Specifies the minimum consecutive failures for the probe to be considered failed after it has succeeded.
+
+###### **`Methods of Checking Application Health`:**
+###### **`Creating Probes Using CLI`:**
+
+```zsh
+$ oc set probe dc/myapp --readiness \ 
+	--get-url=http://:8080/healthz   \
+	--period=20 
+```
+
+```zsh
+$ oc set probe dc/myapp --liveness \
+>     --open-tcp=3306 --period=20   \
+>     --timeout-seconds=1
+```
+
 
 #### **`Deployment Config`**
 - A **`DeploymentConfig`** defines the template for a pod and manages the deployment of new images or configuration changes whenever the attributes are changed. 
