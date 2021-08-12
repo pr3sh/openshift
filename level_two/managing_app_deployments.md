@@ -6,8 +6,8 @@
     - [Methods of Checking Application Health](#methods-of-checking-application-health)
     - [Creating Probes Using CLI](#creating-probes-using-cli)
   - [Deployment Config](#deployment-config)
-  	- [Deployment Triggers](#deployment-triggers)
-  	- [Setting Deployment Resource Limits](#setting-deployment-resource-limits)
+    - [Deployment Triggers](#deployment-triggers)
+    - [Setting Deployment Resource Limits](#setting-deployment-resource-limits)
 
 
 #### **`Monitoring Application Health`**
@@ -16,14 +16,14 @@
 - A **`probe`** is an OpenShift action that periodically performs diagnostics on a running container. 
 - **`Probes`** can be configured using either the oc command-line client, defined as part of an OpenShift template, or by using the OpenShift web console. There are currently two types of probes in OpenShift:
 1. **Readiness Probe:**
-	- **`Readiness`** probes determine whether or not a container is ready to serve requests. 
-	- If the **`readiness`** probe returns a **`failed`** state, OpenShift removes the **`IP Address`** for the container from the endpoints of all services. 
-	- Developers can use **`readiness`** probes to signal to OpenShift that even though a container is running, it should not receive any traffic from a **`proxy`**. 
-	- The **`readiness`** probe is configured in the **`spec.containers.readinessprobe`** attribute of the pod configuration.
+    - **`Readiness`** probes determine whether or not a container is ready to serve requests. 
+    - If the **`readiness`** probe returns a **`failed`** state, OpenShift removes the **`IP Address`** for the container from the endpoints of all services. 
+    - Developers can use **`readiness`** probes to signal to OpenShift that even though a container is running, it should not receive any traffic from a **`proxy`**. 
+    - The **`readiness`** probe is configured in the **`spec.containers.readinessprobe`** attribute of the pod configuration.
 2. **Liveness Probe:**
-	- **`Liveness`** probes determine whether or not an application running in a container is in a **`healthy`** state. 
-	- If the **`liveness`** probe detects an **`unhealthy`** state, OpenShift **`kills`** the container and tries to redeploy it. 
-	- The **`liveness`** probe is configured in the **`spec.containers.livenessprobe`** attribute of the pod configuration.
+    - **`Liveness`** probes determine whether or not an application running in a container is in a **`healthy`** state. 
+    - If the **`liveness`** probe detects an **`unhealthy`** state, OpenShift **`kills`** the container and tries to redeploy it. 
+    - The **`liveness`** probe is configured in the **`spec.containers.livenessprobe`** attribute of the pod configuration.
 
 There are **five** options that control these two probes:
 1. **`initialDelaySeconds`**: 
@@ -40,32 +40,32 @@ There are **five** options that control these two probes:
 ###### **`Methods of Checking Application Health`:**
 Readiness and liveness probes can check the health of applications in **`three`** ways:
   1. **`HTTP`** Checks:
-  	- OpenShift uses **`HTTP GET `**requests to check the status code of responses to determine the health of a container. 
-  	- If the check is deemed successful if the **`HTTP`** response code is in the range **`200`**-**`399`**.
-  	```yaml
-		readinessProbe:
-		  httpGet:
-		    path: /health
-		    port: 8080
-		  initialDelaySeconds: 15
-		  timeoutSeconds: 1
-		...
-  	```
+    - OpenShift uses **`HTTP GET `**requests to check the status code of responses to determine the health of a container. 
+    - If the check is deemed successful if the **`HTTP`** response code is in the range **`200`**-**`399`**.
+```yaml
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  initialDelaySeconds: 15
+  timeoutSeconds: 1
+...
+```
   2. **`Container Execution`** Checks:
     - OpenShift executes a command inside the container. 
     - Exiting the check with a **`status`** of **`0`** is considered a success. 
     - All other **`status`** codes are considered a failure. 
   3. **`TCP Socket`** Checks:
-  	- When using TCP socket checks, OpenShift attempts to open a socket to the container. 
-  	- The container is considered healthy if the check can establish a successful connection.
-  	- Ideal for applications that run as daemons, and open **`TCP`** ports, such as database servers, file servers, web servers, and application servers.
+    - When using TCP socket checks, OpenShift attempts to open a socket to the container. 
+    - The container is considered healthy if the check can establish a successful connection.
+    - Ideal for applications that run as daemons, and open **`TCP`** ports, such as database servers, file servers, web servers, and application servers.
 
 ###### **`Creating Probes Using CLI`:**
 > **Examples:**
 ```zsh
 $ oc set probe dc/myapp --readiness \ 
->	--get-url=http://:8080/healthz   \
->	--period=20 
+>   --get-url=http://:8080/healthz   \
+>   --period=20 
 ```
 ```zsh
 $ oc set probe dc/myapp --liveness \
@@ -150,19 +150,19 @@ $ oc scale dc/name --replicas=3
 Deployment configurations can contain triggers, which drive the creation of new deployments in response to events, both inside and outside of OpenShift. 
 - Two types of events that trigger a deployment:
   1. *Configuration change:*
-  	- The **`ConfigChange`** trigger creates a new deployment whenever changes are detected to the replication controller template of the deployment configuration. 
+    - The **`ConfigChange`** trigger creates a new deployment whenever changes are detected to the replication controller template of the deployment configuration. 
   2. *Image change:*
     - The **`ImageChange`** trigger results in a new deployment whenever the value of an image stream tag changes.
     - If the automatic attribute is set to **`false`**, the trigger is disabled
 ```zsh
 $ oc set triggers dc/name \
-		 --from-image=myproject/origin-ruby-sample:latest \
-		 -c helloworld
+         --from-image=myproject/origin-ruby-sample:latest \
+         -c helloworld
 ```
 ###### **`Setting Deployment Resource Limits`:**
 - A deployment is completed by a pod that consumes resources (**`memory`** and **`CPU`**) on a node. 
 - By default, pods consume unlimited node resources. 
-	- However, if a project specifies default resource limits, then pods only consume resources up to those limits.
+    - However, if a project specifies default resource limits, then pods only consume resources up to those limits.
 - You can also limit resource use by specifying resource limits as part of the deployment strategy. 
 - Resource limits apply to the application pods created by the deployment, but not to deployer pods. 
     - You can use deployment resources with the Recreate, Rolling, or Custom deployment strategies.
