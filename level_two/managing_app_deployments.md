@@ -38,21 +38,45 @@ There are **five** options that control these two probes:
   - Specifies the minimum consecutive failures for the probe to be considered failed after it has succeeded.
 
 ###### **`Methods of Checking Application Health`:**
-###### **`Creating Probes Using CLI`:**
+Readiness and liveness probes can check the health of applications in **`three`** ways:
+  1. **`HTTP`** Checks:
+  	- OpenShift uses **`HTTP GET `**requests to check the status code of responses to determine the health of a container. 
+  	- If the check is deemed successful if the **`HTTP`** response code is in the range **`200`**-**`399`**.
+  	```yaml
+		readinessProbe:
+		  httpGet:
+		    path: /health
+		    port: 8080
+		  initialDelaySeconds: 15
+		  timeoutSeconds: 1
+		...
+  	```
+  2. **`Container Execution`** Checks:
+    - OpenShift executes a command inside the container. 
+    - Exiting the check with a **`status`** of **`0`** is considered a success. 
+    - All other **`status`** codes are considered a failure. 
+  3. **`TCP Socket`** Checks:
+  	- When using TCP socket checks, OpenShift attempts to open a socket to the container. 
+  	- The container is considered healthy if the check can establish a successful connection.
+  	- Ideal for applications that run as daemons, and open **`TCP`** ports, such as database servers, file servers, web servers, and application servers.
 
+###### **`Creating Probes Using CLI`:**
+> **Examples:**
 ```zsh
 $ oc set probe dc/myapp --readiness \ 
-	--get-url=http://:8080/healthz   \
-	--period=20 
+>	--get-url=http://:8080/healthz   \
+>	--period=20 
 ```
-
 ```zsh
 $ oc set probe dc/myapp --liveness \
 >     --open-tcp=3306 --period=20   \
 >     --timeout-seconds=1
 ```
-
-
+```zsh
+$ oc set probe dc/myapp --liveness \
+> --get-url=http://:8080/healthz --initial-delay-seconds=30 \ 
+> --succuess-threshold=1 --failure-threshold=3
+```
 #### **`Deployment Config`**
 - A **`DeploymentConfig`** defines the template for a pod and manages the deployment of new images or configuration changes whenever the attributes are changed. 
 - Deployment configurations can support many different deployment patterns like: **`Full Restart`**, Customizable **`Rolling Updates`**,  **`Pre`** & **`Post-Life-Cycle Hooks`**.
