@@ -1,0 +1,13 @@
+kind: "BuildConfig"
+apiVersion: "build.openshift.io/v1"
+metadata:
+  name: "mypipeline" 
+spec:
+  source:
+    contextDir: jenkins
+    git:
+      uri: "https://mygit/myapp"
+      ref: "master" 
+  strategy:
+    jenkinsPipelineStrategy:
+    type: JenkinsPipeline
