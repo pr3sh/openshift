@@ -65,8 +65,7 @@ dependencies:
 2. You can provide these values statically by using the **`values.yaml`** file or dynamically during packaging or installation by using the **`--set`** flag of the **`Helm CLI tool`**.
 3. Common practice is to provide the majority of the values by using the **`values.yaml`** file and provide dynamic values at installation time.
 
-The following is an excerpt from the contents of this file:
-
+> *Below is an excerpt from the contents of this file*
 ```yaml
 ...
 image:
