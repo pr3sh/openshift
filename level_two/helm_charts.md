@@ -23,15 +23,15 @@ Helm is an open source Package Manager for Kubernetes Applications.
 
 #### **`Helm Commands`:**
 
-|         **`Command`**             |     **`Description`**                            | 
-|---------------------------------|:------------------------------------------:|  
-| **`dependency`**         | Manage a chart's dependencies                            | 
-| **`install`**            | Install a chart                           |   
-| **`list`**               | List releases installed |
-| **`pull`**                    | Download chart from repository          |
-| **`rollback`**                        | Rollback to previous revision        | 
-| **`search`**         | pseudo-terminal                            | 
-| **`show`**            | Interactive mode                           |   
-| **`status`**               | means the container runs in the background |
-| **`uninstall`**                    | specify the name of the container          |
-| **`upgrade`**                        | helps specify environment variables        | 
+|         **`Command`**  |     **`Description`**             | 
+|------------------------|:---------------------------------:|  
+| **`dependency`**       | Manage a chart's dependencies.    | 
+| **`install`**          | Install a chart.                  |   
+| **`list`**             | List releases installed           |
+| **`pull`**             | Download chart from repository.   |
+| **`rollback`**         | Rollback to previous revision.    | 
+| **`search`**           | Search for keyword in charts.     | 
+| **`show`**             | Display information of a chart.   |   
+| **`status`**           | Display status of named release   |
+| **`uninstall`**        | Uninstall a release               |
+| **`upgrade`**          |Upgrade a release                  | 
