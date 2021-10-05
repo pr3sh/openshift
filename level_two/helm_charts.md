@@ -108,13 +108,9 @@ spec:
 ```
 
 1. The prefix for values from the **`Chart.yaml`** file is the name of the chart
-
 2. Output the block if the value is false
-
 3. The prefix for values from the **`values.yaml`** file is Values
-
 4. End the conditional block
-
 5. The prefix for the name of the chart is **`Chart`**.
 
 
