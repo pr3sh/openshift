@@ -92,7 +92,30 @@ service:
 - Helm uses the Go Template language to define the templates in the templates directory plus some other functions.
 - With a section of the common **`deployment.yaml`** template file you can see the use of placeholders and conditional sections
 
+```yaml
+metadata:
+  name: {{ include "mychart.fullname" . }} 1
+  labels:
+    {{- include "mychart.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }} 2
+  replicas: {{ .Values.replicaCount }} 3
+  {{- end }} 4
+  template:
+    spec:
+      containers:
+        - name: {{ .Chart.Name }} 5
+```
 
+1. The prefix for values from the **`Chart.yaml`** file is the name of the chart
+
+2. Output the block if the value is false
+
+3. The prefix for values from the **`values.yaml`** file is Values
+
+4. End the conditional block
+
+5. The prefix for the name of the chart is **`Chart`**.
 
 
 
