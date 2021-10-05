@@ -25,11 +25,15 @@ Helm is an open source Package Manager for Kubernetes Applications.
 
 |         **Options**             |     **Meaning**                            | 
 |---------------------------------|:------------------------------------------:|  
-| **`-t`** or **`--tty`**         | pseudo-terminal                            | 
-| **`-i`** or **`--interactive`** | Interactive mode                           |   
-| **`-d`** or **`--detach`**      | means the container runs in the background |
-| **`--name`**                    | specify the name of the container          |
-| **`-e`**                        | helps specify environment variables        | 
-
+| **`dependency`**         | pseudo-terminal                            | 
+| **`install`**            | Interactive mode                           |   
+| **`list`**               | means the container runs in the background |
+| **`pull`**                    | specify the name of the container          |
+| **`rollback`**                        | helps specify environment variables        | 
+| **`search`**         | pseudo-terminal                            | 
+| **`show`**            | Interactive mode                           |   
+| **`status`**               | means the container runs in the background |
+| **`uninstall`**                    | specify the name of the container          |
+| **`upgrade`**                        | helps specify environment variables        | 
 #### **`Chart Values`:**
 
