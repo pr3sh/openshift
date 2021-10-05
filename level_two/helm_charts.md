@@ -7,6 +7,7 @@ This document goes over Helm charts.
   - [Helm Chart Structure](#helm-chart-structure)
   - [Helm Commands](#helm-commands)
   - [Chart Values](#chart-values)
+  - [Templates](#templates)
   - [Customizing Deployment with Kustomize](#customizing-deployment-with-kustomize)
 
 #### **`Introduction`:**
@@ -86,7 +87,10 @@ service:
   type: ClusterIP 6
   port: 80 
 ```
-a
+- Helm uses templates to create at runtime the resources needed to deploy the application in the Kubernetes cluster. 
+- The Helm CLI tool creates some of these templates, but you can modify them or create new ones to suit your needs.
+- Helm uses the Go Template language to define the templates in the templates directory plus some other functions.
+- With a section of the common **`deployment.yaml `**template file you can see the use of placeholders and conditional sections
 
 
 
