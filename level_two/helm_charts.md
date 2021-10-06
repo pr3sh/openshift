@@ -137,6 +137,11 @@ myapp
   └── staging
 ```
 
+For each configuration set Kustomize needs a **`kustomization.yaml`** file that can contain:
+- Resource Files, Base configuration set to start from
+- Resources that patch the base configuration
+- Common resources definitions that apply to any configuration set depending on this one
+> *This file must reside in the directory of the configuration set.*
 
 
 
