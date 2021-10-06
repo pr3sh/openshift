@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Install Tree.
-sudo apt install tree
+# Install some dependencies.
+sudo apt update && sudo apt upgrade &&  \
+	sudo apt install tree && sudo apt install curl 
+
 
 # Create context directory and display Tree structure.
 EXPORT BUILD_DIR && tree $BUILD_DIR
@@ -33,5 +35,6 @@ oc  expose service $APP_NAME
 SVC_URL=$(oc get route -n $PROJECT_NAME $APP_NAME -o jsonpath='{.spec.host}{"\n"}')
 
 echo testing database service endpoint....
+curl $SVC_URL
 
 
