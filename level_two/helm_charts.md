@@ -159,7 +159,7 @@ resources:
 
 ##### **`Base Configuration`:**
 The **`kustomization.yaml`** file of an overlay needs to point to the base configuration sets that are the starting point. For example:
-```bash
+```yaml
 bases:
 - ../../base
 ```
@@ -172,7 +172,26 @@ bases:
 - For example, if you would like to add the origin=kustomize label to the base set and all the overlays that depend on it, then you must add this to the base/**`kustomization.yaml`**:
 
 ##### **`Patches`:**
+```yaml
+commonLabels:
+  origin: kustomize
+```
 ##### **`Applying Customizations`:**
+- Each overlay can provide any number of modifications to the base configuration through the list of patches to apply.
+- First you add the reference to the patch file in the **`kustomization.yaml`** file of the overlay:
+```yaml
+patches:
+- replica_count.yaml
+```
+> And then, in the patch file provided, you need a way to identify the resource to change and the new value
+```yaml
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: myapp 
+spec:
+  replicas: 5 
+```
 
 
 
