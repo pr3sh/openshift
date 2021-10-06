@@ -62,9 +62,12 @@ dependencies:
 | **`upgrade`**          |Upgrade a release                  | 
 
 #### **`Chart Values`:**
-1. Helm replaces the placeholders with the actual values during the processing of the chart. 
+1. **`Helm`** replaces the placeholders with the actual values during the processing of the chart. 
 2. You can provide these values statically by using the **`values.yaml`** file or dynamically during packaging or installation by using the **`--set`** flag of the **`Helm CLI tool`**.
 3. Common practice is to provide the majority of the values by using the **`values.yaml`** file and provide dynamic values at installation time.
+4. **`Helm`** takes commands executed on **`Helm CLI`** to **`Tiller`**.
+  - **`Tiller `**is the server-side component of **`Helm`**.
+  - **`Tiller`** turns commands into something **`Kubernets`** can understand.
 
 > *Below is an excerpt from the contents of this file*
 ```yaml
