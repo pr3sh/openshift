@@ -100,7 +100,6 @@ service:
 - The Helm CLI tool creates some of these templates, but you can modify them or create new ones to suit your needs.
 - Helm uses the Go Template language to define the templates in the templates directory plus some other functions.
 - With a section of the common **`deployment.yaml`** template file you can see the use of placeholders and conditional sections
-
 ```yaml
 metadata:
   name: {{ include "mychart.fullname" . }} 1
@@ -115,17 +114,13 @@ spec:
       containers:
         - name: {{ .Chart.Name }} 5
 ```
-
 1. The prefix for values from the **`Chart.yaml`** file is the name of the chart
 2. Output the block if the value is false
 3. The prefix for values from the **`values.yaml`** file is Values
 4. End the conditional block
 5. The prefix for the name of the chart is **`Chart`**.
 
-
-
 ##### **`Customizing Deployments with Kustomize`:**
-
 - **`Kustomize `**is a tool that customizes Kubernetes resources for different environments or needs.
 -  **`Kustomize`** is a template free solution that helps reuse configurations and provides an easy way to patch any resource.
 - The most common use case is the need to define different resources for different environments such as **`development`**, **`staging`**, and **`production`**. 
@@ -148,6 +143,7 @@ For each configuration set Kustomize needs a **`kustomization.yaml`** file that 
 - Resources that patch the base configuration
 - Common resources definitions that apply to any configuration set depending on this one
 - The resources section of the **`kustomization.yaml`** file is a list of files that combined, create all the resources needed for this specific environment. 
+
 > *This file must reside in the directory of the configuration set.*
 
 ```bash
@@ -170,20 +166,19 @@ bases:
 - Kustomize allows adding new configurations in all the resources that derive from a base set.
 - You can set Labels and Annotations with the commonLabels and commonAnnotations sections of a **`kustomization.yaml`** file.
 - For example, if you would like to add the origin=kustomize label to the base set and all the overlays that depend on it, then you must add this to the base/**`kustomization.yaml`**:
-
-##### **`Patches`:**
 ```yaml
 commonLabels:
   origin: kustomize
 ```
-##### **`Applying Customizations`:**
+
+##### **`Patches`:**
 - Each overlay can provide any number of modifications to the base configuration through the list of patches to apply.
 - First you add the reference to the patch file in the **`kustomization.yaml`** file of the overlay:
 ```yaml
 patches:
 - replica_count.yaml
 ```
-> And then, in the patch file provided, you need a way to identify the resource to change and the new value
+- And then, in the patch file provided, you need a way to identify the resource to change and the new value
 ```yaml
 apiVersion: apps/v1
 kind: Deployment 
@@ -192,7 +187,22 @@ metadata:
 spec:
   replicas: 5 
 ```
+##### **`Applying Customizations`:**
+- You can use **`Kustomize`** as a standalone tool with the **`kustomize command-line`** tool,.
+- Or as of Kubernetes 1.14, as part of the **`kubectl apply`** or **`oc apply`** commands. 
+- These tools only need the location of the folder with the configuration set to apply.
 
-
+> *Example of standalone way:*
+```bash
+[user@host ~]$ kustomize build myapp/base | oc apply -f -
+```
+> This is an example of the integration in the cluster management tools:
+```bash
+[user@host ~]$ oc apply -k myapp/base
+```
+> And an example of applying the overlay modifications:
+```bash
+[user@host ~]$ oc apply -k myapp/overlays/staging
+```
 
 
