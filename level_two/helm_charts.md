@@ -9,6 +9,10 @@ This document goes over Helm charts.
   - [Chart Values](#chart-values)
   - [Templates](#templates)
   - [Customizing Deployment with Kustomize](#customizing-deployment-with-kustomize)
+    - [Base Configuration](#base-configuration)
+    - [Common Series](#common-series)
+    - [Patches](#patches)
+    - [Applying Customizations](#applying-customizations)
 
 #### **`Introduction`:**
 Helm is an open source Package Manager for Kubernetes Applications.
@@ -61,7 +65,7 @@ dependencies:
 | **`uninstall`**        | Uninstall a release               |
 | **`upgrade`**          |Upgrade a release                  | 
 
-#### **`Chart Values`:**
+##### **`Chart Values`:**
 1. **`Helm`** replaces the placeholders with the actual values during the processing of the chart. 
 2. You can provide these values statically by using the **`values.yaml`** file or dynamically during packaging or installation by using the **`--set`** flag of the **`Helm CLI tool`**.
 3. Common practice is to provide the majority of the values by using the **`values.yaml`** file and provide dynamic values at installation time.
@@ -90,6 +94,8 @@ service:
   type: ClusterIP 6
   port: 80 
 ```
+
+##### **`Templates`:**
 - Helm uses templates to create at runtime the resources needed to deploy the application in the Kubernetes cluster. 
 - The Helm CLI tool creates some of these templates, but you can modify them or create new ones to suit your needs.
 - Helm uses the Go Template language to define the templates in the templates directory plus some other functions.
@@ -118,7 +124,7 @@ spec:
 
 
 
-#### **`Customizing Deployments with Kustomize`:**
+##### **`Customizing Deployments with Kustomize`:**
 
 - **`Kustomize `**is a tool that customizes Kubernetes resources for different environments or needs.
 -  **`Kustomize`** is a template free solution that helps reuse configurations and provides an easy way to patch any resource.
@@ -141,8 +147,34 @@ For each configuration set Kustomize needs a **`kustomization.yaml`** file that 
 - Resource Files, Base configuration set to start from
 - Resources that patch the base configuration
 - Common resources definitions that apply to any configuration set depending on this one
+- The resources section of the **`kustomization.yaml`** file is a list of files that combined, create all the resources needed for this specific environment. 
 > *This file must reside in the directory of the configuration set.*
 
+```bash
+resources:
+- deployment.yaml
+- secrets.yaml
+- service.yaml
+```
+
+##### **`Base Configuration`:**
+The **`kustomization.yaml`** file of an overlay needs to point to the base configuration sets that are the starting point. For example:
+```bash
+bases:
+- ../../base
+```
+- If you follow the expected directory structure, then the relative path is the most portable solution.
+- This overlay starts with the base configuration and then applies any patch defined in it.
+
+##### **`Common Series`:**
+Kustomize allows adding new configurations in all the resources that derive from a base set.
+
+You can set Labels and Annotations with the commonLabels and commonAnnotations sections of a kustomization.yaml file.
+
+For example, if you would like to add the origin=kustomize label to the base set and all the overlays that depend on it, then you must add this to the base/kustomization.yaml:
+
+##### **`Patches`:**
+##### **`Applying Customizations`:**
 
 
 
