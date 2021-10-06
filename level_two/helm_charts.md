@@ -118,7 +118,24 @@ spec:
 
 
 
+#### **`Customizing Deployments with Kustomize`:**
 
+- **`Kustomize `**is a tool that customizes Kubernetes resources for different environments or needs.
+-  **`Kustomize`** is a template free solution that helps reuse configurations and provides an easy way to patch any resource.
+- The most common use case is the need to define different resources for different environments such as **`development`**, **`staging`**, and **`production`**. 
+- **`Kustomize`** separates these configuration sets into two types: **`base`** and **`overlays`**.
+- Base holds all configuration and resources common to all the derivatives & Overlays represent the differences from the base on a specific environment. 
+- **`Kustomize`** uses directories to represent these configuration sets.
+
+> *Example of a Kustomize layout could be*
+
+```bash
+myapp
+├── base
+└── overlays
+  ├── production
+  └── staging
+```
 
 
 
