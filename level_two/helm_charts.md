@@ -167,11 +167,9 @@ bases:
 - This overlay starts with the base configuration and then applies any patch defined in it.
 
 ##### **`Common Series`:**
-Kustomize allows adding new configurations in all the resources that derive from a base set.
-
-You can set Labels and Annotations with the commonLabels and commonAnnotations sections of a kustomization.yaml file.
-
-For example, if you would like to add the origin=kustomize label to the base set and all the overlays that depend on it, then you must add this to the base/kustomization.yaml:
+- Kustomize allows adding new configurations in all the resources that derive from a base set.
+- You can set Labels and Annotations with the commonLabels and commonAnnotations sections of a **`kustomization.yaml`** file.
+- For example, if you would like to add the origin=kustomize label to the base set and all the overlays that depend on it, then you must add this to the base/**`kustomization.yaml`**:
 
 ##### **`Patches`:**
 ##### **`Applying Customizations`:**
