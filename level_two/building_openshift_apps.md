@@ -4,6 +4,7 @@ This document goes over Helm charts.
 -  **`Table of contents`**:
   - [Openshift Services](#openshift-services)
   - [Defining External Services](#defining-external-services)
+  - [Containerizing Services](#containerizing-services)
  
 
 #### **`Openshift Services`**:
@@ -13,9 +14,7 @@ This document goes over Helm charts.
 - OpenShift adds the **`svc.cluster.local`** domain suffix to the DNS resolver search path of all containers.
 - Openshift also adds a **`service-name.project-name.svc.cluster.local`** host name to each service.
 
-
 #### **`Defining External Services`**:
-
 To create an internal service, use the **`oc create service externalname`** command as show below:
 ```shell
   oc create service externalname myservice \
@@ -25,3 +24,6 @@ To create an internal service, use the **`oc create service externalname`** comm
 1. A typical service creates an endpoint resource.
 2. If you do not use the **`--external-name`** flag, an endpoint resource **WONT** be created.
 3. You can create the endpoint with a resource definition file, passed through the **`oc create -f`** command.
+4. If you create an endpoint from a file, you can define multiple **`IP Addresses`** for the same external service that relies on OpenShift service load-balancing features.
+
+#### **`Containerizing Services`**:
