@@ -16,10 +16,12 @@ This document goes over Helm charts.
 
 #### **`Defining External Services`**:
 
-
-
+To create an internal service, use the **`oc create service externalname`** command as show below:
 ```shell
   oc create service externalname myservice \
       --external-name myhost.example.com
 
   ```
+1. A typical service creates an endpoint resource.
+2. If you do not use the **`--external-name`** flag, an endpoint resource **WONT** be created.
+3. You can create the endpoint with a resource definition file, passed through the **`oc create -f`** command.
