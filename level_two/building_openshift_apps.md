@@ -35,8 +35,8 @@ Cloud-Native techonologies are those that are deisnged to build and run scalable
 - JKube deploys Java applications to Kubernets and OpenShift with little-to-no configurations.
 - It is a result of refactoring and rebranding of Frabic8, targetiting Kubernetes and OpenShift.
 - JKube, through its Maven plugins, supports several Java frameworks such as:
-  1. Quarkus: A modern full-stack, cloud-native framew
-  2. Spring Boot:
-  3. Vert.x
-  4. Micronaut: *A modern full-stack toolkit for building modular, easily testable microservices and serverless apps.*
-  5. Open Liberty: *A flexible server runtime for Java applications.*
+  1. Quarkus: *A modern full-stack, cloud-native framework, with a small memory footprint*
+  2. **`Spring Boot`**: *Cloud-native developement framework based on the Spring Framework and auto configurations.*
+  3. **`Vert.x`**: *Reactive, low-latency development framework based on asynchronous I/O and event steams.*
+  4. **`Micronaut`**: *A modern full-stack toolkit for building modular, easily testable microservices and serverless apps.*
+  5. **`Open Liberty`**: *A flexible server runtime for Java applications.*
