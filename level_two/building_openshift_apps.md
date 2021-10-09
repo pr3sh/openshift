@@ -65,12 +65,11 @@ The Maven plug-in goal represents a well-defined task in the software devlpment 
 |         **`Command`**    |     **`Description`**              | 
 |--------------------------|:---------------------------------:|  
 | **`oc:resources`**       | Creates Kubernets & OpenShift resource descriptors.  Plug-in stores all generated descriptors in project's **`target/classes/META-INF/openshift`** subdirectory  | 
-| **`oc:build`**           | Install a chart.                  |   
-| **`oc:apply`**           | List releases installed           |
-| **`oc:apply`**           | Download chart from repository.   |
-| **`oc:deploy`**          | Rollback to previous revision.    | 
-| **`oc:undeploy`**        | Search for keyword in charts.     | 
-| **`oc:watch`**           | Display information of a chart.   |   
+| **`oc:build`**           | Compiles & Packages Java app to create a binary artifact which is used to build aaplication container image. For generatic Java applications, the default image is **`quay.io/jkube/jkube-java-binary-s2i`**                 |   
+| **`oc:apply`**           | Applies the generated resources to a connected OpenShift cluster.           |
+| **`oc:deploy`**          | Similar to **`oc apply`**, except it runs in the background.   | 
+| **`oc:undeploy`**        | Removes resources from the OpenShift cluster.     | 
+| **`oc:watch`**           | Watches files for changes, which then triggers & redeployment.   |   
 
 > **`JKube OpenShift Maven plug-in`** supports other goals, for more info [refer to this URL](https://www.eclipse.org/jkube/docs/openshift-maven-plugin)
 
