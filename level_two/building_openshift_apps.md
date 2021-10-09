@@ -32,4 +32,7 @@ Cloud-Native techonologies are those that are deisnged to build and run scalable
 
 
 - Eclipse JKube is a set of open sourc eplugins & libraries that can build container images via different stratgies and generates.
-- 
+- JKube deploys Java applications to Kubernets and OpenShift with little-to-no configurations.
+- It is a result of refactoring and rebranding of Frabic8, targetiting Kubernetes and OpenShift.
+- JKube, through its Maven plugins, supports several Java frameworks such as:
+  1. Quarkus: A modern full-stack
