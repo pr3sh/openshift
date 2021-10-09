@@ -72,7 +72,7 @@ The Maven plug-in goal represents a well-defined task in the software devlpment 
 | **`oc:undeploy`**           | Search for keyword in charts.     | 
 | **`oc:watch`**             | Display information of a chart.   |   
 
-> **`JKube OpenShift Maven plug-in`** supports other goals, for more info check this out
+> **`JKube OpenShift Maven plug-in`** supports other goals, for more info [refer to this URL](https://www.eclipse.org/jkube/docs/openshift-maven-plugin)
 
 
 ###### **`Customizing OpenShift Resources`**:
