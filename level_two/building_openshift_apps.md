@@ -54,7 +54,18 @@ You can use the Maven plug-in to deploy Java applications to OpenShift.
 
 ###### **`OpenShift Maven Plug-In Goals`**:
 The Maven plug-in goal represents a well-defined task in the software devlpment life-cycle. To execute a Maven plug-in goal, you can use the **`mvn`** command.
+```zsh
+[user@host sample-app]$ mvn <plug-in goal name> 
+```
+> *OpenShift Maven plug-in provides a set of goals to deal with the development of cloud-native Java applications.*
+
+
 ###### **`Customizing OpenShift Resources`**:
+
+
+
+
+
 
 
 
