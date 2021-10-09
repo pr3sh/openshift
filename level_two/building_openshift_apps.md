@@ -62,15 +62,15 @@ The Maven plug-in goal represents a well-defined task in the software devlpment 
 
 #### **`Helm Commands`:**
 
-|         **`Command`**  |     **`Description`**             | 
-|------------------------|:---------------------------------:|  
-| **`oc:resources`**       | Creates Kubernets & OpenShift resource descriptors.  Plug-in stores all generated descriptors in project's **`target/classes/META-INF/openshift`** subdirectory           | 
-| **`oc:build`**          | Install a chart.                  |   
-| **`oc:apply`**             | List releases installed           |
-| **`oc:apply`**             | Download chart from repository.   |
-| **`oc:deploy`**         | Rollback to previous revision.    | 
-| **`oc:undeploy`**           | Search for keyword in charts.     | 
-| **`oc:watch`**             | Display information of a chart.   |   
+|         **`Command`**    |     **`Description`**              | 
+|--------------------------|:---------------------------------:|  
+| **`oc:resources`**       | Creates Kubernets & OpenShift resource descriptors.  Plug-in stores all generated descriptors in project's **`target/classes/META-INF/openshift`** subdirectory  | 
+| **`oc:build`**           | Install a chart.                  |   
+| **`oc:apply`**           | List releases installed           |
+| **`oc:apply`**           | Download chart from repository.   |
+| **`oc:deploy`**          | Rollback to previous revision.    | 
+| **`oc:undeploy`**        | Search for keyword in charts.     | 
+| **`oc:watch`**           | Display information of a chart.   |   
 
 > **`JKube OpenShift Maven plug-in`** supports other goals, for more info [refer to this URL](https://www.eclipse.org/jkube/docs/openshift-maven-plugin)
 
