@@ -5,6 +5,8 @@ This document goes over Helm charts.
   - [Openshift Services](#openshift-services)
   - [Defining External Services](#defining-external-services)
   - [Deploying Cloud Native Applications with JKube](#deploying-cloud-native-applications-with-JKube)
+    - [OpenShift Maven Plug-In](#openshift-maven-plugin)
+    - [OpenShift Maven Plug-In Goals](#)
  
 
 #### **`Openshift Services`**:
@@ -40,3 +42,11 @@ Cloud-Native techonologies are those that are deisnged to build and run scalable
   3. **`Vert.x`**: *Reactive, low-latency development framework based on asynchronous I/O and event steams.*
   4. **`Micronaut`**: *A modern full-stack toolkit for building modular, easily testable microservices and serverless apps.*
   5. **`Open Liberty`**: *A flexible server runtime for Java applications.*
+
+
+###### **`OpenShift Maven Plug-In`**: 
+
+You can use the Maven plug-in to deploy Java applications to OpenShift.
+- To use the OpenShift Maven plug-in with a project, update the project's **`pom.xml`** file to enable and configure plug-in.
+- You must add **plugin** entry to the **plugins** listings in the **build** section of the **`pom.xml`**.
+- 
