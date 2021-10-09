@@ -34,7 +34,7 @@ Cloud-Native techonologies are those that are deisnged to build and run scalable
 - **`Eclipse JKube`** is a set of open source plugins & libraries that can build container images via different stratgies and generates.
 - **`JKube`** deploys Java applications to **`Kubernetes`** and **`OpenShift`** with little-to-no configurations.
 - It is a result of refactoring and rebranding of Frabic8, targetiting Kubernetes and OpenShift.
-- JKube, through its Maven plugins, supports several Java frameworks such as:
+- **`JKube`**, through its **`Maven`** plugins, supports several Java frameworks such as:
   1. Quarkus: *A modern full-stack, cloud-native framework, with a small memory footprint*
   2. **`Spring Boot`**: *Cloud-native developement framework based on the Spring Framework and auto configurations.*
   3. **`Vert.x`**: *Reactive, low-latency development framework based on asynchronous I/O and event steams.*
