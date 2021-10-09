@@ -6,7 +6,8 @@ This document goes over Helm charts.
   - [Defining External Services](#defining-external-services)
   - [Deploying Cloud Native Applications with JKube](#deploying-cloud-native-applications-with-JKube)
     - [OpenShift Maven Plug-In](#openshift-maven-plugin)
-    - [OpenShift Maven Plug-In Goals](#)
+    - [OpenShift Maven Plug-In Goals](#openshift-maven-plugin-goals)
+    - [Customizing OpenShift Resources](#customizing-openshift-resources)
  
 
 #### **`Openshift Services`**:
@@ -50,3 +51,12 @@ You can use the Maven plug-in to deploy Java applications to OpenShift.
 - To use the OpenShift Maven plug-in with a project, update the project's **`pom.xml`** file to enable and configure plug-in.
 - You must add **plugin** entry to the **plugins** listings in the **build** section of the **`pom.xml`**.
 - 
+
+###### **`OpenShift Maven Plug-In Goals`**:
+###### **`Customizing OpenShift Resources`**:
+
+
+
+
+
+
