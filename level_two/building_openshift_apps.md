@@ -27,3 +27,8 @@ To create an internal service, use the **`oc create service externalname`** comm
 4. If you create an endpoint from a file, you can define multiple **`IP Addresses`** for the same external service that relies on OpenShift service load-balancing features.
 
 #### **`Deploying Cloud-Native Applications with JKube`**:
+
+Cloud-Native techonologies are those that are deisnged to build and run scalable applications in Cloud environments (Hybrid, Public, & Private Cloud). For example, **`Quarkus`** or **`JKube`** do not need **Dockerfiles** in order to create container images. Any Application that is deployed on OpenShift and deigned to use the serives provided by the platform can be classifierd as cloud-native application.
+
+
+- E
