@@ -31,4 +31,5 @@ To create an internal service, use the **`oc create service externalname`** comm
 Cloud-Native techonologies are those that are deisnged to build and run scalable applications in Cloud environments (Hybrid, Public, & Private Cloud). For example, **`Quarkus`** or **`JKube`** do not need **Dockerfiles** in order to create container images. Any Application that is deployed on OpenShift and deigned to use the serives provided by the platform can be classifierd as cloud-native application.
 
 
-- E
+- Eclipse JKube is a set of open sourc eplugins & libraries that can build container images via different stratgies and generates.
+- 
