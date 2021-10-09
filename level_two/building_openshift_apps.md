@@ -38,5 +38,5 @@ Cloud-Native techonologies are those that are deisnged to build and run scalable
   1. Quarkus: A modern full-stack, cloud-native framew
   2. Spring Boot:
   3. Vert.x
-  4. Micronaut: *A modern full-stack*
+  4. Micronaut: *A modern full-stack toolkit for building modular, easily testable microservices and serverless apps.*
   5. Open Liberty: *A flexible server runtime for Java applications.*
