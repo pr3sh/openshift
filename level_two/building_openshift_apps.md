@@ -76,6 +76,25 @@ The Maven plug-in goal represents a well-defined task in the software devlpment 
 
 ###### **`Customizing OpenShift Resources`**:
 
+In some scenarios, you may need to customize the generated resources & that can be done in two ways:
+1. Add OpenShift resource **`YAML`** fragments to the project's **`src/main/jkube`** subdirectory.
+- Add additional configuration to the project's **`pom.xml`** 
+
+> Consider the below example which shows the contents of a **`src/main/jkube/route.yaml`**.
+
+```yaml
+spec:
+    host: app.alternate.com
+```
+- This fragment changes the defualt host name of the application route to **`app.alternate.com`**. 
+- Same concept can be applied to other Openshift resources such as:
+   - **`Routes`**
+   - **`Secrets`**
+   - **`ConfigMap`**
+   - **`DeploymentConfig`**
+   - **`Deployment`**
+   - **`Service`**
+
 
 
 
