@@ -60,6 +60,21 @@ The Maven plug-in goal represents a well-defined task in the software devlpment 
 > *OpenShift Maven plug-in provides a set of goals to deal with the development of cloud-native Java applications.*
 
 
+#### **`Helm Commands`:**
+
+|         **`Command`**  |     **`Description`**             | 
+|------------------------|:---------------------------------:|  
+| **`oc:resources`**       | Manage a chart's dependencies.    | 
+| **`oc:build`**          | Install a chart.                  |   
+| **`oc:apply`**             | List releases installed           |
+| **`oc:apply`**             | Download chart from repository.   |
+| **`oc:deploy`**         | Rollback to previous revision.    | 
+| **`oc:undeploy`**           | Search for keyword in charts.     | 
+| **`oc:watch`**             | Display information of a chart.   |   
+
+> **`JKube OpenShift Maven plug-in`** supports other goals, for more info check this out
+
+
 ###### **`Customizing OpenShift Resources`**:
 
 
