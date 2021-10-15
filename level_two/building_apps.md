@@ -124,11 +124,11 @@ Red Hat OpenShift Container Platform provides specialized webhook types that sup
 1. Get the generic webhook **`URL`**
 
 ```zsh
-oc describe build <build_name>
+oc describe bc <name>
 ```
 2. Get the secret for the webhook.
   ```zsh
-  
+SECRET = $(oc get bc <name> -o jsonpath='{.spec.triggers[*].secret}{"\n"}')
   ```
 
 #### **`Post Commit Hooks`:**
