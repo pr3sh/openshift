@@ -104,6 +104,11 @@ exec nginx -g "daemon off;"
 ```zsh
 podman build -t s2i-do288-nginx .
 ```
+- Test application container image.
+```zsh
+s2i build test/test-app s2i-do288-nginx nginx-test \
+--as-docker-file /path/to/Dockerfile
+```
 
 
 
