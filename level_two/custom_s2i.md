@@ -104,12 +104,30 @@ exec nginx -g "daemon off;"
 ```zsh
 podman build -t s2i-do288-nginx .
 ```
-- Test application container image.
+- Build a test application container image.
 ```zsh
 s2i build test/test-app s2i-do288-nginx nginx-test \
 --as-docker-file /path/to/Dockerfile
 ```
+-  Build test container image with podman
+```zsh
+podman build -t nginx-test /path/to/Dockerfile
+```
+- Test image with different  **`UID`** than the one provided in **`Dockerfile`** to ensure container image can run with Random**`UID`**.
+```zsh
+podman run -u 1234 -d -p 8080:8080 nginx-test
+```
 
 
-
-
+#### **`Making the S2I Builder Image Available to RHOCP`**
+> *After you test the container locally, push the S2I builder image to an enterprise registry.*
+```zsh
+[user@host ~]$ skopeo copy containers-storage:localhost/s2i-do288-httpd \
+docker://quay.io/${RHT_OCP4_QUAY_USER}/s2i-do288-httpd
+```
+- create an **`ImageStream`** for the Nginx S2I builder image
+```zsh
+[user@host ~]$ oc import-image s2i-do288-nginx \
+--from quay.io/${RHT_OCP4_QUAY_USER}/s2i-do288-nginx \
+--confirm
+```
