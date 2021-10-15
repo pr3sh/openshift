@@ -87,14 +87,14 @@ USER 1001
 
 CMD ["/usr/libexec/s2i/usage"]
 ```
-- Create assemble script.
+- Create **`assemble`** script.
 ```bash
 #!/bin/bash -e
 
 echo "---> Copying source HTML files to web server root..."
 cp -Rf /tmp/src/. /opt/rh/rh-nginx18/root/usr/share/nginx/html/
 ```
-- Create run script.
+- Create **`run`** script.
 ```bash
 #!/bin/bash -e
 
