@@ -132,7 +132,10 @@ SECRET = $(oc get bc <name> -o jsonpath='{.spec.triggers[*].secret}{"\n"}')
   ```
 3. Make **`POST`** request:
 ```zsh
-
+curl -X POST -k \
+${RHT_OCP4_MASTER_API}\
+/apis/build.openshift.io/v1/namespaces/${RHT_OCP4_DEV_USER}-build-app\
+/buildconfigs/<name>/webhooks/$SECRET/generic
 ```
 
 
