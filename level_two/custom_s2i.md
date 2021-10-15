@@ -100,8 +100,10 @@ cp -Rf /tmp/src/. /opt/rh/rh-nginx18/root/usr/share/nginx/html/
 
 exec nginx -g "daemon off;"
 ```
-
-
+- Use **podman** to build the builder image.
+```zsh
+podman build -t s2i-do288-nginx .
+```
 
 
 
