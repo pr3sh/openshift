@@ -1,4 +1,4 @@
-# **`Abstract`**
+## **`Abstract`**
 
 This document goes over Helm charts.
 -  **`Table of contents`**:
@@ -34,7 +34,6 @@ directory
     └── test-app 
         └── index.html
 ```
-
 After you are done updating your **`Dockerfile`** and s2i scripts, you can build your image
 ```zsh
 podman build -t builder_image .
@@ -49,9 +48,6 @@ podman build -t builder_image .
 - For incremental builds, be sure to create a **`save-artifacts`** script and pass the **`--incremental`** flag to the **`s2i build`** command.
 
 ##### **`Build an Nginx Image`**:
-
-
-
 
 ```zsh
 s2i create s2i-do288-nginx s2i-do288-nginx
@@ -117,17 +113,18 @@ podman build -t nginx-test /path/to/Dockerfile
 ```zsh
 podman run -u 1234 -d -p 8080:8080 nginx-test
 ```
-
-
-#### **`Making the S2I Builder Image Available to RHOCP`**
+##### **`Making the S2I Builder Image Available to RHOCP`**
 > *After you test the container locally, push the S2I builder image to an enterprise registry.*
 ```zsh
 [user@host ~]$ skopeo copy containers-storage:localhost/s2i-do288-httpd \
 docker://quay.io/${RHT_OCP4_QUAY_USER}/s2i-do288-httpd
 ```
-- create an **`ImageStream`** for the Nginx S2I builder image
+- Create an **`ImageStream`** for the Nginx **`S2I`** builder image.
 ```zsh
 [user@host ~]$ oc import-image s2i-do288-nginx \
 --from quay.io/${RHT_OCP4_QUAY_USER}/s2i-do288-nginx \
 --confirm
 ```
+
+
+
