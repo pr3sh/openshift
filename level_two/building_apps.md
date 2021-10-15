@@ -120,8 +120,13 @@ Red Hat OpenShift Container Platform provides specialized webhook types that sup
 	- The **`oc set triggers bc`** command also supports **`--from-github`** and **`--from-bitbucket`**
 
 
-- Start a new build manually, using the generic webhook for the build configuration
+- Start a new build manually, using the generic webhook for the build configuration.
+1. Get the generic webhook **`URL`**
 
+```zsh
+oc describe build <build_name>
+```
+2. Get the secret for the webhook.
   ```zsh
   
   ```
