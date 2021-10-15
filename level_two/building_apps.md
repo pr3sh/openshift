@@ -130,6 +130,11 @@ oc describe bc <name>
   ```zsh
 SECRET = $(oc get bc <name> -o jsonpath='{.spec.triggers[*].secret}{"\n"}')
   ```
+3. Make **`POST`** request:
+```zsh
+
+```
+
 
 #### **`Post Commit Hooks`:**
 
