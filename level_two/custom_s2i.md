@@ -42,5 +42,5 @@ podman build -t builder_image .
 ```zsh
 [user@host ~]$ s2i build src builder_image tag_name
 ```
-- The s2i build command requires the use of a local Docker service because it uses the Docker API directly via the socket to build the S2I container image. 
-- To provide support for environments that do not have Docker available, the s2i build command now includes the --as-dockerfile path/to/Dockerfile option
+- The **`s2i build`** command requires the use of a local **`Docker`** service because it uses the **`Docker API`** directly via the socket to build the **`S2I`** container image. 
+- To provide support for environments that do not have **`Docker`** available, the s2i build command now includes the **`--as-dockerfile`** path/to/Dockerfile option
