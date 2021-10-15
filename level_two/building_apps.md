@@ -119,6 +119,13 @@ Red Hat OpenShift Container Platform provides specialized webhook types that sup
 	- *For Example* **`oc set triggers bc/name --from-gitlab --remove`**
 	- The **`oc set triggers bc`** command also supports **`--from-github`** and **`--from-bitbucket`**
 
+
+- Start a new build manually, using the generic webhook for the build configuration
+
+  ```zsh
+  
+  ```
+
 #### **`Post Commit Hooks`:**
 
 There are two types of post-commit build hooks you can configure:
@@ -138,3 +145,9 @@ There are two types of post-commit build hooks you can configure:
   $ oc set build-hook bc/name --post-commit \ 
   		 --script="curl http://api.com/user/${USER}"
   ```
+
+
+
+
+
+
