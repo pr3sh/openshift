@@ -49,11 +49,11 @@ You can use the Maven plug-in to deploy Java applications to OpenShift.
 ```xml
   <build>
     <plugins>
-      <plugin>1
+      <plugin>
         <groupId>org.eclipse.jkube</groupId>
         <artifactId>openshift-maven-plugin</artifactId>
         <version>1.2.0</version>
-        <executions>2
+        <executions>
           <execution>
             <goals>
               <goal>resource</goal>
@@ -62,7 +62,7 @@ You can use the Maven plug-in to deploy Java applications to OpenShift.
             </goals>
           </execution>
         </executions>
-        <configuration>3
+        <configuration>
           <!-- additional configuration here -->
         </configuration>
       </plugin>
