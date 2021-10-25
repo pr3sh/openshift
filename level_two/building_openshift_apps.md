@@ -45,12 +45,29 @@ You can use the Maven plug-in to deploy Java applications to OpenShift.
 - To use the OpenShift Maven plug-in with a project, update the project's **`pom.xml`** file to enable and configure plug-in.
 - You must add **plugin** entry to the **plugins** listings in the **build** section of the **`pom.xml`**.
 
+> *Example of XML:*
 ```xml
-  <plugin>
-    <groupId>io.jshift</groupId>
-    <artifactId>oc-maven-plugin</artifactId>
-    <version>${jshift.openshift.version}</version>
-  </plugin>
+  <build>
+    <plugins>
+      <plugin>1
+        <groupId>org.eclipse.jkube</groupId>
+        <artifactId>openshift-maven-plugin</artifactId>
+        <version>1.2.0</version>
+        <executions>2
+          <execution>
+            <goals>
+              <goal>resource</goal>
+              <goal>build</goal>
+              <goal>apply</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>3
+          <!-- additional configuration here -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 ```
 ###### **`OpenShift Maven Plug-In Goals`**:
 The Maven plug-in goal represents a well-defined task in the software devlpment life-cycle. To execute a Maven plug-in goal, you can use the **`mvn`** command.
