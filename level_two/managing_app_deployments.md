@@ -1,4 +1,3 @@
-
 # **`Abstract`**
 
 -  **Table of contents**:
@@ -8,7 +7,6 @@
   - [Deployment Config](#deployment-config)
     - [Deployment Triggers](#deployment-triggers)
     - [Setting Deployment Resource Limits](#setting-deployment-resource-limits)
-
 
 #### **`Monitoring Application Health`**
 - Applications can become unreliable for a variety of reasons, including temporary connectivity loss, configuration errors, or application errors. 
