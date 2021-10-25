@@ -1,5 +1,4 @@
 # **`Abstract`**
-
 This document goes over Helm charts.
 -  **`Table of contents`**:
   - [Openshift Services](#openshift-services)
@@ -9,7 +8,6 @@ This document goes over Helm charts.
     - [OpenShift Maven Plug-In Goals](#openshift-maven-plugin-goals)
     - [Customizing OpenShift Resources](#customizing-openshift-resources)
  
-
 #### **`Openshift Services`**:
 - OpenShift services are typically comprised of a name and a selector.
 - The service uses selectors to identify pods that should recieve application request sent to the service.
@@ -22,7 +20,6 @@ To create an internal service, use the **`oc create service externalname`** comm
 ```shell
   oc create service externalname myservice \
       --external-name myhost.example.com
-
   ```
 1. A typical service creates an endpoint resource.
 2. If you do not use the **`--external-name`** flag, an endpoint resource **WONT** be created.
@@ -32,7 +29,6 @@ To create an internal service, use the **`oc create service externalname`** comm
 #### **`Deploying Cloud-Native Applications with JKube`**:
 
 Cloud-Native techonologies are those that are deisnged to build and run scalable applications in Cloud environments (Hybrid, Public, & Private Cloud). For example, **`Quarkus`** or **`JKube`** do not need **Dockerfiles** in order to create container images. Any Application that is deployed on OpenShift and deigned to use the serives provided by the platform can be classifierd as cloud-native application.
-
 
 - **`Eclipse JKube`** is a set of open source plugins & libraries that can build container images via different stratgies and generates.
 - **`JKube`** deploys Java applications to **`Kubernetes`** and **`OpenShift`** with little-to-no configurations.
@@ -44,14 +40,18 @@ Cloud-Native techonologies are those that are deisnged to build and run scalable
   4. **`Micronaut`**: *A modern full-stack toolkit for building modular, easily testable microservices and serverless apps.*
   5. **`Open Liberty`**: *A flexible server runtime for Java applications.*
 
-
 ###### **`OpenShift Maven Plug-In`**: 
-
 You can use the Maven plug-in to deploy Java applications to OpenShift.
 - To use the OpenShift Maven plug-in with a project, update the project's **`pom.xml`** file to enable and configure plug-in.
 - You must add **plugin** entry to the **plugins** listings in the **build** section of the **`pom.xml`**.
-- 
 
+```xml
+  <plugin>
+    <groupId>io.jshift</groupId>
+    <artifactId>oc-maven-plugin</artifactId>
+    <version>${jshift.openshift.version}</version>
+  </plugin>
+```
 ###### **`OpenShift Maven Plug-In Goals`**:
 The Maven plug-in goal represents a well-defined task in the software devlpment life-cycle. To execute a Maven plug-in goal, you can use the **`mvn`** command.
 ```zsh
@@ -59,9 +59,7 @@ The Maven plug-in goal represents a well-defined task in the software devlpment 
 ```
 > *OpenShift Maven plug-in provides a set of goals to deal with the development of cloud-native Java applications.*
 
-
 #### **`Helm Commands`:**
-
 |         **`Command`**    |     **`Description`**              | 
 |--------------------------|:---------------------------------:|  
 | **`oc:resources`**       | Creates Kubernets & OpenShift resource descriptors.  Plug-in stores all generated descriptors in project's **`target/classes/META-INF/openshift`** subdirectory  | 
@@ -75,7 +73,6 @@ The Maven plug-in goal represents a well-defined task in the software devlpment 
 
 
 ###### **`Customizing OpenShift Resources`**:
-
 In some scenarios, you may need to customize the generated resources & that can be done in two ways:
 1. Add OpenShift resource **`YAML`** fragments to the project's **`src/main/jkube`** subdirectory.
 - Add additional configuration to the project's **`pom.xml`** 
@@ -94,19 +91,4 @@ spec:
    - **`DeploymentConfig`**
    - **`Deployment`**
    - **`Service`**
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
 
