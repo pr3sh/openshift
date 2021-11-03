@@ -168,3 +168,11 @@ resources:
 - **`Memory`** resource in bytes. **`256Mi`** equals 268435456 bytes (256 * 2 ^ 20).
 
 
+
+
+##### **`Other Useful Commands`:**
+
+
+
+
+
