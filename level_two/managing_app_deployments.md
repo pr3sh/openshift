@@ -172,7 +172,11 @@ resources:
 
 ##### **`Other Useful Commands`:**
 
+- Change deployment from rolling to Recreate.
+```bash
+$ oc patch dc/mysql --patch {"spec"}
 
 
+```
 
 
