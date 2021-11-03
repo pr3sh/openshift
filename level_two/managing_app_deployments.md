@@ -172,11 +172,18 @@ resources:
 
 ##### **`Other Useful Commands`:**
 
-- Change deployment from rolling to Recreate.
-```bash
-$ oc patch dc/mysql --patch {"spec"}
-
-
+> verify deployment type
+```zsh
+$ oc get dc/mysql -o jsonpath='{.spec.strategy.type}'
+```
+> Change deployment from rolling to Recreate.
+```zsh
+$ oc patch dc/mysql --patch {"strategy":{"type":"Recreate"}}
+```
+> Remove Rolling Params
+```zsh
+$ oc patch dc/mysql --type=json  \
+      --patch='[{"op":"remove","path":"/spec/strategy/rollingParams"}]'
 ```
 
 
