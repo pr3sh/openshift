@@ -180,8 +180,8 @@ $ oc secrets link builder registrycreds
 - One way to perform that change uses the following **`oc patch`** command.
 - The **`default-route`** route uses the **`default`** wildcard domain name for application deployed to the cluster.
 ```zsh
-$ oc patch config cluster -n openshift-image-registry \ 
-         --type merge -p '{"spec":{"defaultRoute":true}}'
+$ oc patch configs.imageregistry.operator.openshift.io/cluster \
+         --patch '{"spec":{"defaultRoute":true}}' --type=merge
 ```
 ```zsh
 $ oc get route -n openshift-image-registry

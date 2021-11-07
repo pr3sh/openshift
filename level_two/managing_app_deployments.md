@@ -167,9 +167,6 @@ resources:
 - **`CPU`** resource in **`CPU`** units. 100m equals 0.1 **`CPU`** units.
 - **`Memory`** resource in bytes. **`256Mi`** equals 268435456 bytes (256 * 2 ^ 20).
 
-
-
-
 ##### **`Other Useful Commands`:**
 
 > verify deployment type
@@ -187,7 +184,7 @@ $ oc patch dc/mysql --type=json  \
 ```
 
 ```zsh
-oc patch dc/mysql --patch \
+$ oc patch dc/mysql --patch \
 '{"spec":{"strategy":{"recreateParams":{"post":{"failurePolicy": "Abort","execNewPod":{"containerName":"mysql","command":["/bin/sh","-c","curl -L -s https://github.com/RedHatTraining/DO288-apps/releases/download/OCP-4.1-1/import.sh -o /tmp/import.sh&&chmod 755 /tmp/import.sh&&/tmp/import.sh"]}}}}}}'
 ```
 
