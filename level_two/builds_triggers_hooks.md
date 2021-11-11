@@ -128,7 +128,7 @@ oc describe bc <name>
 ```
 2. Get the secret for the webhook.
   ```zsh
-SECRET = $(oc get bc <name> -o jsonpath='{.spec.triggers[*].secret}{"\n"}')
+SECRET = $(oc get bc <name> -o jsonpath='{.spec.triggers[*].generic.secret}{"\n"}')
   ```
 3. Make **`POST`** request:
 ```zsh
