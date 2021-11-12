@@ -181,7 +181,7 @@ $ oc secrets link builder registrycreds
 - The **`default-route`** route uses the **`default`** wildcard domain name for application deployed to the cluster.
 ```zsh
 $ oc patch configs.imageregistry.operator.openshift.io/cluster \
-         --patch '{"spec":{"defaultRoute":true}}' --type=merge
+       --patch '{"spec":{"defaultRoute":true}}' --type=merge
 ```
 ```zsh
 $ oc get route -n openshift-image-registry
