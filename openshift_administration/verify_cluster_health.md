@@ -34,3 +34,10 @@ Display more detailed information about the node.
 ```zsh
 oc describe node <node_name>
 ```
+The `ClusterVersion` is a Custom Resource that contains information about the cluster, status of cluster operators, and its version. Defining a new version of the cluster instructs the `cluster-version` operatr to upgrade th cluster to that version. To retrive cluster version that is running:
+
+```zsh
+[user@host ~]$ oc get clusterversion
+> NAME      VERSION      AVAILABLE    PROGRESSING   SINCE    STATUS
+version     4.6.2         True         False        5d 24h    Cluster version is 4.6.2 
+``` 
