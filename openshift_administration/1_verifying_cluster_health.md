@@ -7,6 +7,8 @@ This section focuses on how to identify and mitigate cluster issues that are not
   - [Verifying Health of OpenShift Nodes](#verifying-health-of-openshift-nodes)
   - [Displaying Node Logs](#displaying-node-logs)
   - [Opening Shell Prompt Inside Node](#opening-shell-prompt-inside-node)
+  - [Troubleshooting Container Engine](#troubleshooting-container-engine)
+  - [Creating Troubleshooting Pods for Deployments](#creating-troubleshooting-pods-for-deployments)
 
 ##### **`Introduction`:**
 The process of troubleshooting an OpenShift cluster relatively similar to trouble shooting application deployments, since most components in RHOCP4 are operators. 
@@ -84,9 +86,18 @@ Although this can be done in Red Hat OpenShift Container Platform 4, it is not r
 sh-4.4# chroot /host
 sh-4.4# systemctl is-active kubelet
 ```
-
-
-
+##### **`Troubleshooting Container Engine`:**
+- To get low-level information about all containers running on a node, you can use the **`crictl`** command. 
+- You cannot use **`podman`** for this task as it does not have the visibility on containers that are created by **`CRI-O`**. 
+- The **`oc describe node`** command provides the same information although organized by pod, as opposed to containers.
+```zsh
+[user@host]$ oc debug node/node-name
+...
+...
+sh-4.4# chroot /host
+sh-4.4# crictl ps 
+```
+##### **`Creating Troubleshooting Pods for Deployments`:**
 
 
 
