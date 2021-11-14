@@ -12,7 +12,6 @@ The process of troubleshooting an OpenShift cluster relatively similar to troubl
 2. The deployment which manages the operator application, and its pods.
 3. If there needs to be modifications of that operators configuration, then you can identify the custom resource.
 
-
 ##### **`Verifying Health of OpenShift Nodes`**
 Display each node, and their respective statuses. If a node is not in **`Ready`** state, then it means it cannot communicate with the OpenShift control plane.
 ```zsh
@@ -35,6 +34,5 @@ version     4.6.2         True         False        5d 24h    Cluster version is
 ``` 
 > You can also use the **`oc describe clusterversion`** to obtain more detailed information:
 
-
-
+OpenShift *cluster operators* are responsible for managing the cluster's main components such as the **`API server`**, **`web console`**, **`storage`**, or **`Software Defined Network`**. You can use the **`ClusterOperator`** resource to get an overview of each operator & their respective statues.
 
