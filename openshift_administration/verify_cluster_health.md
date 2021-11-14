@@ -4,7 +4,7 @@ This section focuses on how to identify and mitigate cluster issues that are not
 
 -  **Table of contents**:
   - [Introduction](#introduction)
-  - [Authenticating with Registries](#authenticating-with-registries)
+  - [Verifying Health of OpenShift Nodes](#verifying-health-of-openshift-nodes)
   - [Managing Container Registries with Skopeo](#managing-container-registries-with-skopeo)
   - [Pushing and Tagging Images in a Registry Server](#pushing-and-tagging-images-in-a-registry-server)
   - [Authenticating OpenShift to Private Registries](#authenticating-openshift-to-private-registries)
@@ -12,8 +12,25 @@ This section focuses on how to identify and mitigate cluster issues that are not
 
 
 
-#### **`Introduction`:**
+##### **`Introduction`:**
+
 The process of troubleshooting an OpenShift cluster relatively similar to trouble shooting application deployments, since most components in RHOCP4 are operators. 
+
 1. You can typically identify the project where the operator resides.
 2. The deployment which manages the operator application, and its pods.
-3. If there needs to be modifications of that operators configuration, then you can identify the custom resource
+3. If there needs to be modifications of that operators configuration, then you can identify the custom resource.
+
+
+##### **`Verifying Health of OpenShift Nodes`**
+Display each node, and their respective statuses. If a node is not in **`Ready`** state, then it means it cannot communicate with the OpenShift control plane.
+```zsh
+oc get nodes
+```
+Display current CPU and Memory usage of each node.
+```zsh
+oc adm top nodes
+```
+Display more detailed information about the node.
+```zsh
+oc describe node <node_name>
+```
