@@ -41,3 +41,8 @@ The `ClusterVersion` is a Custom Resource that contains information about the cl
 > NAME      VERSION      AVAILABLE    PROGRESSING   SINCE    STATUS
 version     4.6.2         True         False        5d 24h    Cluster version is 4.6.2 
 ``` 
+> You can also use the **`oc describe clusterversion`** to obtain more detailed information:
+
+
+
+
