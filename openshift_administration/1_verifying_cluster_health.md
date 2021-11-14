@@ -80,7 +80,7 @@ Although this can be done in Red Hat OpenShift Container Platform 4, it is not r
 > *For example:*
 
 ```zsh
-[user@host]$ oc debug node/node-name
+[user@host ~]$ oc debug node/node-name
 ...
 ...
 sh-4.4# chroot /host
@@ -91,7 +91,7 @@ sh-4.4# systemctl is-active kubelet
 - You cannot use **`podman`** for this task as it does not have the visibility on containers that are created by **`CRI-O`**. 
 - The **`oc describe node`** command provides the same information although organized by pod, as opposed to containers.
 ```zsh
-[user@host]$ oc debug node/node-name
+[user@host ~]$ oc debug node/node-name
 ...
 ...
 sh-4.4# chroot /host
@@ -105,6 +105,16 @@ sh-4.4# crictl ps
 - it also runs with health probes disabled, this way, you can verify environments variables, network acess to other services and permissions inside the pod.
 - The **`oc debug`** command also allows you to specify settings that you do not want to clone., *i.e:* container image or even specifying a fixed user id. It is important to note that some settings might require cluster administrator privileges.
 
+> *For example, if you would like to see if a failed deployment would work when running with root privileges.*
+
+```zsh
+[user@host ~]$ oc debug deployment/deployment-name --as-root
+```
+
+> You can also use the **`--log-level`** option to better understand what particular invocation of the **oc** command does behind the scenes. 
+```zsh
+[user]/
+```
 
 
 
