@@ -69,9 +69,11 @@ An OpenShift node based on RHEL Linux CoreOS runs very few local services that r
 Administrators who manage Red Hat OpenShift Container Platform 3 & other Kubernetes distribution often open **`SSH`** sessions to thier nodes for a various reasns:
 1. Inspect state of Control Plane & Container Engine.
 2. Make changes to Configuration Files.
-Although this can be done in Red Hat OpenShift Container Platform 4, it is not recommended. In order to open a shell prompt in your cluster's nodes, you can use the **`oc debug`** comand. 
+Although this can be done in Red Hat OpenShift Container Platform 4, it is not recommended. In order to open a shell prompt in your cluster's nodes, you can use the **`oc debug node`** comand. 
 - That prompt comes from a specia-pupose tools container that mounts node root file system at the **`/host`** folder.
-- To run local commands directly from the node in an  **`oc debug`** session, you must start a **`chroot`** **`/host`** folder, which would allow you to inspect the local file systems of the node, status of **`systemd`** services, and perform other tasks that may require an **`SSH`**.
+- To run local commands directly from the node in an  **`oc debug node`** session, you must start a **`chroot`** **`/host`** folder, which would allow you to inspect the local file systems of the node, status of **`systemd`** services, and perform other tasks that may require an **`SSH`**.
+- Shell sessions started using the **`oc debug`** command depend on the control plane to work & relies on the same tunneling technology that allows opening a shell prompt inside a running pod.
+- If your control plane is non-functional, or your node isn't in **`Ready`** state, then you cannot required on the **`oc debug node`** and will require a bastion host.
 
 > *For example:*
 
