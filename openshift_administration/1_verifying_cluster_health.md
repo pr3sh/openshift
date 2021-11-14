@@ -99,6 +99,12 @@ sh-4.4# crictl ps
 ```
 ##### **`Creating Troubleshooting Pods for Deployments`:**
 
+- The **`oc debug`** command is very useful when it comes to examining issuees that may relate to an application container image or settings it gets from its OpenShift resources. 
+- This command creates a pod based on a existing pod, **`DeploymentConfig`**, **`Deployment`**, or any other sources from the **`Workloads API`**. 
+- A new pod runs an interactive shell instead of the default entry point of the container image.
+- it also runs with health probes disabled, this way, you can verify environments variables, network acess to other services and permissions inside the pod.
+- The **`oc debug`** command also allows you to specify settings that you do not want to clone., *i.e:* container image or even specifying a fixed user id. It is important to note that some settings might require cluster administrator privileges.
+
 
 
 
