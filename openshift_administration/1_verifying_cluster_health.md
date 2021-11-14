@@ -110,10 +110,24 @@ sh-4.4# crictl ps
 ```zsh
 [user@host ~]$ oc debug deployment/deployment-name --as-root
 ```
-
-> You can also use the **`--log-level`** option to better understand what particular invocation of the **oc** command does behind the scenes. 
+> Open shell session in side a pod.
 ```zsh
-[user]/
+[user@host ~]$ oc rsh <pod-name>
+```
+> Copy paths to and from a pod to local machine
+
+```zsh
+[user@host ~]$ oc cp /local/path my-pod:/container/path
+```
+> Create **TCP** tunnel from local-port on work station to local-port on pod. This allows you to get network access to the pod wihtout exposing it through a route.
+
+```zsh
+[user@host ~]$ oc port-forward my-pod local-port:remote-port
+``` 
+> You can also use the **`--log-level`** option to better understand what particular invocation of the **oc** command does behind the scenes. 10 gives the most information.
+
+```zsh
+[user@host ~]$ oc get pod --log-level 10 
 ```
 
 
