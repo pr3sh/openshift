@@ -70,6 +70,8 @@ Administrators who manage Red Hat OpenShift Container Platform 3 & other Kuberne
 1. Inspect state of Control Plane & Container Engine.
 2. Make changes to Configuration Files.
 Although this can be done in Red Hat OpenShift Container Platform 4, it is not recommended. In order to open a shell prompt in your cluster's nodes, you can use the **`oc debug`** comand. 
+- That prompt comes from a specia-pupose tools container that mounts node root file system at the **`/host`** folder.
+- To run local commands directly from the node in an  **`oc debug`** session, you must start a **`chroot`** **`/host`** folder, which would allow you to inspect the local file systems of the node
 
 
 
