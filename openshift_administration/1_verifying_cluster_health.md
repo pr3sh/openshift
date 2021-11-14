@@ -56,12 +56,12 @@ An OpenShift node based on RHEL Linux CoreOS runs very few local services that r
 > *To view these logs:*
 
 ```zsh
-oc adm node-logs -u crio <node_name>
+[user@host ~]$ oc adm node-logs -u crio <node_name>
 ```
 ```zsh
-oc adm node-logs -u kubelet <node_name>
+[user@host ~]$ oc adm node-logs -u kubelet <node_name>
 ```
 ```zsh
-oc adm node-logs <node_name>
+[user@host ~]$ oc adm node-logs <node_name>
 ```
 
