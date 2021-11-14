@@ -6,6 +6,7 @@ This section focuses on how to identify and mitigate cluster issues that are not
   - [Introduction](#introduction)
   - [Verifying Health of OpenShift Nodes](#verifying-health-of-openshift-nodes)
   - [Displaying Node Logs](#displaying-node-logs)
+  - [Opening Shell Prompt Inside Node](#opening-shell-prompt-inside-node)
 
 ##### **`Introduction`:**
 The process of troubleshooting an OpenShift cluster relatively similar to trouble shooting application deployments, since most components in RHOCP4 are operators. 
@@ -49,7 +50,6 @@ etcd                  4.6.2        True           False            False    3d1h
 config-operator       4.6.2        True           False            False    2d30m
 ...
 ```
-
 ##### **`Displaying Node Logs`:**
 
 An OpenShift node based on RHEL Linux CoreOS runs very few local services that require direct access to a node to inspect their status. Most system services run as containers with the exception of **`CRI-O Container Engine`** & **`Kubelet`** which are Systemd units. 
@@ -64,4 +64,18 @@ An OpenShift node based on RHEL Linux CoreOS runs very few local services that r
 ```zsh
 [user@host ~]$ oc adm node-logs <node_name>
 ```
+##### **`Opening Shell Prompt Inside Node`:**
+
+Administrators who manage Red Hat OpenShift Container Platform 3 & other Kubernetes distribution often open SSH sessions to thier nodes for a various reasns:
+1. Inspect state of Control Plane & Container Engine.
+2. Make changes to Configuration Files.
+Although this can be done in Red Hat OpenShift Container Platform 4, it is not recommended. In order to open a shell prompt in your cluster's nodes, you can use the **`oc debug`** comand. 
+
+
+
+
+
+
+
+
 
