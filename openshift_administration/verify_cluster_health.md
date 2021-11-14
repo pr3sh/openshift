@@ -18,23 +18,21 @@ Display each node, and their respective statuses. If a node is not in **`Ready`*
 ```zsh
 oc get nodes
 ```
-Display current CPU and Memory usage of each node.
+> Display current CPU and Memory usage of each node.
 ```zsh
 oc adm top nodes
 ```
-Display more detailed information about the node.
+> Display more detailed information about the node.
 ```zsh
 oc describe node <node_name>
 ```
 The `ClusterVersion` is a Custom Resource that contains information about the cluster, status of cluster operators, and its version. Defining a new version of the cluster instructs the `cluster-version` operatr to upgrade th cluster to that version. To retrive cluster version that is running:
-
 ```zsh
 [user@host ~]$ oc get clusterversion
 > NAME      VERSION      AVAILABLE    PROGRESSING   SINCE    STATUS
 version     4.6.2         True         False        5d 24h    Cluster version is 4.6.2 
 ``` 
 > You can also use the **`oc describe clusterversion`** to obtain more detailed information:
-
 OpenShift *cluster operators* are responsible for managing the cluster's main components such as the **`API server`**, **`web console`**, **`storage`**, or **`Software Defined Network`**. You can use the **`ClusterOperator`** resource to get an overview of each operator & their respective statues.
 > *For example:*
 
