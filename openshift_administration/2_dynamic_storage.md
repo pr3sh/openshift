@@ -17,6 +17,8 @@ Data within containers are epehemeral by default, meaning that once the lifetime
 
 ###### **`Deploying Dyanmically Provisioned Storage`:**
 
+> View available storage classes.
+
 ```zsh
 [user@host ~]$ oc get storageclass
 > NAME                    PROVISIONER
