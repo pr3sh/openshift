@@ -24,3 +24,14 @@ Data within containers are epehemeral by default, meaning that once the lifetime
 > NAME                    PROVISIONER
   nfs-storage(default)    nfs-storage-provisioner
 ```
+
+To add a volume to an application, you must create a **`PersistentVolumeClaim`**, and add it to the application as a **`Volume`**. This can be done in two ways:
+1. Kubernetes Manifest
+2. **`oc set volumes`** command.
+
+> The **`oc set volumes`** command can also modify a deployment to mount the **`PersistentVolumeClaim`** as a **`Volume`** within the pod. 
+
+```
+[]
+
+```
