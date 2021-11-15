@@ -31,7 +31,11 @@ To add a volume to an application, you must create a **`PersistentVolumeClaim`**
 
 > The **`oc set volumes`** command can also modify a deployment to mount the **`PersistentVolumeClaim`** as a **`Volume`** within the pod. 
 
+```zsh
+[user@host ~]$ oc set volumes deployment/app-name --add --name example-storage \
+    --claim-mode rwo --claim-size 15Gi --mount-path /var/lib/example-app \
+    --claim-name example-storage 
 ```
-[]
+The above command creates a **`PersistentVolumeClaim`** resource & adds it as a **`Volume`** within the pod.
 
-```
+> Create **`PersistenVolumeClaim`** **`API`** object:
