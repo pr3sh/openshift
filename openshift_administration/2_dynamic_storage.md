@@ -39,3 +39,18 @@ To add a volume to an application, you must create a **`PersistentVolumeClaim`**
 The above command creates a **`PersistentVolumeClaim`** resource & adds it as a **`Volume`** within the pod.
 
 > Create **`PersistenVolumeClaim`** **`API`** object:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: example-storage
+  labels:
+    app: app-name
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: 15Gi
+```
