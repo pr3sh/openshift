@@ -57,8 +57,8 @@ spec:
 
 There are three access mode that can be defined in OpenShift:
 
-|         **`AccessMode`** |     **`CLI Abbreviation`**  | **`CLI Abbreviation`**                                               |
-|--------------------------|:---------------------------:|:--------------------------------------------------------------------:| 
-| **`ReadWriteMany`**      | RWX                         | Kubernetes can mount the volume as                                   |
-| **`ReadOnlyMany`**       | ROX                         | Kubernetes can mount the volume as                                   | 
-| **`ReadWriteOnce`**      | RWO                         | Kubernetes can mount the volume as read-write on only a single node. | 
+|         **`AccessMode`** |     **`CLI Abbreviation`**  | **`CLI Abbreviation`**                                                     |
+|--------------------------|:---------------------------:|:--------------------------------------------------------------------------:| 
+| **`ReadWriteMany`**      | **`RWX`**                   | Kubernetes can mount the volume as **`read-write`** on many nodes.         |
+| **`ReadOnlyMany`**       | **`ROX`**                   | Kubernetes can mount the volume as **`read-only`** on many nodes.          | 
+| **`ReadWriteOnce`**      | **`RWO`**                   | Kubernetes can mount the volume as **`read-write`** on only a single node. | 
