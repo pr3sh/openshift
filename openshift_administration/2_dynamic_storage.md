@@ -54,3 +54,11 @@ spec:
     requests:
       storage: 15Gi
 ```
+
+There are three access mode that can be defined in OpenShift:
+
+|         **`AccessMode`** |     **`CLI Abbreviation`**  | **`CLI Abbreviation`**                                               |
+|--------------------------|:---------------------------:|:                                                                    :| 
+| **`ReadWriteMany`**      | RWX                         | Kubernetes can mount the volume as                                   |
+| **`ReadOnlyMany`**       | ROX                         | Kubernetes can mount the volume as                                   | 
+| **`ReadWriteOnce`**      | RWO                         | Kubernetes can mount the volume as read-write on only a single node. | 
