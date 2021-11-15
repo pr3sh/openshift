@@ -55,7 +55,7 @@ spec:
       storage: 15Gi
 ```
 
-There are three access mode that can be defined in OpenShift:
+> There are three access mode that can be defined in OpenShift:
 
 |         **`AccessMode`** |     **`CLI Abbreviation`**  | **`CLI Abbreviation`**                                                     |
 |--------------------------|:---------------------------:|:--------------------------------------------------------------------------:| 
