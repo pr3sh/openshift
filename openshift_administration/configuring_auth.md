@@ -38,8 +38,19 @@ OpenShift can be configured with many different identity providers but below are
 - **Github/Github Enterprise**:
 - **OpenID Connect**:
 
-> The **`OAuth`** resource needs to be updated with your chosen **`Identity Provider`**
-
-
+> The **`OAuth`** resource needs to be updated with your chosen **`Identity Provider`** and multiple **`Identity Providers`** of the same/different kinds can be defined on the same **`OAuth`** custom resource.
 #### **`Configuring HTPasswd Identity Provider`**:
 
+Before any **`Identity Provider`** can be configured, you must access your cluster as an administrator. This can be done by authenticating as either **`kubeadmin`** user or **`kubeconfig`** file. Creating additional users then requires the configuration of an **`Identity Provider`**.
+> *Authenticate as `kubeadmin`*.
+
+```zsh
+[user@host ~]$ export KUBECONFIG=/home/user/auth/kubeconfig
+[user@host ~]$ oc et nodes
+
+```
+ *Alternatively*
+
+```zsh
+[user@host ~]$ oc --kubeconfig /home/user/auth/kubeconfig get nodes
+ ```
