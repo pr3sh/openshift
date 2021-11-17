@@ -80,6 +80,11 @@ Create a secret that contains the **`htpasswd`** file data.
 [user@host ~]$ oc create secret generic htpasswd-secret \
             --from-file htpasswd=/tmp/htpasswd -n openshift-config
 ```
+To extract data from the **`htpasswd-secret`**, you can use the **`oc extract`** command. The **`--confirm`** 
+```zsh
+[user@host ~]$ oc extract secret/htpasswd-secret -n openshift-config --to /tmp/
+                  --confirm /tmp/htpasswd
+```
 ###### **`OAuth Resource`**:
 ```yaml
 apiVersion: config.openshit.io/v1
