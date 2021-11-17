@@ -1,7 +1,6 @@
 # **`Abstract`**
 
 Understand the core concept behind Authentication & Authorization.
-
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Authentication Operator](#authentication-operator)
@@ -51,10 +50,22 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 
 ```
  *Alternatively*
-
 ```zsh
 [user@host ~]$ oc --kubeconfig /home/user/auth/kubeconfig get nodes
  ```
+#### **`Configuring HTPasswd Identity Provider`**:
 
 
- #### **`Configuring HTPasswd Identity Provider`**:
+
+
+
+
+
+
+
+
+
+
+
+
+
