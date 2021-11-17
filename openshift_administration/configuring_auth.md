@@ -153,13 +153,14 @@ Role-based acesss control is a mechanism used to manage access of resources. Wit
 
 ###### **`RBAC Using CLI`**:
 Cluster admins can use the **`oc adm policy`** command to manage cluster and namespace roles, while Project admins can use the **`oc policy`** command to manage namespace roles.
-> Add **basic-user** role to the **`dev`** user
-
-[user@host ~]$ oc adm policy add-cluster-role
-
-
-
-
+> Add **cluster-role** to a user.
+```zsh
+[user@host ~]$ oc adm policy add-cluster-role-to-user <cluster-role> <username>
+```
+> Remove **cluster-role** from a user.
+```zsh
+[user@host ~]$ oc adm policy remove-cluster-role-from-user <cluster-role> <username>
+```
 
 
 
