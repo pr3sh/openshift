@@ -6,8 +6,7 @@ Understand the core concept behind Authentication & Authorization.
   - [Introduction](#introduction)
   - [Authentication Operator](#authentication-operator)
   - [Identity Providers](#identity-providers)
-
-##### **`Introduction`**:
+#### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
   - Users represent an actor within the OpenShift Container Platform that interact with the **`API Server`**. 
@@ -23,12 +22,10 @@ OpenShift has a few primary resources that make up the core components of **auth
   - Users can be assinged to multiple groups.
 - **`Role`**:
   - Set of permissions that enable a user, group or service accounts.
-
-###### **`Authentication Operator`**:
+#### **`Authentication Operator`**:
 Authentication and Authorization are two distinct concepts that can often be misconstrued. Just because you can authenticate to the cluster does not mean you are authorized to do anything. 
 1. The authentication security layer asssociates a user with an **`API`** request. 
 2. Granted it is successful, the authorization layer then decides whether to honor or reject the **`API`** request.
 3. The authorization layer uses **`RBAC`** (**`Role-Based Access Control`**) policies to determine user privileges.
-
-##### **`Identity Providers`**:
+#### **`Identity Providers`**:
 
