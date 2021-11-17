@@ -60,6 +60,23 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 ```
 #### **`Configuring HTPasswd Identity Provider`**:
 
+```yaml
+apiVersion: config.openshit.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+    - name: my_htpasswd_provider  
+      mapping: Claim  
+      type: HTPasswd
+      htpasswd:
+        fileData:
+          name: htpasswd-secret
+```
+
+
+
 
 
 
