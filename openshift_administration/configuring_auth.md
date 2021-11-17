@@ -17,6 +17,9 @@ OpenShift has a few primary resources that make up the core components of **auth
   - Data pertaining to the source of authentication is stored on the identity.
   - Only one user can be associated with an identity. 
 - **`Service Account`**:
+ - **`Service Accounts`** enable you to control API access withou the need to borrow a user's credentials.
 - **`Group`**:
-
+  - Set of users.
+  - Users can be assinged to multiple groups.
 - **`Role`**:
+  - 
