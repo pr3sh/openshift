@@ -47,7 +47,7 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 
 ```zsh
 [user@host ~]$ export KUBECONFIG=/home/user/auth/kubeconfig
-[user@host ~]$ oc et nodes
+[user@host ~]$ oc get nodes
 
 ```
  *Alternatively*
