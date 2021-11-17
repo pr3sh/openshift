@@ -16,7 +16,7 @@ OpenShift has a few primary resources that make up the core components of **auth
   - Data pertaining to the source of authentication is stored on the identity.
   - Only one user can be associated with an identity. 
 - **`Service Account`**:
- - **`Service Accounts`** enable you to control API access withou the need to borrow a user's credentials.
+ - **`Service Accounts`** enable you to control API access without the need to borrow a user's credentials.
 - **`Group`**:
   - Set of users.
   - Users can be assinged to multiple groups.
@@ -27,5 +27,7 @@ Authentication and Authorization are two distinct concepts that can often be mis
 1. The authentication security layer asssociates a user with an **`API`** request. 
 2. Granted it is successful, the authorization layer then decides whether to honor or reject the **`API`** request.
 3. The authorization layer uses **`RBAC`** (**`Role-Based Access Control`**) policies to determine user privileges.
+
+OpenShift uses two methods to authenticate requests; **`OAuth Access Tokens`** & **`X.509 Client Certificates`**
 #### **`Identity Providers`**:
 
