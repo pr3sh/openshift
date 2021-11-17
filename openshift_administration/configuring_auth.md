@@ -61,9 +61,16 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 ```
 #### **`Configuring HTPasswd Identity Provider`**:
 To manage users using the **`HTPasswd`** Identity Provider, you are required to create a temporary **htpasswd** file and applying the changes to the secret stored in the **`openshift-config`** project.
-> You can use the **`httpd-utils`** package,w whi
-```zsh
+> You can use the **`httpd-utils`** package, using the **`htpasswd`** utility.
 
+Create the **`htpasswd`** file.
+```zsh
+[user@host ~]$ htpasswd -c -B -b /tmp/htpasswd student redhat123
+```
+> Add or Update credentials.
+
+```zsh
+[user@host ~]$ htpasswd -b /tmp/htpasswd student redhat12345
 ```
 ###### **`OAuth Resource`**:
 ```yaml
