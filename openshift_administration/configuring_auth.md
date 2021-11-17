@@ -7,8 +7,9 @@ Understand the core concept behind Authentication & Authorization.
   - [Identity Providers](#identity-providers)
   - [Authenticating as a Cluster Admin](#authenticating-as-as-cluster-admin)
   - [Configuring HTPasswd Identity Provider](#identity-providers)
-    - [OAuth Resource](OAuth-resource)
-    - [Deleting Users and Identities](deleting-users)
+    - [OAuth Resource](#oauth-resource)
+    - [Deleting Users and Identities](#deleting-users)
+  - [Assigning Admin Privileges](#assigning-admin-privileges)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
@@ -109,7 +110,7 @@ spec:
         fileData:
           name: htpasswd-secret
 ```
-###### **`Deleting Users`**:
+###### **`Deleting Users and Identities`**:
 If you must delete  user, it is not sufficient to delete the user from the identity provider. 
 1. You must also delete the identity & user resources.
 2. Remove the password from the **`htpasswd`** secret
@@ -129,30 +130,13 @@ Remove user resource.
 ```
 
 > Identity resources include the name of the provider & to delete the resource for the **`manager`** user:
-
 ```zsh
 [user@host ~]$ oc get identities | grep manager
 > my_htpasswd_provider:manager    my_htpasswd_provider    ....
 
 [user@host ~]$ oc delete identity my_htpasswd_provider:manager
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### **`Assigning Admin Privileges`**:
+```zsh
+[user@host ~]$ oc adm policy add-cluster-role-to-user cluster-admin <user_name>
+```
