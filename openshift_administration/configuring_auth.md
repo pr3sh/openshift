@@ -7,7 +7,7 @@ Understand the core concept behind Authentication & Authorization.
   - [Identity Providers](#identity-providers)
   - [Authenticating as a Cluster Admin](#authenticating-as-as-cluster-admin)
   - [Configuring HTPasswd Identity Provider](#identity-providers)
-    - [OAuth Resource](oauth-resource)
+    - [OAuth Resource](OAuth-resource)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
