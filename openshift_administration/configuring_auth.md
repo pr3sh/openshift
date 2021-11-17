@@ -110,15 +110,31 @@ spec:
           name: htpasswd-secret
 ```
 ###### **`Deleting Users`**:
-
 If you must delete  user, it is not sufficient to delete the user from the identity provider. 
 1. You must also delete the identity & user resources.
 2. Remove the password from the **`htpasswd`** secret
 3. Remove user from the local **`htpasswd`** file.
 4. Update secret
-
 ```zsh
 [user@host ~]$ htpasswd -D /tmp/htpasswd manager
+```
+Update secret.
+```zsh
+[user@host ~]$ oc set data secret/htpasswd-secret  \
+                   --from-file htpasswd=/tmp/htpasswd -n openshift-config
+```
+Remove user resource.
+```zsh
+[user@host ~]$ oc delete user manager 
+```
+
+> Identity resources include the name of the provider & to delete the resource for the **`manager`** user:
+
+```zsh
+[user@host ~]$ oc get identities | grep manager
+> my_htpasswd_provider:manager    my_htpasswd_provider    ....
+
+[user@host ~]$ oc delete identity my_htpasswd_provider:manager
 ```
 
 
