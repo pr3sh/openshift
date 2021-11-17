@@ -8,7 +8,7 @@ Understand the core concept behind Authentication & Authorization.
   - [Authenticating as a Cluster Admin](#authenticating-as-as-cluster-admin)
   - [Configuring HTPasswd Identity Provider](#identity-providers)
     - [OAuth Resource](OAuth-resource)
-    - [deleting users](deleting-users)
+    - [Deleting Users and Identities](deleting-users)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
@@ -80,11 +80,20 @@ Create a secret that contains the **`htpasswd`** file data.
 [user@host ~]$ oc create secret generic htpasswd-secret \
             --from-file htpasswd=/tmp/htpasswd -n openshift-config
 ```
-To extract data from the **`htpasswd-secret`**, you can use the **`oc extract`** command. The **`--confirm`** 
+To extract data from the **`htpasswd-secret`**, you can use the **`oc extract`** command. The **`--confirm`** overwrites file, if it already exists.
 ```zsh
-[user@host ~]$ oc extract secret/htpasswd-secret -n openshift-config --to /tmp/
+[user@host ~]$ oc extract secret/htpasswd-secret -n openshift-config --to /tmp/ \
                   --confirm /tmp/htpasswd
 ```
+To update secret after adding, changing, or deleteing users you can use the **`oc set data`** command.
+```zsh
+[user@host ~]$ oc set data secret/htpasswd-secret  \
+             --from-file htpasswd=/tmp/htpasswd -n openshift-config
+```
+After secret has been updated, a redeployment is triggered in the **`openshift-authentication`** namespace. To monitor a redeployment of the new **`OAuth`** pods:
+```zsh
+[user@host ~]$ watch oc get pods -n openshift-authentication
+``` 
 ###### **`OAuth Resource`**:
 ```yaml
 apiVersion: config.openshit.io/v1
@@ -100,6 +109,8 @@ spec:
         fileData:
           name: htpasswd-secret
 ```
+###### **`Deleting Users`**:
+
 
 
 
