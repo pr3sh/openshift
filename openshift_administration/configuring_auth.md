@@ -28,7 +28,7 @@ OpenShift has a few primary resources that make up the core components of **auth
 Authentication and Authorization are two distinct concepts that can often be misconstrued. Just because you can authenticate to the cluster does not mean you are authorized to do anything. 
 1. The authentication security layer asssociates a user with an **`API`** request. 
 2. Granted it is successful, the authorization layer then decides whether to honor or reject the **`API`** request.
-3. 
+3. The authorization layer uses **`RBAC`** (**`Role-Based Access Control`**) policies to determine user privileges.
 
 ##### **`Identity Providers`**:
 
