@@ -6,6 +6,7 @@ Understand the core concept behind Authentication & Authorization.
   - [Introduction](#introduction)
   - [Authentication Operator](#authentication-operator)
   - [Identity Providers](#identity-providers)
+  - [Configuring HTPasswd Identity Provider](#identity-providers)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
@@ -28,6 +29,17 @@ Authentication and Authorization are two distinct concepts that can often be mis
 2. Granted it is successful, the authorization layer then decides whether to honor or reject the **`API`** request.
 3. The authorization layer uses **`RBAC`** (**`Role-Based Access Control`**) policies to determine user privileges.
 
-OpenShift uses two methods to authenticate requests; **`OAuth Access Tokens`** & **`X.509 Client Certificates`**. If neither of these are not present in the reauest, then the authentication layer assings the request a **`system:anonymous`** virtual user and **`system:unauthenticated`** virtual group.
+OpenShift uses two methods to authenticate requests; **`OAuth Access Tokens`** & **`X.509 Client Certificates`**. If neither of these are not present in the request, then the authentication layer assings the request a **`system:anonymous`** virtual user and **`system:unauthenticated`** virtual group.
 #### **`Identity Providers`**:
+OpenShift can be configured with many different identity providers but below are some of the most common:
+- **HTPasswd**:
+- **Keystone**:
+- **LDAP**
+- **Github/Github Enterprise**:
+- **OpenID Connect**:
+
+> The **`OAuth`** resource needs to be updated with your chosen **`Identity Provider`**
+
+
+#### **`Configuring HTPasswd Identity Provider`**:
 
