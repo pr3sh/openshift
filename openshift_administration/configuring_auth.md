@@ -56,7 +56,7 @@ Before any **`Identity Provider`** can be configured, you must access your clust
  > After an Identity Provider has been configured, users created, and cluster-admin role has been assigned, you can remove **`kubeadmin`** user's credentials to improve cluster security.
 
 ```zsh
-
+[user@host ~]$ oc delete secret kubeadmin -n kube-system
 ```
 #### **`Configuring HTPasswd Identity Provider`**:
 
