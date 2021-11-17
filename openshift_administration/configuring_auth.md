@@ -111,6 +111,18 @@ spec:
 ```
 ###### **`Deleting Users`**:
 
+If you must delete  user, it is not sufficient to delete the user from the identity provider. 
+1. You must also delete the identity & user resources.
+2. Remove the password from the **`htpasswd`** secret
+3. Remove user from the local **`htpasswd`** file.
+4. Update secret
+
+```zsh
+[user@host ~]$ htpasswd -D /tmp/htpasswd manager
+```
+
+
+
 
 
 
