@@ -5,8 +5,9 @@ Understand the core concept behind Authentication & Authorization.
   - [Introduction](#introduction)
   - [Authentication Operator](#authentication-operator)
   - [Identity Providers](#identity-providers)
-  - [Configuring HTPasswd Identity Provider](#identity-providers)
   - [Authenticating as a Cluster Admin](#authenticating-as-as-cluster-admin)
+  - [Configuring HTPasswd Identity Provider](#identity-providers)
+    - [OAuth Resource](oauth-resource)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
@@ -60,6 +61,7 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 ```
 #### **`Configuring HTPasswd Identity Provider`**:
 
+###### **`OAuth Resource`**:
 ```yaml
 apiVersion: config.openshit.io/v1
 kind: OAuth
