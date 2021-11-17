@@ -7,6 +7,7 @@ Understand the core concept behind Authentication & Authorization.
   - [Authentication Operator](#authentication-operator)
   - [Identity Providers](#identity-providers)
   - [Configuring HTPasswd Identity Provider](#identity-providers)
+  - [Authenticating as a Cluster Admin](#authenticating-as-as-cluster-admin)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
@@ -39,7 +40,7 @@ OpenShift can be configured with many different identity providers but below are
 - **OpenID Connect**:
 
 > The **`OAuth`** resource needs to be updated with your chosen **`Identity Provider`** and multiple **`Identity Providers`** of the same/different kinds can be defined on the same **`OAuth`** custom resource.
-#### **`Configuring HTPasswd Identity Provider`**:
+#### **`Authenticating as a Cluster Admin`**:
 
 Before any **`Identity Provider`** can be configured, you must access your cluster as an administrator. This can be done by authenticating as either **`kubeadmin`** user or **`kubeconfig`** file. Creating additional users then requires the configuration of an **`Identity Provider`**.
 > *Authenticate as `kubeadmin`*.
@@ -54,3 +55,6 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 ```zsh
 [user@host ~]$ oc --kubeconfig /home/user/auth/kubeconfig get nodes
  ```
+
+
+ #### **`Configuring HTPasswd Identity Provider`**:
