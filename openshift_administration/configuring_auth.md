@@ -8,6 +8,7 @@ Understand the core concept behind Authentication & Authorization.
   - [Authenticating as a Cluster Admin](#authenticating-as-as-cluster-admin)
   - [Configuring HTPasswd Identity Provider](#identity-providers)
     - [OAuth Resource](OAuth-resource)
+    - [deleting users](deleting-users)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
@@ -55,12 +56,15 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 [user@host ~]$ oc --kubeconfig /home/user/auth/kubeconfig get nodes
  ```
  > After an Identity Provider has been configured, users created, and cluster-admin role has been assigned, you can remove **`kubeadmin`** user's credentials to improve cluster security.
-
 ```zsh
 [user@host ~]$ oc delete secret kubeadmin -n kube-system
 ```
 #### **`Configuring HTPasswd Identity Provider`**:
+To manage users using the **`HTPasswd`** Identity Provider, you are required to create a temporary **htpasswd** file and applying the changes to the secret stored in the **`openshift-config`** project.
+> You can use the **`httpd-utils`** package,w whi
+```zsh
 
+```
 ###### **`OAuth Resource`**:
 ```yaml
 apiVersion: config.openshit.io/v1
