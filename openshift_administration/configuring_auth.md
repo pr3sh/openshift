@@ -53,6 +53,11 @@ Before any **`Identity Provider`** can be configured, you must access your clust
 ```zsh
 [user@host ~]$ oc --kubeconfig /home/user/auth/kubeconfig get nodes
  ```
+ > After an Identity Provider has been configured, users created, and cluster-admin role has been assigned, you can remove **`kubeadmin`** user's credentials to improve cluster security.
+
+```zsh
+
+```
 #### **`Configuring HTPasswd Identity Provider`**:
 
 
