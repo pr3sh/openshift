@@ -28,6 +28,6 @@ Authentication and Authorization are two distinct concepts that can often be mis
 2. Granted it is successful, the authorization layer then decides whether to honor or reject the **`API`** request.
 3. The authorization layer uses **`RBAC`** (**`Role-Based Access Control`**) policies to determine user privileges.
 
-OpenShift uses two methods to authenticate requests; **`OAuth Access Tokens`** & **`X.509 Client Certificates`**
+OpenShift uses two methods to authenticate requests; **`OAuth Access Tokens`** & **`X.509 Client Certificates`**. If neither of these are not present in the reauest, then the authentication layer assings the request a **`system:anonymous`** virtual user and **`system:unauthenticated`** virtual group.
 #### **`Identity Providers`**:
 
