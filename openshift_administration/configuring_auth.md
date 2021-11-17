@@ -67,10 +67,18 @@ Create the **`htpasswd`** file.
 ```zsh
 [user@host ~]$ htpasswd -c -B -b /tmp/htpasswd student redhat123
 ```
-> Add or Update credentials.
-
+Add or Update credentials.
 ```zsh
 [user@host ~]$ htpasswd -b /tmp/htpasswd student redhat12345
+```
+Delete credentials.
+```zsh
+[user@host ~]$ htpasswd -D /tmp/htpasswd student
+```
+Create a secret that contains the **`htpasswd`** file data.
+```zsh
+[user@host ~]$ oc create secret generic htpasswd-secret \
+            --from-file htpasswd=/tmp/htpasswd -n openshift-config
 ```
 ###### **`OAuth Resource`**:
 ```yaml
