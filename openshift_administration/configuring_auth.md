@@ -10,6 +10,7 @@ Understand the core concept behind Authentication & Authorization.
     - [OAuth Resource](#oauth-resource)
     - [Deleting Users and Identities](#deleting-users)
   - [Assigning Admin Privileges](#assigning-admin-privileges)
+  - [Role Based Access Control](#role-based-access-control)
 #### **`Introduction`**:
 OpenShift has a few primary resources that make up the core components of **authentication** and **authorization**.
 - **`User`**:
@@ -140,3 +141,31 @@ Remove user resource.
 ```zsh
 [user@host ~]$ oc adm policy add-cluster-role-to-user cluster-admin <user_name>
 ```
+**`Role Based Access Control`**:
+
+Role-based acesss control is a mechanism used to manage access of resources. Within OpenShift there are two types of roles that can be used; **`cluster`** and **`local`**. Users assigned the **`cluster`** role can manage the cluster OpenShift cluster, while **`local`** role gives authorization at a project level. The authorization process is managed by **roles**, **rules**, and **bindings**.
+- **`Rule`**: Allowed actions for objects or groups of objects.
+- **``
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
