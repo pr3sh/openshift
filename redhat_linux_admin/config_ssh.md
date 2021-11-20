@@ -132,6 +132,8 @@ remote system using the corresponding **private key** while logging in to the re
 - If you omit the path to the private key file while running the **`ssh`** command, it uses the
 default **`/home/user/.ssh/id_rsa`** file.
 
+> Copy public key to **`remote host`**.
+
 ```zsh
 [user@host ~]$ ssh-copy-id -i .ssh/key-with-pass.pub user@remotehost
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/user/.ssh/
@@ -145,7 +147,17 @@ Number of key(s) added: 1
 Now try logging into the machine, with: "ssh 'user@remotehost'"
 and check to make sure that only the key(s) you wanted were added.
 ```
+> Authenticate to **`remote host`** using private key.
 
+```zsh
+[user@host ~]$ ssh -i .ssh/key-with-pass user@remotehost
+Enter passphrase for key '.ssh/key-with-pass': redhatpass
+...output omitted...
+[user@remotehost ~]$ exit
+logout
+Connection to remotehost closed.
+[user@host ~]$ 
+```
 
 
 You can run a helper program called ssh-agent which can temporarily cache your private key
