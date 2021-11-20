@@ -5,6 +5,7 @@
   - [Example Commands](#example-commands)
   - [Identifying Remote Users](#identifying-remote-users)
   - [Understanding SSH Host Keys](#understanding-ssh-host-keys)
+  - [Configuring SSH Key Based Authentication](#configuring-ssh-key-based-authentication)
 
 ###### **`Introduction`:**
 
@@ -76,4 +77,37 @@ known_hosts`** file on the **`SSH client`**.
     - Second field is the **`encryption algorithm`** for the key. 
     - The last field is the key itself.
 
+10. Each remote SSH server that you conect to stores its public key in the **`/etc/ssh`** directory in files
+with the extension **`.pub`**.
+    - It is a good practice to add entries matching a server's **`ssh_host_*key.pub`**
+files to your **`~/.ssh/known_hosts`** file or the system-wide **`/etc/ssh/
+ssh_known_hosts`** file.
 
+###### **`Configuring SSH Key Based Authentication`**:
+
+  
+Use the **`ssh-keygen`** command to create a private & matching public key for authentication.
+> By default, your private and public keys are saved in your **`~/.ssh/id_rsa`** and
+**`~/.ssh/id_rsa.pub`** files, but you can specify its location as we will be showing later.
+
+```zsh
+[user@host ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/user/.ssh/id_rsa): Enter
+Created directory '/home/user/.ssh'.
+Enter passphrase (empty for no passphrase): Enter
+Enter same passphrase again: Enter
+Your identification has been saved in /home/user/.ssh/id_rsa.
+Your public key has been saved in /home/user/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:vxutUNPio3QDCyvkYm1oIx35hmMrHpPKWFdIYu3HV+w user@host.lab.example.com
+The key's randomart image is:
++---[RSA 2048]----+
+| |
+| . . |
+| o o o |
+| . = o o . |
+| o + = S E . |
+| ..O o + * + |
+|.+% O . + B . |
+```
