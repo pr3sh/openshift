@@ -9,6 +9,8 @@
     - [Sharing Public Key](#sharing-public-key)
     - [Using SSH Agent for Non-interactive Authentication](#using-ssh-agent-for-non-interactive-public-key)
     - [Customizing OpenSSH Service Config](#customizing-openssh-service-config)
+      - [Prohibit Superuser Logging in Using SSH](#prohibit-superuser-logging-in-using-ssh)
+      - [Prohibit Password-Based Authentication for SSH](#prohibit-password-based-authentication-for-ssh)
 
 ###### **`Introduction`:**
 
@@ -203,10 +205,24 @@ passphrases for your private keys will be cleared from memory.
 
 
 
+###### **`Customizing OpenSSH Service Config`**:
 
 
 
+OpenSSH service is provided by a daemon called sshd. Its main configuration file is /etc/ssh/
+sshd_config.
+The default configuration of the OpenSSH server works well. However, you might want to make
+some changes to strengthen the security of your system. There are two common changes
+you might want to make. You might want to prohibit direct remote login to the root account,
+and you might want to prohibit password-based authentication (in favor of SSH private key
+authentication).
 
+
+
+###### **`Prohibit Superuser Logging in Using SSH`**:
+
+
+###### **`Prohibit Password-Based Authentication for SSH`**:
 
 
 
