@@ -6,6 +6,7 @@
   - [Identifying Remote Users](#identifying-remote-users)
   - [Understanding SSH Host Keys](#understanding-ssh-host-keys)
   - [Configuring SSH Key Based Authentication](#configuring-ssh-key-based-authentication)
+    - [Sharing Public Key](#sharing-public-key)
 
 ###### **`Introduction`:**
 
@@ -85,8 +86,7 @@ ssh_known_hosts`** file.
 
 ###### **`Configuring SSH Key Based Authentication`**:
 
-  
-Use the **`ssh-keygen`** command to create a private & matching public key for authentication.
+  Use the **`ssh-keygen`** command to create a private & matching public key for authentication.
 > By default, your private and public keys are saved in your **`~/.ssh/id_rsa`** and
 **`~/.ssh/id_rsa.pub`** files, but you can specify its location as we will be showing later.
 
@@ -111,3 +111,42 @@ The key's randomart image is:
 | ..O o + * + |
 |.+% O . + B . |
 ```
+> Generate key pairs with different file location using the **`-f`** option.
+
+```zsh
+[user@host ~]$ ssh-keygen -f .ssh/key-with-pass
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in .ssh/key-with-pass.
+Your public key has been saved in .ssh/key-with-pass.pub.
+```
+###### **`Sharing Public Key`**:
+- The **`ssh-copy-id`** command copies the public key of the **`SSH keypair`** to the
+destination host system. 
+- If you omit the path to the public key file while running **`ssh-copy-id`**, it uses
+the default **`/home/user/.ssh/id_rsa.pub`** file.
+- After the public key is successfully transferred to a remote system, you can authenticate to the
+remote system using the corresponding **private key** while logging in to the remote system over
+**`SSH`**. 
+- If you omit the path to the private key file while running the **`ssh`** command, it uses the
+default **`/home/user/.ssh/id_rsa`** file.
+
+```zsh
+[user@host ~]$ ssh-copy-id -i .ssh/key-with-pass.pub user@remotehost
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/user/.ssh/
+id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter
+ out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted
+ now it is to install the new keys
+user@remotehost's password: redhat
+Number of key(s) added: 1
+Now try logging into the machine, with: "ssh 'user@remotehost'"
+and check to make sure that only the key(s) you wanted were added.
+```
+
+
+
+You can run a helper program called ssh-agent which can temporarily cache your private key
+passphrase in memory at the start of your session to get true passwordless authentication
