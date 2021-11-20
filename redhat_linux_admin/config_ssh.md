@@ -59,12 +59,21 @@ known_hosts`** that contains the key.
 5. If the keys do not match, the client assumes that the network traffic
 to the server could be hijacked or that the server has been compromised, and seeks the user's
 confirmation on whether or not to continue with the connection.
+6. If the client does not have a copy of the public key in its known hosts files, the **`SSH`** command
+will still prompt you to log in anyway. 
 
 > **`NOTE`**: Set the **`StrictHostKeyChecking`** parameter to **`yes`** in the user-specific
 **`~/.ssh/config`** file or the system-wide **`/etc/ssh/ssh_config`** to cause the
 ssh command to always abort the **`SSH connection`** if the public keys do not match.
 
-
-
+7. If a server's public key is changed because the key was lost due to hard drive failure, or replaced for
+some legitimate reason, you will need to edit the known hosts files to make sure the entry for the
+old public key is replaced with an entry with the new public key in order to log in without errors.
+8. Public keys are stored in the **`/etc/ssh/ssh_known_hosts`** and each users' **`~/.ssh/
+known_hosts`** file on the **`SSH client`**. 
+9. Each key is on one line. 
+    - First field is a list of **`hostnames`** and **`IP addresses`** that share that public key. 
+    - Second field is the **`encryption algorithm`** for the key. 
+    - The last field is the key itself.
 
 
