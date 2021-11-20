@@ -1,5 +1,7 @@
 # **`Abstract`**
 
+Use **`OpenSSH`** to configure secure command-line service on remote systems.
+
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Example Commands](#example-commands)
@@ -202,8 +204,6 @@ Last login: Mon Apr 8 09:44:20 2019 from host.example.com
 ```
 > When you log out of the session that started **`ssh-agent`**, the process will exit and your the
 passphrases for your private keys will be cleared from memory.
-
-
 
 ###### **`Customizing OpenSSH Service Config`**:
 1. *OpenSSH* service is provided by a daemon called **`sshd`**.
