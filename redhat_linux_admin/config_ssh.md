@@ -4,6 +4,7 @@
   - [Introduction](#introduction)
   - [Example Commands](#example-commands)
   - [Identifying Remote Users](#identifying-remote-users)
+  - [Understanding SSH Host Keys](#understanding-ssh-host-keys)
 
 ###### **`Introduction`:**
 
@@ -48,5 +49,19 @@ user02 pts/0 172.25.250.10 16:13 7:30 0.01s 0.01s -bash
 user01 pts/1 172.25.250.10 16:24 3.00s 0.01s 0.00s w
 [user02@remotehost ~]$ 
 ```
+###### **`Understanding SSH Host Keys`**:
+1. SSH secures communication through public-key encryption. 
+2. When an **`SSH client`** connects to an **`SSH server`**, the server sends a copy of its public key to the client before the client logs in. 
+3. When a user uses the ssh command to connect to an **`SSH server`**, the command checks to see if it
+has a copy of the public key for that server in its local **known hosts** files. 
+4. The system administrator may have pre-configured it in **`/etc/ssh/ssh_known_hosts`**, or the user may have a **`~/.ssh/
+known_hosts`** that contains the key.
+5. If the keys do not match, the client assumes that the network traffic
+to the server could be hijacked or that the server has been compromised, and seeks the user's
+confirmation on whether or not to continue with the connection.
+
+
+
+
 
 
