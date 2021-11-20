@@ -20,9 +20,16 @@ an interactive shell.
 [user01@host ~]$ ssh remotehost
 > user01@remotehost's password: redhat
 ```
-
 > Log into remote server as **`user02`**.
+
 ```zsh
 [user01@host ~]$ ssh user02@remotehost
 > user02@remotehost's password: shadowman
+```
+> Run the **`hostname`** command on the remotehost as the
+**`user02`** without accessing the remote interactive shell.
+
+```zsh
+[user01@host ~]$ ssh user02@remotehost hostname
+user02@remotehost's password: shadowman
 ```
