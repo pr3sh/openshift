@@ -3,10 +3,9 @@
 -  **Table of contents**:
   - [Introduction](#introduction)
   - [Example Commands](#example-commands)
+  - [Identifying Remote Users](#identifying-remote-users)
 
-
-
-##### **`Introduction`**
+###### **`Introduction`:**
 
 **`SSH protocol`** enables systems to communicate in an encrypted and secure manner,over an
 insecure network.
@@ -15,7 +14,7 @@ as a specific user, and get an interactive shell session on the remote system as
 -  You may also use the **`ssh`** command to run an individual command on the remote system without running
 an interactive shell.
 
-##### **`Example Commands`**
+###### **`Example Commands`:**
 > Log into remote server as the current local user (**`user01`**). You'll be prompted to enter that user's password.
 
 ```zsh
@@ -35,9 +34,8 @@ an interactive shell.
 [user01@host ~]$ ssh user02@remotehost hostname
 user02@remotehost's password: shadowman
 ```
-
-
-Use the **`w `**command to display a list of users currently logged into the computer. This will show users are logged in using **`SSH`** from which remote locations, and what they are doing.
+###### **`Identifying Remote Users`:**
+Use the **`w `** command to display a list of users currently logged into the computer. This will show users are logged in using **`SSH`** from which remote locations, and what they are doing.
 
 ```zsh
 [user01@host ~]$ ssh user01@remotehost
@@ -50,3 +48,5 @@ user02 pts/0 172.25.250.10 16:13 7:30 0.01s 0.01s -bash
 user01 pts/1 172.25.250.10 16:24 3.00s 0.01s 0.00s w
 [user02@remotehost ~]$ 
 ```
+
+
