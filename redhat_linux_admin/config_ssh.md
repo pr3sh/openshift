@@ -9,7 +9,7 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
   - [Understanding SSH Host Keys](#understanding-ssh-host-keys)
   - [Configuring SSH Key Based Authentication](#configuring-ssh-key-based-authentication)
     - [Sharing Public Key](#sharing-public-key)
-    - [Using SSH Agent for Non-interactive Authentication](#using-ssh-agent-for-non-interactive-public-key)
+    - [Using SSH Agent for Non-interactive Authentication](#using-ssh-agent-for-non-interactive-authentication)
     - [Customizing OpenSSH Service Config](#customizing-openssh-service-config)
       - [Prohibit Superuser Logging in Using SSH](#prohibit-superuser-logging-in-using-ssh)
       - [Prohibit Password-Based Authentication for SSH](#prohibit-password-based-authentication-for-ssh)
