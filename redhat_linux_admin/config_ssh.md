@@ -8,6 +8,7 @@
   - [Configuring SSH Key Based Authentication](#configuring-ssh-key-based-authentication)
     - [Sharing Public Key](#sharing-public-key)
     - [Using SSH Agent for Non-interactive Authentication](#using-ssh-agent-for-non-interactive-public-key)
+    - [Customizing OpenSSH Service Config](#customizing-openssh-service-config)
 
 ###### **`Introduction`:**
 
@@ -183,14 +184,29 @@ Identity added: .ssh/key-with-pass (user@host.lab.example.com)
 connection`**. 
 - If you are using any private key file other than the default **`/home/user/.ssh/id_rsa file`**, then you must use the **`-i`** option with the **`ssh`** command to specify the path to the private key file.
 
-
-
+> Configure **`SSH Connection`** using default private key.
 
 ```zsh
 [user@host ~]$ ssh user@remotehost
 Last login: Fri Apr 5 10:53:50 2019 from host.example.com
 [user@remotehost ~]$ 
 ```
+> Configure **`SSH Connection`** specifying a different private key.
+
+```zsh
+[user@host ~]$ ssh -i .ssh/key-with-pass user@remotehost
+Last login: Mon Apr 8 09:44:20 2019 from host.example.com
+[user@remotehost ~]$ 
+```
+> When you log out of the session that started **`ssh-agent`**, the process will exit and your the
+passphrases for your private keys will be cleared from memory.
+
+
+
+
+
+
+
 
 
 
