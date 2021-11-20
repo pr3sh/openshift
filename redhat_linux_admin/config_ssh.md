@@ -206,23 +206,43 @@ passphrases for your private keys will be cleared from memory.
 
 
 ###### **`Customizing OpenSSH Service Config`**:
-
-
-
-OpenSSH service is provided by a daemon called sshd. Its main configuration file is /etc/ssh/
-sshd_config.
-The default configuration of the OpenSSH server works well. However, you might want to make
-some changes to strengthen the security of your system. There are two common changes
-you might want to make. You might want to prohibit direct remote login to the root account,
-and you might want to prohibit password-based authentication (in favor of SSH private key
-authentication).
-
-
+1. *OpenSSH* service is provided by a daemon called **`sshd`**.
+2. Its main configuration file is **`/etc/ssh/sshd_config`**.
+3. To strengthen the security of your system, you may want to make some customizations to this file.
+4. There are two common changes you might want to consider: 
+      - You might want to prohibit direct remote login to the root account.
+      - Prohibit password-based authentication (in favor of **`SSH private key`** authentication).
 
 ###### **`Prohibit Superuser Logging in Using SSH`**:
 
+- Modify the **`PermitRootLogin`** configuration setting in the **`/etc/ssh/sshd_config`** configuration file to **allow** or **prohibit** users logging in to the system as **`root`**.
+- The **`PermitRootLogin`** parameter to **`yes`** by default, allowing people to log in as **`root`**. 
+  - To prevent this, set the value to **`no`**. 
+- To prevent **password-based authentication** but allow **private key-based authentication** for **`root`**, set the **`PermitRootLogin`**
+parameter to **`without-password`**.
 
+> **Example**:
+
+```zsh
+PermitRootLogin yes
+```
+> Reload **`SSH server`** (sshd) to apply changes.
+
+```zsh
+[root@host ~]# systemctl reload sshd
+```
 ###### **`Prohibit Password-Based Authentication for SSH`**:
 
+The OpenSSH server uses the **`PasswordAuthentication`** parameter in the **`/etc/ssh/sshd_config`** file to control whether users can use **`password-based authentication`** to log in to the system.
 
+> *Example*
+
+```zsh
+PasswordAuthentication yes
+```
+> Reload **`SSH server`** (sshd) to apply changes.
+
+```zsh
+[root@host ~]# systemctl reload sshd
+```
 
