@@ -7,6 +7,7 @@
   - [Understanding SSH Host Keys](#understanding-ssh-host-keys)
   - [Configuring SSH Key Based Authentication](#configuring-ssh-key-based-authentication)
     - [Sharing Public Key](#sharing-public-key)
+    - [Using SSH Agent for Non-interactive Authentication](#using-ssh-agent-for-non-interactive-public-key)
 
 ###### **`Introduction`:**
 
@@ -158,7 +159,38 @@ logout
 Connection to remotehost closed.
 [user@host ~]$ 
 ```
+###### **`Using SSH Agent for Non-interactive Authentication`:**
+You can run a helper program called **`ssh-agent`** which can temporarily cache your private key
+passphrase in memory at the start of your session to get true *passwordless* authentication.
+
+> Start **`ssh-agent`**.
+```zsh
+[user@host ~]$ eval $(ssh-agent)
+Agent pid 10155
+[user@host ~]$
+```
+> Once **`ssh-agent`** has been started, you need to tell it the passphrase for your private key or keys. You
+can do this with the **`ssh-add`** command.
+
+```zsh
+[user@host ~]$ ssh-add
+Identity added: /home/user/.ssh/id_rsa (user@host.lab.example.com)
+[user@host ~]$ ssh-add .ssh/key-with-pass
+Enter passphrase for .ssh/key-with-pass: redhatpass
+Identity added: .ssh/key-with-pass (user@host.lab.example.com)
+```
+- After successfully adding the private keys to the ssh-agent process, you can invoke an **`SSH
+connection`**. 
+- If you are using any private key file other than the default **`/home/user/.ssh/id_rsa file`**, then you must use the **`-i`** option with the **`ssh`** command to specify the path to the private key file.
 
 
-You can run a helper program called ssh-agent which can temporarily cache your private key
-passphrase in memory at the start of your session to get true passwordless authentication
+
+
+```zsh
+[user@host ~]$ ssh user@remotehost
+Last login: Fri Apr 5 10:53:50 2019 from host.example.com
+[user@remotehost ~]$ 
+```
+
+
+
