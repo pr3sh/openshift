@@ -60,6 +60,9 @@ known_hosts`** that contains the key.
 to the server could be hijacked or that the server has been compromised, and seeks the user's
 confirmation on whether or not to continue with the connection.
 
+> **`NOTE`**: Set the **`StrictHostKeyChecking`** parameter to **`yes`** in the user-specific
+**`~/.ssh/config`** file or the system-wide **`/etc/ssh/ssh_config`** to cause the
+ssh command to always abort the **`SSH connection`** if the public keys do not match.
 
 
 
