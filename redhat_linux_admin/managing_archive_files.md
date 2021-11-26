@@ -86,7 +86,7 @@ etc/mtab
  > tar: Removing leading `/' from member names
 ```
 ##### **`Transferring Files Using Secure Copy`**:
-
+The Secure Copy command, **`scp`**, which is part of the **`OpenSSH`** suite, copies files from a remote system to the local system or from the local system to a remote system. The command uses the **`SSH server`** for authentication and encrypts data when it is being transferred.
 > Copy the **`/etc/yum.conf`** and **`/etc/hosts`** to the **remoteuser's** home directory on the **remotehost** remote system.
 
 ```zsh
@@ -102,7 +102,7 @@ etc/mtab
 > remoteuser@remotehost's password: password
 > hostname 		100% 	  22 0.0KB/s 		00:00
 ```
-
+> Copy a whole **`/var/log`** directory recursively with the **`-r`** option, into the localhost **`/tmp`** directory.
 ```zsh
 [user@host ~]$ scp -r root@remoteuser:/var/log /tmp
 ```
