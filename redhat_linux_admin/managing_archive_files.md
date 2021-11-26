@@ -26,6 +26,9 @@ Below are some of the most popular options using in **`tar`** commands.
 - **`--list`** *or* **`-t`**: List contents of an archive.
 
 ###### General Options:
+- **`--verbose`** *or* **`-v`** 
+- **`--file`** *or* **`-f`** 
+- **`--preserve-permissions`** *or* **`-p`**: Preserve the permissions of files and directories when extracting an archive, without subtracting the **umask**.
 
 ###### Compression Options:
 - **`--gzip`** *or* **`-z`** : Use `gzip` compression.
@@ -33,10 +36,20 @@ Below are some of the most popular options using in **`tar`** commands.
 - **`--xz`** *or* **`-J`**: Use `xz` compression. Generally performs better than `bzip2`.
 
 > Get help on **`tar`** commands using man pages.
+
 ```zsh
 user@host ~]$ man tar 
 ```
-
+Create archive **`archive.tar`** from files.
+```zsh
+[user@host ~]$ tar -cf archive.tar file1 file2 file3 
+[user@host ~]$ ls archive.tar
+> archive.tar
+```
+Create tar archive named **`/root/etc.tar`** from **`/etc`**.
+```zsh
+[root@host ~]# tar -cf /root/etc.tar /etc 
+```
 
 		tar -cf etc-backup-$(date +%F).tar /etc
 		tar -czf etc-backup-$(date +%F).tar.gz /etc
