@@ -110,7 +110,7 @@ The Secure Copy command, **`scp`**, which is part of the **`OpenSSH`** suite, co
 ##### **`Transferring Files Using Secure File Transfer`**:
 To interactively upload or download files from a **`SSH`** server, use the *Secure File Transfer* Program via the **`sftp`** command.
 > Steps:
-1. **ssh** into target system [user]@host using **`sftp`** command.
+1. **ssh** into target system **`[user]@host`** using **`sftp`** command.
 2. Upload to remote host or download to localhost.
 
 > SSH to target host.
