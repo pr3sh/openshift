@@ -161,16 +161,13 @@ Two common options when synchronizing with rsync are the -v and -a options.
 
 ```zsh
 [user@host ~]$ su -
-Password: password
-[root@host ~]# rsync -av /var/log /tmp receiving incremental file list
-log/
-log/README
-log/boot.log
-...output omitted... log/tuned/tuned.log
-sent 11,592,423 bytes received 779 bytes 23,186,404.00 bytes/sec total size is 11,586,755 speedup is 1.00
-[user@host ~]$ ls /tmp
-log ssh-RLjDdarkKiW1
-[user@host ~]$
+> Password: 
+[root@host ~]# rsync -av /var/log remotehost:/tmp 
+```
+> Peform synchronization in reverse order.
+
+```zsh
+[root@host ~]# rsync -av remotehost:/var/log /tmp
 ```
 
 
