@@ -8,7 +8,8 @@
   	- [Operational Options](#operational-options)
   	- [General Options](#general-options)
   	- [Compression Options](#compression-options)
-  - [Transfering Files Securely](#transferring-files-securely)
+  - [Transferring Files Using Secure Copy](#transferring-files-using-secure-copy)
+  - [Transferring Files Using Secure File Transfer](#transferring-files-using-secure-file-transfer)
   - [Sync Files Between Systems](#sync-files-between-systems)
 
 
@@ -85,11 +86,6 @@ etc/mtab
  > tar: Removing leading `/' from member names
 ```
 ##### **`Transferring Files Securely`**:
-
-
-
-
-
 ```zsh
 [user@host ~]$ scp /etc/yum.conf /etc/hosts remoteuser@remotehost:/home/remoteuser 
 > remoteuser@remotehost's password: 
@@ -106,10 +102,33 @@ etc/mtab
 ```zsh
 [user@host ~]$ scp -r root@remoteuser:/var/log /tmp
 ```
+##### **`Sync Files Between Systems`**:
+To interactively upload or download files from a **`SSH`** server, use the *Secure File Transfer* Program via the **`sftp`** command.
+> Steps:
+1. **ssh*** into target system [user]@host using **`sftp`** command.
+2. Upload to remote host or download to localhost.
 
+> SSH to target host.
+```zsh
+[user@host ~]$ sftp remoteuser@remotehost remoteuser@remotehost's password: password Connected to remotehost.
+sftp>
+```
+> Create **`hostbackup`** directory in target host system, and upload **`/etc/hosts`**.
+```zsh
+sftp> mkdir hostbackup
+sftp> cd hostbackup
+sftp> put /etc/hosts
+Uploading /etc/hosts to /home/remoteuser/hostbackup/hosts
+/etc/hosts 100% 227 0.2KB/s 00:00 sftp>
+```
+> Download **`/etc/yum.conf`** from the remote host .
 
-
-
+```zsh
+sftp> get /etc/yum.conf
+Fetching /etc/yum.conf to yum.conf
+/etc/yum.conf 100% 813 0.8KB/s 00:00 sftp> exit
+[user@host ~]$
+```
 
 
 
