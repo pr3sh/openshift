@@ -11,7 +11,7 @@
   - [Transfering Files Securely](#transferring-files-securely)
 
 
-#### **`Introduction`**:
+##### **`Introduction`**:
 
 - Archiving and compressing files are extremely beneficial creating backups or transferring data across a network.
 -  Using tar, lots of files can be gathered into a single file, called an Archive. 
@@ -83,4 +83,27 @@ etc/mtab
  [root@host ~]# tar -czf /root/etcbackup.tar.gz /etc 
  > tar: Removing leading `/' from member names
 ```
+##### **`Transferring Files Securely`**:
+
+
+
+
+
+```zsh
+[user@host ~]$ scp /etc/yum.conf /etc/hosts remoteuser@remotehost:/home/remoteuser 
+> remoteuser@remotehost's password: 
+>   yum.conf 	100% 		813 0.8KB/s 	00:00
+	hosts 		100% 		227 0.2KB/s 	00:00
+```
+
+
+
+
+
+
+
+
+
+
+
 
