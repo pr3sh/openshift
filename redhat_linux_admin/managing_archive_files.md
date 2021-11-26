@@ -40,16 +40,47 @@ Below are some of the most popular options using in **`tar`** commands.
 ```zsh
 user@host ~]$ man tar 
 ```
-Create archive **`archive.tar`** from files.
+> Create archive **`archive.tar`** from files.
+
 ```zsh
 [user@host ~]$ tar -cf archive.tar file1 file2 file3 
 [user@host ~]$ ls archive.tar
 > archive.tar
 ```
-Create tar archive named **`/root/etc.tar`** from **`/etc`**.
+> *Alternatively*
+
+```zsh
+[user@host ~]$ tar --file=archive.tar --create file1 file2 file3
+```
+> Create tar archive named **`/root/etc.tar`** from **`/etc`**.
+
 ```zsh
 [root@host ~]# tar -cf /root/etc.tar /etc 
 ```
+> List contents of the **`/root/etc.tar`** archive.
+
+```zsh
+[root@host ~]# tar -tf /root/etc.tar 
+etc/fstab
+etc/crypttab
+etc/mtab
+```
+
+> Extract files from the **`/root/etc.tar`** archive.
+
+```zsh
+[root@host etcbackup]# tar -xf /root/etc.tar
+```
+> Extract files from the **`/root/myscripts.tar`** archive while preserving extracted file permissions.
+
+```zsh
+[root@host scripts]# tar -xpf /root/myscripts.tar
+```
+
+```zsh
+ [root@host ~]# tar -czf /root/etcbackup.tar.gz /etc tar: Removing leading `/' from member names
+```
+
 
 		tar -cf etc-backup-$(date +%F).tar /etc
 		tar -czf etc-backup-$(date +%F).tar.gz /etc
