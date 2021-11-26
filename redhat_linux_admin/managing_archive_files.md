@@ -76,19 +76,12 @@ etc/mtab
 ```zsh
 [root@host scripts]# tar -xpf /root/myscripts.tar
 ```
+> Create **`gzip`** compressed archive named **`/root/etcbackup.tar.gz`**, from **`/etc`**.
 
 ```zsh
- [root@host ~]# tar -czf /root/etcbackup.tar.gz /etc tar: Removing leading `/' from member names
+ [root@host ~]# tar -czf /root/etcbackup.tar.gz /etc 
+ > tar: Removing leading `/' from member names
 ```
-
-
-		tar -cf etc-backup-$(date +%F).tar /etc
-		tar -czf etc-backup-$(date +%F).tar.gz /etc
-		tar -cjf etc-backup-$(date +%F).tar.bz /etc
-		tar -cJf etc-backup-$(date +%F).tar.xz /etc 
-
-		# List archive 
-		tar -tf /etc.tar
 
 
 		tar -xf etc.tar
