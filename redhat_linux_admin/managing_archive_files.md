@@ -85,13 +85,17 @@ etc/mtab
  [root@host ~]# tar -czf /root/etcbackup.tar.gz /etc 
  > tar: Removing leading `/' from member names
 ```
-##### **`Transferring Files Securely`**:
+##### **`Transferring Files Using Secure Copy`**:
+
+> Copy the **`/etc/yum.conf`** and **`/etc/hosts`** to the **remoteuser's** home directory on the **remotehost** remote system.
+
 ```zsh
 [user@host ~]$ scp /etc/yum.conf /etc/hosts remoteuser@remotehost:/home/remoteuser 
 > remoteuser@remotehost's password: 
 >   yum.conf 	100% 		813 0.8KB/s 	00:00
 	hosts 		100% 		227 0.2KB/s 	00:00
 ```
+> Perform similar operation in reverse direction.
 
 ```zsh
 [user@host ~]$ scp remoteuser@remotehost:/etc/hostname /home/user 
