@@ -11,6 +11,8 @@
   - [Transferring Files Using Secure Copy](#transferring-files-using-secure-copy)
   - [Transferring Files Using Secure File Transfer](#transferring-files-using-secure-file-transfer)
   - [Sync Files Between Systems](#sync-files-between-systems)
+  	- [Enabled Options With Archive Mode](#enabled-options-with-archive-mode)
+  	- [Examples](#examples)
 
 
 ##### **`Introduction`**:
@@ -68,7 +70,6 @@ etc/fstab
 etc/crypttab
 etc/mtab
 ```
-
 > Extract files from the **`/root/etc.tar`** archive.
 
 ```zsh
@@ -106,7 +107,7 @@ The Secure Copy command, **`scp`**, which is part of the **`OpenSSH`** suite, co
 ```zsh
 [user@host ~]$ scp -r root@remoteuser:/var/log /tmp
 ```
-##### **`Sync Files Between Systems`**:
+##### **`Transferring Files Using Secure File Transfer`**:
 To interactively upload or download files from a **`SSH`** server, use the *Secure File Transfer* Program via the **`sftp`** command.
 > Steps:
 1. **ssh*** into target system [user]@host using **`sftp`** command.
@@ -133,6 +134,50 @@ Fetching /etc/yum.conf to yum.conf
 /etc/yum.conf 100% 813 0.8KB/s 00:00 sftp> exit
 [user@host ~]$
 ```
+
+##### **`Sync Files Between Systems`**:
+- The **`rsync`** command is another way to securely copy files from one system to another. 
+- A benefit to **`rsync`** is the initial directory synchronization takes about the same time as copying it, subsequent synchronizations only require the differences to be copied over the network.
+- The **`-n`** option performs a dry run simulation of what happens when the command gets executed.
+Two common options when synchronizing with rsync are the -v and -a options.
+- Use the **`-v`** or **`--verbose`** for more output. 
+- Use the **`-a`** or **`--archive`** option to enable **"archive mode"**. 
+	- This enables recursive copying and turns on many useful command-line options.
+	- Archive mode is the same as specifying the options listed below.
+
+###### Enabled Options With Archive Mode:
+- **`--recursive`** *or* **`-r`** : Use `gzip` compression.
+- **`--links`** *or* **`-l`** : synchronize symbolic links.
+	- **NOTE!!** *Hard links are not synchronized, to do that add the* **`-H`** *option*.
+- **`--perms`** *or* **`-p`**: preserve permissions.
+- **`--times`** *or* **`-t`** : preserve time stamps.
+- **`--group`** *or* **`-g`** : preserve the group ownership.
+- **`--owner`** *or* **`-o`**:preserve the owner of the files.
+- **`--devices`** *or* **`-D`**: synchronize device file.
+
+###### **`Examples`**:
+
+> Synchronize **`/var/log`** to the **`/tmp`** directory on the **remotehost** system:
+```zsh
+[user@host ~]$ su -
+Password: password
+[root@host ~]# rsync -av /var/log /tmp receiving incremental file list
+log/
+log/README
+log/boot.log
+...output omitted... log/tuned/tuned.log
+sent 11,592,423 bytes received 779 bytes 23,186,404.00 bytes/sec total size is 11,586,755 speedup is 1.00
+[user@host ~]$ ls /tmp
+log ssh-RLjDdarkKiW1
+[user@host ~]$
+
+
+
+
+
+
+
+
 
 
 
