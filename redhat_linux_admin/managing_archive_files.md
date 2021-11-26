@@ -9,6 +9,16 @@
 - Archives can be compressed using **`gzip`**, **`bzip2`**, or **`xz`** compression.
 
 
+Get help using tar 
+
+##### **`Tar Commands`**
+Below are some of the most popular options using in **`tar`** commands.
+
+
+> Get help on **`tar`** commands using man pages.
+```zsh
+user@host ~]$ man tar 
+```
 
 
 		tar -cf etc-backup-$(date +%F).tar /etc
