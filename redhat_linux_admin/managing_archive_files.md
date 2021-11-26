@@ -13,9 +13,9 @@ Get help using tar
 
 ##### **`Tar Commands`**
 Below are some of the most popular options using in **`tar`** commands.
-- **`--create`** *or* **`-c`** : Create a new archive
-- **`--extract`** *or* **`-x`** : Extract an existing archive
-- **`--list`** *or* 
+- **`--create`** *or* **`-c`** : Create a new archive.
+- **`--extract`** *or* **`-x`** : Extract an existing archive.
+- **`--list`** *or* **`-t`**: List contents of an archive.
 
 
 > Get help on **`tar`** commands using man pages.
