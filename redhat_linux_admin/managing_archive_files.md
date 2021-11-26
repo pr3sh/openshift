@@ -157,7 +157,8 @@ Two common options when synchronizing with rsync are the -v and -a options.
 
 ###### **`Examples`**:
 
-> Synchronize **`/var/log`** to the **`/tmp`** directory on the **remotehost** system:
+> Synchronize **`/var/log`** to the **`/tmp`** directory on the **remotehost** system.
+
 ```zsh
 [user@host ~]$ su -
 Password: password
@@ -170,6 +171,7 @@ sent 11,592,423 bytes received 779 bytes 23,186,404.00 bytes/sec total size is 1
 [user@host ~]$ ls /tmp
 log ssh-RLjDdarkKiW1
 [user@host ~]$
+```
 
 
 
