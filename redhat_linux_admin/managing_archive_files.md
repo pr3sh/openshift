@@ -9,6 +9,7 @@
   	- [General Options](#general-options)
   	- [Compression Options](#compression-options)
   - [Transfering Files Securely](#transferring-files-securely)
+  - [Sync Files Between Systems](#sync-files-between-systems)
 
 
 ##### **`Introduction`**:
@@ -96,6 +97,15 @@ etc/mtab
 	hosts 		100% 		227 0.2KB/s 	00:00
 ```
 
+```zsh
+[user@host ~]$ scp remoteuser@remotehost:/etc/hostname /home/user 
+> remoteuser@remotehost's password: password
+> hostname 		100% 	  22 0.0KB/s 		00:00
+```
+
+```zsh
+[user@host ~]$ scp -r root@remoteuser:/var/log /tmp
+```
 
 
 
