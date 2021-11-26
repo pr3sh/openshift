@@ -8,6 +8,7 @@
   	- [Operational Options](#operational-options)
   	- [General Options](#general-options)
   	- [Compression Options](#compression-options)
+  - [Transfering Files Securely](#transferring-files-securely)
 
 
 #### **`Introduction`**:
@@ -82,15 +83,4 @@ etc/mtab
  [root@host ~]# tar -czf /root/etcbackup.tar.gz /etc 
  > tar: Removing leading `/' from member names
 ```
-
-
-		tar -xf etc.tar
-
-		**`file [COMMAND]`**
-
-
-
-
-		scp -r student@servera:/tmp .
-
 
