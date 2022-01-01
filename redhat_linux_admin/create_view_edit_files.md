@@ -5,16 +5,26 @@
 
 
 
-1. I/O redirection changes how the process gets its input or output. 
-	a. For example: Instead of getting input from the keyboard, or sending output and errors to the terminal, the process reads from or writes to files.
- 
-2. Redirection can be used to discard output or errors, so they are not displayed on the
+1. **`I/O`** redirection changes how processes gets utilize their inputs or outputs. 
+	a. *For example*: Instead of getting input from the keyboard, or sending output and errors to the terminal, the process reads from or writes to files.
+2. Redirection can be used to discard output or errors so they are not displayed on the
 terminal or saved.
-Redirecting stdout suppresses process output from appearing on the terminal. As seen in
-the following table, redirecting only stdout does not suppress stderr error messages from displaying on the terminal. If the file does not exist, it will be created. If the file does exist and the redirection is not one that appends to the file, the file's contents will be overwritten.
-If you want to discard messages, the special file /dev/null quietly discards channel output redirected to it and is always an empty file.
+3. If you want to discard messages, you can redirect to the special file **`/dev/null`**. 
 
+#### **`Helm Commands`:**
 
+|         **`Command`**  |     **`Description`**             | 
+|------------------------|:---------------------------------:|  
+| **`dependency`**       | Manage a chart's dependencies.    | 
+| **`install`**          | Install a chart.                  |   
+| **`list`**             | List releases installed           |
+| **`pull`**             | Download chart from repository.   |
+| **`rollback`**         | Rollback to previous revision.    | 
+| **`search`**           | Search for keyword in charts.     | 
+| **`show`**             | Display information of a chart.   |   
+| **`status`**           | Display status of named release   |
+| **`uninstall`**        | Uninstall a release               |
+| **`upgrade`**          |Upgrade a release                  | 
 
 
 Modes: Insert, Extended Command(`:`), Command Mode, Visual (control+v  or shift-v) visual block , visual line
