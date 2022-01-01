@@ -1,7 +1,9 @@
 -  **Table of contents**:
   - [Introduction](#introduction)
+  - [Channel Descriptors](#channel-descriptors)
   - [Output Redirection Operators](#output-redirection)
-  - [Editing Textfiles](#editing-textfiles)
+  - [Editing Textfiles](#editing-textfiles)\
+  - 
 
 #### **`Introduction`:**
 
@@ -21,7 +23,7 @@
 terminal or saved.
 3. If you want to discard messages, you can redirect to the special file **`/dev/null`**. 
 
-#### **`Channels`:**
+#### **`Channel Descriptors`:**
 |**`Number`**|  **`Channel Name`**      | 
 |------------|:------------------------:|  
 | **`0`**    | **`stdin`**              | 
