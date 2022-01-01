@@ -24,3 +24,11 @@ terminal or saved.
 | **`>> file 2>&1`**     | Redirect **`stdout`** and **`stderr`** to *append* to the same file. |   
 | **`&>> file`**         | Redirect **`stdout`** and **`stderr`** to *append* to the same file. |
 
+#### **`Channels`:**
+
+|**`Number`**|  **`Channel Name`**      | 
+|------------|:------------------------:|  
+| **`0`**    | **`stdin`**              | 
+| **`1`**    | **`stdout`**             |   
+| **`2`**    | **`stderr`**             |
+| **`3+`**   | **`filename`**           |
