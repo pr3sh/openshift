@@ -2,8 +2,8 @@
   - [Introduction](#introduction)
   - [Channel Descriptors](#channel-descriptors)
   - [Output Redirection Operators](#output-redirection)
-  - [Editing Textfiles](#editing-textfiles)\
-  - 
+  	- [Examples](examples)
+  - [Editing Textfiles](#editing-textfiles)
 
 #### **`Introduction`:**
 
@@ -42,3 +42,19 @@ terminal or saved.
 | **`&> file`**          | Redirect **`stdout`** and **`stderr`** to *overwrite* the same file. | 
 | **`>> file 2>&1`**     | Redirect **`stdout`** and **`stderr`** to *append* to the same file. |   
 | **`&>> file`**         | Redirect **`stdout`** and **`stderr`** to *append* to the same file. |
+
+###### **`Examples`:**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
