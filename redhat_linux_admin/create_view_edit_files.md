@@ -1,4 +1,6 @@
--  **Table of contents**:
+
+
+## **Table of contents**:
   - [Introduction](#introduction)
   - [Channel Descriptors](#channel-descriptors)
   - [Output Redirection Operators](#output-redirection)
