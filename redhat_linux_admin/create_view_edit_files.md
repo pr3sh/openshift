@@ -1,11 +1,12 @@
 
-
 ## **Table of contents**:
   - [Introduction](#introduction)
   - [Channel Descriptors](#channel-descriptors)
   - [Output Redirection Operators](#output-redirection)
   	- [Examples](examples)
   - [Editing Textfiles](#editing-textfiles)
+  - [Pipelines](#pipelines)
+  	- [Tee Command](#tee-command)
 
 #### **`Introduction`:**
 
@@ -45,7 +46,7 @@ terminal or saved.
 | **`>> file 2>&1`**     | Redirect **`stdout`** and **`stderr`** to *append* to the same file. |   
 | **`&>> file`**         | Redirect **`stdout`** and **`stderr`** to *append* to the same file. |
 
-###### **`Examples`:**
+###### **`Examples`**:
 > Redirect the last 10 lines from log file, to another file.
 
 ```zsh
@@ -71,10 +72,32 @@ terminal or saved.
 ```zsh
 [user@host ~]$ find /etc -name passwd >> /tmp/save-both 2>&1
 ```
+##### **`Pipelines`**:
 
+**Pipelines** allow the output of a process to be manipulated by other **processes** before it is output to the terminal.
 
+```zsh
+[user@host ~]$ ls -l /usr/bin | less
+```
+> Count the number of lines from the **`ls`** command's output.
 
+```zsh
+[user@host ~]$ ls | wc -l
+```
 
+######  **`Tee Command`**:
+In the example below the output of the **`ls`** command, is passed to a file &  the **`less`** command, but nothing will be displayed on the terminal.
+
+```zsh
+[user@host ~]$ ls > /tmp/saved-output | less
+```
+
+In the example below the output of the **`ls`** command, is passed to a file and to the **`less`** to be
+displayed on the terminal one screen at a time.
+
+```zsh
+[user@host ~]$ ls -l | tee /tmp/saved-output | less
+```
 
 
 
