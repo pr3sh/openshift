@@ -44,10 +44,31 @@ terminal or saved.
 | **`&>> file`**         | Redirect **`stdout`** and **`stderr`** to *append* to the same file. |
 
 ###### **`Examples`:**
+> Redirect the last 10 lines from log file, to another file.
 
+```zsh
+[user@host ~]$ tail -n 100 /var/log/dmesg > /tmp/last-100-boot-messages
+```
+> Redirect the last 10 lines from log file, to another file.
 
+```zsh
+[user@host ~]$ cat file1 file2 file3 file4 > /tmp/all-four-in-one
+```
+> Redirect errors to a file **`/tmp/errors`**, and normal output to the terminal.
 
+```zsh
+[user@host ~]$ find /etc -name passwd 2> /tmp/errors
+```
+> Discard errors and write **`stdout`** to a file.
 
+```zsh
+[user@host ~]$ find /etc -name passwd > /tmp/output 2> /dev/null
+```
+> Append output and generated errors to an existing file.
+
+```zsh
+[user@host ~]$ find /etc -name passwd >> /tmp/save-both 2>&1
+```
 
 
 
