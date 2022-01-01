@@ -6,10 +6,9 @@
 
 
 1. I/O redirection changes how the process gets its input or output. 
-	a. Instead of getting input from the keyboard, or sending output and errors to the terminal, the process reads from or writes to files. Redirection lets you save messages to a file that are normally sent to the terminal window.
-   124 RH124-RHEL8.2-en-1-20200928
- Chapter 5 | Creating, Viewing, and Editing Text Files
- 	- Alternatively, you can use redirection to discard output or errors, so they are not displayed on the
+	a. For example: Instead of getting input from the keyboard, or sending output and errors to the terminal, the process reads from or writes to files.
+ 
+2. Redirection can be used to discard output or errors, so they are not displayed on the
 terminal or saved.
 Redirecting stdout suppresses process output from appearing on the terminal. As seen in
 the following table, redirecting only stdout does not suppress stderr error messages from displaying on the terminal. If the file does not exist, it will be created. If the file does exist and the redirection is not one that appends to the file, the file's contents will be overwritten.
