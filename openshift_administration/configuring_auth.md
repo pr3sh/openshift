@@ -188,13 +188,3 @@ Cluster admins can use the **`oc adm policy`** command to manage cluster and nam
 
 
 
-
-
-
-
-
-
-
-
-
-
