@@ -16,4 +16,3 @@ There are three main types of user accounts:
     - Do not need nor run with privileged access
     - There isn't any interactive login by the owner of user account.
   3. **`Regular User`**
-•
