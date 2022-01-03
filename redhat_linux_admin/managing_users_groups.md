@@ -3,6 +3,7 @@
   - [Understanding Users](#understanding-users)
   - [Understanding Groups](#understanding-groups)
   - [Switching Users](#switching-users)
+  - [Using Sudo](#using-sudo)
 
 #### **`Understanding Users`:**
 There are three main types of user accounts: 
@@ -64,6 +65,8 @@ uid=100(user01) gid=1000(user01) groups=1000(user01)
 >> Password:
 [root@host ~]#
 ```
+
+#### **`Using Sudo`:**
 
 
 
