@@ -1,7 +1,7 @@
 ## **Table of contents**:
   - [Introduction](#introduction)
   - [Understanding Users](#understanding-users)
-  - [Output Redirection Operators](#output-redirection)
+  - [Understanding Groups](#understanding-groups)
 
 
 
@@ -37,6 +37,21 @@ uid=100(user01) gid=1000(user01) groups=1000(user01)
 [user01@host ~]$ ps -au
  ```
 > *The **`/etc/passwd`** file, is a colon delimited file that contains information about our users.*
+
+#### **`Understanding Groups`:**
+- Groups are a way of organizing users, and can be used to grant access to resources to a set of users, rather than assigning authorization to each user seperately.
+- Groups are uniquely identified by thier **`group ID`** or **`GID`**.
+- Systems use the **`/etc/group`** file to store local groups' information.
+
+
+
+
+
+
+
+
+
+
 
 
 
