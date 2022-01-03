@@ -68,6 +68,11 @@ uid=100(user01) gid=1000(user01) groups=1000(user01)
 
 #### **`Using Sudo`:**
 
+- Unlike **`su`**, **`sudo`** normally requires users to enter their own password for authentication, **not the password of the user account they are trying to access**. 
+- Users who use **`sudo`** to run commands as **`root`** do not need to know the **`root`** password but instead, use their own passwords to authenticate.
+- **`sudo`** can be configured to allow *specific users* to run any command as some other user, or **only some commands as that user**.
+F
+
 
 
 
