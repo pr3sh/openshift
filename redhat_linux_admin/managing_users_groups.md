@@ -2,8 +2,7 @@
   - [Introduction](#introduction)
   - [Understanding Users](#understanding-users)
   - [Understanding Groups](#understanding-groups)
-
-
+  - [Switching Users](#switching-users)
 
 #### **`Understanding Users`:**
 There are three main types of user accounts: 
@@ -46,8 +45,25 @@ uid=100(user01) gid=1000(user01) groups=1000(user01)
 - When you create a new **`regular user`**, a new group with the same name is also created & becomes the primary group for the new user.
 - Users are granted access to files based on whether any of their groups have access. 
 
+#### **`Switching Users`:**
 
+- The **`su`** command can be used a different user account.
+- If you run **`su`** from a regular user account, you will be prompted for the **password** of the account to which you *want to switch to*. 
+- When **`root`** runs **`su`**, you do not need to enter the user's password.
 
+> Switch to **`user0`**.
+
+```zsh
+[user01@host ~]$ su - user01
+ >> Password:
+```
+> Switch to **`root`** by default.
+
+```zsh
+[user01@host ~]$ su - 
+>> Password:
+[root@host ~]#
+```
 
 
 
