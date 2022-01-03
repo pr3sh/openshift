@@ -4,6 +4,7 @@
   - [Understanding Groups](#understanding-groups)
   - [Switching Users](#switching-users)
   - [Using Sudo](#using-sudo)
+    - [Getting Interactive Sheel Using Sudo](#getting-interactive-shell-using-sudo)
 
 #### **`Understanding Users`:**
 There are three main types of user accounts: 
@@ -74,7 +75,10 @@ uid=100(user01) gid=1000(user01) groups=1000(user01)
 - All commands executed using **`sudo`** are logged by default to **`/var/log/secure`**.
 - In **RHEL7** and **RHEL8**, all members of the group, **`wheel`** utilize the **`sudo`** to run commands as any user, including **`root`**. The user is prompted for their own password.
 
-
+###### **`Getting Interactive Sheel Using Sudo`:**
+- If there is a nonadministrative user account on the system that can use **`sudo su -`** from that account to get an interactive **`root`** user shell. 
+- This works because **`sudo`** will run **`su -`** as **`root`**, and **`root`** does not need to enter a password to use **`su`**.
+- You can also gain **`root`** acces using using the **`sudo -i`** 
 
 
 
