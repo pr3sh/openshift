@@ -8,7 +8,7 @@ Files have *three* user categories to which permissions apply:
 2. The file is also owned by a single **`group`**.
 3. Different permissions can be set for the owning user, the owning **`group`**, and for all **`other`** users on the system that are not the user or a member of the owning **`group`**.
 
->  User permissions override group permissions, which override other permissions.
+>  *User permissions override group permissions, which override other permissions.*
 
 #### **`Understanding File and Directory Permissions`:**
 
