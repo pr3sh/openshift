@@ -11,6 +11,9 @@
   - [Managing Groups](#managing-groups)
   - [Changing Group Membership from CLI](#changing-group-memebership-from-cli)
   - [Managing User Passwords](#managing-user-passwords)
+    - [Configuring Password Aging](#configuring-password-aging)
+  - [Restricting Access](#restricting-access)
+    - [No Login Shell](#no-login-shell)
 
 
 #### **`Understanding Users`:**
@@ -215,8 +218,48 @@ group02:x:988:
 ```text
 user03: $6$CSsX...output omitted...: 17933: 0: 99999: 7: 2: 18113:
 ```
+###### **`Configuring Password Aging`**:
 
 
+```zsh 
+user1@localhost~]$ sudo chage -m 0 -M 90 -W 7 -I 14 user03
+```
+**`-m`**: Minimum Age 
+**`-M`**: Maximum Age 
+**`-W`**: Warning Period
+**`-I`**: Inactivity Period of user's password.
+
+> Force **`user1`**
+
+```zsh
+user1@localhost~]$ chage -d 0 user1 
+```
+
+> List **`user`**'s password aging details.
+
+```zsh
+user1@localhost~]$ chage -l user1
+```
+
+> Configure **`user1`**'s account to expire on 2022-01-01.
+
+```zsh
+user1@localhost~]$ chage -E 2022-01-01 user1
+```
+> You an edit the password aging configurations in the **`/etc/login.defs`** file to modify default password aging policies'parameters like: **`PASS_MAX_DAYS`** ,**`PASS_MIN_DAYS`**, **`PASS_WARN_AGE`** as we are already familiar with on the **CLI**.
+
+#### **`Restricting Access`:**
+
+- The **`usermod`** command can be used to lock user accounts with the **`-L`** option.
+- You can also add **`-e`** as well to specify an expiration date.
+- Use the **`usermod`** command, along with the **`-U`** option to unlock a user's account.
+
+
+##### **`No Login Shell`:**
+
+- In some scenarios, applications or accounts may need to authorize with the system, but to not necessarily need an interactive login.
+- A feasible solution is setting user's login shell to **`/sbin/nologin`**. 
+- The **`nologin`** shell closes all connections when there is a login attempt by the user.
 
 
 
