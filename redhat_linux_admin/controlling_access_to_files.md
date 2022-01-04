@@ -2,7 +2,7 @@
   - [Introduction](#introduction)
   - [Understanding File and Directory Permissions](#understanding-file-and-directory-permissions)
 
-#### **`Introduction`:**
+## **`Introduction`:**
 Files have *three* user categories to which permissions apply:
 1. The file is owned by a **`user`**.
 2. The file is also owned by a single **`group`**.
