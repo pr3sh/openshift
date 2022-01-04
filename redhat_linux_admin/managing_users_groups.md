@@ -4,7 +4,9 @@
   - [Understanding Groups](#understanding-groups)
   - [Switching Users](#switching-users)
   - [Using Sudo](#using-sudo)
-    - [Getting Interactive Sheel Using Sudo](#getting-interactive-shell-using-sudo)
+    - [Getting Interactive Shell Using Sudo](#getting-interactive-shell-using-sudo)
+    - [Configuring Sudo](#configuring-sudo)
+  - [Managing Users](#managing-users)
 
 #### **`Understanding Users`:**
 There are three main types of user accounts: 
@@ -75,10 +77,45 @@ uid=100(user01) gid=1000(user01) groups=1000(user01)
 - All commands executed using **`sudo`** are logged by default to **`/var/log/secure`**.
 - In **RHEL7** and **RHEL8**, all members of the group, **`wheel`** utilize the **`sudo`** to run commands as any user, including **`root`**. The user is prompted for their own password.
 
-###### **`Getting Interactive Sheel Using Sudo`:**
+###### **`Getting Interactive Shell Using Sudo`:**
 - If there is a nonadministrative user account on the system that can use **`sudo su -`** from that account to get an interactive **`root`** user shell. 
 - This works because **`sudo`** will run **`su -`** as **`root`**, and **`root`** does not need to enter a password to use **`su`**.
 - You can also gain **`root`** acces using using the **`sudo -i`** 
+
+###### **`Configuring Sudo`:**
+- The main configuration file for sudo is **`/etc/sudoers`**. 
+- To mitigate issues regarding various admins editing the file simultaneously, it should only be edited with the special **`visudo`** command.
+
+> To enable *full* **`sudo`** access for the user **`user01`**, you could create **`/etc/sudoers.d/user01`** with the following content:
+
+```text
+user01  ALL=(ALL)  ALL
+```
+
+> To enable *full ***`sudo`** access for the group **`group01`**, you could create **`/etc/sudoers.d/group01`**
+
+```text
+%group01  ALL=(ALL)  ALL
+```
+
+> Set up **`sudo`** to allow a user to run commands as another user without entering their password.
+
+```text
+ansible  ALL=(ALL)  NOPASSWD:ALL
+```
+
+###### **`Managing Users`:**
+- To create a new user, you can use the **`useradd <username>`** command.
+- Use the **`usermod`** command to modify an existing user's account details.
+- Many defaults, such as the range of valid **`UID`** numbers are read from the **`/etc/login.defs`** file. 
+- Values in **`/etc/login.defs`** are only used when creating new users, therefore changing this file does not affect pre-existing users.
+
+
+
+
+
+
+
 
 
 
