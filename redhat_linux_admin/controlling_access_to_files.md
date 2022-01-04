@@ -48,12 +48,19 @@ Files have *three* user categories to which permissions apply:
 - The next nine characters are the file permissions.
 
 #### **`Changing File and Directory Permissions`**:
+
 ```zsh
 [user@host~]$ chmod <WhoWhatWhich> file|directory
 ```
 - **Who**: **`u`**, **`g`**, **`o`**, **`a`** 
 - **What**: **`+`**, **`-`**, **`=`** 
 - **Which**: **`r`**, **`w`**, **`x`** 
+
+> Use **`+`** or **`-`** to *add* or *remove* permissions. Use **`=`** to replace the entire set for a group of permissions.
+> Using a capital **`X`** as the *permission flag* will add **execute** permission *only if* the file is a directory or already has execute set for **`user`**, **`group`**, or **`other`**.
+
+
+
 
 
 
