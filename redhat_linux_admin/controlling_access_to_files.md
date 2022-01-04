@@ -1,4 +1,4 @@
-## **Table of contents**:
+# **Table of contents**:
   - [Introduction](#introduction)
   - [Understanding File and Directory Permissions](#understanding-file-and-directory-permissions)
 
