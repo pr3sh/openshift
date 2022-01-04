@@ -261,6 +261,13 @@ user1@localhost~]$ chage -E 2022-01-01 user1
 - A feasible solution is setting user's login shell to **`/sbin/nologin`**. 
 - The **`nologin`** shell closes all connections when there is a login attempt by the user.
 
+```zsh
+[user01@host ~]$ usermod -s /sbin/nologin user03 
+[user01@host ~]$ su - user03
+>> Last login: Wed Feb 6 17:03:06 IST 2019 on pts/0 
+This account is currently not available.
+```
+
 
 
 
