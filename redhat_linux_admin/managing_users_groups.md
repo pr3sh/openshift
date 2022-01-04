@@ -10,6 +10,7 @@
     - [Usermod CLI Options](#usermod-cli-options)
   - [Managing Groups](#managing-groups)
   - [Changing Group Membership from CLI](#changing-group-memebership-from-cli)
+  - [Managing User Passwords](#managing-user-passwords)
 
 
 #### **`Understanding Users`:**
@@ -203,6 +204,25 @@ group02:x:988:
 ```
 
 > The use of the **`-a`** option makes **`usermod`** function in append mode. Without **`-a`**, the user will be removed from any of their current supplementary groups that are not included in the **`-G`** option's list.
+
+#### **`Managing User Passwords`**:
+
+- Encrypted passwords are stored in the **`/etc/shadow`** file which is readable only by **`root`**.
+- When a user tries to log in, a check is performed in **`/etc/shadow`**, combines the salt for the user with the unencrypted password that was typed in, and encrypts them using the hashing algorithm specified.
+
+> Sample entry in the **`/etc/shadow`**
+
+```text
+user03: $6$CSsX...output omitted...: 17933: 0: 99999: 7: 2: 18113:
+```
+
+
+
+
+
+
+
+
 
 
 
