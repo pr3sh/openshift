@@ -116,17 +116,17 @@ ansible  ALL=(ALL)  NOPASSWD:ALL
 
 #### **`Usermod CLI Options`:**
 
-|  **`usermod options`** |     **`Usage`**                                                | 
-|------------------------|:--------------------------------------------------------------------:|  
-| **`-c | --comment`**   | Add user's real name to comment field.                         | 
-| **`-g | --gid `**      | Specify user's primary group.                            |   
+|  **`usermod options`** |     **`Usage`**                                                             | 
+|------------------------|:---------------------------------------------------------------------------:|  
+| **`-c | --comment`**   | Add user's real name to comment field.                                      | 
+| **`-g | --gid `**      | Specify user's primary group.                                               |   
 | **`-G | --groups`**    | Specify a comma-separated list of supplementary groups for the user account.|
-| **`-a | --append`**    | Used with the **`-G`** option to add the supplementary groups to the user's current set of group memberships instead of replacing the set of supplementary groups with a new set.      | 
+| **`-a | --append`**    | Used with the **`-G`** option to add the supplementary groups to the user's current set of group memberships instead of replacing the set of supplementary groups with a new set.          | 
 | **`-d | -home`**       | Specify a particular home directory for the user account. | 
 | **`-m | --move`**      | Move the user's home directory to a new location. Must be used with the **`-d`** option.| 
-| **`-s | --shell`**     | Specify login shell for the user account.. |   
-| **`-L | --lock`**      | Lock user account. |
-| **`-U | --unlock`**    | Unlock user account.|
+| **`-s | --shell`**     | Specify login shell for the user account.                                   |   
+| **`-L | --lock`**      | Lock user account.                                                          |
+| **`-U | --unlock`**    | Unlock user account.                                                        |
 
 
 
