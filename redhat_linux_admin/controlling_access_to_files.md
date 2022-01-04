@@ -44,3 +44,11 @@ Files have *three* user categories to which permissions apply:
 - **`d`** *directory*
 - **`l`**  *soft link*
 - Other characters represent hardware devices ( *i.e* **`b`** and **`c`**) 
+- The next nine characters are the file permissions.
+
+
+
+
+
+
+
