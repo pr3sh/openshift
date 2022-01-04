@@ -48,6 +48,14 @@ Files have *three* user categories to which permissions apply:
 - The next nine characters are the file permissions.
 
 #### **`Changing File and Directory Permissions`**:
+```zsh
+[user@host~]$ chmod <WhoWhatWhich> file|directory
+```
+- **Who**: **`u`**, **`g`**, **`o`**, **`a`** 
+- **What**: **`+`**, **`-`**, **`=`** 
+- **Which**: **`r`**, **`w`**, **`x`** 
+
+
 
 
 
