@@ -23,3 +23,24 @@ Files have *three* user categories to which permissions apply:
 1. **`x`** **(execute)**:
   - **Effect on files**: Can be executed as commands.
   - **Effect on Directories**: You can **`cd`** into directory, but needs **`read`** permissions to list contents.
+
+> View the detailed file info using **`-l`**.
+
+```zsh
+[user@host~]$ ls -l test
+-rw-rw-r--. 1 student student 0 Feb 8 17:36 test
+```
+
+> Use **`-d`** to view the detailed file info of a directory (*not its contents*).
+
+```zsh
+[user@host~]$ ls -l test
+-rw-rw-r--. 1 student student 0 Feb 8 17:36 test
+```
+
+> The first symbol from the returned result lets us know the following.
+
+- **`-`**  *regular file*
+- **`d`** *directory*
+- **`l`**  *soft link*
+- Other characters represent hardware devices ( *i.e* **`b`** and **`c`**) 
