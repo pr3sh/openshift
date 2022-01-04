@@ -1,6 +1,7 @@
 # **Table of contents**:
   - [Introduction](#introduction)
   - [Understanding File and Directory Permissions](#understanding-file-and-directory-permissions)
+  - [Changing File and Directory Permissions](#changing-file-and-directory-permissions)
 
 ## **`Introduction`:**
 Files have *three* user categories to which permissions apply:
@@ -46,7 +47,7 @@ Files have *three* user categories to which permissions apply:
 - Other characters represent hardware devices ( *i.e* **`b`** and **`c`**) 
 - The next nine characters are the file permissions.
 
-
+#### **`Changing File and Directory Permissions`**:
 
 
 
