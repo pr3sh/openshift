@@ -7,7 +7,10 @@
     - [Getting Interactive Shell Using Sudo](#getting-interactive-shell-using-sudo)
     - [Configuring Sudo](#configuring-sudo)
   - [Managing Users](#managing-users)
-  - [Usermod CLI Options](#usermod-cli-options)
+    - [Usermod CLI Options](#usermod-cli-options)
+  - [Managing Groups](#managing-groups)
+  - [Changing Group Membership from CLI](#changing-group-memebership-from-cli)
+
 
 #### **`Understanding Users`:**
 There are three main types of user accounts: 
@@ -129,14 +132,77 @@ ansible  ALL=(ALL)  NOPASSWD:ALL
 | **`-U`** or **`--unlock`**     | Unlock user account.                                                         
 
 
+#### **`Managing Groups`:**
 
+- Execute **`groupadd <group_name>`** to creates groups. 
+  - Without additional options **`groupadd`** uses the next available **`GID`** from the ranges specified in **`/etc/login.defs`**
+- Use **`groupmod`** to modify the properties of an existing group. 
+  - The **`-n`** option specifies a new name for the group.
+- The **`-r`** option creates a system group using a **`GID`** from specified ranges in **`/etc/login.defs`** file. The **`SYS_GID_MIN`** and **`SYS_GID_MAX`** configuration items in **`/etc/login.defs`** define the range of system **`GIDs`**.
 
+#### **`Examples`:**
 
+> Create new group, using specific group id (**`-g`**).
+```zsh
+[user01@host ~]$ sudo groupadd -g 10000 group01 
+[user01@host ~]$ tail /etc/group
+...output omitted...
+group01:x:10000: 
+```
 
+> Change **`group02`**'s name to **`group0022`**.
 
+```zsh
+[user01@host ~]$ sudo groupmod -n group0022 group02 
+[user01@host ~]$ tail /etc/group
+...output omitted...
+group0022:x:988:
+```
 
+> Change **`group02`**'s **`GID`** to **`20000`**.
 
+```zsh
+[user01@host ~]$ sudo groupmod -g 20000 group0022
+[user01@host ~]$ tail /etc/group
+...output omitted...
+group0022:x:20000:
+```
 
+```zsh
+[user01@host ~]$ sudo groupadd -r group02 
+[user01@host ~]$ tail /etc/group ...output omitted...
+group01:x:10000:
+group02:x:988:
+```
+
+> Delete group.
+
+ ```zsh
+ [user01@host ~]$ sudo groupdel group0022
+ ```
+
+#### **`Changing Group Membership from CLI`**:
+
+> To change a user's primary group, use the **`usermod -g`** command.
+
+```zsh
+[user01@host ~]$ id user02
+>>> uid=1006(user02) gid=1008(user02) groups=1008(user02)
+[user01@host ~]$ sudo usermod -g group01 user02 [user01@host ~]$ id user02
+>> uid=1006(user02) gid=10000(group01) groups=10000(group01)
+```
+
+> Use **`usermod -aG`** command to add a user to a supplementary group.
+
+```zsh
+[user01@host ~]$ id user03
+>> uid=1007(user03) gid=1009(user03) groups=1009(user03)
+[user01@host ~]$ sudo usermod -aG group01 user03
+[user01@host ~]$ id user03
+>>uid=1007(user03) gid=1009(user03) groups=1009(user03),10000(group01)
+```
+
+> The use of the **`-a`** option makes **`usermod`** function in append mode. Without **`-a`**, the user will be removed from any of their current supplementary groups that are not included in the **`-G`** option's list.
 
 
 
