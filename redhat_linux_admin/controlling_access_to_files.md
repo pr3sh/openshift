@@ -52,9 +52,9 @@ Files have *three* user categories to which permissions apply:
 
 #### **`Changing File and Directory Permissions`**:
 
-```zsh
-[user@host ~]$ chmod <WhoWhatWhich> file|directory
-```
+
+**`chmod <WhoWhatWhich> file|directory`**
+
 - **Who**: **`u`**, **`g`**, **`o`**, **`a`** 
 - **What**: **`+`**, **`-`**, **`=`** 
 - **Which**: **`r`**, **`w`**, **`x`** 
