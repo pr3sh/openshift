@@ -4,6 +4,7 @@
   - [Changing File and Directory Permissions](#changing-file-and-directory-permissions)
     - [Chmod Examples](#chmod-examples)
     - [Changing Permissions with the Numeric Method](#changing-permissions-with-numeric-method)
+  - [Changing File and Directory Ownership](#changing-file-and-directory-ownership)
 
 ## **`Introduction`:**
 Files have *three* user categories to which permissions apply:
@@ -78,5 +79,34 @@ Files have *three* user categories to which permissions apply:
 ###### **`Changing Permissions with the Numeric Method`**:
 
 To change permissiosn using numeric method execute **`chmod xxx file|directory`**.
+- Each digit represents permissions for an access level(in 3-digit octal): **`user`**, **`group`**, **`other`**.
+- The digit is calculated by adding together numbers for each permission you want to add.
+
+> *Number Representations:*
+ - **`4`** *read*
+ - **`2`** *write*
+ - **`1`** *execute*
+
+
+ > Give **`rwx`** permissions to user, **`r-x`** to group, and **`---`** to others
+
+ ```zsh
+[user@host ~]$ chmod 750 testdir
+ ```
+
+###### **`Changing File and Directory Ownership`**:
+
+- Only **`root`** can change the user that owns a file. 
+- Group ownerships can be set by **`root`** or by the file's owner. 
+- **`root`** can grant file ownership to any **`group`**, but regular users can make a **`group`** the owner of a file. only if they are a member of that group.
+
+> *To change file ownership use chown:*
+  - **`chown [-fhnv] [-R [-H | -L | -P]] owner[:group] file ...`**
+  - **`chown [-fhnv] [-R [-H | -L | -P]] :group file ...`**
+
+
+
+
+
 
 
