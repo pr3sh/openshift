@@ -24,7 +24,7 @@ Files have *three* user categories to which permissions apply:
   - **Effect on files**: Contents can be changed.
   - **Effect on Directories**: Files can be created or deleted within directory.
 
-1. **`x`** **(execute)**:
+3. **`x`** **(execute)**:
   - **Effect on files**: Can be executed as commands.
   - **Effect on Directories**: You can **`cd`** into directory, but needs **`read`** permissions to list contents.
 
