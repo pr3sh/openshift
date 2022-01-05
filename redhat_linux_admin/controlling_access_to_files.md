@@ -2,6 +2,8 @@
   - [Introduction](#introduction)
   - [Understanding File and Directory Permissions](#understanding-file-and-directory-permissions)
   - [Changing File and Directory Permissions](#changing-file-and-directory-permissions)
+    - [Chmod Examples](#chmod-examples)
+    - [Changing Permissions with the Numeric Method](#changing-permissions-with-numeric-method)
 
 ## **`Introduction`:**
 Files have *three* user categories to which permissions apply:
@@ -28,14 +30,14 @@ Files have *three* user categories to which permissions apply:
 > View the detailed file info using **`-l`**.
 
 ```zsh
-[user@host~]$ ls -l test
+[user@host ~]$ ls -l test
 -rw-rw-r--. 1 student student 0 Feb 8 17:36 test
 ```
 
 > Use **`-d`** to view the detailed file info of a directory (*not its contents*).
 
 ```zsh
-[user@host~]$ ls -l test
+[user@host ~]$ ls -l test
 -rw-rw-r--. 1 student student 0 Feb 8 17:36 test
 ```
 
@@ -50,7 +52,7 @@ Files have *three* user categories to which permissions apply:
 #### **`Changing File and Directory Permissions`**:
 
 ```zsh
-[user@host~]$ chmod <WhoWhatWhich> file|directory
+[user@host ~]$ chmod <WhoWhatWhich> file|directory
 ```
 - **Who**: **`u`**, **`g`**, **`o`**, **`a`** 
 - **What**: **`+`**, **`-`**, **`=`** 
@@ -59,12 +61,22 @@ Files have *three* user categories to which permissions apply:
 > Use **`+`** or **`-`** to *add* or *remove* permissions. Use **`=`** to replace the entire set for a group of permissions.
 > Using a capital **`X`** as the *permission flag* will add **execute** permission *only if* the file is a directory or already has execute set for **`user`**, **`group`**, or **`other`**.
 
+###### **`Chmod Examples`**:
 
+> Remove **`read`** and **`write`** permissions from **`file`**.
 
+```zsh
+[user@host ~]$ chmod go-rw file1
+```
 
+> Add **`execute`** permissions to **`file2`**.
 
+```zsh
+[user@host ~]$ chmod a+x file2
+```
 
+###### **`Changing Permissions with the Numeric Method`**:
 
-
+To change permissiosn using numeric method execute **`chmod xxx file|directory`**.
 
 
