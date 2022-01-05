@@ -52,7 +52,6 @@ Files have *three* user categories to which permissions apply:
 
 #### **`Changing File and Directory Permissions`**:
 
-
 **`chmod <WhoWhatWhich> file|directory`**
 
 - **Who**: **`u`**, **`g`**, **`o`**, **`a`** 
