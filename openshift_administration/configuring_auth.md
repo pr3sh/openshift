@@ -106,7 +106,7 @@ metadata:
 spec:
   identityProviders:
     - name: my_htpasswd_provider  
-      mappingMethod: Claim  
+      mappingMethod: claim  
       type: HTPasswd
       htpasswd:
         fileData:
