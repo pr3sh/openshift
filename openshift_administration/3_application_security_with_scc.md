@@ -42,5 +42,25 @@ There are 8 default **`Security Context Constraints (SCC)`**:
  > oc adm policy scc-subject-review -f -
 ```
 
+1. To modify a container to run using a different **`SCC`**, you must create a **`service account`**. 
+
+```zsh 
+[user@host ~]$ oc create serviceaccount service-account-name
+```
+2. Associate the **`service account`** with desired **`SCC`** using the **`oc adm policy command`**. 
+	- Use the **`- z`** option to identify a **`service account`**.
+
+```zsh
+[user@host ~]$ oc adm policy add-scc-to-user SCC -z service-account-name
+```
+
+3. Modify the existing deployment to use the **`service account`**.
+
+```zsh
+ [user@host ~]$ oc set serviceaccount deployment/deployment-name \ 
+ 	> service-account-name
+```
+
+> *Assigning an SCC to a service account or removing an SCC from a service account must be performed by a cluster administrator.*
 
 
