@@ -13,3 +13,11 @@
 **`[user@host ~]$ oc get scc`**
 
 There are 8 default **`Security Context Constraints (SCC)`**: 
+1. **`anyuid`**
+2. **`hostaccess`**
+3. **`hostmount-anyuid`**
+4. **`hostnetwork`**
+5. **`node-exporter`**
+6. **`nonroot`**
+7. **`privileged`**
+8. **`restricted`**
