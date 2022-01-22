@@ -21,3 +21,11 @@ There are 8 default **`Security Context Constraints (SCC)`**:
 6. **`nonroot`**
 7. **`privileged`**
 8. **`restricted`**
+
+> Most pods on OpenShift use the **`restricted`** **`Security Context Constraint`** & you can run **`oc describe`** to view the **`SCC`** a pod uses.
+
+```zsh
+[user@host ~]$ oc describe pod console-5212312-352 \ 
+	> -n openshift-console | grep scc
+                      openshift.io/scc: restricted
+```
