@@ -29,3 +29,18 @@ There are 8 default **`Security Context Constraints (SCC)`**:
 	> -n openshift-console | grep scc
                       openshift.io/scc: restricted
 ```
+- Images downloaded from public registries like **`Docker Hub`** might fail
+ when deploy to OpenShift under the **`restricted SCC`**. 
+- A great example would be a container image that requires running as a specific user **`ID`**.
+	-  This is because the **`restricted SCC`** runs the container using a random **`user ID`**. 
+- Container images that listens on **`port 80`** or **`port 443`** can fail for a similar reason as well. 
+- The random **`UID`** used by the **`restricted SCC`** cannot start a service that listens on a privileged network port (port numbers less than 1024). 
+- The **`scc-subject-review`** subcommand can help you understand all Security Context Constraints that will enable a container to run. 
+
+```zsh
+ [user@host ~]$ oc get pod podname -o yaml |  \ 
+ > oc adm policy scc-subject-review -f -
+```
+
+
+
