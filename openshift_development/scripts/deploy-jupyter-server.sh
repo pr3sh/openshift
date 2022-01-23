@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#Deploy Python Jupyter Notebook + Apache Spark, to be used later as external Clients (Python & Spark).
 
 #Define environmental variables.
 
@@ -28,9 +27,6 @@ oc set serviceaccount deployment/${DEPLOYMENT}-server jupyter-sa
 sleep 4
 
 #Copy test scripts into pod.
-POD_NAME=$(oc get pod -l deployment=jupyter-server -o custom-columns=:metadata.name) 
-oc cp $PWD/start-sparksession.sh  $POD_NAME:/home/jovyan/start-sparksession.sh 
-oc cp $PWD/streamData.py $POD_NAME:/home/jovyan/streamData.py
-oc cp $PWD/python-client.py $POD_NAME:/home/jovyan/python-client.py
+export POD_NAME=$(oc get pod -l deployment=jupyter-server -o custom-columns=:metadata.name) 
 
 oc expose svc jupyter-server
