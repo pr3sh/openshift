@@ -13,7 +13,7 @@ OpenShift implements a software-defined to effectively manage the network infras
 
 2. Managing communication between containers that run in the same project.
 
-3. Managing communication between pods, irrespective of the project they belong to.
+3. Managing communication between pods, *irrespective* of the project they belong to.
 
 4. Managing network communication from a pod to a service.
 
