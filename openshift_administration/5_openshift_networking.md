@@ -32,5 +32,25 @@ and the container execution, and is implemented as **`network plug-ins`**.
   3. Firewall Rules
   4. Routing tables. 
 
+> Some of the commonly used CNI plug-ins used in OpenShift:
+
+- OpenShift SDN
+- OVN-Kubernetes
+- Kuryr
+
+> The OpenShift SDN network provider uses **`Open vSwitch (OVS)`** to connect pods on the same node and **`Virtual Extensible LAN (VXLAN)`** tunneling to connect nodes. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
