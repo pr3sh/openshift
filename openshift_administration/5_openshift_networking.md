@@ -2,6 +2,7 @@
 
 ## **Table of contents**:
   - [Introduction](#introduction)
+  - [OpenShift Networking Model](#openshift-networking-model)
 
 
 ### **`Introduction `**:
@@ -18,3 +19,15 @@ OpenShift implements a software-defined to effectively manage the network infras
 4. Managing network communication from a pod to a service.
 
 5. Managing network communication from an external network to a service, or from containers to external networks.
+
+
+#### **`OpenShift Networking Model`**:
+
+- The ***`Container Network Interface (CNI)`*** an interface between the network provider
+and the container execution, and is implemented as **`network plug-ins`**. 
+- **`Plug-ins`** written to the specification allow various network providers to control the OpenShift cluster network.
+
+
+
+
+
