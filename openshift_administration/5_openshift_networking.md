@@ -4,6 +4,8 @@
   - [Introduction](#introduction)
   - [OpenShift Networking Model](#openshift-networking-model)
   - [Understanding Services for Pod Access](#understanding-services-for-pod-access)
+  - [DNS Operator](#dns-operator)
+  - [Cluster Network Operator](#cluster-network-operator)
 
 
 ### **`Introduction `**:
@@ -52,12 +54,52 @@ and the container execution, and is implemented as **`network plug-ins`**.
 - If a pod matching these **`selectors`**, it is added to the service resource as an endpoint.
 - As pods are restarted & recreated, services automatically update these endpoints. 
 
+> Example **`YAML`** definition of a service for an application
 
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: wordpress
+  name: wordpress
+  namespace: test
+spec:
+  clusterIP: 10.217.4.137
+  clusterIPs:
+  - 10.217.4.137
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: 80-tcp
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    deployment: wordpress
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+```
 
+#### **`DNS Operator`**:
 
+1. The **`DNS operator`** deploys and runs a DNS server managed by **`CoreDNS`**, which is a lightweight **`DNS Server`** written in **`GoLang`**. 
+2. It provides DNS name resolution between pods, enabling services to discover their endpoints.
+- Every a new application is created, OpenShift configures the pods so that they contact the **`CoreDNS`**service IP for DNS resolution.
+3. The **`DNS Operator`** is responsible for creating a default cluster DNS name(*i.e* **`cluster.local`**).
+4. Assigning DNS names to services that you define 
 
+> To review the configuration of the **`DNS operator`**, execute:
 
+```zsh
+[user@demo ~]$ oc describe dns.operator/default
+````
 
+#### **`Cluster Network Operator`**:
 
 
 
