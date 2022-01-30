@@ -26,8 +26,11 @@ OpenShift implements a software-defined to effectively manage the network infras
 - The ***`Container Network Interface (CNI)`*** an interface between the network provider
 and the container execution, and is implemented as **`network plug-ins`**. 
 - **`Plug-ins`** written to the specification allow various network providers to control the OpenShift cluster network.
-
-
+- OpenShift's Software-Defined Network leverages CNI plug-ins to partition the usage of resources and processes on physical and virtual hosts, enabling containers inside pods to share network resources such as:
+  1. Devices
+  2. IP stacks
+  3. Firewall Rules
+  4. Routing tables. 
 
 
 
