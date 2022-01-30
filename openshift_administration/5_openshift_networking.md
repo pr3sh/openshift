@@ -12,9 +12,6 @@
     - [Securing Applications with Edge Routes](#securing-applications-with-edge-routes)
     - [Securing Applications with Passthrough Routes](#securing-applications-with-passthrough-routes)
     
-    
-
-
 ### **`Introduction `**:
 
 OpenShift implements a software-defined to effectively manage the network infrastructure of the cluster and user applications. This networking model that allows for easy managemet of network services through the abstraction of several networking layers. It decouples the software that handles the traffic (**`control-plane)`**, along with the underlying mechanisms that route the traffic (**`data plane`**). OpenShift's SDN aligs with *open standards*, that enable vendors to propose their solutions, centralized management, dynamic routing, and tenant isolation.
@@ -190,9 +187,43 @@ The easiest to create a route is to use the **`oc expose service`** command. You
 ```
 ###### **`Securing Applications with Edge Routes`**:
 
+- Before creating a secure route, you need to generate a **`TLS certificate`**. 
+- When creatig an edge mode, the traffic between the client and the router is encrypted, but traffic between the router and the application is not.
+- The **`--key`** option requires the certificate private key & **`--cert`** option requires the
+certificate that has been signed with that key.
+
+> To create a secure edge route with a **TLS certificate**, execute:
+
+```zsh
+[user@host ~]$ oc create route edge \
+> --service api-frontend --hostname api.apps.acme.com \
+> --key api.key --cert api.crt  
+```
+
 ###### **`Securing Applications with Passthrough Routes`**:
 
+- Passthrough routes offer a secure alternative because the application exposes its **`TLS certificate`**.
+- Traffic is encrypted between the client and the application.
+- To create a passthrough route, you need a certificate and a way for your application to access it. The best way to accomplish this is by using **`OpenShift TLS secrets`**. 
+  - **`Secrets`** are exposed via a mount point into the container.
 
+1. Create secret
+```zsh
+oc create secret tls todo-certs \
+> --cert certs/training.crt \
+> --key certs/training.key secret/todo-certs created
+```
+
+2.  Mount secret in pod directory, for example **`/usr/local/etc/ssl/certs`**.
+
+3. Create **`passthrough`** route.
+
+```zsh
+[student@workstation network-ingress]$ oc create route passthrough todo-https \
+>      --service todo-https --port 8443 \
+>      --hostname todo-https.apps.ocp4.example.com 
+route.route.openshift.io/todo-https created
+```
 
 
 
