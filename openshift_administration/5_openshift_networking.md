@@ -6,6 +6,8 @@
   - [Understanding Services for Pod Access](#understanding-services-for-pod-access)
   - [DNS Operator](#dns-operator)
   - [Cluster Network Operator](#cluster-network-operator)
+  - [Useful Commands for Debugging Services](#useful-commands-for-debugging-services)
+  - [Exposing Applications for External Access](#exposing-applications-for-external-access)
 
 
 ### **`Introduction `**:
@@ -100,6 +102,77 @@ status:
 ````
 
 #### **`Cluster Network Operator`**:
+
+OpenShift uses the **`Cluster Network Operator`** for managing the **`Sofware-Defined Network`**. AS as administrative user, run the following oc get command view the **`SDN`** configuration:
+
+```zsh
+[user@demo ~]$ oc get network/cluster -o yaml
+```
+
+```yaml
+kind: Network
+metadata:
+  generation: 2
+  name: cluster
+spec:
+  clusterNetwork:
+  - cidr: 10.217.0.0/22
+    hostPrefix: 23
+  externalIP:
+    policy: {}
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 10.217.4.0/23
+status:
+  clusterNetwork:
+  - cidr: 10.217.0.0/22
+    hostPrefix: 23
+  clusterNetworkMTU: 1400
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 10.217.4.0/23
+```
+
+#### **`Useful Commands for Debugging Services`**:
+
+> Get **`IP Addresss`** of Pod.
+
+```zsh
+[student@workstation network-sdn]$ oc get service/frontend \ 
+      > -o jsonpath="{.spec.clusterIP}{'\n'}"
+172.30.23.147
+```
+
+> Create troubleshooting container based on the mysql deployment. You must override the container image because the MySQL Server image does not provide the curl command.
+
+```zsh
+[student@workstation network-sdn]$ oc debug -t deployment/mysql \
+  > --image registry.access.redhat.com/ubi8/ubi:8.4
+Starting pod/mysql-debug ...
+Pod IP: 10.131.0.146
+If you don't see a command prompt, try pressing enter.
+sh-4.4$
+```
+
+> Try hitting **`frontend`** application, from **`MySQL`** backend.
+
+```zsh
+sh-4.4$ curl -m 10 -v http://172.30.23.147:8080 
+* Rebuilt URL to: http://172.30.23.147:8080/
+* Trying 172.30.23.147...
+* TCP_NODELAY set
+* Connection timed out after 10000 milliseconds
+* Closing connection 0
+curl: (28) Connection timed out after 10000 milliseconds
+```
+
+#### **`Exposing Applications for External Access`**:
+
+
+
+
+
+
 
 
 
