@@ -9,7 +9,8 @@
   - [Useful Commands for Debugging Services](#useful-commands-for-debugging-services)
   - [Exposing Applications for External Access](#exposing-applications-for-external-access)
     - [Creating Routes](#creating-routes)
-    - [Securing Routes](#securing-routes)
+    - [Securing Applications with Edge Routes](#securing-applications-with-edge-routes)
+    - [Securing Applications with Passthrough Routes](#securing-applications-with-passthrough-routes)
     
     
 
@@ -177,6 +178,19 @@ curl: (28) Connection timed out after 10000 milliseconds
 - With routes, you can access your application with a *unique* host name that is publicly accessible. Routes rely on a router plug-in to redirect the traffic from the **`public IP`** to pods.
 
 
+###### **`Creating Routes`**:
+
+The easiest to create a route is to use the **`oc expose service`** command. You can use the **`--hostname`** option to provide a custom host name for the route.
+
+> If you don't specify the **`--hostname`** option, OpenShift generates a host name for you with the following structure: **`<route-name>-<project-name>.<default-domain>`**.
+
+```zsh
+[user@host ~]$ oc expose service api-frontend \ 
+      > --hostname api.apps.acme.com
+```
+###### **`Securing Applications with Edge Routes`**:
+
+###### **`Securing Applications with Passthrough Routes`**:
 
 
 
