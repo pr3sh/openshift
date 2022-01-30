@@ -8,6 +8,10 @@
   - [Cluster Network Operator](#cluster-network-operator)
   - [Useful Commands for Debugging Services](#useful-commands-for-debugging-services)
   - [Exposing Applications for External Access](#exposing-applications-for-external-access)
+    - [Creating Routes](#creating-routes)
+    - [Securing Routes](#securing-routes)
+    
+    
 
 
 ### **`Introduction `**:
@@ -168,6 +172,9 @@ curl: (28) Connection timed out after 10000 milliseconds
 
 #### **`Exposing Applications for External Access`**:
 
+- OpenShift has many ways that allow you to expose your applications to external networks. You can expose HTTP and HTTPS traffic, TCP applications, and also non-TCP traffic. 
+- Some of these methods are service types, such as **`NodePort`** or **`load balancer`**, while others use their own API resource, such as Ingress and Route.
+- With routes, you can access your application with a *unique* host name that is publicly accessible. Routes rely on a router plug-in to redirect the traffic from the **`public IP`** to pods.
 
 
 
