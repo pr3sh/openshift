@@ -11,7 +11,8 @@
     - [Creating Routes](#creating-routes)
     - [Securing Applications with Edge Routes](#securing-applications-with-edge-routes)
     - [Securing Applications with Passthrough Routes](#securing-applications-with-passthrough-routes)
-    
+  - [Configuring Network Policies](#configuring-network-policies)  
+
 ### **`Introduction `**:
 
 OpenShift implements a software-defined to effectively manage the network infrastructure of the cluster and user applications. This networking model that allows for easy managemet of network services through the abstraction of several networking layers. It decouples the software that handles the traffic (**`control-plane)`**, along with the underlying mechanisms that route the traffic (**`data plane`**). OpenShift's SDN aligs with *open standards*, that enable vendors to propose their solutions, centralized management, dynamic routing, and tenant isolation.
@@ -224,6 +225,101 @@ oc create secret tls todo-certs \
 >      --hostname todo-https.apps.ocp4.example.com 
 route.route.openshift.io/todo-https created
 ```
+
+#### **`Configuring Network Policies`**:
+
+- Network policies allow you create isolation policies for individual pods. 
+- Network policies do not require **`administrative privileges`**, which gives developers control over the applications within their projects. 
+- With **`NetworkPolicies`**, you can create *logical zones* in the Software-Defied Network that map to your organization network zones. 
+
+> To manage network communication between two **`namespaces`**, assign a **`label`** to the namespace that needs access to another namespace. 
+
+```zsh
+[user@host ~]$ oc label namespace network-1 name=network-1
+```
+
+1. The following network policy applies to all pods with the **`label`** **`deployment="product-catalog"`** in the **`network-1`** **`namespace`**. 
+2. The policy allows **`TCP`** traffic over **`port 8080`** from pods whose label is **`role="qa"`** in the **`network-2`** **`namespace`**.
+
+```yaml 
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: network-1-policy
+spec:
+  podSelector:
+    matchLabels:
+      deployment: product-catalog
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: network-2
+      podSelector:
+        matchLabels:
+          role: qa
+    ports:
+    - port: 8080
+      protocol: TCP
+```
+
+> This network policy allows traffic from all the pods and ports in the **`network-1 namespace`** to all pods and ports in the **`network-2 namespace`**. 
+
+```yaml 
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: network-2-policy
+spec:
+  podSelector: {}
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: network-1
+```
+
+> This network policy blocks all traffic because no ingress rules are defined. Traffic is blocked unless you also define an explicit policy that overrides this default behavior.
+
+```yaml 
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: default-deny
+spec:
+  podSelector: {}
+```
+
+> If you have **`Cluster Monitoring`** or exposed routes, you need to allow **`ingress`** from them as well. This network policy allows ingress from OpenShift monitoring and Ingress Controllers:
+
+```yaml 
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-from-openshift-ingress
+spec:
+  podSelector: {}
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          network.openshift.io/policy-group: ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-from-openshift-monitoring
+spec:
+  podSelector: {}
+ingress:
+- from:
+  - namespaceSelector:
+      matchLabels:
+        network.openshift.io/policy-group: monitoring
+```
+
+> If the **`default`** Ingress Controller uses the **HostNetwork** endpoint publishing strategy, then the **default** namespace requires the **`network.openshift.io/policy-group=ingress`** label.
 
 
 
