@@ -89,6 +89,43 @@ oc get machineset -n openshift-machine-api
 ```
 
 
+##### **`Pod Scheduling`**:
+
+- There are certain pods with the OpenShift Cluster (*i.e:* **infrastructure-related pods**) are configured to run on **`control-plane`** nodes.
+- For example, the **`DNS Operator`**, **`OAuth Operator`**, and **`OpenShift API Server`**. 
+- This is accomplished by using the **`Node Selector`** **`node-role.kubernetes.io/master`** in the configuration of a daemon set or a replica set.
+- Users' applications might also require running on a specific set of nodes and therefore need to use node labels and node selectors to accomplish this.
+- You can define a **`node selector`** in a deployment resource in order to ensure ew pods generated from that resource will have the desired **`node selector`**. 
+
+```zsh
+[user@host ~]$ oc edit deployment/myapp
+```
+
+```yaml 
+...output omitted...
+spec:
+...output omitted...
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deployment: myapp
+    spec:
+      nodeSelector:
+        env: dev
+containers:
+      - image: quay.io/redhattraining/scaling:v1.0
+```
+
+> You can also use **`oc patch`** to non-interactively/programatically made the changes to the deployment:
+
+```zsh
+ [user@host ~]$ oc patch deployment/myapp --patch \
+>           '{"spec":{"template":{"spec":{"nodeSelector":{"env":"dev"}}}}}
+```
+
 
 
 
