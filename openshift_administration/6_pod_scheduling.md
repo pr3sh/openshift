@@ -123,7 +123,7 @@ containers:
 
 ```zsh
  [user@host ~]$ oc patch deployment/myapp --patch \
->           '{"spec":{"template":{"spec":{"nodeSelector":{"env":"dev"}}}}}
+>           '{"spec":{"template":{"spec":{"nodeSelector":{"env":"dev"}}}}}'
 ```
 
 
