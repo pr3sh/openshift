@@ -4,7 +4,7 @@
   - [Introduction](#introduction)
   - [Labelling Nodes](#labelling-nodes)
  
-### **`Introduction`**:
+##### **`Introduction`**:
 
 
 OpenShift's pod scheduler is responsible for the placement of pods onto nodes. The default configuration supports the common data center concepts of **`zones`** and **`regions`** by using *node labels*, *affinity rules*, and *anti-affinity rules*.
