@@ -39,6 +39,13 @@ OpenShift's pod scheduler is responsible for the placement of pods onto nodes. T
 ```zsh
 [user@host ~]$ oc label node node1.us-west-1.compute.internal env-
 ```
+
+> Remove **`env`** label from all nodes that have it 
+```zsh
+[student@workstation ~]$ oc label node -l env env- 
+node/master01 labeled
+node/master02 labeled
+```
 > *Both the labels and their respective values on nodes are case-sensitive.*
 
 > Show labels of a node.
