@@ -134,6 +134,7 @@ containers:
 ```zsh
 [user@host ~]$ oc adm new-project demo --node-selector "tier=1"
 ```
+- To configure a default node selector for an existing project, add an **`annotation`** to the namespace resource with the **`openshift.io/node-selector`** key
 
 ```zsh
  [user@host ~]$ oc annotate namespace demo \
