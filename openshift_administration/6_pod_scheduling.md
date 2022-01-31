@@ -5,8 +5,9 @@
   - [Labelling Nodes](#labelling-nodes)
   - [Labelling Machinesets](#labelling-machinesets)
   - [Pod Scheduling](#pod-scheduling)
+    - [Config Node Selector for Project](#config-node-selector-for-project)
  
-##### **`Introduction`**:
+#### **`Introduction`**:
 
 OpenShift's pod scheduler is responsible for the placement of pods onto nodes. The default configuration supports the common data center concepts of **`zones`** and **`regions`** by using *node labels*, *affinity rules*, and *anti-affinity rules*.
 
@@ -17,7 +18,7 @@ OpenShift's pod scheduler is responsible for the placement of pods onto nodes. T
 3. Selecting the best fit node.
 
 
-##### **`Labelling Nodes`**:
+#### **`Labelling Nodes`**:
 
 > In order to label nodes within an OpenShift cluster, you must be a cluster administrator. A practical example of labelling nodes to segment wordloads could be **`env=dev`** or **`env=prod`** to separate the development and production workloads. Labels chosen on nodes are arbritrary.
 
@@ -53,7 +54,7 @@ OpenShift's pod scheduler is responsible for the placement of pods onto nodes. T
     > -L failure-domain.beta.kubernetes.io/zone -L env
 ```
 
-##### **`Labelling Machinesets`**:
+#### **`Labelling Machinesets`**:
 
 - If your OpenShift cluster contains machine sets, then it is advisable to add labels to the machine set configuration. 
 - This ensures that new nodes generated from those machinesets will also contain the desired labels.
@@ -89,7 +90,7 @@ oc get machineset -n openshift-machine-api
 ```
 
 
-##### **`Pod Scheduling`**:
+#### **`Pod Scheduling`**:
 
 - There are certain pods with the OpenShift Cluster (*i.e:* **infrastructure-related pods**) are configured to run on **`control-plane`** nodes.
 - For example, the **`DNS Operator`**, **`OAuth Operator`**, and **`OpenShift API Server`**. 
@@ -126,6 +127,16 @@ containers:
 >           '{"spec":{"template":{"spec":{"nodeSelector":{"env":"dev"}}}}}'
 ```
 
+##### **`Config Node Selector for Project`**:
+
+```zsh
+[user@host ~]$ oc adm new-project demo --node-selector "tier=1"
+```
+
+```zsh
+ [user@host ~]$ oc annotate namespace demo \
+>     openshift.io/node-selector="tier=2" --overwrite
+```
 
 
 
