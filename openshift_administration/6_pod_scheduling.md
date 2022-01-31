@@ -129,6 +129,8 @@ containers:
 
 ##### **`Config Node Selector for Project`**:
 
+- Cluster Administrator define node selectors when a project is created, or can add/update a node selector after a project is created. To add the node selector at project creation time execute:
+
 ```zsh
 [user@host ~]$ oc adm new-project demo --node-selector "tier=1"
 ```
