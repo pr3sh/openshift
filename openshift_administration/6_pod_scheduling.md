@@ -17,5 +17,15 @@ OpenShift's pod scheduler is responsible for the placement of pods onto nodes. T
 
 > In order to label nodes within an OpenShift cluster, you must be a cluster administrator. A practical example of labelling nodes to segment wordloads could be **`env=dev`** or **`env=prod`** to separate the development and production workloads. Labels chosen on nodes are arbritrary.
 
+> Label a node with **`env=dev`**:
 
+```zsh
+[user@host ~]$ oc label node node1.us-west-1.compute.internal env=dev
+```
+
+> You can use the **`--overwrite`** option to change an existing label:
+
+```zsh
+[user@host ~]$ oc label node node1.us-west-1.compute.internal env=prod --overwrite
+```
 
