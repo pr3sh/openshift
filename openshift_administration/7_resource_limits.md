@@ -4,6 +4,10 @@
   - [Pod Resource Limits](#pod-resource-limits)
   - [Resource Quotas](#resource-quotas)
     - [Example Resources A Quota Can Restrict](#example-resources-a-quota-can-restrict)
+    - [Creating Project Quotas](#creating-project-quotas)
+    - [Limit Ranges](#limit-ranges)
+    - [Creating Quotas for Multiple Projects](#creating-quotas-for-multiple-projects)
+  - [Modifying Default Project Template](#modifying-default-project-template)
 
 ### **`Pod Resource Limits`**:
 
@@ -76,6 +80,8 @@ OpenShift leverages quotas to track and limit the use of **`Object Counts`** and
 | **`storage (requests.storage)`** | Total storage requests by containers across all persistent volume claims.   |
 
 
+##### **`Creating Project Quotas`**:
+
 > Create resource quota programmatically.
 
 ```zsh
@@ -101,8 +107,13 @@ OpenShift leverages quotas to track and limit the use of **`Object Counts`** and
 ```
 
 
+##### **`Limit Ranges`**:
 
 
+##### **`Creating Quotas for Multiple Projects`**:
+
+
+#### **`Modifying Default Project Template`**:
 
 
 
