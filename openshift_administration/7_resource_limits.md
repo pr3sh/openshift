@@ -76,9 +76,29 @@ OpenShift leverages quotas to track and limit the use of **`Object Counts`** and
 | **`storage (requests.storage)`** | Total storage requests by containers across all persistent volume claims.   |
 
 
+> Create resource quota programmatically.
 
+```zsh
+[user@host ~]$ oc create quota dev-quota --hard services=10,cpu=1300,memory=1.5Gi
+```
 
+> List available quotas 
 
+```zsh
+[user@host ~]$ oc get resourcequota
+```
+
+> Displays *cumulative* limits for all **`ResourceQuota`** resources in the project.
+
+```zsh
+[user@host ~]$ oc describe quota
+```
+
+> Delete quota
+
+```zsh
+[user@host ~]$ oc delete resourcequota <quota-name>
+```
 
 
 
