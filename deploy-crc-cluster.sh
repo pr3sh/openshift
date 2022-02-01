@@ -1,4 +1,4 @@
 #!/bin/bash 
 
-crc start --cpus 6 --memory --disk-size 100     \
-	   --pull-secret $HOME/Downloads/pull-secret.txt
+crc start --cpus 6 --memory 18432 --disk-size 100     \
+	   --pull-secret-file $HOME/Downloads/pull-secret.txt
