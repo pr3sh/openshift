@@ -108,6 +108,15 @@ OpenShift leverages quotas to track and limit the use of **`Object Counts`** and
 
 ##### **`Limit Ranges`**:
 
+- **`LimitRange`** resources, allow the declaration of the **`default`**, **`minimum`**, and **`maximum`** values for compute resource requests, and the limits for a single pod or container defined inside the project. 
+- A resource request or limit for a pod is the *sum* of its containers.
+- The difference between a limit ranges and a resource quotas are that a limit ranges define the valid ranges and default values for a single pod, while resource quotas define only *top* values for the sum of all pods in a project. 
+- **`LimitRange`** resources can also define default, min, and max values for the **`storage`** capacity requested by an **`image`**, **`image stream`**, or **`persistent volume claim`**. 
+- If a resource that is added to a project does not provide a compute resource request, it is assigned the default value provided by the **`LimitRange`** for the project.
+- If a new resource provides compute resource requests or limits that are smaller than the minimum specified by the project limit ranges, then the resource is not created. 
+- Similarly, if a new resource provides compute resource requests or limits that are higher than the maximum specified by the project limit ranges, then the resource is not created.
+
+
 ```yaml 
 apiVersion: "v1"
 kind: "LimitRange"
@@ -147,6 +156,12 @@ spec:
         storage: "1Gi"
       max:
         storage: "50Gi"
+```
+
+> Get more info on the **`dev-limits`**  limit range object.
+
+```zsh
+[user@host ~]$ oc describe limitrange dev-limits
 ```
 
 ##### **`Creating Quotas for Multiple Projects`**:
