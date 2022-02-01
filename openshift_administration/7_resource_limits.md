@@ -1,12 +1,13 @@
 # **`Abstract`**
 
 ## **Table of contents**:
-  - [Introduction](#introduction)
+  - [Pod Resource Limits](#pod-resource-limits)
+  - [Resource Quotas](#resource-quotas)
 
 
 
 
-### **`Introduction`**:
+### **`Pod Resource Limits`**:
 
 Pod definitions can contain both resource **`requests`** and **`limits`**:
 1. **`Resource Requests`**:
@@ -39,6 +40,19 @@ Pod definitions can contain both resource **`requests`** and **`limits`**:
              --requests cpu=10m,memory=20Mi --limits cpu=80m,memory=100Mi
 ```
 
+> View **`resource`** requests and limits for an individual node
+
+```zsh
+[user@host ~]$ oc describe node node1.us-west-1.compute.internal
+```
+
+> View actual usage
+
+```zsh
+[user@host ~]$ oc adm top nodes -l node-role.kubernetes.io/worker
+```
+
+### **`Resource Quotas`**:
 
 
 
