@@ -106,9 +106,48 @@ OpenShift leverages quotas to track and limit the use of **`Object Counts`** and
 [user@host ~]$ oc delete resourcequota <quota-name>
 ```
 
-
 ##### **`Limit Ranges`**:
 
+```yaml 
+apiVersion: "v1"
+kind: "LimitRange"
+metadata:
+  name: "dev-limits"
+spec:
+  limits:
+    - type: "Pod"
+      max:
+        cpu: "500m"
+        memory: "750Mi"
+      min:
+        cpu: "10m"
+        memory: "5Mi"
+    - type: "Container"
+      max:
+        cpu: "500m"
+        memory: "750Mi"
+      min:
+        cpu: "10m"
+        memory: "5Mi"
+      default:
+        cpu: "100m"
+        memory: "100Mi"
+      defaultRequest:
+        cpu: "20m"
+        memory: "20Mi"
+    - type: openshift.io/Image
+      max:
+        storage: 1Gi
+    - type: openshift.io/ImageStream
+      max:
+        openshift.io/image-tags: 10
+        openshift.io/images: 20
+    - type: "PersistentVolumeClaim"
+      min:
+        storage: "1Gi"
+      max:
+        storage: "50Gi"
+```
 
 ##### **`Creating Quotas for Multiple Projects`**:
 
