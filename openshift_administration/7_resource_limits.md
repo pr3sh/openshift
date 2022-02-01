@@ -167,8 +167,25 @@ spec:
 ##### **`Creating Quotas for Multiple Projects`**:
 
 
+```zsh
+[user@host ~]$ oc create clusterquota user-qa \
+> --project-annotation-selector openshift.io/requester=qa \
+> --hard pods=12,secrets=20
+```
+
+```zsh
+[user@host ~]$ oc create clusterquota env-qa \
+> --project-label-selector environment=qa \
+> --hard pods=10,services=5
+```
+
 #### **`Modifying Default Project Template`**:
 
+
+```zsh
+ [user@host ~]$ oc adm create-bootstrap-project-template \
+         > -o yaml > /tmp/project-template.yaml
+```
 
 
 
