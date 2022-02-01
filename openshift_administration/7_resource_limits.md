@@ -4,9 +4,6 @@
   - [Pod Resource Limits](#pod-resource-limits)
   - [Resource Quotas](#resource-quotas)
 
-
-
-
 ### **`Pod Resource Limits`**:
 
 Pod definitions can contain both resource **`requests`** and **`limits`**:
