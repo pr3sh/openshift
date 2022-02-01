@@ -17,3 +17,34 @@ Pod definitions can contain both resource **`requests`** and **`limits`**:
   -  Resource limits prevent pods from consuming excessive resources from a node.
 
 > Resource requests and limits can be containers either within a **`Deployment`** or **`DeploymentConfig`** under the **`resources: {}`** part of the container.
+
+```yaml 
+...output omitted...
+    spec:
+      containers:
+      - image: quay.io/redhattraining/hello-world-nginx:v1.0
+        name: hello-world-nginx
+        resources:
+          requests:
+            cpu: "10m"
+            memory: 20Mi
+          limits:
+            cpu: "80m"
+            memory: 100Mi
+```
+> You can also use the **`oc set resources`** command to set those resource requests and limits without having to edit the deployment **`YAML`** file.
+
+```zsh
+ [user@host ~]$ oc set resources deployment hello-world-nginx \
+             --requests cpu=10m,memory=20Mi --limits cpu=80m,memory=100Mi
+```
+
+
+
+
+
+
+
+
+
+
