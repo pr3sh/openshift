@@ -7,6 +7,8 @@
   - [Pod Scheduling](#pod-scheduling)
     - [Config Node Selector for Project](#config-node-selector-for-project)
   - [Taints and Tolerations](#taits-and-tolerations)
+    - [Programmatic Examples](#programmatic-examples)
+    - [Adding Tolerations to Pod Definitions](#adding-tolerations-to-pod-definition)
  
 #### **`Introduction`**:
 
@@ -154,7 +156,7 @@ containers:
 **`Taints`** and **`Tolerations`** are used to set restriction for what pods that can be scheduled on a node. 
 - Taints are set on nodes, while tolerations are set on pods.
 - oc adm taint node key=value:taint-effect
-- The Effect denotes what happens if the pod cannot tolerate the taint, and there are three tait effects.
+- The Effect denotes what happens if the pod cannot tolerate the taint, and there are three taint effects.
   1. **`Noschedule`**: 
     - Pods will not be scheduled on the node.
   2. **`PreferNoSchedule`**: 
@@ -163,10 +165,34 @@ containers:
     - New pods will not be scheduled on the node. 
     - Existing pods will be evicted if they do not tolerate the taint.
 
+- Operators are also used in conjunction to taints, when defining them, and there are two operators:
+  1. **`Equal`**:   
+    - The **`key`**/**`value`**/ **`effect`** must match. 
+  2. **`Exists`**:
+    - The **`key`** / **`effect`** must match. 
+    - You must leave the **`value`** parameter blank, which matches any
 
+##### **`Programmatic Examples`**:
 
+> Check if a node has a taint
 
+```zsh
+[user@host ~]$ oc describe node <node-name> | grep -i -A2 Taints
+```
 
+> Add taint to node, with the effect of **`NoSchedule`**
+
+```zsh
+[user@host ~]$ oc adm taint node node1 key1=valye1:NoSchedule
+```
+
+> Remove taint
+
+```zsh
+[user@host ~]$ oc adm taint node key1-
+```
+
+##### **`Adding Tolerations to Pod Definitions`**:
 
 
 
