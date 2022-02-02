@@ -203,11 +203,11 @@ spec:
   template:
     spec:
       tolerations:
-       - key: "key1"
-         operator: "Equal"
-         value: "value1"
-         effect: "NoExecute"
-         tolerationSeconds: 3600
+      - key: "key1"
+        operator: "Equal"
+        value: "value1"
+        effect: "NoExecute"
+        tolerationSeconds: 3600
 .....         
 ```
 
