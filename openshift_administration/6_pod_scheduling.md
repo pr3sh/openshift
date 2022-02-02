@@ -151,15 +151,15 @@ containers:
 
 #### **`Taints and Tolerations`**:
 
-Taints and Tolerations are used to set restriction for what pods that can be scheduled on a node. 
+**`Taints`** and **`Tolerations`** are used to set restriction for what pods that can be scheduled on a node. 
 - Taints are set on nodes, while tolerations are set on pods.
 - oc adm taint node key=value:taint-effect
 - The Effect denotes what happens if the pod cannot tolerate the taint, and there are three tait effects.
-  1. Noschedule: 
+  1. **`Noschedule`**: 
     - Pods will not be scheduled on the node.
-  2. PreferNoSchedule: 
+  2. **`PreferNoSchedule`**: 
     - System will try to avoid placing pods on the node.
-  3. NoExecute: 
+  3. **`NoExecute`**: 
     - New pods will not be scheduled on the node. 
     - Existing pods will be evicted if they do not tolerate the taint.
 
