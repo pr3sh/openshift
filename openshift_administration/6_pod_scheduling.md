@@ -6,6 +6,7 @@
   - [Labelling Machinesets](#labelling-machinesets)
   - [Pod Scheduling](#pod-scheduling)
     - [Config Node Selector for Project](#config-node-selector-for-project)
+  - [Taints and Tolerations](#taits-and-tolerations)
  
 #### **`Introduction`**:
 
@@ -147,6 +148,33 @@ containers:
  [user@host ~]$ oc annotate namespace demo \
 >     openshift.io/node-selector="tier=2" --overwrite
 ```
+
+#### **`Taints and Tolerations`**:
+
+Taints and Tolerations are used to set restriction for what pods that can be scheduled on a node. 
+- Taints are set on nodes, while tolerations are set on pods.
+- oc adm taint node key=value:taint-effect
+- The Effect denotes what happens if the pod cannot tolerate the taint, and there are three tait effects.
+  1. Noschedule: 
+    - Pods will not be scheduled on the node.
+  2. PreferNoSchedule: 
+    - System will try to avoid placing pods on the node.
+  3. NoExecute: 
+    - New pods will not be scheduled on the node. 
+    - Existing pods will be evicted if they do not tolerate the taint.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
