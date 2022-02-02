@@ -186,7 +186,7 @@ containers:
 [user@host ~]$ oc adm taint node node1 key1=valye1:NoSchedule
 ```
 
-> Remove taint
+> Remove taint from a node
 
 ```zsh
 [user@host ~]$ oc adm taint node key1-
@@ -194,7 +194,22 @@ containers:
 
 ##### **`Adding Tolerations to Pod Definitions`**:
 
+> Example toleration in **`Pod`** spec.
 
+```yaml 
+...
+spec:
+......
+  template:
+    spec:
+      tolerations:
+       - key: "key1"
+         operator: "Equal"
+         value: "value1"
+         effect: "NoExecute"
+         tolerationSeconds: 3600
+.....         
+```
 
 
 
