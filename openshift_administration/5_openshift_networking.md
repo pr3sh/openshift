@@ -331,6 +331,13 @@ ingress:
 #### **`Useful OpenSSL Commands`**:
 
 
+> Check hostname based on **`.pem`** certificate.
+
+```zsh
+[student@workstation home]$ openssl x509 -in  hello-secure.pem --noout -ext 'subjectAltName' 
+```
+
+
 
 
 
