@@ -181,11 +181,39 @@ spec:
 
 #### **`Modifying Default Project Template`**:
 
+1. export project template as **`YAML`** & make your changes.
 
 ```zsh
- [user@host ~]$ oc adm create-bootstrap-project-template \
+[user@host ~]$ oc adm create-bootstrap-project-template \
          > -o yaml > /tmp/project-template.yaml
 ```
+
+2. Publish template to the **`openshift-config`** project
+
+```zsh
+[user@host ~]$ oc create -f /tmp/project-template.yaml 
+``` 
+
+3. Edit the **`project.config.openshift.io/cluster`** resource
+
+```zsh
+[user@host ~]$ oc edit project.config.openshift.io/cluster
+```
+
+```yaml 
+apiVersion: config.openshift.io/v1
+kind: Project
+metadata:
+spec:
+  projectRequestTemplate:
+    name: <template-name>
+```
+
+
+
+
+
+
 
 
 
