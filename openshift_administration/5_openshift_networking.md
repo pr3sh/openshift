@@ -11,7 +11,8 @@
     - [Creating Routes](#creating-routes)
     - [Securing Applications with Edge Routes](#securing-applications-with-edge-routes)
     - [Securing Applications with Passthrough Routes](#securing-applications-with-passthrough-routes)
-  - [Configuring Network Policies](#configuring-network-policies)  
+  - [Configuring Network Policies](#configuring-network-policies) 
+  - [Useful OpenSSL Commands](#useful-openssl-commands)  
 
 ### **`Introduction `**:
 
@@ -210,12 +211,17 @@ certificate that has been signed with that key.
 
 1. Create secret
 ```zsh
-oc create secret tls todo-certs \
+[student@workstation network-ingress]$ oc create secret tls todo-certs \
 > --cert certs/training.crt \
 > --key certs/training.key secret/todo-certs created
 ```
 
 2.  Mount secret in pod directory, for example **`/usr/local/etc/ssl/certs`**.
+
+```zsh
+[student@workstation network-ingress]$ oc set volumes deployment/app-name \
+            --add --type secret --secret-name todo-certs --mount-path /usr/local/etc/ssl/certs
+```
 
 3. Create **`passthrough`** route.
 
@@ -321,6 +327,8 @@ ingress:
 
 > If the **`default`** Ingress Controller uses the **HostNetwork** endpoint publishing strategy, then the **default** namespace requires the **`network.openshift.io/policy-group=ingress`** label.
 
+
+#### **`Useful OpenSSL Commands`**:
 
 
 
