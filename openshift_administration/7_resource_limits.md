@@ -166,12 +166,15 @@ spec:
 
 ##### **`Creating Quotas for Multiple Projects`**:
 
+> Create cluster resource quota for all projects owned by the **`qa`** user, ad this applies across all projects.
 
 ```zsh
 [user@host ~]$ oc create clusterquota user-qa \
 > --project-annotation-selector openshift.io/requester=qa \
 > --hard pods=12,secrets=20
 ```
+
+> Create cluster resource quota for all projects with the label **`environmet=qa`**.
 
 ```zsh
 [user@host ~]$ oc create clusterquota env-qa \
