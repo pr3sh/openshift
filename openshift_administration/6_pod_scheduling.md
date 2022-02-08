@@ -6,7 +6,7 @@
   - [Labelling Machinesets](#labelling-machinesets)
   - [Pod Scheduling](#pod-scheduling)
     - [Config Node Selector for Project](#config-node-selector-for-project)
-  - [Taints and Tolerations](#taits-and-tolerations)
+  - [Taints and Tolerations](#taints-and-tolerations)
     - [Programmatic Examples](#programmatic-examples)
     - [Adding Tolerations to Pod Definitions](#adding-tolerations-to-pod-definition)
  
@@ -155,7 +155,7 @@ containers:
 
 **`Taints`** and **`Tolerations`** are used to set restriction for what pods that can be scheduled on a node. 
 - Taints are set on nodes, while tolerations are set on pods.
-- oc adm taint node key=value:taint-effect
+- **`oc adm taint node key=value:taint-effect`**
 - The Effect denotes what happens if the pod cannot tolerate the taint, and there are three taint effects.
   1. **`Noschedule`**: 
     - Pods will not be scheduled on the node.
