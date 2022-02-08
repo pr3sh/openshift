@@ -23,7 +23,9 @@ OpenShift's pod scheduler is responsible for the placement of pods onto nodes. T
 
 #### **`Labelling Nodes`**:
 
-> In order to label nodes within an OpenShift cluster, you must be a cluster administrator. A practical example of labelling nodes to segment wordloads could be **`env=dev`** or **`env=prod`** to separate the development and production workloads. Labels chosen on nodes are arbritrary.
+- In order to label nodes within an OpenShift cluster, you must be a cluster administrator. 
+- A practical example of labelling nodes is when trying to segment wordloads based on environment, for example, **`env=dev`** or **`env=prod`** to separate the development and production workloads. 
+- Labels chosen on nodes are arbritrary.
 
 > Label a node with **`env=dev`**:
 
