@@ -59,7 +59,7 @@ node/master02 labeled
 [user@host ~]$ oc get node node2.us-west-1.compute.internal --show-labels 
 ```
 
->  Cluster admins can also use the **`-L`** option find out the value of one or more labels. For multiple labels, you can use multiple**` -L `**options in the same command.
+>  Cluster admins can also use the **`-L`** option find out the value of one or more labels. For multiple labels, you can use multiple **`-L`** options in the same command.
 
 ```zsh
 [user@host ~]$ oc get node -L failure-domain.beta.kubernetes.io/region \ 
