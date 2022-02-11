@@ -110,6 +110,15 @@ Shell variables can be used to modify the shell environment. Exporting these var
 ```zsh
 [user@host ~]$  VARIABLENAME=value
 ```
+- You can use the **`set`** command to list all shell variables that are currently set, which also lists shell functions as well.
+
+```zsh
+[user@host ~]$ set | less
+BASH=/usr/bin/bash 
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:extquote:force_fignore:histappend:interactive_comments:progcomp:promptvars:sourcepath 
+BASHRCSOURCED=Y
+...output omitted...
+```
 
 
 
