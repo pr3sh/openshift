@@ -123,10 +123,12 @@ You can use variable expansion to refer to the value of a set variable by preced
 
 ```zsh
 [user@host ~]$ file1=/tmp/tmp.log
-```
-```zsh
 [user@host ~]$ ls -l $file1
 -rw-------. 1 student student 1452 Jan 22 14:39 /tmp/tmp.z9pXW0HqcC 
+```
+> *Remove file using variable expansion*
+
+```zsh
 [user@host ~]$ rm $file1
 [user@host ~]$ ls -l $file1
 total 0
