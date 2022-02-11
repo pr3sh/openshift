@@ -7,6 +7,8 @@
   - [Editing Textfiles](#editing-textfiles)
   - [Pipelines](#pipelines)
   	- [Tee Command](#tee-command)
+  - [Changing the Shell Envionrment](#pipelines)
+  	- [Assigning and Retrieving Shell Variables](#assigning-and-retrieving-shell-variables)
 
 #### **`Introduction`:**
 
@@ -98,6 +100,21 @@ displayed on the terminal one screen at a time.
 ```zsh
 [user@host ~]$ ls -l | tee /tmp/saved-output | less
 ```
+
+#### **`Changing the Shell Envionrment`**:
+
+Shell variables can be used to modify the shell environment. Exporting these variables allow for them to be used as part of programs that run in the shell.Shell variables are unique to a particular shell session, therefore having two different terminals open means that their environments are different, with its own set of variables.
+
+###### **`Assigning and Retrieving Shell Variables`**:
+
+```zsh
+[user@host ~]$  VARIABLENAME=value
+```
+
+
+
+
+
 
 
 
