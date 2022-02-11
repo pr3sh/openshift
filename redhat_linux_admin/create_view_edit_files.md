@@ -119,6 +119,18 @@ BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:extquote
 BASHRCSOURCED=Y
 ...output omitted...
 ```
+You can use variable expansion to refer to the value of a set variable by preceding the varible's name with a dollar sign (**`$`**). 
+
+```zsh
+[user@host ~]$ file1=/tmp/tmp.log
+```
+```zsh
+[user@host ~]$ ls -l $file1
+-rw-------. 1 student student 1452 Jan 22 14:39 /tmp/tmp.z9pXW0HqcC 
+[user@host ~]$ rm $file1
+[user@host ~]$ ls -l $file1
+total 0
+```
 
 
 
