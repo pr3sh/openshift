@@ -145,7 +145,6 @@ total 0
 - This is because **`vi`** was specified by the **`POSIX`** standard that Linux and many other UNIX-like operating systems comply with in large part.
 - Vim is also used as the **`vi`** implementation on other common operating systems or distributions (*ie: MacOS*). 
 
-
 ###### **`Starting Vim`**:
 - You can open a file for editing by executing **`vi filename`**
 - In the case that your server has the *vim-enhanced* package installed, you use can execute the **`vim filename`** instead.
