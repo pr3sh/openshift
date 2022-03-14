@@ -169,6 +169,12 @@ total 0
 - The **`:wq`** command writes (saves) the file and quits Vim. 
 - The **`:q!`** command quits Vim, discarding all file changes since the last write.
 
+###### **`Rearranging Text `**:
+
+Copy and paste is synonymous to *yank* and *put* in **`vim`**, and it uses the characters **`y`** and **`p`**. 
+1. Start by positioning the cursor on the first character to be selected, and then enter *visual mode* ( press **`v`**). 
+2. Use the arrow keys to expand selection. 
+3. When ready, press **`y`** to *yank*, place the cursor at the new-desiredlocation, and then press **`p`** to *put* the selection at the cursor.
 
 
 
