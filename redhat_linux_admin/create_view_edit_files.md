@@ -160,6 +160,15 @@ total 0
 
 - The **`:`** keystroke begins *extended command mode* for tasks such as writing the file (to save it), and quitting the Vim editor.
 
+###### **`Vim Workflow`**:
+- All text entered after pressing **`i`** and going into *insert mode*, is treated as file contents  
+- The **`Esc`** key exits insert mode and brings you back to *command mode*. 
+- The **`u`** key will undo the most recent edit. 
+- The **`x`** key to delete a single character. 
+- The **`:w`** command writes (saves) the file and remains in command mode for more editing. 
+- The **`:wq`** command writes (saves) the file and quits Vim. 
+- The **`:q!`** command quits Vim, discarding all file changes since the last write.
+
 
 
 
