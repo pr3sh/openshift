@@ -133,7 +133,7 @@ BASHRCSOURCED=Y
 total 0
 ```
 
-###### **`Editing Files With Vim`**:
+#### **`Editing Files With Vim`**:
 
 - **`Vim`** a more sophisticated version of the **`vi`** editor, distributed with **`Linux`** and **`UNIX`** systems. 
 - It is really useful to know how to use at least one text-editor that allows you to edit files through the shell prompt, as it will ensure that you do not need a GUI to edit files on servers (*i.e: remote logins via* **`SSH`**).
@@ -141,6 +141,10 @@ total 0
 - This is because **`vi`** was specified by the **`POSIX`** standard that Linux and many other UNIX-like operating systems comply with in large part.
 - Vim is also used as the **`vi`** implementation on other common operating systems or distributions (*ie: MacOS*). 
 
+
+###### **`Starting Vim`**:
+- You can open a file for editing by executing **`vi filename`**
+- In the case that your server has the *vim-enhanced* package installed, you use can execute the **`vim filename`** instead.
 
 
 
