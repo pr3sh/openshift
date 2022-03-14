@@ -12,6 +12,9 @@
   - [Editing Files With Vim](#editing-files-with-vim)
   	- [Starting Vim](#starting-vim)
   	- [Vim Operation Modes](#vim-operation-modes)
+  	- [Vim Workflow](#vim-workflow)
+  	- [Rearranging Text](#rearranging-text)
+  	- [Visual Mode](#visual-mode)
 
   
 
@@ -176,7 +179,7 @@ Copy and paste is synonymous to *yank* and *put* in **`vim`**, and it uses the c
 2. Use the arrow keys to expand selection. 
 3. When ready, press **`y`** to *yank*, place the cursor at the new-desired location, and then press **`p`** to *put* the selection at the cursor.
 
-
+##### **`Visual Mode`**:
 
 
 
