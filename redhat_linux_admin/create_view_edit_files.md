@@ -146,7 +146,7 @@ total 0
 - You can open a file for editing by executing **`vi filename`**
 - In the case that your server has the *vim-enhanced* package installed, you use can execute the **`vim filename`** instead.
 
-
+###### **`Vim Operation Modes`**:
 
 
 
