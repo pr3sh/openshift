@@ -181,6 +181,17 @@ Copy and paste is synonymous to *yank* and *put* in **`vim`**, and it uses the c
 
 ##### **`Visual Mode`**:
 
+Visual mode allows for easy text highlighting and manipulation & as mentioned earlier, there are three main segments for visual modes:
+1. **Character mode:** **`v`**
+2. **Linemode:** **`Shift+v`**
+3. **Blockmode:** **`Ctrl+v`**
+
+- Character mode highlights sentences in a block of text. 
+		- The word **`VISUAL`** will appear at the bottom of the screen. 
+- **`Shift+v`** enters line mode and **`VISUAL LINE`** will appear at the bottom of the screen.
+-  To enter blockmode, press the **`Ctrl+v`**.
+	- **`VISUAL BLOCK`** will appear at the bottom of the screen and you can use the arrow keys to highlight text.
+
 
 
 
