@@ -135,13 +135,11 @@ total 0
 
 ###### **`Editing Files With Vim`**:
 
-- **`Vim`** a more sophisticated version of the **`vi`** editor distributed with Linux and UNIX systems. Vim is highly configurable and efficient for practiced users, including such features as split screen editing, color formatting, and highlighting for editing text.
-
-ou should know how to use at least one text editor that can be used from a text-only shell prompt. If you do, you can edit text-based configuration files from a terminal window, or from remote logins through ssh or the Web Console. Then you do not need access to a graphical desktop in order to edit files on a server, and in fact that server might not need to run a graphical desktop environment at all.
-But then, why learn Vim instead of other possible options? The key reason is that Vim is almost always installed on a server, if any text editor is present. This is because vi was specified by the POSIX standard that Linux and many other UNIX-like operating systems comply with in large part.
-In addition, Vim is often used as the vi implementation on other common operating systems or distributions. For example, macOS currently includes a lightweight installation of Vim by default. So Vim skills learned for Linux might also help you get things done elsewhere.
-
-
+- **`Vim`** a more sophisticated version of the **`vi`** editor, distributed with **`Linux`** and **`UNIX`** systems. 
+- It is really useful to know how to use at least one text-editor that allows you to edit files through the shell prompt, as it will ensure that you do not need a GUI to edit files on servers (*i.e: remote logins via* **`SSH`**).
+- The reason why **`Vim`** might be a great choice to learn as far as editors are concerned is that it is almost always installed on a server, if any text editor is present. 
+- This is because **`vi`** was specified by the **`POSIX`** standard that Linux and many other UNIX-like operating systems comply with in large part.
+- Vim is also used as the **`vi`** implementation on other common operating systems or distributions (*ie: MacOS*). 
 
 
 
