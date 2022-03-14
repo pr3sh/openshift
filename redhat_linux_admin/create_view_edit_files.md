@@ -10,6 +10,10 @@
   - [Changing the Shell Envionrment](#pipelines)
   	- [Assigning and Retrieving Shell Variables](#assigning-and-retrieving-shell-variables)
   - [Editing Files With Vim](#editing-files-with-vim)
+  	- [Starting Vim](#starting-vim)
+  	- [Vim Operation Modes](#vim-operation-modes)
+
+  
 
 #### **`Introduction`:**
 
@@ -147,7 +151,15 @@ total 0
 - In the case that your server has the *vim-enhanced* package installed, you use can execute the **`vim filename`** instead.
 
 ###### **`Vim Operation Modes`**:
+- **`Vim*`** starts up in *command mode*, which is used for navigation, cut and paste, and other text manipulation. 
+	1. Pressing **`i`** brings you into *insert mode*, where you can type text into the file.
+	2. Pressing **`Esc`** from *insert mode* returns you back to *command mode*.
+	3. Pressing **`v`** brings you into *visual mode*, and there, multiple characters may be selected for text manipulation. 
+		- Use **`Shift+V`** for multiline and **`Ctrl+V`** for block selection. 
 
+> The same keystroke used to enter visual mode (**`v`**, **`Shift+V`** or **`Ctrl+V`**), is used to exit.
+
+- The **`:`** keystroke begins *extended command mode* for tasks such as writing the file (to save it), and quitting the Vim editor.
 
 
 
