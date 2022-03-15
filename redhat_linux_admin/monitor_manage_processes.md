@@ -22,9 +22,9 @@ and security.
 #### **`Process States`**:
 
 
-|         **`Command`**  |     **`FLAG`**                    |                   |
+|         **`Command`**  |     **`FLAG`**                    |  **`Kernel Defined State Name`**   |
 |------------------------|:---------------------------------:|:-----------------:| 
-| **`Running`**          |**`R`**                            |                   |
+| **`Running`**          |**`R`**                            |  **`TASK_INTERRUPTIBLE`** \|**`TASK_UNINTERRUPTIBLE`** \| **`TASK_KILLABLE`**                  |
 | **`Sleeping`**         | (**`S`** \| **`D`** \|**`K`** \| **`I`**) |                   |
 | **`Stopped`**          |  **`T`**         |                   |
 | **`Zombie`**           | (**`Z`** \| **`X`**)   |                   |
