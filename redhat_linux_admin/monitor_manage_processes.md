@@ -24,7 +24,7 @@ and security.
 
 |         **`Command`**  |     **`FLAG`**                    |  **`Kernel Defined State Name`**   |
 |------------------------|:---------------------------------:|:-----------------:| 
-| **`Running`**          |**`R`**                            |  **`TASK_INTERRUPTIBLE`** \|**`TASK_UNINTERRUPTIBLE`** \| **`TASK_KILLABLE`**                  |
-| **`Sleeping`**         | (**`S`** \| **`D`** \|**`K`** \| **`I`**) |                   |
+| **`Running`**          |**`R`**                            |  **`TASK_RUNNING`**                  |
+| **`Sleeping`**         | (**`S`** \| **`D`** \|**`K`** \| **`I`**) | **`TASK_INTERRUPTIBLE`** \|**`TASK_UNINTERRUPTIBLE`** \| **`TASK_KILLABLE`**                  |
 | **`Stopped`**          |  **`T`**         |                   |
 | **`Zombie`**           | (**`Z`** \| **`X`**)   |                   |
