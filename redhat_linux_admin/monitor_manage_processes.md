@@ -27,4 +27,4 @@ and security.
 | **`Running`**          |**`R`**                            |  **`TASK_RUNNING`**                  |
 | **`Sleeping`**         | (**`S`** \| **`D`** \|**`K`** \| **`I`**) | **`TASK_INTERRUPTIBLE`** \|**`TASK_UNINTERRUPTIBLE`** \| **`TASK_KILLABLE`**                  | **`TASK_REPORT_IDLE`** \| **``
 | **`Stopped`**          |  **`T`**         | **`TASK_STOPPED`** \|  **`TASK_TRACED`**            |
-| **`Zombie`**           | (**`Z`** \| **`X`**)   |     **`EXIT_ZOMBIE`**| **`EXIT_DEAD`**              |
+| **`Zombie`**           | (**`Z`** \| **`X`**)   |     **`EXIT_ZOMBIE`** \| **`EXIT_DEAD`**              |
