@@ -22,7 +22,7 @@ and security.
 #### **`Process States`**:
 
 
-|         **`Command`**  |     **`FLAG`**                    |  **`Kernel Defined State Name`**   |
+|         **`Name`**  |     **`FLAG`**                    |  **`Kernel Defined State Name`**   |
 |------------------------|:---------------------------------:|:-----------------:| 
 | **`Running`**          |**`R`**                            |  **`TASK_RUNNING`**                  |
 | **`Sleeping`**         | (**`S`** \| **`D`** \|**`K`** \| **`I`**) | **`TASK_INTERRUPTIBLE`** \|**`TASK_UNINTERRUPTIBLE`** \| **`TASK_KILLABLE`**                  |
