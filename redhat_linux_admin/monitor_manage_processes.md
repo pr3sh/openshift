@@ -1,6 +1,7 @@
 # **Table of contents**:
   - [Understanding Processes](#understanding-processess)
   - [Process States](#process-states)
+  - [Listing Processes](#listing-processes)
 
 
 
@@ -48,6 +49,9 @@ root 2 0.0 0.0 0 0 ? S 11:57 0:00 [kthreadd]
 student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux 
 ...output omitted...
 ```
+
+#### **`Listing Processes`**:
+
 
 
 
