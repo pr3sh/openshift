@@ -1,5 +1,6 @@
 # **Table of contents**:
   - [Understanding Processes](#understanding-processess)
+  - [Process States](#process-states)
 
 
 
@@ -17,3 +18,13 @@ Processes are running instances of an executable program and they are comprised 
 and security. 
 - Any process can create a child process. 
 - All processes are descendants of the first system process, **`systemd`** on a Red Hat Enterprise Linux 8 system).
+
+#### **`Process States`**:
+
+
+|         **`Command`**  |     **`FLAG`**                    |                   |
+|------------------------|:---------------------------------:|:-----------------:| 
+| **`Running`**          |**`R`**                            |                   |
+| **`Sleeping`**         | (**`S`**|**`D`**|**`K`**|**`I`**) |                   |
+| **`Stopped`**          |  **`T`**         |                   |
+| **`Zombie`**           | (**`Z`**|**`X`**)   |                   |
