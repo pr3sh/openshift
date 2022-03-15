@@ -35,14 +35,18 @@ and security.
 ```zsh
 [user@host ~]$ top
 PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
-1 root 20 0 244344 13684 9024 S 0.0 0.7 0:02.46 systemd
-2 root 20 0 0 0 0 S 0.0 0.0 0:00.00 kthreadd ...output omitted...
+  1 root 20 0 244344 13684 9024 S 0.0 0.7 0:02.46 systemd
+  2 root 20 0 0 0 0 S 0.0 0.0 0:00.00 kthreadd 
+...output omitted...
 ```
 
 ```zsh
 [user@host ~]$ ps aux
-USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND ...output omitted...
-root 2 0.0 0.0 0 0 ? S 11:57 0:00 [kthreadd] student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux ...output omitted...
+USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND 
+...output omitted...
+root 2 0.0 0.0 0 0 ? S 11:57 0:00 [kthreadd] 
+student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux 
+...output omitted...
 ```
 
 
