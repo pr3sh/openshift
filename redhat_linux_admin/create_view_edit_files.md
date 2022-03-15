@@ -153,7 +153,7 @@ total 0
 - In the case that your server has the *vim-enhanced* package installed, you use can execute the **`vim filename`** instead.
 
 ###### **`Vim Operation Modes`**:
-- **`Vim*`** starts up in *command mode*, which is used for navigation, cut and paste, and other text manipulation. 
+- **`Vim`** starts up in *command mode*, which is used for navigation, cut and paste, and other text manipulation. 
 	1. Pressing **`i`** brings you into *insert mode*, where you can type text into the file.
 	2. Pressing **`Esc`** from *insert mode* returns you back to *command mode*.
 	3. Pressing **`v`** brings you into *visual mode*, and there, multiple characters may be selected for text manipulation. 
