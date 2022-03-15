@@ -25,6 +25,6 @@ and security.
 |         **`Name`**  |     **`FLAG`**                    |  **`Kernel Defined State Name`**   |
 |------------------------|:---------------------------------:|:-----------------:| 
 | **`Running`**          |**`R`**                            |  **`TASK_RUNNING`**                  |
-| **`Sleeping`**         | (**`S`** \| **`D`** \|**`K`** \| **`I`**) | **`TASK_INTERRUPTIBLE`** \|**`TASK_UNINTERRUPTIBLE`** \| **`TASK_KILLABLE`**                  | **`TASK_REPORT_IDLE`** \| **`TASK_STOPPED`**
-| **`Stopped`**          |  **`T`**         |                   |
+| **`Sleeping`**         | (**`S`** \| **`D`** \|**`K`** \| **`I`**) | **`TASK_INTERRUPTIBLE`** \|**`TASK_UNINTERRUPTIBLE`** \| **`TASK_KILLABLE`**                  | **`TASK_REPORT_IDLE`** \| **``
+| **`Stopped`**          |  **`T`**         | **`TASK_STOPPED`** \|  **`TASK_TRACED`**            |
 | **`Zombie`**           | (**`Z`** \| **`X`**)   |                   |
