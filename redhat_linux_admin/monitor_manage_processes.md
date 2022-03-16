@@ -125,11 +125,27 @@ sleep 10000
 [1]+  Stopped                 sleep 10000
 [user@host ~]$
 ```
+The **`ps j`** command displays information relating to jobs. 
+  - **`PID`**: Unique process ID of process. 
+  - **`PPID`**: **`PID`** of the parent process of this process. 
+  - **`PGID`**: **`PID`** of the process group leader.
+  - **`SID`**: **`PID`** of the session leader, which (for a job) is normally the interactive shell that is running on its controlling terminal. 
+    - Since the example sleep command is currently suspended, its process state is **`T`**.
 
+```zsh
+[user@host ~]$ ps j
+  PPID PID PGID SID TTY TPGID STAT UID TIME COMMAND 
+  2764 2768 2768 2768 pts/0 6377 Ss 1000 0:00 /bin/bash 
+  2768 5947 5947 2768 pts/0 6377 T 1000 0:00 sleep 10000 
+  2768 6377 6377 2768 pts/0 6377 R+ 1000 0:00 ps j
+```
 
+> Start suspended process running in the background.
 
-
-
+```zsh
+[user@host ~]$ bg %1 
+[1]+ sleep 10000 &
+```
 
 
 
