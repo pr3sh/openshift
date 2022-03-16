@@ -96,21 +96,21 @@ student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux
 [user@host ~]$
 ```
 
-- When a command line containing a pipe is sent to the background using an ampersand, the **`PID`** of the last command in the pipeline is used as output. All processes in the pipeline are still members of that job.
+> When a command line containing a pipe is sent to the background using an ampersand, the **`PID`** of the last command in the pipeline is used as output. All processes in the pipeline are still members of that job.
 
 ```zsh
 [user@host ~]$ example_command | sort | mail -s "Sort output" & 
 [1] 5998
 ```
 
-- Display list of jobs that Bash is tracking for a session.
+> Display list of jobs that Bash is tracking for a session.
 ```zsh
 [user@host ~]$ jobs
 [1]+ Running     sleep 10000 & 
 [user@host ~]$
 ```
 
-- Bring background **`job`** to the foreground by executing the **`fg`** command with its **`job ID`** (**`%job number`**).
+> Bring background **`job`** to the foreground by executing the **`fg`** command with its **`job ID`** (**`%job number`**).
 
 ```zsh
  [user@host ~]$ fg %1 
