@@ -76,16 +76,18 @@ student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux
 
 1. Jobs are processes that the shell manages and each job can be idenitified by its **`job ID`**.
 2. Each job has an associated PID. There are three types of job statuses:
-3. Foreground: When you enter a command in a terminal window, the command occupies that terminal window until it completes. This is a foreground job.
-2. Background: When you enter an ampersand (&) symbol at the end of a command line, the command runs without occupying the terminal window. The shell prompt is displayed immediately after you press Return. This is an example of a background job.
-3. Stopped: If you press Control + Z for a foreground job, or enter the stop command for a background job, the job stops. This job is called a stopped job.
+3. **Foreground:** When you enter a command in a terminal window, the command occupies that terminal window until it completes. This is a foreground job.
+3. **Background:** To execute a job and send it to the background, enter command followed by an ampersand (**`&`**) symbol at the end of a command line, the command runs without occupying the terminal window. The shell prompt is displayed immediately after you press 
+4. **Stopped:** Press **`Control + Z`** to stop a foreground job and **`Control  + C`** to terminate it. 
+5. Each terminal is its own session, and can have a foreground process and any number of independent background processes. 
+
 
 Job control is a feature of the shell which allows a single shell instance to run and manage multiple commands.
 A job is associated with each pipeline entered at a shell prompt. All processes in that pipeline are part of the job and are members of the same process group. If only one command is entered at a shell prompt, that can be considered to be a minimal “pipeline” of one command, creating a job with only one member.
 Only one job can read input and keyboard generated signals from a particular terminal window at a time. Processes that are part of that job are foreground processes of that controlling terminal.
 A background process of that controlling terminal is a member of any other job associated
 with that terminal. Background processes of a terminal cannot read input or receive keyboard generated interrupts from the terminal, but may be able to write to the terminal. A job in the background may be stopped (suspended) or it may be running. If a running background job tries to read from the terminal, it will be automatically suspended.
-Each terminal is its own session, and can have a foreground process and any number of independent background processes. A job is part of exactly one session: the one belonging to its controlling terminal.
+
 The ps command shows the device name of the controlling terminal of a process in the TTY column. Some processes, such as system daemons, are started by the system and not from a shell prompt. These processes do not have a controlling terminal, are not members of a job, and cannot be brought to the foreground. The ps command displays a question mark (?) in the TTY column for these processes.
 
 
