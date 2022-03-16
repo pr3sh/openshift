@@ -204,5 +204,20 @@ user 5986 0.0 0.0 221860 1048 pts/1 S+ 16:45 0:00 grep --color=auto
 [3]+  Terminated              control job3
 ```
 
-
-
+```zsh
+[user@host ~]$ ps aux | grep job
+5194 0.0 0.1 222448 2980 pts/1 S 16:39 0:00 /bin/bash /home/user/bin/ control job1
+5199 0.0 0.1 222448 3132 pts/1 S 16:39 0:00 /bin/bash /home/user/bin/ control job2
+5205 0.0 0.1 222448 3124 pts/1 S 16:39 0:00 /bin/bash /home/user/bin/ control job3
+5430 0.0 0.0 221860 1096 pts/1 S+ 16:41 0:00 grep --color=auto job [user@host ~]$ killall control
+[1] Terminated           control job1
+[2]- Terminated          control job2
+[3]+ Terminated          control job3
+[user@host ~]$
+```
+Use **`pkill`** to send a signal to one or more processes that match certain criterias, like **`command name`**, a process owned by a specific user, or all system-wide processes. The **`pkill`** command comes with additional advanced selection criteria:
+- **`Command`**:  Processes with a pattern-matched command name.
+- **`UID`**: Processes owned by a Linux user account.
+- **`GID`**: Processes owned by a Linux group account.
+- **`Parent`**: Childprocesses of a specific parent-process.
+- **`Terminal`**: Processes running on a specific controlling terminal.
