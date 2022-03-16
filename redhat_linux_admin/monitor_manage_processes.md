@@ -162,7 +162,7 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 | **`19`**              |    **`STOP`**         | Stop, unblockable   | Suspends the process.                    |
 | **`20`**              |    **`TSTP`**         | Keyboard stop       | Sent by pressing(**`Ctrl+z`**).          |
 
-
+> Although signal numbers may vary on different **`Linux`** platforms, signal names and meanings are standardized. It is advised to use signal names instead of numbers. The numbers above are for **`x86_64`** systems.
 
 
 
