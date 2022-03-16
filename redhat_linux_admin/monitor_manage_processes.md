@@ -147,6 +147,9 @@ The **`ps j`** command displays information relating to jobs.
 [1]+ sleep 10000 &
 ```
 
+### **`Killing Processes`**:
+
+Signals can be viewed as an asynchronous notification sent to a process to notify it of an event.
 
 
 
