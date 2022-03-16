@@ -153,14 +153,14 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 
 | **`Signal Number`**   |     **`Short Name`**  | **`Definition`**    |  **`Purpose`** |
 |-----------------------|:---------------------:|:-------------------:|:--------------:| 
-| **`1`**               |    **`HUB`**          | Hangup              |                |
-| **`2`**               |    **`INT`**          | Keyboard interrupt  |                | 
-| **`3`**               |    **`QUIT`**         | Keyboard quit       |                |
-| **`9`**               |    **`KILL`**         | Kill, unblockable   |                |
-| **`15`**              |    **`TERM`**         | Terminate           | Causes program termination gracefully     | 
-| **`18`**              |    **`CONT`**         | Continue            | Sent to a process to resume, if stopped.  |
-| **`19`**              |    **`STOP`**         | Stop, unblockable   | Suspends the process.              |
-| **`20`**              |    **`TSTP`**         | Keyboard stop       | Sent by pressing(**`Ctrl+z`**).   |
+| **`1`**               |    **`HUB`**          | Hangup              |Used to report termination of the controlling process of a terminal. Also used to request process reinitialization (configuration reload) without termination.                |
+| **`2`**               |    **`INT`**          | Keyboard interrupt  | Causes program termination. Can be done also using **`Ctrl+c`**               | 
+| **`3`**               |    **`QUIT`**         | Keyboard quit       | Similar to **`SIGINT`**; adds a process dump at termination. Sent by pressing QUIT key sequence (**`Ctrl+\`**).               |
+| **`9`**               |    **`KILL`**         | Kill, unblockable   | Abrupt program termination.              |
+| **`15`**              |    **`TERM`**         | Terminate           | Causes program termination gracefully.   | 
+| **`18`**              |    **`CONT`**         | Continue            | Sent to a process to resume, if stopped. |
+| **`19`**              |    **`STOP`**         | Stop, unblockable   | Suspends the process.                    |
+| **`20`**              |    **`TSTP`**         | Keyboard stop       | Sent by pressing(**`Ctrl+z`**).          |
 
 
 
