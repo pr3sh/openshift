@@ -166,6 +166,7 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 
 - The **`kill`** command can be used to send signals to a process by **`PID`** number.
 - Execute **`kill -l`** to list the names and numbers of all available signals.
+- You can use the **`killall`** command to signal multiple processes, based on their *command name*.
 
 > List **`kill`** signals.
 ```zsh
