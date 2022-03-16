@@ -151,8 +151,16 @@ The **`ps j`** command displays information relating to jobs.
 
 Signals can be viewed as an asynchronous notification sent to a process to notify it of an event.
 
-
-
+| **`Signal Number`**   |     **`Short Name`**    | **`Definition`**    |  **`Purpose`** |
+|-----------------------|:-----------------------:|:-------------------:|:--------------:| 
+| **`1`**               |    **`HUB`**            | Hangup              |                |
+| **`2`**               |    **`INT`**            | Keyboard interrupt  |                | 
+| **`3`**               |    **`QUIT`**           | Keyboard quit       |                |
+| **`9`**               |    **`KILL`**           | Kill, unblockable   |                |
+| **`15`**              |    **`TERM`**           | Terminate           |                | 
+| **`18`**              |    **`CONT`**           | Continue            |                |
+| **`19`**              |    **`STOP`**           | Stop, unblockable   |                |
+| **`20`**              |    **`TSTP`**           | Keyboard stop       |                |
 
 
 
