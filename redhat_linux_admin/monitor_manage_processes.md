@@ -4,7 +4,7 @@
     - [Listing Processes](#listing-processes)
   - [Understanding Jobs](#understanding-jobs)
     - [Running Jobs in the Background](#running-jobs-in-the-background)
-
+  - [Killing Processes](#killing-processes)
 
 
 ### **`Understanding Processes`**:
