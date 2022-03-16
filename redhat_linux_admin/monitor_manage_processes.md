@@ -164,6 +164,8 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 
 > Although signal numbers may vary on different **`Linux`** platforms, signal names and meanings are standardized. It is advised to use signal names instead of numbers. The numbers above are for **`x86_64`** systems.
 
+- The **`kill`** command can be used to send signals to a process by **`PID`** number.
+- Execute **`kill -l`** to list the names and numbers of all available signals.
 
 
 
