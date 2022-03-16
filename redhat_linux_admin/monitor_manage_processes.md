@@ -88,12 +88,27 @@ student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux
 
 ##### **`Running Jobs in the Background`**:
 
+> Start **`job`** in the background. The Bash shell displays a job number (unique to the session) and the **`PID`** of the new child process. 
 
+```zsh
+[user@host ~]$ sleep 10000 & 
+[1] 5947
+[user@host ~]$
+```
 
+- When a command line containing a pipe is sent to the background using an ampersand, the **`PID`** of the last command in the pipeline is used as output. All processes in the pipeline are still members of that job.
 
+```zsh
+[user@host ~]$ example_command | sort | mail -s "Sort output" & 
+[1] 5998
+```
 
-
-
+- Display list of jobs that Bash is tracking for a session.
+```zsh
+[user@host ~]$ jobs
+[1]+ Running     sleep 10000 & 
+[user@host ~]$
+```
 
 
 
