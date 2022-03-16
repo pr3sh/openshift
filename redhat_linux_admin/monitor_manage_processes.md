@@ -52,8 +52,22 @@ student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux
 
 #### **`Listing Processes`**:
 
+- To list current processes, execute the **`ps`** command.
+- The option **`aux`**, displays all processes including processes without a controlling terminal.
+- The A long listing (options **`lax`**) provides more technical detail.
+- The similar UNIX syntax uses the options **`-ef`** to display all processes.
 
+```zsh
+[user@host ~]$ ps aux
+```
 
+```zsh
+[user@host ~]$ ps lax
+```
+
+```zsh
+[user@host ~]$ ps -ef
+```
 
 
 
