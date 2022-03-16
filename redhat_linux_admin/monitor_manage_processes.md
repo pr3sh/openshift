@@ -171,7 +171,6 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 ```zsh
 [user@host ~]$ kill -l
 ```
-
 > Find running **`jobs`**.
 ```zsh
 [user@host ~]$ ps aux | grep job
