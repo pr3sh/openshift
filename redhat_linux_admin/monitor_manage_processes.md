@@ -196,6 +196,12 @@ job
 ```zsh
 [user@host ~]$ kill -9 5199
 ```
+```zsh
+[user@host ~]$ kill -SIGTERM 5205
+user 5986 0.0 0.0 221860 1048 pts/1 S+ 16:45 0:00 grep --color=auto
+ job
+[3]+  Terminated              control job3
+```
 
 
 
