@@ -110,6 +110,13 @@ student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux
 [user@host ~]$
 ```
 
+- Bring background **`job`** to the foreground by executing the **`fg`** command with its **`job ID`** (**`%job number`**).
+
+```zsh
+ [user@host ~]$ fg %1 
+ sleep 10000
+```
+
 
 
 
