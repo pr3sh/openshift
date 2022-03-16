@@ -157,7 +157,7 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 | **`2`**               |    **`INT`**          | Keyboard interrupt  | Causes program termination. Can be done also using **`Ctrl+c`**               | 
 | **`3`**               |    **`QUIT`**         | Keyboard quit       | Similar to **`SIGINT`**; adds a process dump at termination. Sent by pressing QUIT key sequence (**`Ctrl+\`**).               |
 | **`9`**               |    **`KILL`**         | Kill, unblockable   | Abrupt program termination.              |
-| **`15`**              |    **`TERM`**         | Terminate           | Causes program termination gracefully.   | 
+| **`15`**(*Default*)              |    **`TERM`**         | Terminate           | Causes program termination gracefully.   | 
 | **`18`**              |    **`CONT`**         | Continue            | Sent to a process to resume, if stopped. |
 | **`19`**              |    **`STOP`**         | Stop, unblockable   | Suspends the process.                    |
 | **`20`**              |    **`TSTP`**         | Keyboard stop       | Sent by pressing(**`Ctrl+z`**).          |
@@ -167,11 +167,23 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 - The **`kill`** command can be used to send signals to a process by **`PID`** number.
 - Execute **`kill -l`** to list the names and numbers of all available signals.
 
+> List **`kill`** signals.
+```zsh
+[user@host ~]$ kill -l
+```
 
-
-
-
-
+> Find running **`jobs`**.
+```zsh
+[user@host ~]$ ps aux | grep job
+5194 0.0 0.1 222448 2980 pts/1 S 16:39 0:00 /bin/bash /home/user/bin/ control job1
+5199 0.0 0.1 222448 3132 pts/1 S 16:39 0:00 /bin/bash /home/user/bin/ control job2
+5205 0.0 0.1 222448 3124 pts/1 S 16:39 0:00 /bin/bash /home/user/bin/ control job3
+5430 0.0 0.0 221860 1096 pts/1 S+ 16:41 0:00 grep --color=auto job 
+```
+> Send **`TERM`** signal to **`PID`** 5194
+```zsh 
+[user@host ~]$ kill 5194
+```
 
 
 
