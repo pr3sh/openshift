@@ -192,7 +192,7 @@ user 5783 0.0 0.0 221860 964 pts/1 S+ 16:43 0:00 grep --color=auto
 job
 [1] Terminated control job1
 ```
-
+> Send **`KILL`** signal to **`PID`** 5199
 ```zsh
 [user@host ~]$ kill -9 5199
 ```
