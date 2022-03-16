@@ -3,6 +3,7 @@
     - [Process States](#process-states)
     - [Listing Processes](#listing-processes)
   - [Understanding Jobs](#understanding-jobs)
+    - [Running Jobs in the Background](#running-jobs-in-the-background)
 
 
 
@@ -80,15 +81,14 @@ student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux
 3. **Background:** To execute a job and send it to the background, enter command followed by an ampersand (**`&`**) symbol at the end of a command line, the command runs without occupying the terminal window. The shell prompt is displayed immediately after you press 
 4. **Stopped:** Press **`Control + Z`** to stop a foreground job and **`Control  + C`** to terminate it. 
 5. Each terminal is its own session, and can have a foreground process and any number of independent background processes. 
+7. The **`ps`** command shows the device name of the controlling terminal of a process in the **`TTY`** column. 
+    - Processes like system daemons which are started by the system and not from a shell prompt do not have a controlling terminal, are not members of a job, and cannot be brought to the foreground. 
+    - The **`ps`** command displays a question mark (**`?`**) in the **`TTY`** column for these processes.
 
 
-Job control is a feature of the shell which allows a single shell instance to run and manage multiple commands.
-A job is associated with each pipeline entered at a shell prompt. All processes in that pipeline are part of the job and are members of the same process group. If only one command is entered at a shell prompt, that can be considered to be a minimal “pipeline” of one command, creating a job with only one member.
-Only one job can read input and keyboard generated signals from a particular terminal window at a time. Processes that are part of that job are foreground processes of that controlling terminal.
-A background process of that controlling terminal is a member of any other job associated
-with that terminal. Background processes of a terminal cannot read input or receive keyboard generated interrupts from the terminal, but may be able to write to the terminal. A job in the background may be stopped (suspended) or it may be running. If a running background job tries to read from the terminal, it will be automatically suspended.
+##### **`Running Jobs in the Background`**:
 
-The ps command shows the device name of the controlling terminal of a process in the TTY column. Some processes, such as system daemons, are started by the system and not from a shell prompt. These processes do not have a controlling terminal, are not members of a job, and cannot be brought to the foreground. The ps command displays a question mark (?) in the TTY column for these processes.
+
 
 
 
