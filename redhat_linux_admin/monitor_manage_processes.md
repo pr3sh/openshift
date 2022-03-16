@@ -183,7 +183,19 @@ Signals can be viewed as an asynchronous notification sent to a process to notif
 ```zsh 
 [user@host ~]$ kill 5194
 ```
+```zsh
+[user@host ~]$ kill 5194
+[user@host ~]$ ps aux | grep job
+user 5199 0.0 0.1 222448 3132 pts/1 S 16:39 0:00 /bin/bash /home/ user/bin/control job2
+user 5205 0.0 0.1 222448 3124 pts/1 S 16:39 0:00 /bin/bash /home/ user/bin/control job3
+user 5783 0.0 0.0 221860 964 pts/1 S+ 16:43 0:00 grep --color=auto
+job
+[1] Terminated control job1
+```
 
+```zsh
+[user@host ~]$ kill -9 5199
+```
 
 
 
