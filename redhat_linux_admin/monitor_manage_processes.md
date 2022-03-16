@@ -221,3 +221,31 @@ Use **`pkill`** to send a signal to one or more processes that match certain cri
 - **`GID`**: Processes owned by a Linux group account.
 - **`Parent`**: Childprocesses of a specific parent-process.
 - **`Terminal`**: Processes running on a specific controlling terminal.
+
+```zsh
+[user@host ~]$ ps aux | grep pkill
+user 5992 0.0 0.1 222448 3040 pts/1 S 16:59 0:00 /bin/bash /home/ user/bin/control pkill1
+user 5996 0.0 0.1 222448 3048 pts/1 S 16:59 0:00 /bin/bash /home/ user/bin/control pkill2
+user 6004 0.0 0.1 222448 3048 pts/1 S 16:59 0:00 /bin/bash /home/ user/bin/control pkill3
+[user@host ~]$ pkill control
+[1] Terminated control pkill1
+[2]- Terminated control pkill2
+[user@host ~]$ ps aux | grep pkill
+user 6219 0.0 0.0 221860 1052 pts/1 S+ 17:00 0:00 grep --color=auto
+  pkill
+[3]+ Terminated control pkill3
+[user@host ~]$ ps aux | grep test
+user 6281 0.0 0.1 222448 3012 pts/1 S 17:04 0:00 /bin/bash /home/ 
+user/bin/control test1
+user   6285  0.0  0.1 222448  3128 pts/1    S    17:04   0:00 /bin/bash /home/
+user/bin/control test2
+user   6292  0.0  0.1 222448  3064 pts/1    S    17:04   0:00 /bin/bash /home/
+user/bin/control test3
+user   6318  0.0  0.0 221860  1080 pts/1    S+   17:04   0:00 grep --color=auto
+ test
+[user@host ~]$ pkill -U user
+[user@host ~]$ ps aux | grep test
+user 6870 0.0 0.0 221860 1048 pts/0 S+ 17:07 0:00 grep --color=auto
+ test
+[user@host ~]$
+```
