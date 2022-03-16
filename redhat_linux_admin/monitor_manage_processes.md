@@ -117,7 +117,14 @@ student 3448 0.0 0.2 266904 3836 pts/0 R+ 18:07 0:00 ps aux
  sleep 10000
 ```
 
+> To ttop foreground process, and send to the background execute **`(Ctrl+z)`**.
 
+```zsh
+sleep 10000
+^Z
+[1]+  Stopped                 sleep 10000
+[user@host ~]$
+```
 
 
 
