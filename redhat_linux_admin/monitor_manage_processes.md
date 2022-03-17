@@ -264,8 +264,13 @@ There may be a many reasons to logout users:
 > *All user login sessions are associated with a terminal device (TTY). If the device name is of the form pts/N, it is a pseudo-terminal associated with a graphical terminal window or remote login session. If it is of the form ttyN, the user is on a system console, alternate console, or other directly connected terminal device.*
 
 
+- Examine logged-in users
+```zsh
+[user@host ~]$ w
+```
 
-
+- Identify the **`PID`** numbers to be killed using **`pgrep`**.
+  - **`preg`** is similar to **`pkill`**, except that**` pgrep`** lists processes rather than killing them.
 
 
 
