@@ -250,3 +250,30 @@ user 6870 0.0 0.0 221860 1048 pts/0 S+ 17:07 0:00 grep --color=auto
  test
 [user@host ~]$
 ```
+
+##### **`Logging Users Out Administratively`**:
+
+There may be a many reasons to logout users:
+  1. Security violation
+  2. Resource overuse
+  3. Unresponsive system
+
+- To logout a user, you need to use the **`w`** command to list users logged-in/current running processes
+- Note the **`TTY`** and **`FROM`** columns to determine the sessions to be closed.
+
+> *All user login sessions are associated with a terminal device (TTY). If the device name is of the form pts/N, it is a pseudo-terminal associated with a graphical terminal window or remote login session. If it is of the form ttyN, the user is on a system console, alternate console, or other directly connected terminal device.*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
