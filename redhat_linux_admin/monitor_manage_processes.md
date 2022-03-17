@@ -272,7 +272,15 @@ There may be a many reasons to logout users:
 - Identify the **`PID`** numbers to be killed using **`pgrep`**.
   - **`preg`** is similar to **`pkill`**, except that**` pgrep`** lists processes rather than killing them.
 
-
+```zsh
+[root@host ~]# pgrep -l -u bob 6964 bash
+6998 sleep
+6999 sleep
+7000 sleep
+[root@host ~]# pkill -SIGKILL -u bob 
+[root@host ~]# pgrep -l -u bob 
+[root@host ~]#
+```
 
 
 
