@@ -5,6 +5,7 @@
   - [Understanding Jobs](#understanding-jobs)
     - [Running Jobs in the Background](#running-jobs-in-the-background)
   - [Killing Processes](#killing-processes)
+    - [Logging Users Out Administratively](#logging-users-out-administratively)
 
 
 ### **`Understanding Processes`**:
