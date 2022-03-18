@@ -6,6 +6,7 @@
     - [Running Jobs in the Background](#running-jobs-in-the-background)
   - [Killing Processes](#killing-processes)
     - [Logging Users Out Administratively](#logging-users-out-administratively)
+  - [Monitoring Process Activity](#monitoring-process-activity)
 
 
 ### **`Understanding Processes`**:
@@ -318,6 +319,42 @@ bash(8391)
 bash(8391)
 [root@host ~]#
 ```
+
+### **`Monitoring Process Activity`**:
+
+*Load average*, provided by the **`Linux Kernel`**, is a way of understading system load over time. Every 5 seconds, the kernel collects the current load number, based on the number of processes in runnable and uninterruptible states. This number is accumulated and reported as an exponential moving average over the most recent 1, 5, and 15 minutes.
+
+- To display the current load average. use the **`uptime`** command. 
+- It prints out the current time, how long the machine has been up, a how many user sessions are running, and the current load average.
+
+```zsh
+[user@host ~]$ uptime
+15:29:03 up 14 min, 2 users, load average: 2.92, 4.48, 5.20
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
