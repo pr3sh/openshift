@@ -284,6 +284,21 @@ There may be a many reasons to logout users:
 - When processes of interest are in the same login session, it may not be necessary to kill all of a user's processes. 
 - Determine the controlling terminal for the session using the **`w`** command, then kill only processes referencing the same terminal ID. 
 
+```zsh
+[root@host ~]# pgrep -l -u bob 7391 bash
+7426 sleep
+7427 sleep
+7428 sleep
+[root@host ~]# w -h -u bob
+bob tty3 18:37 5:04 0.03s 0.03s -bash 
+[root@host ~]# pkill -t tty3
+[root@host ~]# pgrep -l -u bob
+7391 bash
+[root@host ~]# pkill -SIGKILL -t tty3
+[root@host ~]# pgrep -l -u bob
+[root@host ~]#
+```
+
 
 The same selective process termination can be applied using parent and child process relationships. Use the pstree command to view a process tree for the system or a single user. Use the parent process's PID to kill all children they have created. This time, the parent Bash login shell survives because the signal is directed only at its child processes.
 
