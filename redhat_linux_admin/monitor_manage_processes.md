@@ -299,8 +299,11 @@ bob tty3 18:37 5:04 0.03s 0.03s -bash
 [root@host ~]#
 ```
 
+> The same can be applied with parent and child process relationships. 
+  - Use the **`pstree`** command to view a process tree for the system or a single user.
+  - Use the parent process's **`PID`** to kill all children they have created. 
 
-The same selective process termination can be applied using parent and child process relationships. Use the pstree command to view a process tree for the system or a single user. Use the parent process's PID to kill all children they have created. This time, the parent Bash login shell survives because the signal is directed only at its child processes.
+> *This time, the parent Bash login shell survives because the signal is directed only at its child processes.*
 
 
 
