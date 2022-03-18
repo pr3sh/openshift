@@ -281,8 +281,11 @@ There may be a many reasons to logout users:
 [root@host ~]# pgrep -l -u bob 
 [root@host ~]#
 ```
+- When processes of interest are in the same login session, it may not be necessary to kill all of a user's processes. 
+- Determine the controlling terminal for the session using the **`w`** command, then kill only processes referencing the same terminal ID. 
 
 
+The same selective process termination can be applied using parent and child process relationships. Use the pstree command to view a process tree for the system or a single user. Use the parent process's PID to kill all children they have created. This time, the parent Bash login shell survives because the signal is directed only at its child processes.
 
 
 
