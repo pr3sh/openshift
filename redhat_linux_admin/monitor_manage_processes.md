@@ -333,6 +333,34 @@ bash(8391)
 ```
 > You can calculate the approximate per **`CPU`** load to understand whether or not the system is experiencing significant waiting. You can use the **`lscpu`** command to determine how many **`CPUs`** a system has.
 
+```zsh
+[user@host ~]$ lscpu Architecture:
+CPU op-mode(s):
+Byte Order:
+x86_64
+32-bit, 64-bit
+Little Endian
+4
+CPU(s):
+On-line CPU(s) list: 0-3 
+Thread(s) per core: 2 
+Core(s) per socket: 2 
+Socket(s): 1 
+NUMA node(s): 1 
+...output omitted...
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
