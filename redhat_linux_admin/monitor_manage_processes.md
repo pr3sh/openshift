@@ -369,11 +369,7 @@ divide by number of logical CPUs:    4     4     4
 ```
 
 
-
-
-
-
-
+> You can also use **`top`** and **`w`** commands for report load averages as well.
 
 
 
