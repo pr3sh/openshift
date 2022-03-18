@@ -331,7 +331,7 @@ bash(8391)
 [user@host ~]$ uptime
 15:29:03 up 14 min, 2 users, load average: 2.92, 4.48, 5.20
 ```
-
+> You can calculate the approximate per **`CPU`** load to understand whether or not the system is experiencing significant waiting. You can use the **`lscpu`** command to determine how many **`CPUs`** a system has.
 
 
 
