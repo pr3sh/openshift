@@ -305,7 +305,19 @@ bob tty3 18:37 5:04 0.03s 0.03s -bash
 
 > *This time, the parent Bash login shell survives because the signal is directed only at its child processes.*
 
-
+```zsh
+[root@host ~]# pstree -p bob 
+bash(8391)─┬─sleep(8425) 
+           ├─sleep(8426) 
+           └─sleep(8427)
+[root@host ~]# pkill -P 8391 
+[root@host ~]# pgrep -l -u bob 
+bash(8391)
+[root@host ~]# pkill -SIGKILL -P 8391 
+[root@host ~]# pgrep -l -u bob 
+bash(8391)
+[root@host ~]#
+```
 
 
 
