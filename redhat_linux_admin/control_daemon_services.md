@@ -33,7 +33,10 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 [root@host ~]# systemctl list-units --type=service --all
 ```
 > The **`systemctl list-units`** command displays units that the **`systemd`** service attempts to parse and load into memory.
-  
+
+```zsh
+[root@host ~]# systemctl list-unit-files --type=service
+```
 
 
 
