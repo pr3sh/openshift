@@ -1,6 +1,9 @@
 # **Table of contents**:
   - [Introduction](#introduction)
+  - [Understanding Service Units](#understanding-service-units)
  
+
+## **`Introduction`**:
 
 The **`systemd`** daemon is responsible for **`Linux`** startup and management of services. *Daemons* are processes that typically run in the background and are generally started automatically at boot time, continuing until shutdown or manually stopped. It is a convention for the names of daemon programs to end in the letter **`d`**.
   - **`systemd`** activates system resources, server daemons, and other processes both at boot time and on a running system.
@@ -10,3 +13,4 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
   - Automatic service dependency management.
   - Process tracking via control groups.
 
+## **`Understanding Service Units`**:
