@@ -50,6 +50,15 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 #### **`Service Unit Information`**:
 
 
+| **`Field`**           |     **`Description`**                                 | 
+|-----------------------|:-----------------------------------------------------:|
+| **`Loaded`**          |   If service unit is loaded into memory.              | 
+| **`Active`**          |    If service unit is running.                        |                
+| **`Main PID`**        |    The main process ID of the service &  command name.| 
+| **`Status`**          |    Additional information about the service.          | 
+
+
+
 #### **`Service States`**:
 
 
