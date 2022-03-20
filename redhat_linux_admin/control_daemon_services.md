@@ -14,3 +14,9 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
   - Process tracking via control groups.
 
 ## **`Understanding Service Units`**:
+
+**`systemd`** uses units to manage different types of objects such as:
+- **`Service Units`**: Represent system services (*i.e*: webservers) and have a **`.service`** extension  
+- **`Socket Units`** Represent inter-process communication which **`systemd`** should monitor, and have a **`.socket`** extension. 
+- **`Path Units`**: Have a **`.path`** extension and are used to delay the activation of a service until a specific file system change occurs. 
+- The **`systemctl`** command is used to manage units. 
