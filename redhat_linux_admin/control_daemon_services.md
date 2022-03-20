@@ -2,6 +2,8 @@
   - [Introduction](#introduction)
   - [Understanding Service Units](#understanding-service-units)
   - [Working With Systemctl](#working-with-systemctl)
+    - [Service Unit Information](#service-unit-information)
+    - [Service States](#service-states)
  
 
 ## **`Introduction`**:
@@ -41,6 +43,14 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 
 > To view the **`status`** of a specific unit, execute **`systemctl status name.type.`** 
 
+```zsh
+[root@host ~]# systemctl status sshd.service
+```
+
+#### **`Service Unit Information`**:
+
+
+#### **`Service States`**:
 
 
 
