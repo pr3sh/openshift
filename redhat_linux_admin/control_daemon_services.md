@@ -37,7 +37,7 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 ```zsh
 [root@host ~]# systemctl list-unit-files --type=service
 ```
-
+> Valid entries for the **`STATE`** field are **`enabled`**, **`disabled`**, **`static`**, and **`masked`**.
 
 
 
