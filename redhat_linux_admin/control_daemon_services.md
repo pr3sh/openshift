@@ -39,6 +39,7 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 ```
 > Valid entries for the **`STATE`** field are **`enabled`**, **`disabled`**, **`static`**, and **`masked`**.
 
+> To view the **`status`** of a specific unit, execute **`systemctl status name.type.`** 
 
 
 
