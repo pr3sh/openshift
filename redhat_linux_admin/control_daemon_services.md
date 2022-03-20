@@ -1,6 +1,7 @@
 # **Table of contents**:
   - [Introduction](#introduction)
   - [Understanding Service Units](#understanding-service-units)
+  - [Working With Systemctl](#working-with-systemctl)
  
 
 ## **`Introduction`**:
@@ -20,3 +21,33 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 - **`Socket Units`** Represent inter-process communication which **`systemd`** should monitor, and have a **`.socket`** extension. 
 - **`Path Units`**: Have a **`.path`** extension and are used to delay the activation of a service until a specific file system change occurs. 
 - The **`systemctl`** command is used to manage units. 
+
+## **`Working With Systemctl`**:
+
+>  Lists all currently loaded service units. You can pass the **`--all`** flag to also list inactive services.
+```zsh
+[root@host ~]# systemctl list-units --type=service
+```
+
+```zsh
+[root@host ~]# systemctl list-units --type=service --all
+```
+> The **`systemctl list-units`** command displays units that the **`systemd`** service attempts to parse and load into memory.
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
