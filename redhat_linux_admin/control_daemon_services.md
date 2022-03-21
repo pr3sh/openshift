@@ -3,7 +3,7 @@
   - [Understanding Service Units](#understanding-service-units)
   - [Working With Systemctl](#working-with-systemctl)
     - [Service Unit Information](#service-unit-information)
-    - [Service States](#service-states)
+    - [Service States in Systemctl Output](#service-states-in-systemctl-output)
  
 
 ## **`Introduction`**:
@@ -59,9 +59,15 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 
 
 
-#### **`Service States`**:
+#### **`Service States in Systemctl Output`**:
 
 
+| **`Keyword`**                 |     **`Description`**                                 | 
+|-------------------------------|:-----------------------------------------------------:|
+| **`Loaded`**                  |   Unit configuration file has been processed.              | 
+| **`Active`** (*Running*)      |    Running with one or more continuing processes.                        |                
+| **`Active`**  (*exited*)      |    The main process ID of the service &  command name.| 
+| **`Active`**  (*waiting*)     |    Additional information about the service.          | 
 
 
 
