@@ -73,6 +73,10 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 | **`Static`**                  |    Is not set to be started at boot time.             | 
 
 
+```zsh
+[root@host ~]# systemctl is-active sshd.service 
+active
+```
 
 
 
