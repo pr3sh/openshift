@@ -64,10 +64,13 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 
 | **`Keyword`**                 |     **`Description`**                                 | 
 |-------------------------------|:-----------------------------------------------------:|
-| **`Loaded`**                  |   Unit configuration file has been processed.              | 
-| **`Active`** (*Running*)      |    Running with one or more continuing processes.                        |                
-| **`Active`**  (*exited*)      |    The main process ID of the service &  command name.| 
+| **`Loaded`**                  |   Unit configuration file has been processed.         | 
+| **`Active`** (*Running*)      |    Running with one or more continuing processes.     |                
+| **`Active`**  (*exited*)      |    Successfully completed a one-time configuration.   | 
 | **`Active`**  (*waiting*)     |    Additional information about the service.          | 
+| **`Inactive`**                |    Not running.                                       |                
+| **`Enabled`**                 |    Is started at boot time.                           | 
+| **`Static`**                  |    Is not set to be started at boot time.             | 
 
 
 
