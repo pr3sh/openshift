@@ -4,6 +4,7 @@
   - [Working With Systemctl](#working-with-systemctl)
     - [Service Unit Information](#service-unit-information)
     - [Service States in Systemctl Output](#service-states-in-systemctl-output)
+    - [Controlling System Services](#controlling-system-services)
  
 
 ## **`Introduction`**:
@@ -78,7 +79,6 @@ The **`systemd`** daemon is responsible for **`Linux`** startup and management o
 active
 ```
 
-
 > Verify whether service unit is **`enabled`** to start automatically
 during system boot.
 ```zsh
@@ -92,7 +92,7 @@ enabled
  active
 ```
 
-
+#### **`Controlling System Services`**:
 
 
 
