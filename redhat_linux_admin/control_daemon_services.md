@@ -79,9 +79,18 @@ active
 ```
 
 
+> Verify whether service unit is **`enabled`** to start automatically
+during system boot.
+```zsh
+[root@host ~]# systemctl is-enabled sshd.service 
+enabled
+ ```
 
-
-
+> Check if service unit failed during startup
+```zsh
+ [root@host ~]# systemctl is-failed sshd.service 
+ active
+```
 
 
 
