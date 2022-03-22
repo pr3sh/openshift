@@ -126,6 +126,12 @@ Some services can reload their configuration files without needing a restart.
 [root@host ~]# systemctl reload sshd.service
 ```
 
+- If you are uncertain whether the service has the ability to update configuration file changes, you can use the **`reload-or-restart`** command with **`systemctl`**
+
+```zsh
+[root@host ~]# systemctl reload-or-restart sshd.service
+```
+
 
 
 
