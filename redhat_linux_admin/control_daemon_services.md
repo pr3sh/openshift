@@ -167,8 +167,13 @@ Warning: Stopping cups, but it can still be activated by:
 Created symlink /etc/systemd/system/sendmail.service → /dev/null.
 ```
 
-
-
+```zsh
+[root@host ~]# systemctl list-unit-files --type=service 
+UNIT          FILE            STATE 
+...output omitted...
+sendmail.service              masked 
+...output omitted...
+```
 
 
 
