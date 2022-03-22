@@ -8,6 +8,7 @@
       - [Dependency Units](#dependency-units)
       - [Masking Services](#masking-services)
       - [Enabling Services](#enabling-services)
+    - [Systemctl Commands](#systemctl-commands)
  
 
 ## **`Introduction`**:
@@ -191,7 +192,7 @@ Failed to start sendmail.service: Unit sendmail.service is masked.
 Removed /etc/systemd/system/sendmail.service.
 ```
 
-#### **`Enabling Services`**
+###### **`Enabling Services`**
 
 
 > Ensure to start a service at boot
@@ -205,5 +206,34 @@ Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /us
 [root@host ~]# systemctl disable sshd.service
 Removed /etc/systemd/system/multi-user.target.wants/sshd.service.
 ```
+#### **`Systemctl Commands`**:
+
+| **`Command`**                      |     **`Description`**                                                     | 
+|------------------------------------|:-------------------------------------------------------------------------:|
+| **`systemctl status UNIT`**        |   View detailed information about a unit state.                           | 
+| **`systemctl stop UNIT`**          |   Stop a service on a running system.                                     |               
+| **`systemctl start UNIT`**         |    Start a service on a running system.                                   | 
+| **`systemctl restart UNIT`**       |    Restart a service on a running system.                                 | 
+| **`systemctl reload UNIT`**        |   Reload the configuration file of a running service.                  | 
+| **`systemctl mask UNIT`**          | Completely disable a service from being started, both manually and at boot.    |                
+| **`systemctl unmask UNIT`**        |    Make a masked service available.                                       | 
+| **`systemctl enable UNIT`**        |   Configure a service to start at boot time.                              | 
+| **`systemctl disable UNIT`**        |    Disable a service from starting at boot time.                         | 
+| **`systemctl list-dependencies UNIT`** |    List units required and wanted by the specified unit.              | 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
