@@ -6,6 +6,7 @@
     - [Service States in Systemctl Output](#service-states-in-systemctl-output)
     - [Controlling System Services](#controlling-system-services)
       - [Dependency Units](#dependency-units)
+      - [Masking Services](#masking-services)
  
 
 ## **`Introduction`**:
@@ -133,7 +134,7 @@ Some services can reload their configuration files without needing a restart.
 [root@host ~]# systemctl reload-or-restart sshd.service
 ```
 
-###### **`Dependency Units`**
+###### **`Dependency Units`**:
 
 ```zsh
 [root@host ~]# systemctl stop cups.service
@@ -157,7 +158,9 @@ Warning: Stopping cups, but it can still be activated by:
 ...output omitted...
 ```
 
-
+###### **`Masking Services`**:
+- Masking services is a way to prevent administrators from accidentally starting a conflicting service. 
+- Masking creates a symlink to the **`/dev/null`** directory, which prevents service from starting.
 
 
 
