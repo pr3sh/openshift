@@ -199,5 +199,10 @@ Removed /etc/systemd/system/sendmail.service.
 [root@root ~]# systemctl enable sshd.service
 Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /usr/ lib/systemd/system/sshd.service.
 ```
+> Disable the service from starting automatically
+```zsh
+[root@host ~]# systemctl disable sshd.service
+Removed /etc/systemd/system/multi-user.target.wants/sshd.service.
+```
 
 
