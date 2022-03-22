@@ -162,11 +162,12 @@ Warning: Stopping cups, but it can still be activated by:
 - Masking services is a way to prevent administrators from accidentally starting a conflicting service. 
 - Masking creates a symlink to the **`/dev/null`** directory, which prevents service from starting.
 
+> Mask service
 ```zsh
 [root@host ~]# systemctl mask sendmail.service
 Created symlink /etc/systemd/system/sendmail.service → /dev/null.
 ```
-
+> Check unit files to confirm mask is working.
 ```zsh
 [root@host ~]# systemctl list-unit-files --type=service 
 UNIT          FILE            STATE 
@@ -175,6 +176,28 @@ sendmail.service              masked
 ...output omitted...
 ```
 
+> Attempt to start service.
 
+```zsh
+[root@host ~]# systemctl start sendmail.service
+Failed to start sendmail.service: Unit sendmail.service is masked.
+```
+
+> Unmask service unit.
+
+```zsh
+[root@host ~]# systemctl unmask sendmail 
+Removed /etc/systemd/system/sendmail.service.
+```
+
+#### **`Enabling Services`**
+
+
+> Ensure to start a service at boot
+
+```zsh
+[root@root ~]# systemctl enable sshd.service
+Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /usr/ lib/systemd/system/sshd.service.
+```
 
 
