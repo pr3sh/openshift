@@ -5,6 +5,7 @@
     - [Service Unit Information](#service-unit-information)
     - [Service States in Systemctl Output](#service-states-in-systemctl-output)
     - [Controlling System Services](#controlling-system-services)
+      - [Dependency Units](#dependency-units)
  
 
 ## **`Introduction`**:
@@ -131,6 +132,8 @@ Some services can reload their configuration files without needing a restart.
 ```zsh
 [root@host ~]# systemctl reload-or-restart sshd.service
 ```
+
+###### **`Dependency Units`**
 
 ```zsh
 [root@host ~]# systemctl stop cups.service
