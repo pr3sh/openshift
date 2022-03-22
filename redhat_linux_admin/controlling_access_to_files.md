@@ -121,8 +121,11 @@ The 4th type of permissions in addition to the **`user`**,**`group`**, and **`ot
 
 ###### **`Special Permissions Symbolically`**:
 
-- Symbolically: 
+1. **Symbolically:** 
     - *setuid*: **`u+s`**
     - *setgid*: **`g+s`** 
     - *sticky*: **`o+t`**
-
+2. **Numerically:** (*4th preceding digit*)
+    - *setuid*: **`4`** 
+    - *setgid*: **`2`**
+    - *sticky*: **`1`**
