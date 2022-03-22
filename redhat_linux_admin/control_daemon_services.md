@@ -139,8 +139,20 @@ Warning: Stopping cups, but it can still be activated by:
   cups.socket
 ```
 
+> *To completely stop printing services on a system, stop all three units. Disabling the service disables the dependencies.*
 
 
+- List dependency units on a service
+
+```zsh
+[root@host ~]# systemctl list-dependencies sshd.service sshd.service
+● ├─system.slice
+● ├─sshd-keygen.target
+● │ ├─sshd-keygen@ecdsa.service
+● │ ├─sshd-keygen@ed25519.service ● │ └─sshd-keygen@rsa.service
+● └─sysinit.target
+...output omitted...
+```
 
 
 
