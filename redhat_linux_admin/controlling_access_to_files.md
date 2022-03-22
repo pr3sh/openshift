@@ -112,3 +112,12 @@ The 4th type of permissions in addition to the **`user`**,**`group`**, and **`ot
 
 
 
+| **`Special permission`** |     **`Effect on files`**                             |     **`Effect on Directories`**        | 
+|--------------------------|:-----------------------------------------------------:|:----------------------:|
+| **`u+s `**               |   File executes as the user that owns the file, not the user that ran the file.             |    No effect.                    |
+| **`g+s`**                |    File executes as the group that owns the file.   |    Files newly created in the directory have their group owner set to match the group owner of the directory.                    |              
+| **`o+t`**                |   No effect. |           Users with write access to the directory can only remove files that they own; they cannot remove or force saves to files owned by other users.            |
+
+
+
+
