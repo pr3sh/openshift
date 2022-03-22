@@ -132,6 +132,13 @@ Some services can reload their configuration files without needing a restart.
 [root@host ~]# systemctl reload-or-restart sshd.service
 ```
 
+```zsh
+[root@host ~]# systemctl stop cups.service
+Warning: Stopping cups, but it can still be activated by:
+  cups.path
+  cups.socket
+```
+
 
 
 
