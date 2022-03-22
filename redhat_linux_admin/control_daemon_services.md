@@ -102,6 +102,15 @@ Services need to be stopped or started manually for a multitude of reasons like:
 
 > To start a service, execute the **`systemctl start`** command as the **`root`** user ( or using **`sudo`** if needed). 
 
+```zsh
+[root@host ~]# systemctl start sshd.service
+```
+ - Stop running service.
+
+ ```zsh
+[root@host ~]# systemctl stop sshd.service
+ ```
+
 
 
 
