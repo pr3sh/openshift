@@ -95,4 +95,24 @@ enabled
 #### **`Controlling System Services`**:
 
 
+Services need to be stopped or started manually for a multitude of reasons like: 
+- Service needs an updated.
+- Configuration files need to be updated
+- Administrator may need to manually start an infrequently used service.
+
+> To start a service, execute the **`systemctl start`** command as the **`root`** user ( or using **`sudo`** if needed). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
