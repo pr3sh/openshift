@@ -5,6 +5,7 @@
     - [Chmod Examples](#chmod-examples)
     - [Changing Permissions with the Numeric Method](#changing-permissions-with-numeric-method)
   - [Changing File and Directory Ownership](#changing-file-and-directory-ownership)
+  - [Special Permissions](#special-permissions)
 
 ## **`Introduction`:**
 Files have *three* user categories to which permissions apply:
@@ -104,8 +105,10 @@ To change permissiosn using numeric method execute **`chmod xxx file|directory`*
   - **`chown [-fhnv] [-R [-H | -L | -P]] :group file ...`**
 
 
+###### **`Special Permissions`**:
 
-
+The 4th type of permissions in addition to the **`user`**,**`group`**, and **`others`** type are *Special Permissions*.
+-  Special permissions provide additional *access-related* features that extend beyond the basic permission types. 
 
 
 
