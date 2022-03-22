@@ -129,3 +129,17 @@ The 4th type of permissions in addition to the **`user`**,**`group`**, and **`ot
     - *setuid*: **`4`** 
     - *setgid*: **`2`**
     - *sticky*: **`1`**
+
+> Add the setgid bit on **`test_dir`**
+
+```zsh
+[user@host ~]# chmod g+s test_dir
+```
+
+> Set the *setgid* bit and add **`rwx`** permissions for **`user`** and **`group`**. No access for **`others`**
+
+```zsh
+[user@host ~]# chmod 2770 test_dir
+```
+
+
