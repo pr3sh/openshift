@@ -111,7 +111,9 @@ Services need to be stopped or started manually for a multitude of reasons like:
 [root@host ~]# systemctl stop sshd.service
  ```
 
-
+ When a running services is restarted, it is **`stopped`** and then **`started`**. 
+  - The Process ID changes upon restart, and a new process ID gets associated during the startup. 
+  - Use the **`systemctl restart`** command to restart a running service. 
 
 
 
