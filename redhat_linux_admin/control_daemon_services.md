@@ -162,6 +162,13 @@ Warning: Stopping cups, but it can still be activated by:
 - Masking services is a way to prevent administrators from accidentally starting a conflicting service. 
 - Masking creates a symlink to the **`/dev/null`** directory, which prevents service from starting.
 
+```zsh
+[root@host ~]# systemctl mask sendmail.service
+Created symlink /etc/systemd/system/sendmail.service → /dev/null.
+```
+
+
+
 
 
 
