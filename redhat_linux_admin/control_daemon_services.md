@@ -115,8 +115,16 @@ Services need to be stopped or started manually for a multitude of reasons like:
   - The Process ID changes upon restart, and a new process ID gets associated during the startup. 
   - Use the **`systemctl restart`** command to restart a running service. 
 
+```zsh
+[root@host ~]# systemctl restart sshd.service
+```
 
+Some services can reload their configuration files without needing a restart. 
+  - Reloading a service does not change the process ID associated with various service processes. 
 
+```zsh
+[root@host ~]# systemctl reload sshd.service
+```
 
 
 
