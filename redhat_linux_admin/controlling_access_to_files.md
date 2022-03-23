@@ -152,3 +152,13 @@ When newly files and directories are created, the OS assigns them an octal permi
 > *Execute permissions always need to be set explicitly.* 
 
 **`umask`** can be used to modify the initial permissions set on files & directories when newly created.
+
+For example, a **`umask`** of 0077 clears all the group and other permissions of newly created files (0777 - 0077 = 700).
+
+- To display shell's current **`umask`** value:
+
+```zsh
+[root@52aad70cef61 lessons]# umask
+0022
+```
+
