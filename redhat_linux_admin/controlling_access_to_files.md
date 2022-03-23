@@ -162,3 +162,13 @@ For example, a **`umask`** of 0077 clears all the group and other permissions of
 0022
 ```
 
+```zsh
+[user@host ~]$ umask 007
+[user@host ~]$ touch seven.txt
+[user@host ~]$ ls -l seven.txt
+-rw-rw----. 1 user user 0 May 9 01:55 seven.txt 
+[user@host ~]$ mkdir seven
+[user@host ~]$ ls -ld seven
+drwxrwx---. 2 user user 0 May 9 01:54 seven
+```
+
