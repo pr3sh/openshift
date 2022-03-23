@@ -7,6 +7,7 @@
   - [Changing File and Directory Ownership](#changing-file-and-directory-ownership)
   - [Special Permissions](#special-permissions)
   - [Special Permissions Symbolically](#special-permissions-symbolically)
+  - [Default File Permissions](#default-file-permissions)
 
 ## **`Introduction`:**
 Files have *three* user categories to which permissions apply:
@@ -142,4 +143,12 @@ The 4th type of permissions in addition to the **`user`**,**`group`**, and **`ot
 [user@host ~]# chmod 2770 test_dir
 ```
 
+###### **`Default File Permissions`**:
 
+When newly files and directories are created, the OS assigns them an octal permission set, depending on whether it was a file or directory that was created.
+- Directories: **`0777`** (drwxrwxrwx)
+- Files: **`0666`** (-rw-rw-rw-)
+
+> *Execute permissions always need to be set explicitly.* 
+
+**`umask`** can be used to modify the initial permissions set on files & directories when newly created.
