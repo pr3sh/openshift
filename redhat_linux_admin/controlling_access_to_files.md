@@ -172,3 +172,5 @@ For example, a **`umask`** of 0077 clears all the group and other permissions of
 drwxrwx---. 2 user user 0 May 9 01:54 seven
 ```
 
+
+
