@@ -3,11 +3,11 @@
 Use **`OpenSSH`** to configure secure command-line service on remote systems.
 
 -  **Table of contents**:
-  - [Infrastructure As Code](#infrastructure-as-code)
-  - [Example Commands](#example-commands)
+  - [Infrastructure as Code](#infrastructure-as-code)
+  - [What is Ansible](#what-is-ansible)
 
 
-## **`Infrastructure As Code`**:
+## **`Infrastructure as Code`**:
 
 
 - Good automation system allows you to implement Infrastructure as Code practices. 
@@ -21,5 +21,9 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
 
 ## **`What is Ansible ?`**:
 
-Ansible is an open source automation platform. It is a simple automation language that can perfectly describe an IT application infrastructure in Ansible Playbooks. It is also an automation engine that runs Ansible Playbooks.
-Ansible can manage powerful automation tasks and can adapt to many different workflows and environments. At the same time, new users of Ansible can very quickly use it to become productive.
+- Ansible is an *open source* automation platform. 
+- It is a simple automation language that can perfectly describe an ***`IT`*** application infrastructure in **`Ansible Playbooks`**. 
+- It is also an automation engine that runs **`Ansible Playbooks`**.
+- Ansible can manage powerful automation tasks and can adapt to many different workflows and environments. 
+
+> *At the same time, new users of Ansible can very quickly use it to become productive.*
