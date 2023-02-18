@@ -66,8 +66,11 @@ You can use Ansible for a variety of tasks like:
 - Each task runs a module, a small piece of code (written in **`Python`**, **`PowerShell`**, or some other language), with specific arguments. 
 - Each module is essentially a tool in your toolkit. 
 - Ansible ships with hundreds of useful modules that can perform a wide variety of automation tasks. They can act on system files, install software, or make **`API`** calls.
-- Tasks, plays, and playbooks are designed to be *idempotent*, which means that you can safely run a playbook on the same hosts multiple times. When your systems are in the correct state, the playbook makes no changes when you run it. This means that you should be able to run a playbook on the same hosts multiple times safely. When your systems are in the correct state the playbook should make no changes when you run it. There are a handful of modules that you can use to run arbitrary commands. However, you must use those modules with care to ensure that they run in an idempotent way.
-Ansible also uses plug-ins. Plug-ins are code that you can add to Ansible to extend it and adapt it to new uses and platforms.
+- Tasks, plays, and playbooks are designed to be *idempotent*, which means that you can safely run a playbook on the same hosts multiple times. 
+  - When your systems are in the correct state, the playbook makes no changes when you run it. 
+  - There are a handful of modules that you can use to run arbitrary commands. However, you must use those modules with care to ensure that they run in an idempotent way.
+- Ansible also uses **`plug-ins`**. 
+  - Plug-ins are code that you can add to Ansible to extend it and adapt it to new uses and platforms.
 The Ansible architecture is agentless. Typically, when an administrator runs an Ansible Playbook or an ad hoc command, the control node connects to the managed host using SSH (by default) or WinRM. This means that clients do not need to have an Ansible-specific agent installed on managed hosts, and do not need to permit special network traffic to some nonstandard port.
 
 
