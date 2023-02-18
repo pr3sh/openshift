@@ -9,6 +9,7 @@ Understanding the motivation behind automating Linux administration tasks with A
     - [Ansible is Powerful](#ansible-is-powerful)
     - [Ansible is Agentless](#ansible-is-agentless)
   - [Ansible Concepts and Architecture](#ansible-concepts-and-architecture)
+  - [Use Cases](#use-cases)
 
 
 ## **`Infrastructure as Code`**:
