@@ -8,11 +8,10 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
     - [Ansible is Simple](#ansible-is-simple)
     - [Ansible is Powerful](#ansible-is-powerful)
     - [Ansible is Agentless](#ansible-is-agentless)
-
+  - [Ansible Concepts and Architecture](#ansible-concepts-and-architecture)
 
 
 ## **`Infrastructure as Code`**:
-
 
 - Good automation system allows you to implement Infrastructure as Code practices. 
 - *Infrastructure as Code* can be described as using machine-readable automation language to define, and describe the state you want your ***`IT`*** infrastructure to be in. 
@@ -31,3 +30,29 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
 - Ansible can manage powerful automation tasks and can adapt to many different workflows and environments. 
 
 > *New users of Ansible can very quickly use it to become productive.*
+
+### **`Ansible is Simple`**:
+
+
+### **`Ansible is Powerful`**:
+
+### **`Ansible is Agentless`**:
+
+## **`Ansible Concepts and Architecture`**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
