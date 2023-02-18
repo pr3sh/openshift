@@ -5,6 +5,10 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
 -  **Table of contents**:
   - [Infrastructure as Code](#infrastructure-as-code)
   - [What is Ansible](#what-is-ansible)
+    - [Ansible is Simple](#ansible-is-simple)
+    - [Ansible is Powerful](#ansible-is-powerful)
+    - [Ansible is Agentless](#ansible-is-agentless)
+
 
 
 ## **`Infrastructure as Code`**:
