@@ -33,8 +33,16 @@ Understanding the motivation behind automating Linux administration tasks with A
 
 ### **`Ansible is Simple`**:
 
+- **`Ansible Playbooks`** provide *human-readable* automation. 
+- No special coding skills are required to write Playbooks. 
+- Playbooks execute tasks in order.
 
 ### **`Ansible is Powerful`**:
+
+You can use Ansible for a variety of tasks like:
+- Deploying applications for configuration management.
+- Workflow & Network automation. 
+- Ansible can be used to orchestrate the entire application life cycle.
 
 ### **`Ansible is Agentless`**:
 
