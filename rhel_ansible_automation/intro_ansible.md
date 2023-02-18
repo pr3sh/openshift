@@ -1,6 +1,6 @@
 # **`Abstract`**
 
-Use **`OpenSSH`** to configure secure command-line service on remote systems.
+Understanding the motivation behind automating Linux administration tasks with Ansible, fundamental Ansible concepts, and Ansible's basic architecture.
 
 -  **Table of contents**:
   - [Infrastructure as Code](#infrastructure-as-code)
