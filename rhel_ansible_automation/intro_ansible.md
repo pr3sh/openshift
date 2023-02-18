@@ -14,7 +14,10 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
 - *Infrastructure as Code* can be described as using machine-readable automation language to define, and describe the state you want your **`IT`** infrastructure to be in. 
 - This code is then applied to your infrastructure to ensure that it is actually in that state.
 - Ideally, you want an automation language that can be easily read and understood by humans, because then you can easily understand what the state is and make changes to it. 
-- If the automation language is represented as simple text files, it can easily be managed in a version control system. The advantage of this is that every change can be checked into the version control system, ensuring that you have a history of the changes you make over time. If you want to revert to an earlier known-good configuration, you can check out that version and apply it to your infrastructure.
+- If the automation language is represented as simple text files, it can easily be managed in a version control system.
+- This ensures that every change is tracked, and can be reverted to if need be.
+- Consequently, it builds a foundation to help you follow best practices in **`DevOps`**. 
+  - Developers can define their desired configuration in the automation language. Operators can review those changes more easily to provide feedback, and use that automation to reproducibly ensure that systems are in the state expected by the developers.
 
 ## **`What is Ansible ?`**:
 
