@@ -26,4 +26,4 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
 - It is also an automation engine that runs **`Ansible Playbooks`**.
 - Ansible can manage powerful automation tasks and can adapt to many different workflows and environments. 
 
-> *At the same time, new users of Ansible can very quickly use it to become productive.*
+> *New users of Ansible can very quickly use it to become productive.*
