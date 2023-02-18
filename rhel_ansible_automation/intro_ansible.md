@@ -9,7 +9,6 @@ Understanding the motivation behind automating Linux administration tasks with A
     - [Ansible is Powerful](#ansible-is-powerful)
     - [Ansible is Agentless](#ansible-is-agentless)
   - [Ansible Concepts and Architecture](#ansible-concepts-and-architecture)
-  - [Use Cases](#use-cases)
 
 
 ## **`Infrastructure as Code`**:
@@ -55,6 +54,24 @@ You can use Ansible for a variety of tasks like:
 > Because there are no agents and no additional custom security infrastructure, Ansible is more efficient and more secure than other alternatives.
 
 ## **`Ansible Concepts and Architecture`**:
+
+- There are two types of machines in the Ansible architecture ***control nodes*** and ***managed hosts***. 
+- Ansible is installed and run from a control node, and this machine also has copies of your Ansible project files. A control node could be an administrator's laptop, a system shared by a number of administrators, or a server running Red Hat Ansible Tower.
+- Managed hosts are listed in an inventory, which also organizes those systems into groups for easier collective management. 
+- The inventory can be defined in a static text file, or dynamically determined by scripts that get information from external sources.
+- Instead of writing complex scripts, Ansible users create high-level plays to ensure a host or group of hosts are in a particular state. 
+- A play performs a series of tasks on the hosts, in the order specified by the play. 
+- These plays are expressed in **`YAML`** format in a text file. 
+- A file that contains one or more plays is called a playbook.
+- Each task runs a module, a small piece of code (written in **`Python`**, **`PowerShell`**, or some other language), with specific arguments. 
+- Each module is essentially a tool in your toolkit. 
+- Ansible ships with hundreds of useful modules that can perform a wide variety of automation tasks. They can act on system files, install software, or make **`API`** calls.
+
+When used in a task, a module generally ensures that some particular aspect of the machine is in a particular state. For example, a task using one module might ensure that a file exists and has particular permissions and contents, while a task using a different module might make certain that a particular file system is mounted. If the system is not in that state, the task should put it in that state. If the system is already in that state, it does nothing. If a task fails, the default Ansible behavior is to abort the rest of the playbook for the hosts that had a failure.
+Tasks, plays, and playbooks are designed to be idempotent. This means that you can safely run
+a playbook on the same hosts multiple times. When your systems are in the correct state, the playbook makes no changes when you run it. This means that you should be able to run a playbook on the same hosts multiple times safely. When your systems are in the correct state the playbook should make no changes when you run it. There are a handful of modules that you can use to run arbitrary commands. However, you must use those modules with care to ensure that they run in an idempotent way.
+Ansible also uses plug-ins. Plug-ins are code that you can add to Ansible to extend it and adapt it to new uses and platforms.
+The Ansible architecture is agentless. Typically, when an administrator runs an Ansible Playbook or an ad hoc command, the control node connects to the managed host using SSH (by default) or WinRM. This means that clients do not need to have an Ansible-specific agent installed on managed hosts, and do not need to permit special network traffic to some nonstandard port.
 
 
 
