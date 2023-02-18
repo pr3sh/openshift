@@ -11,7 +11,7 @@ Use **`OpenSSH`** to configure secure command-line service on remote systems.
 
 
 - Good automation system allows you to implement Infrastructure as Code practices. 
-- *Infrastructure as Code* can be described as using machine-readable automation language to define, and describe the state you want your **`IT`** infrastructure to be in. 
+- *Infrastructure as Code* can be described as using machine-readable automation language to define, and describe the state you want your ***`IT`*** infrastructure to be in. 
 - This code is then applied to your infrastructure to ensure that it is actually in that state.
 - Ideally, you want an automation language that can be easily read and understood by humans, because then you can easily understand what the state is and make changes to it. 
 - If the automation language is represented as simple text files, it can easily be managed in a version control system.
