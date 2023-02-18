@@ -46,6 +46,9 @@ You can use Ansible for a variety of tasks like:
 
 ### **`Ansible is Agentless`**:
 
+- Ansible is built around an agentless architecture. 
+- Generally speaking, Ansible connects to the hosts it manages using **`OpenSSH`** or **`WinRM`** and runs tasks, often (but not always) by pushing out small programs called Ansible modules to those hosts. These programs are used to put the system in a specific desired state. Any modules that are pushed are removed when Ansible is finished with its tasks. You can start using Ansible almost immediately because no special agents need to be approved for use and then deployed to the managed hosts. Because there are no agents and no additional custom security infrastructure, Ansible is more efficient and more secure than other alternatives.
+
 ## **`Ansible Concepts and Architecture`**:
 
 
