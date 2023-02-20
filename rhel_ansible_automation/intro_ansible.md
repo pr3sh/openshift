@@ -71,8 +71,13 @@ You can use Ansible for a variety of tasks like:
   - There are a handful of modules that you can use to run arbitrary commands. However, you must use those modules with care to ensure that they run in an idempotent way.
 - Ansible also uses **`plug-ins`**. 
   - Plug-ins are code that you can add to Ansible to extend it and adapt it to new uses and platforms.
-The Ansible architecture is agentless. Typically, when an administrator runs an Ansible Playbook or an ad hoc command, the control node connects to the managed host using SSH (by default) or WinRM. This means that clients do not need to have an Ansible-specific agent installed on managed hosts, and do not need to permit special network traffic to some nonstandard port.
+- The Ansible architecture is agentless.  
+- Typically, when an administrator runs an **`Ansible Playbook`** or an ad hoc command, the control node connects to the managed host using **`SSH`** (by default) or **`WinRM`**. 
+  -  This means that clients do not need to have an Ansible-specific agent installed on managed hosts, and do not need to permit special network traffic to some nonstandard port.
 
+
+
+![alt text](https://github.com/pr3sh/openshift/blob/main/rhel_ansible_automation/images/ansible_architecture.png)
 
 
 
