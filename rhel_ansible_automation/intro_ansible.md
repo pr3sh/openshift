@@ -81,10 +81,12 @@ You can use Ansible for a variety of tasks like:
 ![alt text](https://github.com/pr3sh/openshift/blob/main/rhel_ansible_automation/images/ansible_architecture.png)
 
 
+## **`Installing Ansible`**:
 
-Ansible is simple to install. The Ansible software only needs to be installed on the control node (or nodes) from which Ansible will be run. Hosts that are managed by Ansible do not need to have Ansible installed.
-Installing the core Ansible toolset involves relatively few steps and has minimal requirements. On the other hand, installing the additional components that Red Hat Ansible Automation Platform provides, such as the automation controller (formerly called Red Hat Ansible Tower), requires a Red Hat Enterprise Linux 8.2 or later system, with a minimum of two CPUs, 4 GiB of RAM, and 20 GiB of available disk space.
-Python 3 (version 3.5 or later) or Python 2 (version 2.7 or later) needs to be installed on the control node.
+- The Ansible software only needs to be installed on the control node (or nodes) from which Ansible will be run. 
+- Hosts that are managed by Ansible do not need to have Ansible installed.
+- Installing the core Ansible toolset involves relatively few steps and has minimal requirements, but installing some additional components that Red Hat Ansible Automation Platform provides (*i.e* the automation controller, formerly called Red Hat Ansible Tower), requires a *Red Hat Enterprise Linux 8.2* or later system, with a minimum of two **`CPUs`**, **`4 GiB`** of **`RAM`**, and **`20 GiB`** of available disk space.
+Python 3 (*version 3.5* or later) or Python 2 (*version 2.7* or later) needs to be installed on the control node.
 
 
 
