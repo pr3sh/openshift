@@ -7,6 +7,7 @@ Understanding how  to create an inventory of managed hosts, write a simple Ansib
   - [Specifying Managed Hosts with a Static Inventory](#specifying-managed-hostss-with-a-static-inventory)
     - [Defining Nested Groups](#defining-nested-groups)
   - [Verifying the Inventory](#verifying-the-inventory)
+    - [Overriding the Location of the Inventory](#overriding-the-location-of-the-inventory)
 
 
 ## **`Defining the Inventory`**:
@@ -97,8 +98,12 @@ hosts (1):
 ```
 
 
-The /etc/ansible/hosts file is considered the system's default static inventory file. However, normal practice is not to use that file but to define a different location for inventory files in your Ansible configuration file. This is covered in the next section.
-The ansible and ansible-playbook commands that you use to run Ansible ad hoc commands and playbooks later in the course can also specify the location of an inventory file on the command line with the --inventory PATHNAME or -i PATHNAME option, where PATHNAME is the path to the desired inventory file.
+## **`Overriding the Location of the Inventory`**:
+
+- The **`/etc/ansible/hosts`** file is considered the system's default static inventory file. 
+- However, normal practice is not to use that file but to define a different location for inventory files in your Ansible configuration file. 
+- This is covered in the next section.
+- The ansible and **`ansible-playbook`** commands that you use to run Ansible *ad hoc* commands and playbooks later in the course can also specify the location of an inventory file on the command line with the --inventory PATHNAME or -i PATHNAME option, where PATHNAME is the path to the desired inventory file.
 
 
 
