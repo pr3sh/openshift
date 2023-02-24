@@ -89,7 +89,13 @@ You can use Ansible for a variety of tasks like:
 Python 3 (*version 3.5* or later) or Python 2 (*version 2.7* or later) needs to be installed on the control node.
 
 
+> *If you are running Red Hat Enterprise Linux 8, Ansible can automatically use the platform-python package that supports system utilities that use Python. You do not need to install the python36 or python27 package from AppStream.*
 
+```zsh
+[root@controlnode ~]# yum list installed platform-python 
+>> Installed Packages
+>> platform-python.x86_64 3.6.8-37.el @anaconda
+```
 
 
 
