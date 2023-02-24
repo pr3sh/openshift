@@ -5,6 +5,8 @@ Understanding how  to create an inventory of managed hosts, write a simple Ansib
 -  **Table of contents**:
   - [Defining the Inventory](#defining-the-inventory)
   - [Specifying Managed Hosts with a Static Inventory](#specifying-managed-hostss-with-a-static-inventory)
+    - [Defining Nested Groups](#defining-nested-groups)
+  - [Verifying the Inventory](#verifying-the-inventory)
 
 
 ## **`Defining the Inventory`**:
@@ -54,11 +56,30 @@ As illustrated above, managed hosts have been organized into groups. It is impor
  - The **`all`** group, which contains every host explicitly listed in the inventory.
  - The **`ungroupd`** host group, which refers to managed hosts listed in the inventory that aren't part of a group.
 
- 
+
+### **`Defining Nested Groups`**:
+
+- Ansible host inventories can include *groups* of host *groups*. 
+- To accomplish this you can create a host group name with the **`:children`** suffix. 
+
+> The below example creates a new group called **`north-america`**, which includes all hosts from the **`usa`** and **`canada`** groups.
+
+```text
+[usa]
+washington1.example.com
+washington2.example.com
+
+[canada]
+ontario01.example.com
+ontario02.example.com
+
+[north-america:children]
+canada
+usa
+```
 
 
-
-
+## **`Verifying the Inventory`**:
 
 
 
