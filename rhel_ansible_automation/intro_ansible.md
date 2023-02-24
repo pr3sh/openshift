@@ -97,8 +97,23 @@ Python 3 (*version 3.5* or later) or Python 2 (*version 2.7* or later) needs to 
 >> platform-python.x86_64 3.6.8-37.el @anaconda
 ```
 
+- You need a valid Red Hat Ansible Automation Platform subscription to install the core toolset on your control node.
 
+```zsh
+#register system to Red Hat Subscription Manager.
+[root@host ~]# subscription-manager register
+```
 
+```zsh
+#enable the Red Hat Ansible repository.
+[root@host ~]# subscription-manager repos \ 
+ > --enable ansible-2-for-rhel-8-x86_64-rpms
+```
+
+```zsh
+#install Red Hat Ansible Engine.
+[root@host ~]# yum install ansible
+```
 
 
 
