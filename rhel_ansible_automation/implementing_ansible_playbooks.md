@@ -78,8 +78,36 @@ canada
 usa
 ```
 
+> You can specify a range of managed hosts using the **`[START:END]`** (*ie:* 192.168.[4:7].[0:255]) . 
+
 
 ## **`Verifying the Inventory`**:
+
+
+```zsh
+[user@controlnode ~]$ ansible washington1.example.com --list-hosts 
+hosts (1):
+  washington1.example.com
+```
+
+```zsh
+[user@controlnode ~]$ ansible canada --list-hosts hosts (2):
+    ontario01.example.com
+    ontario02.example.com
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
