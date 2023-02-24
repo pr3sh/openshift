@@ -49,3 +49,16 @@ db2.example.com
 [development]
 192.0.2.42
 ```
+
+As illustrated above, managed hosts have been organized into groups. It is important to know that *two* groups always exist.
+ - The **`all`** group, which contains every host explicitly listed in the inventory.
+ - The **`ungroupd`** host group, which refers to managed hosts listed in the inventory that aren't part of a group.
+
+ 
+
+
+
+
+
+
+
